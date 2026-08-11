@@ -67,6 +67,10 @@ public final class GeneticsJeiRecipes {
         ItemStack array = GeneticsContent.GENETIC_MATERIAL.get().serum(arrayData, true);
         ItemStack oncePolymerisedSerum = GeneticsContent.GENETIC_MATERIAL.get().serum(oncePolymerisedSerumData, false);
         ItemStack oncePolymerisedArray = GeneticsContent.GENETIC_MATERIAL.get().serum(oncePolymerisedArrayData, true);
+        List<ItemStack> legacySerums = withCharges(GeneticsContent.legacySerumStacks(false), 0);
+        List<ItemStack> legacySerumArrays = withCharges(GeneticsContent.legacySerumStacks(true), 0);
+        List<ItemStack> fullLegacySerums = withCharges(GeneticsContent.legacySerumStacks(false), 16);
+        List<ItemStack> fullLegacySerumArrays = withCharges(GeneticsContent.legacySerumStacks(true), 16);
         ItemStack inoculated = GeneticOperations.applySerum(manipulableRecipient, serumData);
         ItemStack arrayInoculated = GeneticOperations.applySerum(manipulableRecipient, arrayData);
         ItemStack spliced = GeneticOperations.applySerum(manipulableRecipient, arrayData);
@@ -92,14 +96,16 @@ public final class GeneticsJeiRecipes {
                 GeneticsMachineProcesses.SEQUENCER_OPERATION.baseDuration(), GeneticsMachineProcesses.SEQUENCER_OPERATION.energyPerTick()));
 
         add(result, recipe("polymeriser", "serum", List.of(unchargedSerum), List.of(),
-                List.of(), List.of(oncePolymerisedSerum), List.of(GeneticsFluids.POLYMERISING_BACTERIA.stack(10), GeneticsFluids.RAW_DNA.stack(50)), List.of(),
-                GeneticsMachineProcesses.POLYMERISER_OPERATION.baseDuration(), GeneticsMachineProcesses.POLYMERISER_OPERATION.energyPerTick()));
+                List.of(), List.of(oncePolymerisedSerum), List.of(GeneticsFluids.POLYMERISING_BACTERIA.stack(160), GeneticsFluids.RAW_DNA.stack(800)), List.of(),
+                GeneticsMachineProcesses.POLYMERISER_OPERATION.baseDuration() * 16, GeneticsMachineProcesses.POLYMERISER_OPERATION.energyPerTick())
+                .withInputAlternatives(legacySerums).withOutputAlternatives(fullLegacySerums));
         ItemStack chargedGold = new ItemStack(Items.GOLD_NUGGET);
         chargedGold.set(BinnieDataComponents.LABORATORY_CHARGE, LaboratoryChargeData.full());
         add(result, recipe("polymeriser", "array_accelerated", List.of(unchargedArray), List.of(chargedGold),
-                List.of(), List.of(oncePolymerisedArray), List.of(GeneticsFluids.POLYMERISING_BACTERIA.stack(20), GeneticsFluids.RAW_DNA.stack(100)), List.of(),
-                GeneticsMachineProcesses.POLYMERISER_ACCELERATED_OPERATION.baseDuration() * 2,
-                GeneticsMachineProcesses.POLYMERISER_ACCELERATED_OPERATION.energyPerTick()));
+                List.of(), List.of(oncePolymerisedArray), List.of(GeneticsFluids.POLYMERISING_BACTERIA.stack(320), GeneticsFluids.RAW_DNA.stack(1600)), List.of(),
+                GeneticsMachineProcesses.POLYMERISER_ACCELERATED_OPERATION.baseDuration() * 32,
+                GeneticsMachineProcesses.POLYMERISER_ACCELERATED_OPERATION.energyPerTick())
+                .withInputAlternatives(legacySerumArrays).withOutputAlternatives(fullLegacySerumArrays));
 
         add(result, recipe("inoculator", "flower_pollen", List.of(manipulableRecipient), List.of(serum), List.of(), List.of(inoculated),
                 List.of(GeneticsFluids.VECTOR_BACTERIA.stack(15)), List.of(),
@@ -216,6 +222,18 @@ public final class GeneticsJeiRecipes {
 
     private static void add(Map<String, List<GeneticsJeiRecipe>> result, GeneticsJeiRecipe recipe) {
         result.get(recipe.machine()).add(recipe);
+    }
+
+    private static List<ItemStack> withCharges(List<ItemStack> source, int charges) {
+        ArrayList<ItemStack> result = new ArrayList<>(source.size());
+        for (ItemStack stack : source) {
+            ItemStack copy = stack.copy();
+            GeneticSerumData serum = copy.get(BinnieDataComponents.GENETIC_SERUM);
+            if (serum != null) copy.set(BinnieDataComponents.GENETIC_SERUM,
+                    new GeneticSerumData(serum.alleles(), serum.quality(), charges));
+            result.add(copy);
+        }
+        return List.copyOf(result);
     }
 
     private static Map<String, List<GeneticsJeiRecipe>> freeze(Map<String, List<GeneticsJeiRecipe>> input) {

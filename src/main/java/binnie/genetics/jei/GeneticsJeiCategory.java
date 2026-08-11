@@ -3,6 +3,8 @@ package binnie.genetics.jei;
 import binnie.genetics.registry.GeneticsMachines;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.drawable.IDrawableAnimated;
+import mezz.jei.api.gui.drawable.IDrawableStatic;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -10,6 +12,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.item.ItemStack;
@@ -20,11 +23,15 @@ public final class GeneticsJeiCategory implements IRecipeCategory<GeneticsJeiRec
     private final String machine;
     private final RecipeType<GeneticsJeiRecipe> type;
     private final IDrawable icon;
+    private final IDrawableAnimated processArrow;
 
     public GeneticsJeiCategory(String machine, RecipeType<GeneticsJeiRecipe> type, IGuiHelper gui) {
         this.machine = machine;
         this.type = type;
         this.icon = gui.createDrawableItemLike(GeneticsMachines.REGISTRY.block(machine).get());
+        ResourceLocation squeezer = ResourceLocation.fromNamespaceAndPath("forestry", "textures/gui/squeezersocket.png");
+        IDrawableStatic arrow = gui.createDrawable(squeezer, 176, 60, 43, 18);
+        this.processArrow = gui.createAnimatedDrawable(arrow, 200, IDrawableAnimated.StartDirection.LEFT, false);
     }
 
     @Override
@@ -71,6 +78,11 @@ public final class GeneticsJeiCategory implements IRecipeCategory<GeneticsJeiRec
             centered(graphics, Component.translatable("gui.binniecore.jei.total_energy",
                     recipe.duration() * recipe.energyPerTick()), 70, 184, 34);
         }
+        // The Incubator routes fluid-to-fluid conversions across the lower
+        // row; other laboratory categories leave the arrow slightly higher
+        // beneath their operation statistics.
+        this.processArrow.draw(graphics, machine.equals("incubator") ? 100 : 105,
+                machine.equals("incubator") ? 46 : 45);
     }
     @Override
     public void getTooltip(ITooltipBuilder tooltip, GeneticsJeiRecipe recipe, IRecipeSlotsView slots, double mouseX, double mouseY) {

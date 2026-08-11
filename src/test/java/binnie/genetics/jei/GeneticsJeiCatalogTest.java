@@ -4,6 +4,9 @@ import binnie.genetics.client.GeneticsJeiAreas;
 import binnie.genetics.machine.GeneticsMachineProcesses;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -37,5 +40,16 @@ final class GeneticsJeiCatalogTest {
             assertTrue(resolved.x() + resolved.width() <= area.guiWidth());
             assertTrue(resolved.y() + resolved.height() <= 24);
         });
+    }
+
+    @Test
+    void everyLaboratoryCategoryUsesTheForestryAnimatedProcessArrow() throws Exception {
+        String category = Files.readString(Path.of(
+                "src/main/java/binnie/genetics/jei/GeneticsJeiCategory.java"));
+        assertTrue(category.contains("textures/gui/squeezersocket.png"));
+        assertTrue(category.contains("createAnimatedDrawable"));
+        assertTrue(category.contains("machine.equals(\"incubator\")"),
+                "Incubator must retain its separately positioned process arrow");
+        assertTrue(category.contains("this.processArrow.draw"));
     }
 }

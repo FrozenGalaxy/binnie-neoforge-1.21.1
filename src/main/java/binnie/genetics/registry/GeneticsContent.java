@@ -44,9 +44,7 @@ public final class GeneticsContent {
         CONTENT.setDisplayItems(output -> {
             GeneticMaterialItem material = GENETIC_MATERIAL.get();
             // 1.12 ModuleCore order: serum, serum array, knowledge tools, misc components, sequence, then machines.
-            output.accept(material.blank(GeneticMaterialItem.Kind.SERUM));
             legacySerumStacks(false).forEach(output::accept);
-            output.accept(material.blank(GeneticMaterialItem.Kind.SERUM_ARRAY));
             legacySerumStacks(true).forEach(output::accept);
             output.accept(DATABASE.get());
             output.accept(ANALYST.get());
@@ -84,23 +82,25 @@ public final class GeneticsContent {
         GeneticMaterialItem material = GENETIC_MATERIAL.get();
         java.util.ArrayList<ItemStack> stacks = new java.util.ArrayList<>();
         try {
-            for (var type : forestry.api.IForestryApi.INSTANCE.getGeneticManager().getSpeciesTypes()) {
-                for (var speciesObject : type.getAllSpecies()) {
-                    forestry.api.core.genetics.ISpecies species = (forestry.api.core.genetics.ISpecies) speciesObject;
-                    if (species.isSecret()) continue;
-                    var genome = species.getDefaultGenome();
-                    java.util.ArrayList<GeneticAlleleData> genes = new java.util.ArrayList<>();
-                    for (var chromosomeObject : genome.getKaryotype().getChromosomes()) {
-                        forestry.api.core.genetics.alleles.IChromosome chromosome = (forestry.api.core.genetics.alleles.IChromosome) chromosomeObject;
-                        forestry.api.core.genetics.alleles.Allele allele = genome.getActiveAllele(chromosome);
-                        genes.add(new GeneticAlleleData(type.id(), chromosome.id(), AlleleValue.fromJava(allele.value()), allele.dominant(), GeneticAlleleData.Origin.ACTIVE));
-                    }
-                    if (genes.isEmpty()) continue;
-                    if (arrays) addDistinct(stacks, material.serum(new GeneticSerumData(List.copyOf(genes), 100, 16), true));
-                    else for (GeneticAlleleData gene : genes) {
-                        addDistinct(stacks, material.serum(new GeneticSerumData(List.of(gene), 100, 16), false));
-                    }
+            // ItemSerum#getSubItems and ItemSerumArray#getSubItems exposed one
+            // representative for each of Binnie's four laboratory roots, not a
+            // Cartesian list of every allele of every species.
+            for (var id : List.of(ForestrySpeciesTypes.BEE, ForestrySpeciesTypes.TREE,
+                    ForestrySpeciesTypes.BUTTERFLY,
+                    net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("binniebotany", "flower"))) {
+                var type = forestry.api.IForestryApi.INSTANCE.getGeneticManager().getSpeciesType(id);
+                var genome = type.getDefaultSpecies().getDefaultGenome();
+                java.util.ArrayList<GeneticAlleleData> genes = new java.util.ArrayList<>();
+                for (var chromosomeObject : genome.getKaryotype().getChromosomes()) {
+                    forestry.api.core.genetics.alleles.IChromosome chromosome =
+                            (forestry.api.core.genetics.alleles.IChromosome) chromosomeObject;
+                    forestry.api.core.genetics.alleles.Allele allele = genome.getActiveAllele(chromosome);
+                    genes.add(new GeneticAlleleData(type.id(), chromosome.id(), AlleleValue.fromJava(allele.value()),
+                            allele.dominant(), GeneticAlleleData.Origin.ACTIVE));
                 }
+                if (genes.isEmpty()) continue;
+                List<GeneticAlleleData> payload = arrays ? List.copyOf(genes) : List.of(genes.getFirst());
+                addDistinct(stacks, material.serum(new GeneticSerumData(payload, 100, 16), arrays));
             }
         } catch (RuntimeException ignored) {
             // JEI/the creative tab may be queried before Forestry registration finishes.
