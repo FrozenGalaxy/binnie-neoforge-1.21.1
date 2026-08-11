@@ -33,11 +33,9 @@ public final class BinnieTrees {
 
     private static void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            // ModuleCore.java registered these two 1.12 liquids as Biogas
-            // Engine fuels. Latex was registration-only and turpentine is a
-            // Carpenter reagent, so neither belongs in the fuel table.
-            FuelManager.biogasEngineFuel.put(BinnieTreesFluids.SAP.fluid(),
-                    new EngineBronzeFuel(BinnieTreesFluids.SAP.fluid(), 20, 10_000, 1));
+            // Resin remains obtainable from the Squeezer and retains its
+            // source Biogas Engine fuel entry. The unobtainable sap and
+            // registration-only latex carriers are deliberately not ported.
             FuelManager.biogasEngineFuel.put(BinnieTreesFluids.RESIN.fluid(),
                     new EngineBronzeFuel(BinnieTreesFluids.RESIN.fluid(), 30, 10_000, 1));
         });

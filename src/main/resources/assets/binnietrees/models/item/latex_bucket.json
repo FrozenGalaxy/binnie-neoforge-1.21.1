@@ -1,5 +1,0 @@
-{
-  "parent": "neoforge:item/bucket",
-  "fluid": "binnietrees:latex",
-  "loader": "neoforge:fluid_container"
-}

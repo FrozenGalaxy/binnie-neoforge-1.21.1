@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "binnietrees:item/glassware/pint_contents",
+    "layer1": "binnietrees:item/glassware/pint_glass"
+  }
+}

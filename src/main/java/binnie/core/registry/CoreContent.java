@@ -33,8 +33,8 @@ public final class CoreContent {
             for (CompartmentTier tier : CompartmentTier.values()) output.accept(CompartmentBlockItem.createStack(tier));
             output.accept(GLASS.get());
             output.accept(CYLINDER.get());
-            for (LegacyBeverageCatalog.Definition definition : LegacyBeverageCatalog.definitions().values()) {
-                FluidStack fluid = BinnieTreesFluids.beverage(definition.data(1_000), 1_000);
+            for (BinnieTreesFluids.BeverageFluid beverage : BinnieTreesFluids.beverages()) {
+                FluidStack fluid = beverage.stack(1_000);
                 if (BinnieFluidContainerType.GLASS.showInCreative(fluid)) output.accept(GLASS.get().filled(fluid));
             }
             for (GeneticsFluids.ProcessFluid fluid : new GeneticsFluids.ProcessFluid[]{

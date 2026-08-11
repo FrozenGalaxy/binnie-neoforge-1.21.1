@@ -63,5 +63,8 @@ public final class CoreRegistries {
         event.registerItem(Capabilities.FluidHandler.ITEM,
                 (stack, context) -> ((binnie.core.liquid.BinnieFluidContainerItem) stack.getItem()).createFluidHandler(stack),
                 CoreContent.GLASS.get(), CoreContent.CYLINDER.get());
+        event.registerItem(Capabilities.FluidHandler.ITEM,
+                (stack, context) -> ((binnie.trees.item.GlasswareItem) stack.getItem()).createFluidHandler(stack),
+                binnie.trees.registry.BinnieTreesContent.GLASSWARE.get());
     }
 }

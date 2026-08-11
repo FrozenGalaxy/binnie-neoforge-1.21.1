@@ -1,0 +1,5 @@
+{
+  "parent": "neoforge:item/bucket",
+  "fluid": "binnietrees:wine.elderberry",
+  "loader": "neoforge:fluid_container"
+}

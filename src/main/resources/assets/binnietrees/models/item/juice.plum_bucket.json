@@ -1,0 +1,5 @@
+{
+  "parent": "neoforge:item/bucket",
+  "fluid": "binnietrees:juice.plum",
+  "loader": "neoforge:fluid_container"
+}

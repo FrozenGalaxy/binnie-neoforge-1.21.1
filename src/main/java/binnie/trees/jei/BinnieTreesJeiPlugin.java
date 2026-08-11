@@ -80,27 +80,6 @@ public final class BinnieTreesJeiPlugin implements IModPlugin {
             }
         };
         registration.registerSubtypeInterpreter(BinnieTreesContent.FOOD.get(), variants);
-        registration.registerSubtypeInterpreter(BinnieTreesContent.ALCOHOL.get(), variants);
-        registration.registerSubtypeInterpreter(BinnieTreesContent.COCKTAIL.get(), variants);
-        registration.registerSubtypeInterpreter(BinnieTreesContent.JUICE.get(), variants);
-        registration.registerSubtypeInterpreter(BinnieTreesContent.LIQUEUR.get(), variants);
-        registration.registerSubtypeInterpreter(BinnieTreesContent.MISC_FLUID.get(), variants);
-        registration.registerSubtypeInterpreter(BinnieTreesContent.SPIRIT.get(), variants);
-    }
-    @Override
-    public <T> void registerFluidSubtypes(ISubtypeRegistration registration, mezz.jei.api.helpers.IPlatformFluidHelper<T> helper) {
-        registration.registerSubtypeInterpreter(NeoForgeTypes.FLUID_STACK,
-                BinnieTreesFluids.beverageFluid(),
-                new ISubtypeInterpreter<FluidStack>() {
-                    @Override public Object getSubtypeData(FluidStack stack, UidContext context) {
-                        var data = BinnieTreesFluids.data(stack);
-                        return data == null ? "" : data.beverage();
-                    }
-                    @SuppressWarnings("deprecation")
-                    @Override public String getLegacyStringSubtypeInfo(FluidStack stack, UidContext context) {
-                        return (String) getSubtypeData(stack, context);
-                    }
-                });
     }
     @Override public void registerCategories(IRecipeCategoryRegistration r) { var g = r.getJeiHelpers().getGuiHelper(); for (String n : MACHINES) r.addRecipeCategories(new BinnieTreesJeiCategory(n, TYPES.get(n), g)); }
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration r) { for (String n : MACHINES) r.addRecipeCatalyst(BinnieTreesMachines.REGISTRY.block(n).get(), TYPES.get(n)); }

@@ -28,7 +28,7 @@ public enum BinnieFluidContainerType {
     public boolean accepts(FluidStack stack) {
         if (stack.isEmpty()) return false;
         ResourceLocation id = BuiltInRegistries.FLUID.getKey(stack.getFluid());
-        return accepts(id, stack.has(BinnieDataComponents.BEVERAGE));
+        return accepts(id, binnie.trees.registry.BinnieTreesFluids.data(stack) != null);
     }
 
     public boolean accepts(ResourceLocation fluidId, boolean beverage) {
@@ -41,7 +41,7 @@ public enum BinnieFluidContainerType {
     public boolean showInCreative(FluidStack stack) {
         if (!accepts(stack)) return false;
         ResourceLocation id = BuiltInRegistries.FLUID.getKey(stack.getFluid());
-        return showInCreative(id, stack.has(BinnieDataComponents.BEVERAGE));
+        return showInCreative(id, binnie.trees.registry.BinnieTreesFluids.data(stack) != null);
     }
 
     public boolean showInCreative(ResourceLocation fluidId, boolean beverage) {

@@ -67,7 +67,7 @@ public final class BinnieFluidContainerItem extends Item {
         if (fluid.isEmpty()) return;
         tooltip.add(Component.translatable("tooltip.binniecore.container.amount", fluid.getAmount(), FluidType.BUCKET_VOLUME)
                 .withStyle(ChatFormatting.GRAY));
-        BeverageData beverage = fluid.get(BinnieDataComponents.BEVERAGE);
+        BeverageData beverage = beverage(fluid);
         if (beverage != null) {
             tooltip.add(Component.translatable("tooltip.binniecore.container.alcohol", beverage.alcohol())
                     .withStyle(ChatFormatting.DARK_RED));
@@ -95,7 +95,7 @@ public final class BinnieFluidContainerItem extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
         FluidStack fluid = fluid(stack);
-        BeverageData beverage = fluid.get(BinnieDataComponents.BEVERAGE);
+        BeverageData beverage = beverage(fluid);
         if (beverage == null || !(entity instanceof Player player)) return stack;
 
         if (!level.isClientSide) {
@@ -113,11 +113,11 @@ public final class BinnieFluidContainerItem extends Item {
     }
 
     private boolean isDrinkable(ItemStack stack) {
-        return fluid(stack).has(BinnieDataComponents.BEVERAGE);
+        return beverage(fluid(stack)) != null;
     }
 
     private static Component fluidName(FluidStack fluid) {
-        BeverageData beverage = fluid.get(BinnieDataComponents.BEVERAGE);
+        BeverageData beverage = beverage(fluid);
         if (beverage != null) {
             ResourceLocation id = ResourceLocation.tryParse(beverage.beverage());
             if (id != null && "binnietrees".equals(id.getNamespace())) {
@@ -128,5 +128,10 @@ public final class BinnieFluidContainerItem extends Item {
         ResourceLocation id = BuiltInRegistries.FLUID.getKey(fluid.getFluid());
         return Component.translatable(fluid.getDescriptionId()).withStyle(id.getNamespace().equals("minecraft")
                 ? ChatFormatting.WHITE : ChatFormatting.AQUA);
+    }
+
+    private static BeverageData beverage(FluidStack fluid) {
+        BeverageData component = fluid.get(BinnieDataComponents.BEVERAGE);
+        return component != null ? component : binnie.trees.registry.BinnieTreesFluids.data(fluid);
     }
 }

@@ -1,0 +1,5 @@
+{
+  "parent": "neoforge:item/bucket",
+  "fluid": "binnietrees:brandy.fruit",
+  "loader": "neoforge:fluid_container"
+}

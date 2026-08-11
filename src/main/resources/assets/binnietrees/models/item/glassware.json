@@ -1,6 +1,188 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "binnietrees:item/glassware"
-  }
+    "layer0": "binnietrees:item/glassware/beer_mug_glass"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 0
+      },
+      "model": "binnietrees:item/glassware/beer_mug_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 1
+      },
+      "model": "binnietrees:item/glassware/beer_mug_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 2
+      },
+      "model": "binnietrees:item/glassware/pint_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 3
+      },
+      "model": "binnietrees:item/glassware/pint_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 4
+      },
+      "model": "binnietrees:item/glassware/snifter_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 5
+      },
+      "model": "binnietrees:item/glassware/snifter_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 6
+      },
+      "model": "binnietrees:item/glassware/flute_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 7
+      },
+      "model": "binnietrees:item/glassware/flute_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 8
+      },
+      "model": "binnietrees:item/glassware/cocktail_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 9
+      },
+      "model": "binnietrees:item/glassware/cocktail_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 10
+      },
+      "model": "binnietrees:item/glassware/cordial_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 11
+      },
+      "model": "binnietrees:item/glassware/cordial_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 12
+      },
+      "model": "binnietrees:item/glassware/collins_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 13
+      },
+      "model": "binnietrees:item/glassware/collins_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 14
+      },
+      "model": "binnietrees:item/glassware/highball_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 15
+      },
+      "model": "binnietrees:item/glassware/highball_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 16
+      },
+      "model": "binnietrees:item/glassware/hurricane_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 17
+      },
+      "model": "binnietrees:item/glassware/hurricane_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 18
+      },
+      "model": "binnietrees:item/glassware/margarita_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 19
+      },
+      "model": "binnietrees:item/glassware/margarita_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 20
+      },
+      "model": "binnietrees:item/glassware/old_fashioned_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 21
+      },
+      "model": "binnietrees:item/glassware/old_fashioned_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 22
+      },
+      "model": "binnietrees:item/glassware/wine_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 23
+      },
+      "model": "binnietrees:item/glassware/wine_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 24
+      },
+      "model": "binnietrees:item/glassware/shot_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 25
+      },
+      "model": "binnietrees:item/glassware/shot_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 26
+      },
+      "model": "binnietrees:item/glassware/sherry_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 27
+      },
+      "model": "binnietrees:item/glassware/sherry_filled"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 28
+      },
+      "model": "binnietrees:item/glassware/coupe_empty"
+    },
+    {
+      "predicate": {
+        "binnietrees:glassware_model": 29
+      },
+      "model": "binnietrees:item/glassware/coupe_filled"
+    }
+  ]
 }

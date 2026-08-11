@@ -1,10 +1,10 @@
 package binnie.trees.registry;
 
 import binnie.core.item.VariantItem;
-import binnie.trees.beverage.BeverageItem;
 import binnie.trees.item.HammerItem;
 import binnie.trees.item.BinnieTreesFoodItem;
 import binnie.trees.item.HopsItem;
+import binnie.trees.item.GlasswareItem;
 import binnie.genetics.item.GeneticKnowledgeItem;
 import binnie.genetics.menu.GeneticKnowledgeMenu;
 import forestry.api.core.genetics.ForestrySpeciesTypes;
@@ -12,7 +12,6 @@ import binnie.core.registry.ModuleRegistry;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
-import java.util.List;
 
 public final class BinnieTreesContent {
     public static final ModuleRegistry CONTENT = new ModuleRegistry("binnietrees");
@@ -23,13 +22,8 @@ public final class BinnieTreesContent {
     public static final DeferredItem<VariantItem> LOG = CONTENT.variants("log", "binnietrees.log", binnie.core.catalog.LegacyCatalogs.values("binnietrees.log"));
     public static final DeferredItem<BinnieTreesFoodItem> FOOD = CONTENT.custom("food",
             properties -> new BinnieTreesFoodItem(properties, binnie.core.catalog.LegacyCatalogs.values("binnietrees.food")), false);
-    public static final DeferredItem<VariantItem> GLASSWARE = CONTENT.variants("glassware", "binnietrees.glassware", binnie.core.catalog.LegacyCatalogs.values("binnietrees.glassware"));
-    public static final DeferredItem<BeverageItem> ALCOHOL = beverage("alcohol", "binnietrees.alcohol");
-    public static final DeferredItem<BeverageItem> COCKTAIL = beverage("cocktail", "binnietrees.cocktail");
-    public static final DeferredItem<BeverageItem> JUICE = beverage("juice", "binnietrees.juice");
-    public static final DeferredItem<BeverageItem> LIQUEUR = beverage("liqueur", "binnietrees.liqueur");
-    public static final DeferredItem<BeverageItem> MISC_FLUID = beverage("misc_fluid", "binnietrees.misc_fluid");
-    public static final DeferredItem<BeverageItem> SPIRIT = beverage("spirit", "binnietrees.spirit");
+    public static final DeferredItem<GlasswareItem> GLASSWARE = CONTENT.custom("glassware",
+            properties -> new GlasswareItem(properties, binnie.core.catalog.LegacyCatalogs.values("binnietrees.glassware")), true);
     public static final DeferredItem<Item> BARK = CONTENT.simple("bark");
     public static final DeferredItem<Item> SAWDUST = CONTENT.simple("sawdust");
     public static final DeferredItem<Item> WOOD_WAX = CONTENT.simple("wood_wax");
@@ -65,14 +59,6 @@ public final class BinnieTreesContent {
         });
     }
 
-
-    private static DeferredItem<BeverageItem> beverage(String category, String catalogCategory) {
-        List<String> values = binnie.core.catalog.LegacyCatalogs.values(catalogCategory);
-        DeferredItem<BeverageItem> item = CONTENT.custom(category,
-                properties -> new BeverageItem(properties, catalogCategory, category, values), false);
-        return item;
-    }
-
     private BinnieTreesContent() {}
     public static void register(IEventBus bus) {
         CONTENT.setDisplayItems(output -> {
@@ -103,9 +89,7 @@ public final class BinnieTreesContent {
             output.accept(GRAIN_ROASTED.get());
             output.accept(GLASS_FITTING.get());
             output.accept(HOPS.get());
-            output.accept(BinnieTreesFluids.SAP.bucket());
             output.accept(BinnieTreesFluids.RESIN.bucket());
-            output.accept(BinnieTreesFluids.LATEX.bucket());
             output.accept(BinnieTreesFluids.TURPENTINE.bucket());
             output.accept(CARPENTRY_HAMMER.get());
             output.accept(DURABLE_HAMMER.get());
@@ -115,17 +99,12 @@ public final class BinnieTreesContent {
             output.accept(MASTER_MOTH_DATABASE.get());
             for (String id : BinnieTreesMachines.REGISTRY.specs().keySet()) output.accept(BinnieTreesMachines.REGISTRY.block(id).get().asItem());
             for (String value : GLASSWARE.get().variants()) output.accept(GLASSWARE.get().createStack(value));
-            acceptBeverages(output, ALCOHOL.get(), binnie.core.catalog.LegacyCatalogs.values("binnietrees.alcohol"));
-            acceptBeverages(output, COCKTAIL.get(), binnie.core.catalog.LegacyCatalogs.values("binnietrees.cocktail"));
-            acceptBeverages(output, JUICE.get(), binnie.core.catalog.LegacyCatalogs.values("binnietrees.juice"));
-            acceptBeverages(output, LIQUEUR.get(), binnie.core.catalog.LegacyCatalogs.values("binnietrees.liqueur"));
-            acceptBeverages(output, MISC_FLUID.get(), binnie.core.catalog.LegacyCatalogs.values("binnietrees.misc_fluid"));
-            acceptBeverages(output, SPIRIT.get(), binnie.core.catalog.LegacyCatalogs.values("binnietrees.spirit"));
+            // ItemDrink#getSubItems also supplied one filled wine glass to make
+            // the tintable contents model discoverable without enumerating all
+            // 92 liquid/shape combinations.
+            output.accept(GLASSWARE.get().filled("wine", BinnieTreesFluids.stack("alcohol", "red_wine", 240)));
         });
         CONTENT.register(bus, "itemGroup.binnietrees");
     }
 
-    private static void acceptBeverages(net.minecraft.world.item.CreativeModeTab.Output output, BeverageItem item, List<String> values) {
-        for (String value : values) output.accept(item.createStack(value));
-    }
 }

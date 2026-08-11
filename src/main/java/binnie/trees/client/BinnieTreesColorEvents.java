@@ -3,6 +3,8 @@ package binnie.trees.client;
 import binnie.trees.BinnieTrees;
 import binnie.trees.block.DecorativeLeavesBlock;
 import binnie.trees.registry.BinnieTreesWorldContent;
+import binnie.trees.registry.BinnieTreesContent;
+import binnie.trees.item.GlasswareItem;
 import binnie.trees.forestry.LegacyTreeCatalog;
 import forestry.api.core.genetics.capability.IIndividualHandlerItem;
 import forestry.core.platform.item.IColoredItem;
@@ -33,6 +35,11 @@ public final class BinnieTreesColorEvents {
     }
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void items(RegisterColorHandlersEvent.Item event) {
+        event.register((stack, tint) -> {
+            if (tint != 0 || !(stack.getItem() instanceof GlasswareItem glassware)) return 0xFFFFFFFF;
+            var beverage = binnie.trees.registry.BinnieTreesFluids.data(glassware.fluid(stack));
+            return beverage == null ? 0xFFFFFFFF : 0xFF000000 | beverage.color();
+        }, BinnieTreesContent.GLASSWARE.get());
         for (var entry : BinnieTreesWorldContent.decorativeLeafItems().entrySet()) {
             int color = BinnieTreesWorldContent.decorativeLeaves().get(entry.getKey()).get().color();
             event.register((stack, tint) -> tint == 0 ? 0xFF000000 | color : 0xFFFFFFFF, entry.getValue().get());

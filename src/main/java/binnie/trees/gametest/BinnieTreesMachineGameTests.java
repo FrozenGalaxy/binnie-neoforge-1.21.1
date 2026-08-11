@@ -283,8 +283,7 @@ public final class BinnieTreesMachineGameTests {
     @GameTest(templateNamespace = "forestry", template = "empty", timeoutTicks = 100)
     public static void sourceWoodPolishForestryChainLoadsWithExactAmounts(GameTestHelper helper) {
         java.util.List<BinnieTreesFluids.ProcessFluid> sourceLiquids = java.util.List.of(
-                BinnieTreesFluids.SAP, BinnieTreesFluids.RESIN,
-                BinnieTreesFluids.LATEX, BinnieTreesFluids.TURPENTINE);
+                BinnieTreesFluids.RESIN, BinnieTreesFluids.TURPENTINE);
         for (BinnieTreesFluids.ProcessFluid liquid : sourceLiquids) {
             var flowing = (net.minecraft.world.level.material.FlowingFluid) liquid.fluid();
             helper.assertTrue(flowing.getBucket() == liquid.bucket(),
@@ -296,17 +295,12 @@ public final class BinnieTreesMachineGameTests {
                             .is(net.minecraft.world.item.Items.BUCKET),
                     "Fixed Binnie's Trees liquid bucket must return an empty bucket");
         }
-        EngineBronzeFuel sapFuel = FuelManager.biogasEngineFuel.get(BinnieTreesFluids.SAP.fluid());
         EngineBronzeFuel resinFuel = FuelManager.biogasEngineFuel.get(BinnieTreesFluids.RESIN.fluid());
-        helper.assertTrue(sapFuel != null && sapFuel.powerPerCycle() == 20
-                        && sapFuel.burnDuration() == 10_000 && sapFuel.dissipationMultiplier() == 1,
-                "Sap lost its source Biogas Engine fuel registration");
         helper.assertTrue(resinFuel != null && resinFuel.powerPerCycle() == 30
                         && resinFuel.burnDuration() == 10_000 && resinFuel.dissipationMultiplier() == 1,
                 "Resin lost its source Biogas Engine fuel registration");
-        helper.assertTrue(!FuelManager.biogasEngineFuel.containsKey(BinnieTreesFluids.LATEX.fluid())
-                        && !FuelManager.biogasEngineFuel.containsKey(BinnieTreesFluids.TURPENTINE.fluid()),
-                "Registration-only latex or Carpenter reagent turpentine was incorrectly made an engine fuel");
+        helper.assertTrue(!FuelManager.biogasEngineFuel.containsKey(BinnieTreesFluids.TURPENTINE.fluid()),
+                "Carpenter reagent turpentine was incorrectly made an engine fuel");
 
         var recipes = helper.getLevel().getRecipeManager();
         ISqueezerRecipe resin = recipes.getAllRecipesFor(FactoryRecipeTypes.SQUEEZER.type()).stream()
