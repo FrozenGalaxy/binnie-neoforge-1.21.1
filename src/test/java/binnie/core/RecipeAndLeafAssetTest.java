@@ -27,6 +27,14 @@ final class RecipeAndLeafAssetTest {
     }
 
     @Test
+    void glassAuditTraversesObjectValuedRecipeFields() {
+        JsonElement recipe = JsonParser.parseString("""
+                {"item":{"ingredient":{"tag":"c:glass_blocks"}}}
+                """);
+        assertDoesNotThrow(() -> rejectGlass(recipe, "synthetic/object-valued-field.json"));
+    }
+
+    @Test
     void requestedMajorRecipesExistAndUseTags() {
         assertResult("data/binniegenetics/recipe/growth_medium.json", "binniegenetics:growth_medium", 2);
         assertResult("data/binniebotany/recipe/botanist_backpack.json", "binniebotany:botanist_backpack", 1);
@@ -86,11 +94,11 @@ final class RecipeAndLeafAssetTest {
     private static void rejectGlass(JsonElement element, String path) {
         if (element.isJsonObject()) {
             JsonObject object = element.getAsJsonObject();
-            if (object.has("item")) {
+            if (hasString(object, "item")) {
                 assertNotEquals("minecraft:glass", object.get("item").getAsString(), path);
                 assertNotEquals("minecraft:glass_pane", object.get("item").getAsString(), path);
             }
-            if (object.has("tag")) {
+            if (hasString(object, "tag")) {
                 assertNotEquals("c:glass_blocks/colorless", object.get("tag").getAsString(), path);
                 assertNotEquals("c:glass_panes/colorless", object.get("tag").getAsString(), path);
             }
@@ -98,6 +106,11 @@ final class RecipeAndLeafAssetTest {
         } else if (element.isJsonArray()) {
             element.getAsJsonArray().forEach(child -> rejectGlass(child, path));
         }
+    }
+
+    private static boolean hasString(JsonObject object, String member) {
+        JsonElement value = object.get(member);
+        return value != null && value.isJsonPrimitive() && value.getAsJsonPrimitive().isString();
     }
 
     private static void assertResult(String path, String id, int count) {
