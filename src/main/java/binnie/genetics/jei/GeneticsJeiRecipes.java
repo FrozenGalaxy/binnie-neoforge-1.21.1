@@ -88,10 +88,10 @@ public final class GeneticsJeiRecipes {
                 .withInputAlternatives(allIndividuals)
                 .withOutputAlternatives(List.of(activeUnsequenced, inactiveUnsequenced)));
 
-        add(result, recipe("sequencer", "active", List.of(activeUnsequenced), List.of(), List.of(new ItemStack(GeneticsContent.FLUORESCENT_DYE.get())),
+        add(result, recipe("sequencer", "active", List.of(activeUnsequenced), List.of(new ItemStack(GeneticsContent.DATABASE.get())), List.of(new ItemStack(GeneticsContent.FLUORESCENT_DYE.get())),
                 List.of(new ItemStack(GeneticsContent.EMPTY_SEQUENCER.get())), List.of(), List.of(),
                 GeneticsMachineProcesses.SEQUENCER_OPERATION.baseDuration(), GeneticsMachineProcesses.SEQUENCER_OPERATION.energyPerTick()));
-        add(result, recipe("sequencer", "inactive", List.of(inactiveUnsequenced), List.of(), List.of(new ItemStack(GeneticsContent.FLUORESCENT_DYE.get())),
+        add(result, recipe("sequencer", "inactive", List.of(inactiveUnsequenced), List.of(new ItemStack(GeneticsContent.DATABASE.get())), List.of(new ItemStack(GeneticsContent.FLUORESCENT_DYE.get())),
                 List.of(new ItemStack(GeneticsContent.EMPTY_SEQUENCER.get())), List.of(), List.of(),
                 GeneticsMachineProcesses.SEQUENCER_OPERATION.baseDuration(), GeneticsMachineProcesses.SEQUENCER_OPERATION.energyPerTick()));
 

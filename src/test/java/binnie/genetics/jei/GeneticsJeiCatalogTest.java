@@ -43,13 +43,17 @@ final class GeneticsJeiCatalogTest {
     }
 
     @Test
-    void everyLaboratoryCategoryUsesTheForestryAnimatedProcessArrow() throws Exception {
+    void laboratoryCategoriesUseTheirSourceBinnieAtlasesAndDistinctGeometry() throws Exception {
         String category = Files.readString(Path.of(
                 "src/main/java/binnie/genetics/jei/GeneticsJeiCategory.java"));
-        assertTrue(category.contains("textures/gui/squeezersocket.png"));
+        assertTrue(category.contains("textures/gui/craftgui-panels.png"));
+        assertTrue(category.contains("textures/gui/craftgui-slots.png"));
         assertTrue(category.contains("createAnimatedDrawable"));
-        assertTrue(category.contains("machine.equals(\"incubator\")"),
-                "Incubator must retain its separately positioned process arrow");
-        assertTrue(category.contains("this.processArrow.draw"));
+        assertTrue(category.contains("case \"sequencer\" -> 72"));
+        assertTrue(category.contains("case \"incubator\" -> 112"));
+        assertTrue(category.contains("case \"genepool\" -> 114"));
+        assertTrue(category.contains("arrow(graphics, 49, 26)"),
+                "Incubator must retain its source-specific process arrow position");
+        assertTrue(category.contains("setOverlay(tankOverlay, 0, 0)"));
     }
 }
