@@ -21,12 +21,16 @@ public final class MachineRegistries {
     public static final DeferredHolder<RecipeSerializer<?>, MachineRecipe.Serializer> MACHINE_RECIPE_SERIALIZER = SERIALIZERS.register(
             "machine", MachineRecipe.Serializer::new);
     public static final DeferredHolder<RecipeType<?>, RecipeType<MachineRecipe>> MACHINE_RECIPE_TYPE = TYPES.register(
-            "machine", () -> new RecipeType<>() {
+            "machine", MachineRegistries::createMachineRecipeType);
+
+    private static RecipeType<MachineRecipe> createMachineRecipeType() {
+        return new RecipeType<MachineRecipe>() {
                 @Override
                 public String toString() {
                     return BinnieCore.MOD_ID + ":machine";
                 }
-            });
+            };
+    }
 
     private MachineRegistries() {
     }
