@@ -2,7 +2,7 @@
   "type": "forestry:fabricator",
   "id": "binnietrees:fabricator/glassware/beer_mug",
   "molten": {
-    "amount": 800,
+    "amount": 100,
     "id": "forestry:liquid_glass"
   },
   "recipe": {

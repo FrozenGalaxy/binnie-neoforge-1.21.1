@@ -2,7 +2,7 @@
   "type": "forestry:fabricator",
   "id": "binnietrees:fabricator/glassware/wine",
   "molten": {
-    "amount": 600,
+    "amount": 300,
     "id": "forestry:liquid_glass"
   },
   "recipe": {

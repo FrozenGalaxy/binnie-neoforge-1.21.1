@@ -2,7 +2,7 @@
   "type": "forestry:fabricator",
   "id": "binnietrees:fabricator/glassware/coupe",
   "molten": {
-    "amount": 500,
+    "amount": 400,
     "id": "forestry:liquid_glass"
   },
   "recipe": {
