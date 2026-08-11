@@ -119,7 +119,7 @@ public final class GeneticMaterialItem extends Item {
                 .append(alleleName(data).copy().withStyle(ChatFormatting.GRAY));
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings("rawtypes")
     private static Component chromosomeName(GeneticAlleleData data) {
         try {
             for (IChromosome chromosome : GeneticOrganismAdapters.get(data.speciesType()).speciesType().getKaryotype().getChromosomes()) {

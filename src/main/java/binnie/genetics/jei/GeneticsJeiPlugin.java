@@ -13,7 +13,6 @@ import binnie.genetics.client.SequencerScreen;
 import binnie.genetics.client.SplicerScreen;
 import binnie.genetics.client.GeneticsJeiAreas;
 import binnie.genetics.BinnieGenetics;
-import binnie.genetics.item.GeneticMaterialItem;
 import binnie.genetics.registry.GeneticsContent;
 import binnie.genetics.registry.GeneticsMachines;
 import mezz.jei.api.IModPlugin;

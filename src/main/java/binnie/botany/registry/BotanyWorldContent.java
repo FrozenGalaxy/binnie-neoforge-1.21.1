@@ -17,8 +17,6 @@ import binnie.botany.item.FixedGardenStateItem;
 import binnie.design.api.DesignedBlockKind;
 import binnie.design.block.DesignedBlock;
 import binnie.design.block.DesignedBlockItem;
-import binnie.core.data.DesignData;
-import binnie.core.catalog.LegacyCatalogs;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.SoundType;

@@ -1,6 +1,5 @@
 package binnie.design.block;
 
-import binnie.core.data.DesignData;
 import binnie.design.api.DesignedBlockKind;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;

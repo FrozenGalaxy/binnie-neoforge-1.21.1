@@ -13,7 +13,6 @@ import binnie.genetics.data.GeneticAlleleData;
 import binnie.genetics.data.GeneticSequenceData;
 import binnie.genetics.data.GeneticSerumData;
 import binnie.genetics.data.LaboratoryChargeData;
-import binnie.genetics.item.GeneticMaterialItem;
 import binnie.genetics.machine.GeneticsMachineProcesses;
 import binnie.genetics.registry.GeneticsContent;
 import binnie.genetics.registry.GeneticsFluids;
@@ -192,7 +191,7 @@ public final class GeneticsJeiRecipes {
       * Tags cannot encode Forestry genome and life-stage components. Supplying
       * real stacks makes JEI cycle exactly the executable individual family.
       */
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings("rawtypes")
     private static List<ItemStack> individualAlternatives(boolean manipulableOnly) {
         ArrayList<ItemStack> result = new ArrayList<>();
         for (var adapter : GeneticOrganismAdapters.all()) {

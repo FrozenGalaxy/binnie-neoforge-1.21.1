@@ -43,7 +43,6 @@ public sealed interface AlleleValue permits AlleleValue.ResourceValue, AlleleVal
         };
     }
 
-    @SuppressWarnings("unchecked")
     private static MapCodec<? extends AlleleValue> codecFor(String type) {
         return switch (type) {
             case ResourceValue.TYPE -> ResourceValue.CODEC;

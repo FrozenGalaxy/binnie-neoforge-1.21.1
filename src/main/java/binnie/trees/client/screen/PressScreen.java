@@ -1,6 +1,5 @@
 package binnie.trees.client.screen;
 
-import binnie.core.machine.MachineBlockEntity;
 import binnie.core.machine.MachineMenu;
 import binnie.core.machine.MachineProcessError;
 import binnie.core.network.MachineScreenActionPayload;

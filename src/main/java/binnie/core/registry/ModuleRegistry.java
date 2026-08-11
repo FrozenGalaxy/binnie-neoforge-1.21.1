@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class ModuleRegistry {
-    private final String modId;
     private final DeferredRegister.Items items;
     private final DeferredRegister<CreativeModeTab> tabs;
     private final List<DeferredItem<? extends Item>> simpleItems = new ArrayList<>();
@@ -29,7 +28,6 @@ public final class ModuleRegistry {
     private Supplier<ItemStack> iconSupplier;
     private Consumer<CreativeModeTab.Output> displayOverride;
     public ModuleRegistry(String modId) {
-        this.modId = modId;
         this.items = DeferredRegister.createItems(modId);
         this.tabs = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, modId);
     }

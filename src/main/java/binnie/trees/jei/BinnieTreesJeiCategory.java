@@ -59,7 +59,6 @@ public final class BinnieTreesJeiCategory implements IRecipeCategory<BinnieTrees
             drawDistilleryLevel(graphics, recipe.mode());
             return;
         }
-        var font = Minecraft.getInstance().font;
         Component first = recipe.duration() > 0
                 ? Component.translatable("gui.binniecore.jei.ticks", recipe.duration())
                 : Component.translatable("gui.binniecore.jei.manual");

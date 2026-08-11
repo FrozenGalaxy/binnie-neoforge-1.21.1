@@ -72,7 +72,6 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -387,12 +386,6 @@ public abstract class AbstractGeneticKnowledgeScreen extends AbstractContainerSc
         int color = databaseAccentColor();
         graphics.fill(leftPos + x + 1, topPos + y + 1,
                 leftPos + x + w - 1, topPos + y + h - 1,
-                (selected ? 0xA0000000 : 0x50000000) | color);
-        LegacyGeneticsGui.tabOutline(graphics, leftPos + x, topPos + y, w, h);
-    }
-
-    private void drawRightTab(GuiGraphics graphics, int x, int y, int w, int h, boolean selected, int color) {
-        graphics.fill(leftPos + x, topPos + y + 1, leftPos + x + w - 1, topPos + y + h - 1,
                 (selected ? 0xA0000000 : 0x50000000) | color);
         LegacyGeneticsGui.tabOutline(graphics, leftPos + x, topPos + y, w, h);
     }
@@ -2161,10 +2154,6 @@ public abstract class AbstractGeneticKnowledgeScreen extends AbstractContainerSc
         }
     }
 
-    private void drawCenteredNoShadow(GuiGraphics graphics, String text, int centerX, int y, int color) {
-        graphics.drawString(font, text, centerX - font.width(text) / 2, y, color, false);
-    }
-
     private void drawCenteredNoShadow(GuiGraphics graphics, Component text, int centerX, int y, int color) {
         net.minecraft.util.FormattedCharSequence visual = text.getVisualOrderText();
         drawCenteredNoShadow(graphics, visual, centerX, y, color);
@@ -2368,11 +2357,6 @@ public abstract class AbstractGeneticKnowledgeScreen extends AbstractContainerSc
 
     private static String prettyId(ResourceLocation id) {
         return prettyWords(id.getPath());
-    }
-
-    private static String prettyValue(Object value) {
-        if (value instanceof ResourceLocation id) return prettyId(id);
-        return prettyWords(String.valueOf(value));
     }
 
     private static String prettyWords(String value) {

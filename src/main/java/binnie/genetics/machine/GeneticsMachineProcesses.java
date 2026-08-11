@@ -1,6 +1,5 @@
 package binnie.genetics.machine;
 
-import binnie.botany.registry.BotanyContent;
 import binnie.botany.registry.BotanyItemTags;
 import binnie.core.machine.MachineBlockEntity;
 import binnie.core.machine.MachineProcessError;
@@ -425,7 +424,6 @@ public final class GeneticsMachineProcesses {
         ItemStack enzyme = stack(machine, MachineBlockEntity.REAGENT_SLOT);
         if (!isIndividual(input) || !isTool(enzyme, GeneticsContent.ENZYME.get())) return Optional.empty();
         int dna = dnaAmount(input);
-        int ethanol = (int) Math.ceil(dna * 1.2);
         return Optional.of(plan("genepool", input, ItemStack.EMPTY, enzyme, ItemStack.EMPTY, ItemStack.EMPTY,
                 GENEPOOL_OPERATION.baseDuration(), GENEPOOL_OPERATION.energyPerTick(), 1, 0, 0, ItemStack.EMPTY, ItemStack.EMPTY,
                 EMPTY_FLUID, EMPTY_FLUID, GeneticsFluids.RAW_DNA.stack(dna)));
@@ -865,10 +863,6 @@ public final class GeneticsMachineProcesses {
 
     private static boolean isMaterial(ItemStack stack, GeneticMaterialItem.Kind kind) {
         return stack.getItem() instanceof GeneticMaterialItem item && item.kind(stack) == kind;
-    }
-
-    private static GeneticMaterialItem.Kind materialKind(ItemStack stack) {
-        return ((GeneticMaterialItem) stack.getItem()).kind(stack);
     }
 
     private static boolean isolatorSlot(MachineBlockEntity machine, int slot, ItemStack stack) {

@@ -1130,10 +1130,6 @@ public final class GeneticsMachineGameTests {
         return result;
     }
 
-    private static void transferOutput(MachineBlockEntity source, MachineBlockEntity target, int targetSlot) {
-        target.inventory().setStackInSlot(targetSlot, takeOutput(source));
-    }
-
     private static IFlower requireFlower(GameTestHelper helper, ItemStack stack, String label) {
         IIndividual individual = ItemGE.getIndividual(stack);
         if (individual instanceof IFlower flower) return flower;

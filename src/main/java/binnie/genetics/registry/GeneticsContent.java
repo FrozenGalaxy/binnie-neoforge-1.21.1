@@ -8,8 +8,6 @@ import binnie.genetics.data.AlleleValue;
 import binnie.genetics.data.GeneticAlleleData;
 import binnie.genetics.data.GeneticSerumData;
 import forestry.api.core.genetics.ForestrySpeciesTypes;
-import forestry.api.core.genetics.alleles.BeeChromosomes;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import java.util.List;
 import binnie.genetics.menu.GeneticKnowledgeMenu;

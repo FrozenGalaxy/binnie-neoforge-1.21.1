@@ -1,8 +1,6 @@
 package binnie.botany.block;
 
-import binnie.botany.api.genetics.FlowerLifeStage;
 import binnie.botany.api.genetics.IFlower;
-import binnie.botany.genetics.FlowerIndividual;
 import binnie.botany.registry.BotanyWorldContent;
 import binnie.core.registry.CoreContent;
 import com.mojang.serialization.MapCodec;

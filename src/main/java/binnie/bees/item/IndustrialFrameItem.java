@@ -1,8 +1,6 @@
 package binnie.bees.item;
 
-import binnie.core.data.VariantData;
 import binnie.core.item.VariantItem;
-import binnie.core.registry.BinnieDataComponents;
 import forestry.api.apiculture.IBeeHousing;
 import forestry.api.apiculture.IBeeModifier;
 import forestry.api.apiculture.genetics.IBee;

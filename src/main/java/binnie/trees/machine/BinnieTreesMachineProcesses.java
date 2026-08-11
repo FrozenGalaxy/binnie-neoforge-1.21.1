@@ -710,10 +710,6 @@ public final class BinnieTreesMachineProcesses {
         return new BreweryGrainOperation(grain, ingredient, yeast, output);
     }
 
-    private static void put(Map<String, String> map, String output, String... inputs) {
-        for (String input : inputs) map.put(input, output);
-    }
-
     private static Map<String, Distillation> distillationMappings() {
         Map<String, Distillation> map = new LinkedHashMap<>();
         distill(map, "apple", "apple_brandy", "apple_liquor");

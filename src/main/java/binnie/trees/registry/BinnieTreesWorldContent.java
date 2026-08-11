@@ -5,7 +5,6 @@ import binnie.trees.block.HedgeBlock;
 import binnie.trees.block.DecorativeLeavesBlock;
 import binnie.trees.forestry.LegacyTreeCatalog;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;

@@ -1,9 +1,8 @@
 package binnie.core.data;
 
+import io.netty.buffer.ByteBuf;
 import com.mojang.serialization.Codec;
-import io.netty.buffer.ByteBuf;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;

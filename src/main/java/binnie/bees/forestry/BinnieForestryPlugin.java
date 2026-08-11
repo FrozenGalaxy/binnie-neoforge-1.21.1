@@ -4,7 +4,6 @@ import binnie.bees.BinnieBees;
 import binnie.bees.alveary.StimulatorCircuit;
 import binnie.bees.alveary.StimulatorProgram;
 import binnie.bees.block.BinnieBeesAlvearyBlockEntity;
-import binnie.bees.registry.BinnieBeesContent;
 import binnie.botany.client.BinnieForestryClientRegistration;
 import binnie.botany.api.genetics.FlowerLifeStage;
 import binnie.botany.genetics.FlowerChromosomes;
@@ -19,7 +18,6 @@ import binnie.botany.registry.BotanyContent;
 import binnie.botany.registry.BotanyWorldContent;
 import forestry.api.core.ToleranceType;
 import forestry.api.client.plugin.IClientRegistration;
-import forestry.api.core.genetics.ForestryTaxa;
 import forestry.api.core.genetics.alleles.Allele;
 import net.minecraft.core.Vec3i;
 import binnie.trees.forestry.LegacyHeightMutationCondition;
@@ -29,13 +27,9 @@ import binnie.trees.forestry.LegacyTreeGenerator;
 import binnie.trees.registry.BinnieTreeWoodContent;
 import binnie.trees.registry.BinnieTreesContent;
 import binnie.trees.wood.BinnieTreeWoodType;
-import forestry.api.apiculture.IBeeHousing;
-import forestry.api.apiculture.genetics.IBeeEffect;
 import forestry.api.arboriculture.IWoodType;
 import forestry.api.arboriculture.genetics.IFruit;
 import forestry.api.core.Product;
-import forestry.api.core.genetics.IEffectData;
-import forestry.api.core.genetics.IGenome;
 import forestry.api.plugin.IArboricultureRegistration;
 import forestry.api.plugin.IApicultureRegistration;
 import forestry.api.plugin.IForestryPlugin;
@@ -49,7 +43,6 @@ import forestry.api.plugin.ICircuitRegistration;
 import forestry.arboriculture.wood.ForestryWoodType;
 import forestry.arboriculture.fruit.RipeningFruit;
 import forestry.arboriculture.wood.VanillaWoodType;
-import forestry.agriculture.farmlogic.FarmLogicCrops;
 import forestry.arboriculture.fruit.ForestryPodType;
 import forestry.core.engine.genetics.mutations.MutationConditionTypes;
 import net.minecraft.core.registries.Registries;
@@ -178,7 +171,6 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
                     new StimulatorCircuit(program));
         }
 
-        ResourceLocation baseType = ResourceLocation.fromNamespaceAndPath("binniebotany", "flowers");
         for (String physicalTube : BotanyTubeVariants.physicalIds()) {
             ItemStack tube = BotanyContent.INSULATED_TUBE.get().createStack(physicalTube);
             for (BotanyFarmVariants.Variant variant : BotanyTubeVariants.circuitsFor(physicalTube)) {
@@ -254,27 +246,4 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
         return binnieTreeWood;
     }
 
-    /** Stable code registration for all 1.12 effect allele identities. */
-    private static final class LegacyBeeEffect implements IBeeEffect {
-        private final String name;
-
-        private LegacyBeeEffect(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public boolean isDominant() {
-            return true;
-        }
-
-        @Override
-        public IEffectData doEffect(IGenome genome, IEffectData storedData, IBeeHousing housing) {
-            return storedData;
-        }
-
-        @Override
-        public String toString() {
-            return "BinnieBeeEffect[" + this.name + "]";
-        }
-    }
 }

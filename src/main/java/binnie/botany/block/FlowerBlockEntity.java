@@ -6,7 +6,6 @@ import binnie.botany.api.genetics.IFlowerSpecies;
 import binnie.botany.api.genetics.SoilAcidity;
 import binnie.botany.api.genetics.SoilMoisture;
 import binnie.botany.genetics.FlowerChromosomes;
-import binnie.botany.genetics.FlowerIndividual;
 import binnie.botany.genetics.FlowerSpeciesType;
 import binnie.botany.registry.BotanyWorldContent;
 import binnie.botany.gardening.BotanyGardening;

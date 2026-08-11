@@ -2,7 +2,6 @@ package binnie.design.data;
 
 import binnie.core.catalog.LegacyCatalogs;
 import binnie.core.data.DesignData;
-import net.minecraft.resources.ResourceLocation;
 
 import java.util.LinkedHashSet;
 import java.util.List;

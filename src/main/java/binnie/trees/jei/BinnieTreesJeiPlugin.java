@@ -1,7 +1,6 @@
 package binnie.trees.jei;
 
 import binnie.core.client.MachineScreen;
-import binnie.design.client.DesignerScreen;
 import binnie.design.client.screen.GlassworkerScreen;
 import binnie.design.client.screen.PanelworkerScreen;
 import binnie.design.client.screen.WoodworkerScreen;
@@ -34,7 +33,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.fluids.FluidStack;
 import java.util.*;

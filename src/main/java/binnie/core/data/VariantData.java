@@ -1,9 +1,8 @@
 package binnie.core.data;
 
+import io.netty.buffer.ByteBuf;
 import com.mojang.serialization.Codec;
-import io.netty.buffer.ByteBuf;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 
 public record VariantData(String category, String value) {

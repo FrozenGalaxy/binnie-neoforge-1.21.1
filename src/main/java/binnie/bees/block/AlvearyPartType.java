@@ -1,7 +1,6 @@
 package binnie.bees.block;
 
 import forestry.api.apiculture.IBeeModifier;
-import forestry.api.core.genetics.IGenome;
 
 /** Active Binnie's Bees alveary components and their original GUI/inventory contracts. */
 public enum AlvearyPartType {
