@@ -268,9 +268,11 @@ tasks.register('validateLegacyCatalogs') {
             'binniebees.bee_species': 115,
             'binniebees.bee_branch': 29,
             'binniebees.bee_effect': 24,
-            'binniebees.honey_comb': 85,
-            'binniebees.honey_drop': 28,
-            'binniebees.propolis': 10,
+            // EnumHoneyComb/EnumHoneyDrop/EnumPropolis entries using the no-argument
+            // constructor were explicitly inactive in 1.12 and were never registered.
+            'binniebees.honey_comb': 73,
+            'binniebees.honey_drop': 23,
+            'binniebees.propolis': 4,
             'binniebees.industrial_frame': 16,
             'binniebees.hive_type': 4,
             'binniebees.simulator_circuit': 9,
