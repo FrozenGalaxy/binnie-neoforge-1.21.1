@@ -20,8 +20,10 @@ import binnie.trees.registry.BinnieTreesFluids;
 import binnie.trees.registry.BinnieTreesDesignContent;
 import binnie.trees.wood.BinnieTreeWoodType;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -35,6 +37,7 @@ import java.util.Optional;
 /** Dynamic processing for the seven Binnie's Trees machines. */
 public final class BinnieTreesMachineProcesses {
     private static final java.util.List<FruitPressOperation> FRUIT_PRESS_OPERATIONS = createFruitPressOperations();
+    private static final java.util.List<TaggedFruitPressOperation> TAGGED_FRUIT_PRESS_OPERATIONS = createTaggedFruitPressOperations();
     private static final java.util.List<BreweryFermentationOperation> BREWERY_FERMENTATIONS = createBreweryFermentations();
     private static final java.util.List<BreweryGrainOperation> BREWERY_GRAINS = createBreweryGrains();
     private static final Map<String, Distillation> DISTILLATION = distillationMappings();
@@ -50,6 +53,7 @@ public final class BinnieTreesMachineProcesses {
       * squeezer registry. Squeezer mulch is provenance only: FruitPressRecipe
       * itself has no item output or chance field. */
     public static java.util.List<FruitPressOperation> fruitPressOperations() { return FRUIT_PRESS_OPERATIONS; }
+    public static java.util.List<TaggedFruitPressOperation> taggedFruitPressOperations() { return TAGGED_FRUIT_PRESS_OPERATIONS; }
 
     public static String fermentationRoute(String beverage) { return fermentationResult(beverage); }
     public static java.util.List<BreweryFermentationOperation> breweryFermentations() { return BREWERY_FERMENTATIONS; }
@@ -83,6 +87,10 @@ public final class BinnieTreesMachineProcesses {
     public record BreweryGrainOperation(String grain, String ingredient, String yeast, String outputAlcohol) { }
     public record FruitPressOperation(String inputVariant, String juice, int outputAmount, int sourceSqueezerTime,
                                       int sourceMulchChance, boolean sourceWasSeedOil) { }
+    /** Modern common-tag equivalent of ModuleAlcohol's 1.12 ore-dictionary lookup. */
+    public record TaggedFruitPressOperation(ResourceLocation inputTag, String juice, int outputAmount) {
+        public TagKey<net.minecraft.world.item.Item> tag() { return TagKey.create(Registries.ITEM, inputTag); }
+    }
 
     public static synchronized void register() {
         if (registered) return;
@@ -558,9 +566,13 @@ public final class BinnieTreesMachineProcesses {
 
     private static BeverageOutput juiceFor(ItemStack fruit) {
         VariantData data = fruit.get(BinnieDataComponents.VARIANT);
-        if (data == null || !"binnietrees.food".equals(data.category())) return null;
-        for (FruitPressOperation operation : FRUIT_PRESS_OPERATIONS) {
-            if (operation.inputVariant().equals(data.value())) return new BeverageOutput("juice", operation.juice(), operation.outputAmount());
+        if (data != null && "binnietrees.food".equals(data.category())) {
+            for (FruitPressOperation operation : FRUIT_PRESS_OPERATIONS) {
+                if (operation.inputVariant().equals(data.value())) return new BeverageOutput("juice", operation.juice(), operation.outputAmount());
+            }
+        }
+        for (TaggedFruitPressOperation operation : TAGGED_FRUIT_PRESS_OPERATIONS) {
+            if (fruit.is(operation.tag())) return new BeverageOutput("juice", operation.juice(), operation.outputAmount());
         }
         return null;
     }
@@ -672,6 +684,24 @@ public final class BinnieTreesMachineProcesses {
 
     private static FruitPressOperation fruit(String input, String juice, int amount, int squeezerTime, int mulchChance, boolean seedOil) {
         return new FruitPressOperation(input, juice, amount, squeezerTime, mulchChance, seedOil);
+    }
+
+    private static java.util.List<TaggedFruitPressOperation> createTaggedFruitPressOperations() {
+        // ModuleAlcohol copied a route only when an ore-dictionary fruit also
+        // had a Forestry Squeezer recipe. These common tags preserve that
+        // cross-mod contract without binding Binnie to a particular crop mod.
+        return java.util.List.of(
+                tagged("c:fruits/apple", "apple", 200),
+                tagged("c:crops/carrot", "carrot", 200),
+                tagged("c:fruits/lemon", "lemon", 400),
+                tagged("c:fruits/plum", "plum", 100),
+                tagged("c:fruits/cherry", "cherry", 100),
+                tagged("c:fruits/pineapple", "pineapple", 200),
+                tagged("c:crops/tomato", "tomato", 200));
+    }
+
+    private static TaggedFruitPressOperation tagged(String tag, String juice, int amount) {
+        return new TaggedFruitPressOperation(ResourceLocation.parse(tag), juice, amount);
     }
 
     private static java.util.List<BreweryFermentationOperation> createBreweryFermentations() {

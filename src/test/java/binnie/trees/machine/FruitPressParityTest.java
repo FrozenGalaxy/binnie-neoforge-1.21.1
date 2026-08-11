@@ -28,6 +28,16 @@ final class FruitPressParityTest {
         assertRoute(routes, "cranberry", "cranberry", 50, 10, 5, false);
     }
 
+    @Test
+    void legacyOreDictionaryInputsUseModernCommonTags() {
+        var routes = BinnieTreesMachineProcesses.taggedFruitPressOperations();
+        assertEquals(7, routes.size());
+        assertTrue(routes.stream().anyMatch(route -> route.inputTag().toString().equals("c:crops/tomato")
+                && route.juice().equals("tomato") && route.outputAmount() == 200));
+        assertTrue(routes.stream().anyMatch(route -> route.inputTag().toString().equals("c:fruits/lemon")
+                && route.juice().equals("lemon") && route.outputAmount() == 400));
+    }
+
     private static void assertRoute(Map<String, BinnieTreesMachineProcesses.FruitPressOperation> routes, String input, String juice,
                                     int amount, int time, int mulch, boolean oil) {
         var route = routes.get(input);
