@@ -1,3 +1,23 @@
 {
-  "parent": "binniebotany:block/soil/soil_neutral_normal_1"
+  "parent": "binniebotany:block/soil/soil_neutral_normal_1",
+  "overrides": [
+    { "predicate": { "binniebotany:soil_variant": 1 }, "model": "binniebotany:item/creative_soil_acid_dry" },
+    { "predicate": { "binniebotany:soil_variant": 2 }, "model": "binniebotany:item/creative_soil_acid_normal" },
+    { "predicate": { "binniebotany:soil_variant": 3 }, "model": "binniebotany:item/creative_soil_acid_damp" },
+    { "predicate": { "binniebotany:soil_variant": 4 }, "model": "binniebotany:item/creative_soil_neutral_dry" },
+    { "predicate": { "binniebotany:soil_variant": 5 }, "model": "binniebotany:item/creative_soil_neutral_normal" },
+    { "predicate": { "binniebotany:soil_variant": 6 }, "model": "binniebotany:item/creative_soil_neutral_damp" },
+    { "predicate": { "binniebotany:soil_variant": 7 }, "model": "binniebotany:item/creative_soil_alkaline_dry" },
+    { "predicate": { "binniebotany:soil_variant": 8 }, "model": "binniebotany:item/creative_soil_alkaline_normal" },
+    { "predicate": { "binniebotany:soil_variant": 9 }, "model": "binniebotany:item/creative_soil_alkaline_damp" },
+    { "predicate": { "binniebotany:soil_variant": 10 }, "model": "binniebotany:item/creative_soil_no_weed_acid_dry" },
+    { "predicate": { "binniebotany:soil_variant": 11 }, "model": "binniebotany:item/creative_soil_no_weed_acid_normal" },
+    { "predicate": { "binniebotany:soil_variant": 12 }, "model": "binniebotany:item/creative_soil_no_weed_acid_damp" },
+    { "predicate": { "binniebotany:soil_variant": 13 }, "model": "binniebotany:item/creative_soil_no_weed_neutral_dry" },
+    { "predicate": { "binniebotany:soil_variant": 14 }, "model": "binniebotany:item/creative_soil_no_weed_neutral_normal" },
+    { "predicate": { "binniebotany:soil_variant": 15 }, "model": "binniebotany:item/creative_soil_no_weed_neutral_damp" },
+    { "predicate": { "binniebotany:soil_variant": 16 }, "model": "binniebotany:item/creative_soil_no_weed_alkaline_dry" },
+    { "predicate": { "binniebotany:soil_variant": 17 }, "model": "binniebotany:item/creative_soil_no_weed_alkaline_normal" },
+    { "predicate": { "binniebotany:soil_variant": 18 }, "model": "binniebotany:item/creative_soil_no_weed_alkaline_damp" }
+  ]
 }

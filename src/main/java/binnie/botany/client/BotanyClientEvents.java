@@ -100,6 +100,12 @@ public final class BotanyClientEvents {
             ItemProperties.register(BotanyWorldContent.CERAMIC_BRICK_ITEM.get(),
                     ResourceLocation.fromNamespaceAndPath(BinnieBotany.MOD_ID, "ceramic_brick_type"),
                     (stack, level, entity, seed) -> binnie.botany.item.CeramicBrickItem.type(stack).ordinal());
+            ResourceLocation soilVariant = ResourceLocation.fromNamespaceAndPath(BinnieBotany.MOD_ID, "soil_variant");
+            for (var item : java.util.List.of(BotanyWorldContent.SOIL_ITEM.get(),
+                    BotanyWorldContent.LOAM_ITEM.get(), BotanyWorldContent.FLOWERBED_ITEM.get())) {
+                ItemProperties.register(item, soilVariant,
+                        (stack, level, entity, seed) -> binnie.botany.item.SoilBlockItem.modelVariant(stack));
+            }
             ItemBlockRenderTypes.setRenderLayer(BotanyWorldContent.STAINED_GLASS.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(BotanyWorldContent.FLOWER_BLOCK.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BotanyWorldContent.GARDEN_PLANT.get(), RenderType.cutout());
