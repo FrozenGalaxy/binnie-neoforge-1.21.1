@@ -57,6 +57,11 @@ public final class GeneticsContent {
             output.accept(FLUORESCENT_DYE.get());
             output.accept(ENZYME.get());
             output.accept(GROWTH_MEDIUM.get());
+            output.accept(GeneticsFluids.GROWTH_MEDIUM.bucket());
+            output.accept(GeneticsFluids.BACTERIA.bucket());
+            output.accept(GeneticsFluids.POLYMERISING_BACTERIA.bucket());
+            output.accept(GeneticsFluids.RAW_DNA.bucket());
+            output.accept(GeneticsFluids.VECTOR_BACTERIA.bucket());
             output.accept(EMPTY_SEQUENCER.get());
             output.accept(material.blank(GeneticMaterialItem.Kind.GENE));
             output.accept(material.blank(GeneticMaterialItem.Kind.SEQUENCE));
