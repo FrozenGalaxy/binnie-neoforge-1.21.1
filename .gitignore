@@ -21,6 +21,7 @@ out/
 .run/
 
 ### Eclipse ###
+.eclipse/
 .apt_generated/
 .classpath
 .factorypath

@@ -1,6 +1,6 @@
 package binnie.botany.client;
 
-import binnie.botany.client.binniegenetics.FlowerAnalyzerPlugin;
+import binnie.botany.client.genetics.FlowerAnalyzerPlugin;
 import binnie.botany.genetics.FlowerSpeciesTypes;
 import binnie.trees.forestry.LegacyButterflyCatalog;
 import binnie.trees.forestry.LegacyTreeCatalog;

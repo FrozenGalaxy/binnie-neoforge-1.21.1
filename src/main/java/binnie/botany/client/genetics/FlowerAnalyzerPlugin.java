@@ -1,4 +1,4 @@
-package binnie.botany.client.binniegenetics;
+package binnie.botany.client.genetics;
 
 import binnie.botany.api.genetics.FlowerLifeStage;
 import binnie.botany.api.genetics.IFlower;
