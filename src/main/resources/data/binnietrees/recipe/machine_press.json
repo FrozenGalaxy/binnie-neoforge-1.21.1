@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "iGi",
+    "tSt",
+    "tPt"
+  ],
+  "key": {
+    "i": {
+      "tag": "c:ingots/iron"
+    },
+    "G": {
+      "tag": "c:glass_blocks"
+    },
+    "t": {
+      "tag": "c:ingots/tin"
+    },
+    "S": {
+      "item": "forestry:sturdy_casing"
+    },
+    "P": {
+      "tag": "c:gears/bronze"
+    }
+  },
+  "result": {
+    "id": "binnietrees:press",
+    "count": 1
+  }
+}

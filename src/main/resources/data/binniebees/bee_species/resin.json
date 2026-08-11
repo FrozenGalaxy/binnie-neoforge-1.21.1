@@ -1,0 +1,47 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": false,
+  "genome": {
+    "forestry:lifespan": {
+      "dominant": false,
+      "value": 40
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 15
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    }
+  },
+  "genus": "fosiapis",
+  "outline": 10908443,
+  "products": [
+    {
+      "chance": 0.2,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "old"
+        }
+      }
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.05,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "resin"
+        }
+      }
+    }
+  ],
+  "species": "lacrima",
+  "stripes": 0
+}

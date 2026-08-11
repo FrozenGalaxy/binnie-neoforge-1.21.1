@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:sweet",
+  "id": "binniebees:bee_mutation/ripening_1",
+  "result": "binniebees:ripening",
+  "second": "binniebees:growing",
+  "type": "forestry:bee_mutation"
+}

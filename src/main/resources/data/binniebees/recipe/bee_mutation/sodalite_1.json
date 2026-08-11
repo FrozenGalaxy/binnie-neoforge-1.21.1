@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:lapis",
+  "id": "binniebees:bee_mutation/sodalite_1",
+  "result": "binniebees:sodalite",
+  "second": "forestry:diligent",
+  "type": "forestry:bee_mutation"
+}

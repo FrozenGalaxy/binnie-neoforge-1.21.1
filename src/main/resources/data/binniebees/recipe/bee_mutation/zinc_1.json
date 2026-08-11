@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:wintry",
+  "id": "binniebees:bee_mutation/zinc_1",
+  "result": "binniebees:zinc",
+  "second": "binniebees:mineral",
+  "type": "forestry:bee_mutation"
+}

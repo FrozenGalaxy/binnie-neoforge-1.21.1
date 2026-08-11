@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "binniebees:distilled",
+  "id": "binniebees:bee_mutation/latex_1",
+  "result": "binniebees:latex",
+  "second": "binniebees:resin",
+  "type": "forestry:bee_mutation"
+}

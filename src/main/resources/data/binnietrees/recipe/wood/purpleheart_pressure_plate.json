@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:purpleheart_planks"
+      },
+      {
+        "item": "binnietrees:purpleheart_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:purpleheart_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

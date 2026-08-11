@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:miry",
+  "id": "binniebees:bee_mutation/swamp_1",
+  "result": "binniebees:swamp",
+  "second": "binniebees:water",
+  "type": "forestry:bee_mutation"
+}

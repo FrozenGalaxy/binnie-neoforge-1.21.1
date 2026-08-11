@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:beech_planks"
+      },
+      {
+        "item": "binnietrees:beech_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:beech_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

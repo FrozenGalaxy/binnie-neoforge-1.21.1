@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:pomelo",
+  "id": "binnietrees:tree_mutation/lime_12",
+  "result": "binnietrees:lime",
+  "second": "binnietrees:key_lime",
+  "type": "forestry:tree_mutation"
+}

@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:eucalyptus_planks"
+      },
+      {
+        "item": "binnietrees:eucalyptus_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:eucalyptus_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

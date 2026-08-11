@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:hemlock_log",
+    "binnietrees:hemlock_stripped_log",
+    "binnietrees:hemlock_stripped_wood",
+    "binnietrees:hemlock_wood"
+  ]
+}

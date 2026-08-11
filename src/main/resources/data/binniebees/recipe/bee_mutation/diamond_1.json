@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:cultivated",
+  "id": "binniebees:bee_mutation/diamond_1",
+  "result": "binniebees:diamond",
+  "second": "binniebees:lapis",
+  "type": "forestry:bee_mutation"
+}

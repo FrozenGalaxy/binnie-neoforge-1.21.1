@@ -1,0 +1,14 @@
+{
+  "chance": 0.1,
+  "conditions": [
+    {
+      "min": 60,
+      "type": "binnietrees:height"
+    }
+  ],
+  "first": "binnietrees:fir",
+  "id": "binnietrees:tree_mutation/douglas_fir_50",
+  "result": "binnietrees:douglas_fir",
+  "second": "forestry:spruce",
+  "type": "forestry:tree_mutation"
+}

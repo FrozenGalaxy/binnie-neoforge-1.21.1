@@ -1,0 +1,16 @@
+{
+  "catalog": "binniebotany.ceramic_pattern",
+  "count": 10,
+  "values": [
+    "tile",
+    "brick",
+    "stripe_brick",
+    "large_brick",
+    "split",
+    "chequered",
+    "mixed",
+    "vertical_brick",
+    "vertical_stripe_brick",
+    "vertical_large_brick"
+  ]
+}

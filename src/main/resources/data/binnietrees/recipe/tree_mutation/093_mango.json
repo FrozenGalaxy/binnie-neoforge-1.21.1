@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:jungle",
+  "id": "binnietrees:tree_mutation/mango_93",
+  "result": "binnietrees:mango",
+  "second": "binnietrees:orange",
+  "type": "forestry:tree_mutation"
+}

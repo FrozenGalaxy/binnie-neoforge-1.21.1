@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "binniebees:ocean",
+  "id": "binniebees:bee_mutation/oil_1",
+  "result": "binniebees:oil",
+  "second": "binniebees:primeval",
+  "type": "forestry:bee_mutation"
+}

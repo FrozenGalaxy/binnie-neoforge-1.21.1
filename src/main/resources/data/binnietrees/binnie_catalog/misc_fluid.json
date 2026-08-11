@@ -1,0 +1,14 @@
+{
+  "catalog": "binnietrees.misc_fluid",
+  "count": 8,
+  "values": [
+    "carbonated_water",
+    "tonic_water",
+    "cream",
+    "ginger_ale",
+    "coffee",
+    "sugar_syrup",
+    "agave_nectar",
+    "grenadine_syrup"
+  ]
+}

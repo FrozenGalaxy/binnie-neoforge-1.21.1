@@ -1,0 +1,18 @@
+{
+  "category": "redstone",
+  "ingredients": [
+    [
+      {
+        "item": "binnietrees:purpleheart_planks"
+      },
+      {
+        "item": "binnietrees:purpleheart_fireproof_planks"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:purpleheart_button"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

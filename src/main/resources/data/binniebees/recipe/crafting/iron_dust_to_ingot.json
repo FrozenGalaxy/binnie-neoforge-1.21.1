@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "binniebees:iron_dust"
+    },
+    {
+      "item": "binniebees:iron_dust"
+    },
+    {
+      "item": "binniebees:iron_dust"
+    },
+    {
+      "item": "binniebees:iron_dust"
+    },
+    {
+      "item": "binniebees:iron_dust"
+    },
+    {
+      "item": "binniebees:iron_dust"
+    },
+    {
+      "item": "binniebees:iron_dust"
+    },
+    {
+      "item": "binniebees:iron_dust"
+    },
+    {
+      "item": "binniebees:iron_dust"
+    }
+  ],
+  "result": {
+    "id": "minecraft:iron_ingot",
+    "count": 1
+  }
+}

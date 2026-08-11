@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:sinister",
+  "id": "binniebees:bee_mutation/malicious_1",
+  "result": "binniebees:malicious",
+  "second": "forestry:tropical",
+  "type": "forestry:bee_mutation"
+}

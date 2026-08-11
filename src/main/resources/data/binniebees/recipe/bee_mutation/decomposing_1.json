@@ -1,0 +1,8 @@
+{
+  "chance": 0.15,
+  "first": "forestry:marshy",
+  "id": "binniebees:bee_mutation/decomposing_1",
+  "result": "binniebees:decomposing",
+  "second": "binniebees:barren",
+  "type": "forestry:bee_mutation"
+}

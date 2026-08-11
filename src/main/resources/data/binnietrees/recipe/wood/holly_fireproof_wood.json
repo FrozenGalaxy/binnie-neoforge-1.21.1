@@ -1,0 +1,18 @@
+{
+  "category": "building",
+  "group": "bark",
+  "key": {
+    "#": {
+      "item": "binnietrees:holly_fireproof_log"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "binnietrees:holly_fireproof_wood"
+  },
+  "type": "minecraft:crafting_shaped"
+}

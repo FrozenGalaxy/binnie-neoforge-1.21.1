@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "forestry:beeswax" },
+    { "item": "minecraft:quartz" }
+  ],
+  "result": { "id": "binniebees:quartz_comb", "count": 1 }
+}

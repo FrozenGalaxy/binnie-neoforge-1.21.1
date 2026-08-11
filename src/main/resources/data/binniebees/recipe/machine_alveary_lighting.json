@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "iii",
+    "iai",
+    " t "
+  ],
+  "key": {
+    "i": {
+      "tag": "c:dusts/glowstone"
+    },
+    "a": {
+      "item": "forestry:alveary_block"
+    },
+    "t": {
+      "item": "forestry:golden_electron_tube"
+    }
+  },
+  "result": {
+    "id": "binniebees:alveary_lighting",
+    "count": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/sweetgum_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/sweetgum_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/sweetgum_slab_top"
+    }
+  }
+}

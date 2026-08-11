@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:modest",
+  "id": "binniebees:bee_mutation/ruby_1",
+  "result": "binniebees:ruby",
+  "second": "binniebees:lapis",
+  "type": "forestry:bee_mutation"
+}

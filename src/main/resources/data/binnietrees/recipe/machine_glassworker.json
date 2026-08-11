@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "wGw",
+    "GsG",
+    "ggg"
+  ],
+  "key": {
+    "w": {
+      "tag": "c:glass_blocks"
+    },
+    "G": {
+      "tag": "c:glass_blocks"
+    },
+    "s": {
+      "item": "forestry:impregnated_casing"
+    },
+    "g": {
+      "item": "binnietrees:proven_gear"
+    }
+  },
+  "result": {
+    "id": "binnietrees:glassworker",
+    "count": 1
+  }
+}

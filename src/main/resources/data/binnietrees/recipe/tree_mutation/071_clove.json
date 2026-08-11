@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:coffee",
+  "id": "binnietrees:tree_mutation/clove_71",
+  "result": "binnietrees:clove",
+  "second": "forestry:teak",
+  "type": "forestry:tree_mutation"
+}

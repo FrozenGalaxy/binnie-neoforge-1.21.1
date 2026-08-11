@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:secluded",
+  "id": "binniebees:bee_mutation/unusual_1",
+  "result": "binniebees:unusual",
+  "second": "forestry:ended",
+  "type": "forestry:bee_mutation"
+}

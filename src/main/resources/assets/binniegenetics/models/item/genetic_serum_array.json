@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "binniegenetics:item/material/genome_glass",
+    "layer1": "binniegenetics:item/material/genome_cap",
+    "layer2": "binniegenetics:item/material/genome_edges",
+    "layer3": "binniegenetics:item/material/genome_dna"
+  }
+}

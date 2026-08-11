@@ -1,0 +1,16 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 8393496,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_beechnut"
+    },
+    "forestry:maturation": {
+      "dominant": true,
+      "value": 5
+    }
+  },
+  "genus": "fagus",
+  "species": "purpurea"
+}

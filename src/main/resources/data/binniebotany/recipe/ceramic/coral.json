@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "binniebotany:pigmented_clay",
+  "ingredients": [
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "type": "neoforge:components",
+      "items": "binniebotany:pigment",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniebotany.flower_color",
+          "value": "coral"
+        }
+      }
+    }
+  ],
+  "result": {
+    "id": "binniebotany:clay",
+    "count": 1,
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebotany.flower_color",
+        "value": "coral"
+      }
+    }
+  }
+}

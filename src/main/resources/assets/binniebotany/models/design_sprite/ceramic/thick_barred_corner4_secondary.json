@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "binniebotany:block/design_patterns/ceramic/thick_barred_corner4_secondary",
+    "particle": "binniebotany:block/design_patterns/ceramic/thick_barred_corner4_secondary"
+  },
+  "render_type": "minecraft:cutout_mipped"
+}

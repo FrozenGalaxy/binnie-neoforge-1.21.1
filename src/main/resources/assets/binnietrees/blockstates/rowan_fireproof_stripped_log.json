@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "binnietrees:block/rowan_fireproof_stripped_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "binnietrees:block/rowan_fireproof_stripped_log"
+    },
+    "axis=z": {
+      "model": "binnietrees:block/rowan_fireproof_stripped_log",
+      "x": 90
+    }
+  }
+}

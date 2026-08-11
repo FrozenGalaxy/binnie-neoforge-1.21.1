@@ -1,0 +1,19 @@
+{
+  "category": "building",
+  "group": "wooden_stairs",
+  "key": {
+    "#": {
+      "item": "binnietrees:apple_planks"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:apple_stairs"
+  },
+  "type": "minecraft:crafting_shaped"
+}

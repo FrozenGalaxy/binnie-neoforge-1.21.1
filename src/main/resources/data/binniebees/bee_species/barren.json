@@ -1,0 +1,51 @@
+{
+  "authority": "Binnie",
+  "body": 13362036,
+  "dominant": true,
+  "genome": {
+    "forestry:activity": {
+      "dominant": true,
+      "value": "forestry:activity_cathemeral"
+    },
+    "forestry:fertility": {
+      "dominant": true,
+      "value": 1
+    },
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_dead"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "DOWN_1"
+    },
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 30
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    }
+  },
+  "genus": "vacapis",
+  "humidity": "arid",
+  "outline": 14733923,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "barren"
+        }
+      }
+    }
+  ],
+  "species": "infelix",
+  "stripes": 0,
+  "temperature": "hot"
+}

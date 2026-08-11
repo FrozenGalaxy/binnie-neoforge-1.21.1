@@ -1,0 +1,23 @@
+{
+  "category": "redstone",
+  "group": "wooden_trapdoor",
+  "key": {
+    "#": [
+      {
+        "item": "binnietrees:olive_planks"
+      },
+      {
+        "item": "binnietrees:olive_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "binnietrees:olive_trapdoor"
+  },
+  "type": "minecraft:crafting_shaped"
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:pine",
+  "id": "binnietrees:tree_mutation/fir_47",
+  "result": "binnietrees:fir",
+  "second": "binnietrees:balsam_fir",
+  "type": "forestry:tree_mutation"
+}

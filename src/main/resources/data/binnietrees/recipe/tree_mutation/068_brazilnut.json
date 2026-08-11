@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:beech",
+  "id": "binnietrees:tree_mutation/brazilnut_68",
+  "result": "binnietrees:brazilnut",
+  "second": "forestry:jungle",
+  "type": "forestry:tree_mutation"
+}

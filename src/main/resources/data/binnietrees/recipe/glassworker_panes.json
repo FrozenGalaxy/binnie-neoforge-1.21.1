@@ -1,0 +1,14 @@
+{
+  "type": "binniecore:machine",
+  "machine": "binnietrees:glassworker",
+  "input": {
+    "tag": "c:glass_blocks"
+  },
+  "input_count": 6,
+  "output": {
+    "id": "minecraft:glass_pane",
+    "count": 16
+  },
+  "duration": 100,
+  "energy_per_tick": 12
+}

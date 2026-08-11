@@ -1,0 +1,31 @@
+{
+  "type": "forestry:centrifuge",
+  "id": "binniebees:centrifuge/alcohol_comb",
+  "time": 20,
+  "input": {
+    "type": "neoforge:components",
+    "items": "binniebees:honey_comb",
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebees.honey_comb",
+        "value": "alcohol"
+      }
+    }
+  },
+  "products": [
+    {
+      "chance": 1.0,
+      "item": "binniebees:honey_drop",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_drop",
+          "value": "alcohol"
+        }
+      }
+    },
+    {
+      "chance": 0.9,
+      "item": "forestry:honey_drop"
+    }
+  ]
+}

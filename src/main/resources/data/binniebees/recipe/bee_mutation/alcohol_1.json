@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:farmerly",
+  "id": "binniebees:bee_mutation/alcohol_1",
+  "result": "binniebees:alcohol",
+  "second": "forestry:meadows",
+  "type": "forestry:bee_mutation"
+}

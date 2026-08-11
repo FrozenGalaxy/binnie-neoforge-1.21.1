@@ -1,0 +1,8 @@
+{
+  "chance": 0.12,
+  "first": "forestry:common",
+  "id": "binniebees:bee_mutation/cultivated_3",
+  "result": "forestry:cultivated",
+  "second": "binniebees:basalt",
+  "type": "forestry:bee_mutation"
+}

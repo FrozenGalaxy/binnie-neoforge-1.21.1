@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:hermitic",
+  "id": "binniebees:bee_mutation/spatial_1",
+  "result": "binniebees:spatial",
+  "second": "binniebees:unusual",
+  "type": "forestry:bee_mutation"
+}

@@ -1,0 +1,18 @@
+{
+  "category": "redstone",
+  "ingredients": [
+    [
+      {
+        "item": "binnietrees:brazilwood_planks"
+      },
+      {
+        "item": "binnietrees:brazilwood_fireproof_planks"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:brazilwood_button"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

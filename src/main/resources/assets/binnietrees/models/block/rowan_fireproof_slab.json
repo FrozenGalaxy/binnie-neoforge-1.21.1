@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "binnietrees:block/rowan_fireproof_planks",
+    "side": "binnietrees:block/rowan_fireproof_planks",
+    "top": "binnietrees:block/rowan_fireproof_planks"
+  }
+}

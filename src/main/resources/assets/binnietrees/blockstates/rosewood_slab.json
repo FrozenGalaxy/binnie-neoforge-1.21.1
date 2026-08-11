@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/rosewood_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/rosewood_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/rosewood_slab_top"
+    }
+  }
+}

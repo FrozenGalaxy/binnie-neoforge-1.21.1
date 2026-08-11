@@ -1,0 +1,18 @@
+{
+  "category": "redstone",
+  "ingredients": [
+    [
+      {
+        "item": "binnietrees:locust_planks"
+      },
+      {
+        "item": "binnietrees:locust_fireproof_planks"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:locust_button"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

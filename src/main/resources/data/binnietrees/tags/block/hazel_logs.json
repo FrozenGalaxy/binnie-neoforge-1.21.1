@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:hazel_log",
+    "binnietrees:hazel_stripped_log",
+    "binnietrees:hazel_stripped_wood",
+    "binnietrees:hazel_wood"
+  ]
+}

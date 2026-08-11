@@ -1,0 +1,24 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 8762996,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_pecan"
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 1.25
+    },
+    "forestry:maturation": {
+      "dominant": true,
+      "value": 5
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "carya",
+  "species": "illinoinensis"
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:elder_log",
+    "binnietrees:elder_stripped_log",
+    "binnietrees:elder_stripped_wood",
+    "binnietrees:elder_wood"
+  ]
+}

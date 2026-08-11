@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:lime",
+  "id": "binnietrees:tree_mutation/wild_cherry_23",
+  "result": "binnietrees:wild_cherry",
+  "second": "forestry:cherry",
+  "type": "forestry:tree_mutation"
+}

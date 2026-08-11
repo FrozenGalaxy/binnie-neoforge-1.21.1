@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "forestry:diligent",
+  "id": "binniebees:bee_mutation/energetic_1",
+  "result": "binniebees:energetic",
+  "second": "binniebees:excited",
+  "type": "forestry:bee_mutation"
+}

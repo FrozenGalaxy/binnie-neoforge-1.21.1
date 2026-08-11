@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ccc",
+    "cdc",
+    "ccc"
+  ],
+  "key": {
+    "c": {
+      "item": "binniegenetics:integrated_circuit"
+    },
+    "d": {
+      "tag": "c:gems/diamond"
+    }
+  },
+  "result": {
+    "id": "binniegenetics:integrated_cpu",
+    "count": 1
+  }
+}

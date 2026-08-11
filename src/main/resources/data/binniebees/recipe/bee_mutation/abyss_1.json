@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "binniebees:shadow",
+  "id": "binniebees:bee_mutation/abyss_1",
+  "result": "binniebees:abyss",
+  "second": "binniebees:darkened",
+  "type": "forestry:bee_mutation"
+}

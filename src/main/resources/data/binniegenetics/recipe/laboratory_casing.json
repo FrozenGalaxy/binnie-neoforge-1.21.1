@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "iii",
+    "iYi",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "tag": "c:ingots/iron"
+    },
+    "Y": {
+      "item": "forestry:sturdy_casing"
+    }
+  },
+  "result": {
+    "id": "binniegenetics:laboratory_casing",
+    "count": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 7055434,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 1.0
+    }
+  },
+  "genus": "crataegus",
+  "species": "monogyna"
+}

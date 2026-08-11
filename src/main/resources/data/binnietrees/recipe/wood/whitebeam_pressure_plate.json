@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:whitebeam_planks"
+      },
+      {
+        "item": "binnietrees:whitebeam_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:whitebeam_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

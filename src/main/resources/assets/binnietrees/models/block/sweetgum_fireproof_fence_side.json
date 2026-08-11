@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "binnietrees:block/sweetgum_fireproof_planks"
+  }
+}

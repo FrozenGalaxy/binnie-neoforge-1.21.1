@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:cherry",
+  "id": "binnietrees:tree_mutation/raspberry_77",
+  "result": "binnietrees:raspberry",
+  "second": "binnietrees:elder",
+  "type": "forestry:tree_mutation"
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.15,
+  "first": "binniebees:marble",
+  "id": "binniebees:bee_mutation/common_27",
+  "result": "forestry:common",
+  "second": "forestry:tropical",
+  "type": "forestry:bee_mutation"
+}

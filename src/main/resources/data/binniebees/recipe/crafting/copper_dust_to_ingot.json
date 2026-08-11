@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "binniebees:copper_dust"
+    },
+    {
+      "item": "binniebees:copper_dust"
+    },
+    {
+      "item": "binniebees:copper_dust"
+    },
+    {
+      "item": "binniebees:copper_dust"
+    },
+    {
+      "item": "binniebees:copper_dust"
+    },
+    {
+      "item": "binniebees:copper_dust"
+    },
+    {
+      "item": "binniebees:copper_dust"
+    },
+    {
+      "item": "binniebees:copper_dust"
+    },
+    {
+      "item": "binniebees:copper_dust"
+    }
+  ],
+  "result": {
+    "id": "minecraft:copper_ingot",
+    "count": 1
+  }
+}

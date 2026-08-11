@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:maple",
+  "id": "binnietrees:tree_mutation/red_maple_56",
+  "result": "binnietrees:red_maple",
+  "second": "forestry:lime",
+  "type": "forestry:tree_mutation"
+}

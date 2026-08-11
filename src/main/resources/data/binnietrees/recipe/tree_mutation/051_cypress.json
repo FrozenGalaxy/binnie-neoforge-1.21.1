@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:pine",
+  "id": "binnietrees:tree_mutation/cypress_51",
+  "result": "binnietrees:cypress",
+  "second": "forestry:spruce",
+  "type": "forestry:tree_mutation"
+}

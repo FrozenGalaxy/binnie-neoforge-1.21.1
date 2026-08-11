@@ -1,0 +1,17 @@
+{
+  "category": "building",
+  "group": "wooden_slab",
+  "key": {
+    "#": {
+      "item": "binnietrees:brazilwood_planks"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "binnietrees:brazilwood_slab"
+  },
+  "type": "minecraft:crafting_shaped"
+}

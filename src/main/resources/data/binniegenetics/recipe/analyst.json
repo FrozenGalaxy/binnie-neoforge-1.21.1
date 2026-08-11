@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "pattern": [
+    " c ",
+    "cac",
+    " d "
+  ],
+  "key": {
+    "c": {
+      "item": "binniegenetics:integrated_circuit"
+    },
+    "a": {
+      "item": "forestry:portable_analyzer"
+    },
+    "d": {
+      "tag": "c:gems/diamond"
+    }
+  },
+  "result": {
+    "id": "binniegenetics:analyst",
+    "count": 1
+  }
+}

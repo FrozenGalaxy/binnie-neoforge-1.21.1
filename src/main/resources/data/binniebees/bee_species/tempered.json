@@ -1,0 +1,41 @@
+{
+  "authority": "Binnie",
+  "body": 10101539,
+  "dominant": false,
+  "genome": {
+    "forestry:activity": {
+      "dominant": true,
+      "value": "forestry:activity_nocturnal"
+    },
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_meteor"
+    },
+    "forestry:lifespan": {
+      "dominant": false,
+      "value": 40
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 20
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "forestry:temperature_tolerance": {
+      "value": "DOWN_2"
+    }
+  },
+  "genus": "irrapis",
+  "humidity": "arid",
+  "outline": 9062472,
+  "products": [
+    {
+      "chance": 0.25,
+      "item": "forestry:simmering_comb"
+    }
+  ],
+  "species": "iratus",
+  "stripes": 0,
+  "temperature": "hellish"
+}

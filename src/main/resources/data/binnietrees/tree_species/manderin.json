@@ -1,0 +1,28 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 8957780,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_manderin"
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.25
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.3
+    },
+    "forestry:yield": {
+      "dominant": false,
+      "value": 0.3
+    }
+  },
+  "genus": "citrus",
+  "species": "reticulata"
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:spectral",
+  "id": "binniebees:bee_mutation/quantum_1",
+  "result": "binniebees:quantum",
+  "second": "binniebees:spatial",
+  "type": "forestry:bee_mutation"
+}

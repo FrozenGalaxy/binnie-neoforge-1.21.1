@@ -1,0 +1,17 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 4754987,
+  "genome": {
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "fraxinus",
+  "species": "excelsior"
+}

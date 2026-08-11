@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:sweetgum_planks"
+      },
+      {
+        "item": "binnietrees:sweetgum_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:sweetgum_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

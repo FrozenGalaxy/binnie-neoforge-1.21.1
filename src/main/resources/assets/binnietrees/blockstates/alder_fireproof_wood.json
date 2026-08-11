@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "binnietrees:block/alder_fireproof_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "binnietrees:block/alder_fireproof_wood"
+    },
+    "axis=z": {
+      "model": "binnietrees:block/alder_fireproof_wood",
+      "x": 90
+    }
+  }
+}

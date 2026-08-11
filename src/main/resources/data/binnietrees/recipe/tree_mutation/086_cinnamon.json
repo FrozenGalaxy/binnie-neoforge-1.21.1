@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:teak",
+  "id": "binnietrees:tree_mutation/cinnamon_86",
+  "result": "binnietrees:cinnamon",
+  "second": "binnietrees:rosewood",
+  "type": "forestry:tree_mutation"
+}

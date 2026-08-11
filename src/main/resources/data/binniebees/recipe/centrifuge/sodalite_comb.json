@@ -1,0 +1,25 @@
+{
+  "type": "forestry:centrifuge",
+  "id": "binniebees:centrifuge/sodalite_comb",
+  "time": 20,
+  "input": {
+    "type": "neoforge:components",
+    "items": "binniebees:honey_comb",
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebees.honey_comb",
+        "value": "sodalite"
+      }
+    }
+  },
+  "products": [
+    {
+      "chance": 0.5,
+      "item": "forestry:beeswax"
+    },
+    {
+      "chance": 0.25,
+      "item": "forestry:honey_drop"
+    }
+  ]
+}

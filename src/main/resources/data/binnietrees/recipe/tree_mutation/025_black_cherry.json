@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:ebony",
+  "id": "binnietrees:tree_mutation/black_cherry_25",
+  "result": "binnietrees:black_cherry",
+  "second": "forestry:cherry",
+  "type": "forestry:tree_mutation"
+}

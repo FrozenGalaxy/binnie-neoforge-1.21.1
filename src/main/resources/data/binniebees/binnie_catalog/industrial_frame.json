@@ -1,0 +1,22 @@
+{
+  "catalog": "binniebees.industrial_frame",
+  "count": 16,
+  "values": [
+    "empty",
+    "light",
+    "rain",
+    "sunlight",
+    "soul",
+    "uranium",
+    "cage",
+    "freedom",
+    "honey",
+    "jelly",
+    "leaf",
+    "pollen",
+    "clay",
+    "emerald",
+    "nether_star",
+    "poison"
+  ]
+}

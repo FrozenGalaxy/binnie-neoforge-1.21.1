@@ -1,0 +1,150 @@
+modLoader = "javafml"
+loaderVersion = "${fmlVersionRange}"
+license = "GNU Lesser General Public License v3.0"
+issueTrackerURL = "https://github.com/ForestryMC/Binnie/issues"
+
+[[mods]]
+modId = "binniecore"
+version = "${version}"
+displayName = "Binnies: Core"
+displayURL = "https://github.com/ForestryMC/Binnie"
+authors = "Binnie, the Binnie's Mods contributors"
+description = '''Shared runtime, machine, genetics, database, configuration, and UI infrastructure for Binnie's Mods.'''
+
+[[mods]]
+modId = "binniedesign"
+version = "${version}"
+displayName = "Binnies: Design"
+displayURL = "https://github.com/ForestryMC/Binnie"
+authors = "Binnie, the Binnie's Mods contributors"
+description = '''Dynamic patterned wood and glass design system used throughout Binnie's Mods.'''
+
+[[mods]]
+modId = "binniebotany"
+version = "${version}"
+displayName = "Binnies: Botany"
+displayURL = "https://github.com/ForestryMC/Binnie"
+authors = "Binnie, the Binnie's Mods contributors"
+description = '''Flower genetics, gardening, ceramics, pigments, and related machines.'''
+
+[[mods]]
+modId = "binniebees"
+version = "${version}"
+displayName = "Binnies: Bees"
+displayURL = "https://github.com/ForestryMC/Binnie"
+authors = "Binnie, the Binnie's Mods contributors"
+description = '''Expanded bee species, products, effects, frames, hives, circuits, and alveary components.'''
+
+[[mods]]
+modId = "binnietrees"
+version = "${version}"
+displayName = "Binnies: Trees"
+displayURL = "https://github.com/ForestryMC/Binnie"
+authors = "Binnie, the Binnie's Mods contributors"
+description = '''Expanded trees, woods, fruits, beverages, glassware, and processing machines.'''
+
+[[mods]]
+modId = "binniegenetics"
+version = "${version}"
+displayName = "Binnies: Genetics"
+displayURL = "https://github.com/ForestryMC/Binnie"
+authors = "Binnie, the Binnie's Mods contributors"
+description = '''Laboratory genetics machines and tools for bees, trees, butterflies, and flowers.'''
+
+[[dependencies.binniecore]]
+modId = "neoforge"
+type = "REQUIRED"
+versionRange = "${neoForgeVersionRange}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.binniecore]]
+modId = "forestry"
+type = "REQUIRED"
+versionRange = "[${forestryVersion}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.binniecore]]
+modId = "patchouli"
+type = "REQUIRED"
+versionRange = "${patchouliVersionRange}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.binniecore]]
+modId = "jei"
+type = "OPTIONAL"
+versionRange = "${jeiVersionRange}"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[dependencies.binniedesign]]
+modId = "binniecore"
+type = "REQUIRED"
+versionRange = "[${version}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.binniebotany]]
+modId = "binniecore"
+type = "REQUIRED"
+versionRange = "[${version}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.binniebotany]]
+modId = "binniedesign"
+type = "REQUIRED"
+versionRange = "[${version}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.binniebotany]]
+modId = "forestryfarms"
+type = "OPTIONAL"
+versionRange = "[${forestryVersion}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.binniebees]]
+modId = "binniecore"
+type = "REQUIRED"
+versionRange = "[${version}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.binnietrees]]
+modId = "binniecore"
+type = "REQUIRED"
+versionRange = "[${version}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.binnietrees]]
+modId = "binniedesign"
+type = "REQUIRED"
+versionRange = "[${version}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.binnietrees]]
+modId = "forestrybutterflies"
+type = "OPTIONAL"
+versionRange = "[${forestryVersion}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.binniegenetics]]
+modId = "binniecore"
+type = "REQUIRED"
+versionRange = "[${version}]"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.binniegenetics]]
+modId = "forestrybutterflies"
+type = "OPTIONAL"
+versionRange = "[${forestryVersion}]"
+ordering = "AFTER"
+side = "BOTH"

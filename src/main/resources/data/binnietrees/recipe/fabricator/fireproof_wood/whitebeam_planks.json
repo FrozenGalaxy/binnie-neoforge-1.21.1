@@ -1,0 +1,28 @@
+{
+  "type": "forestry:fabricator",
+  "id": "binnietrees:fabricator/fireproof_wood/whitebeam_planks",
+  "molten": {
+    "amount": 500,
+    "id": "forestry:liquid_glass"
+  },
+  "recipe": {
+    "category": "building",
+    "key": {
+      "#": {
+        "item": "forestry:refractory_wax"
+      },
+      "X": {
+        "item": "binnietrees:whitebeam_planks"
+      }
+    },
+    "pattern": [
+      "X#X",
+      "#X#",
+      "X#X"
+    ],
+    "result": {
+      "count": 5,
+      "id": "binnietrees:whitebeam_fireproof_planks"
+    }
+  }
+}

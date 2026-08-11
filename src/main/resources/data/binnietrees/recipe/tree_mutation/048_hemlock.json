@@ -1,0 +1,14 @@
+{
+  "chance": 0.1,
+  "conditions": [
+    {
+      "min": 80,
+      "type": "binnietrees:height"
+    }
+  ],
+  "first": "forestry:pine",
+  "id": "binnietrees:tree_mutation/hemlock_48",
+  "result": "binnietrees:hemlock",
+  "second": "binnietrees:fir",
+  "type": "forestry:tree_mutation"
+}

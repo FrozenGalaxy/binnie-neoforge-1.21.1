@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "pcp",
+    "cbc",
+    "pcp"
+  ],
+  "key": {
+    "p": {
+      "item": "minecraft:stone_button"
+    },
+    "c": {
+      "tag": "c:gears/copper"
+    },
+    "b": {
+      "item": "binniecore:compartment",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniecore.compartment",
+          "value": "plain"
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "binniecore:compartment",
+    "count": 1,
+    "components": {
+      "binniecore:variant": {
+        "category": "binniecore.compartment",
+        "value": "copper"
+      }
+    }
+  }
+}

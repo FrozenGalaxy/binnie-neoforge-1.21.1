@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "binniebees:malicious",
+  "id": "binniebees:bee_mutation/virulent_1",
+  "result": "binniebees:virulent",
+  "second": "binniebees:infectious",
+  "type": "forestry:bee_mutation"
+}

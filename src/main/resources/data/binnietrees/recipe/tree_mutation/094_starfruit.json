@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:star_anise",
+  "id": "binnietrees:tree_mutation/starfruit_94",
+  "result": "binnietrees:starfruit",
+  "second": "binnietrees:mango",
+  "type": "forestry:tree_mutation"
+}

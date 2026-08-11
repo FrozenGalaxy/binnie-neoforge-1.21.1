@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "pattern": [
+    "wiw",
+    " s ",
+    " s "
+  ],
+  "key": {
+    "w": {
+      "tag": "c:obsidians"
+    },
+    "i": {
+      "tag": "c:ingots/gold"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "result": {
+    "id": "binnietrees:durable_hammer",
+    "count": 1
+  }
+}

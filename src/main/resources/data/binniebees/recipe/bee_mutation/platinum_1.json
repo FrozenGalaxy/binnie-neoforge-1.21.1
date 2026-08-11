@@ -1,0 +1,8 @@
+{
+  "chance": 0.02,
+  "first": "binniebees:gold",
+  "id": "binniebees:bee_mutation/platinum_1",
+  "result": "binniebees:platinum",
+  "second": "binniebees:silver",
+  "type": "forestry:bee_mutation"
+}

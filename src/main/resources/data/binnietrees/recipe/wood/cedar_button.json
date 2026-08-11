@@ -1,0 +1,18 @@
+{
+  "category": "redstone",
+  "ingredients": [
+    [
+      {
+        "item": "binnietrees:cedar_planks"
+      },
+      {
+        "item": "binnietrees:cedar_fireproof_planks"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:cedar_button"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

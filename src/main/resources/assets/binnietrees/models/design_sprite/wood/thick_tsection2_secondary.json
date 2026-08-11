@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "binnietrees:block/design_patterns/wood/thick_tsection2_secondary",
+    "particle": "binnietrees:block/design_patterns/wood/thick_tsection2_secondary"
+  },
+  "render_type": "minecraft:cutout_mipped"
+}

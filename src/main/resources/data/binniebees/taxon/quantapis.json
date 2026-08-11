@@ -1,0 +1,38 @@
+{
+  "alleles": {
+    "forestry:activity": {
+      "dominant": true,
+      "value": "forestry:activity_cathemeral"
+    },
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_gravity"
+    },
+    "forestry:fertility": {
+      "dominant": true,
+      "value": 1
+    },
+    "forestry:lifespan": {
+      "dominant": false,
+      "value": 60
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    },
+    "forestry:territory": {
+      "dominant": false,
+      "value": [
+        11,
+        8,
+        11
+      ]
+    }
+  },
+  "name": "quantapis",
+  "parent": "apidae",
+  "rank": "genus",
+  "type": "forestry:bee_species"
+}

@@ -1,0 +1,23 @@
+{
+  "category": "redstone",
+  "group": "wooden_trapdoor",
+  "key": {
+    "#": [
+      {
+        "item": "binnietrees:hornbeam_planks"
+      },
+      {
+        "item": "binnietrees:hornbeam_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "binnietrees:hornbeam_trapdoor"
+  },
+  "type": "minecraft:crafting_shaped"
+}

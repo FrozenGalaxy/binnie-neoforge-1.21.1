@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:dyes/purple"
+    },
+    {
+      "tag": "c:dyes/magenta"
+    },
+    {
+      "tag": "c:dyes/pink"
+    }
+  ],
+  "result": {
+    "id": "binniegenetics:dna_dye",
+    "count": 2
+  }
+}

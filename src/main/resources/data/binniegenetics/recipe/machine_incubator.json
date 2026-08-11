@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "gFg",
+    "cCc",
+    "aPa"
+  ],
+  "key": {
+    "C": {
+      "item": "binniegenetics:laboratory_casing"
+    },
+    "c": {
+      "item": "forestry:enhanced_circuit_board"
+    },
+    "g": {
+      "tag": "c:glass_panes"
+    },
+    "P": {
+      "tag": "c:gears/bronze"
+    },
+    "F": {
+      "tag": "c:player_workstations/furnaces"
+    },
+    "a": {
+      "tag": "c:ingots/iron"
+    }
+  },
+  "result": {
+    "id": "binniegenetics:incubator",
+    "count": 1
+  }
+}

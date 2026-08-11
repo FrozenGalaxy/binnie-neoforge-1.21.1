@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:syzgium_fireproof_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:syzgium_fireproof_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

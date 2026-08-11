@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "binniebees:viscous",
+  "id": "binniebees:bee_mutation/sticky_1",
+  "result": "binniebees:sticky",
+  "second": "binniebees:glutinous",
+  "type": "forestry:bee_mutation"
+}

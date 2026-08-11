@@ -1,0 +1,7 @@
+{
+  "parent": "binniegenetics:block/machine_base",
+  "textures": {
+    "all": "binniegenetics:block/machine/splicer",
+    "particle": "binniegenetics:block/machine/splicer"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:locust_planks"
+      },
+      {
+        "item": "binnietrees:locust_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:locust_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

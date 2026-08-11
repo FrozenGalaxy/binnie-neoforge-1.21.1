@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:holly_planks"
+      },
+      {
+        "item": "binnietrees:holly_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:holly_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

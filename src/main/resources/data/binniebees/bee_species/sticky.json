@@ -1,0 +1,42 @@
+{
+  "authority": "Binnie",
+  "body": 431972,
+  "dominant": true,
+  "genome": {
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_ectoplasm"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "UP_1"
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 1.2
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    }
+  },
+  "genus": "viscapis",
+  "outline": 1565480,
+  "products": [
+    {
+      "chance": 0.25,
+      "item": "forestry:silky_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.12,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "slime"
+        }
+      }
+    }
+  ],
+  "species": "lentesco",
+  "stripes": 0
+}

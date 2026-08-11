@@ -1,0 +1,8 @@
+{
+  "chance": 0.04,
+  "first": "binniebees:corrosive",
+  "id": "binniebees:bee_mutation/acidic_1",
+  "result": "binniebees:acidic",
+  "second": "binniebees:caustic",
+  "type": "forestry:bee_mutation"
+}

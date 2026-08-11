@@ -1,0 +1,13 @@
+{
+  "type": "forestry:still",
+  "id": "binnietrees:still/resin_to_turpentine",
+  "time": 25,
+  "input": {
+    "amount": 5,
+    "id": "binnietrees:resin"
+  },
+  "output": {
+    "amount": 3,
+    "id": "binnietrees:turpentine"
+  }
+}

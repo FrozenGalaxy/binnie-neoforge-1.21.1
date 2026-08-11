@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:banana",
+  "id": "binnietrees:tree_mutation/plantain_28",
+  "result": "binnietrees:plantain",
+  "second": "forestry:teak",
+  "type": "forestry:tree_mutation"
+}

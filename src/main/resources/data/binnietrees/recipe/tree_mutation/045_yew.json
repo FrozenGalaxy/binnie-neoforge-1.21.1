@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:larch",
+  "id": "binnietrees:tree_mutation/yew_45",
+  "result": "binnietrees:yew",
+  "second": "forestry:spruce",
+  "type": "forestry:tree_mutation"
+}

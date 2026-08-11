@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/box_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/box_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/box_slab_top"
+    }
+  }
+}

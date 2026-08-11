@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:raspberry",
+  "id": "binnietrees:tree_mutation/golden_raspberry_85",
+  "result": "binnietrees:golden_raspberry",
+  "second": "binnietrees:orange",
+  "type": "forestry:tree_mutation"
+}

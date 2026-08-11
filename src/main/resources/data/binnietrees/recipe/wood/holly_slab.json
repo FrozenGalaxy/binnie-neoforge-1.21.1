@@ -1,0 +1,17 @@
+{
+  "category": "building",
+  "group": "wooden_slab",
+  "key": {
+    "#": {
+      "item": "binnietrees:holly_planks"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "binnietrees:holly_slab"
+  },
+  "type": "minecraft:crafting_shaped"
+}

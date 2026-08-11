@@ -1,0 +1,42 @@
+{
+  "type": "forestry:carpenter",
+  "box": [],
+  "id": "binniegenetics:carpenter/database",
+  "liquid": {
+    "amount": 2000,
+    "id": "minecraft:water"
+  },
+  "recipe": {
+    "category": "misc",
+    "pattern": [
+      "X#X",
+      "YEY",
+      "RDR"
+    ],
+    "key": {
+      "#": {
+        "tag": "c:glass_panes"
+      },
+      "X": {
+        "tag": "c:gems/diamond"
+      },
+      "Y": {
+        "tag": "c:gems/diamond"
+      },
+      "R": {
+        "tag": "c:dusts/redstone"
+      },
+      "D": {
+        "item": "minecraft:ender_eye"
+      },
+      "E": {
+        "tag": "c:obsidians"
+      }
+    },
+    "result": {
+      "id": "binniegenetics:database",
+      "count": 1
+    }
+  },
+  "time": 100
+}

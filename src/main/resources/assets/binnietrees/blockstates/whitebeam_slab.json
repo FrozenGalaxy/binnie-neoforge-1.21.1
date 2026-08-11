@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/whitebeam_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/whitebeam_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/whitebeam_slab_top"
+    }
+  }
+}

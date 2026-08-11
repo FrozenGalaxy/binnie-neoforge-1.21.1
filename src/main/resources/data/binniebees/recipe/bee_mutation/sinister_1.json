@@ -1,0 +1,14 @@
+{
+  "chance": 0.6,
+  "conditions": [
+    {
+      "biome": "minecraft:is_nether",
+      "type": "forestry:biome"
+    }
+  ],
+  "first": "forestry:cultivated",
+  "id": "binniebees:bee_mutation/sinister_1",
+  "result": "forestry:sinister",
+  "second": "binniebees:basalt",
+  "type": "forestry:bee_mutation"
+}

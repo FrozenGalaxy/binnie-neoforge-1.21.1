@@ -1,0 +1,69 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "botania:white_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:orange_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:magenta_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:light_blue_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:yellow_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:lime_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:pink_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:gray_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:light_gray_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:cyan_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:purple_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:blue_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:brown_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:green_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:red_mystical_flower",
+      "required": false
+    },
+    {
+      "id": "botania:black_mystical_flower",
+      "required": false
+    }
+  ]
+}

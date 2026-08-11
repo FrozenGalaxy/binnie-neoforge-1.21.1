@@ -1,0 +1,33 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 8632686,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_golden_raspberry"
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.5
+    },
+    "forestry:maturation": {
+      "dominant": false,
+      "value": 1
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "rubus",
+  "rarity": 0.0025,
+  "species": "occidentalis"
+}

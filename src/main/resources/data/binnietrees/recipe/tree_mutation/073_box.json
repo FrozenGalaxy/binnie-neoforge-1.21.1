@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:holly",
+  "id": "binnietrees:tree_mutation/box_73",
+  "result": "binnietrees:box",
+  "second": "binnietrees:alder",
+  "type": "forestry:tree_mutation"
+}

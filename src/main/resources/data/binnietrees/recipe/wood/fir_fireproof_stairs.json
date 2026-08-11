@@ -1,0 +1,19 @@
+{
+  "category": "building",
+  "group": "wooden_stairs",
+  "key": {
+    "#": {
+      "item": "binnietrees:fir_fireproof_planks"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:fir_fireproof_stairs"
+  },
+  "type": "minecraft:crafting_shaped"
+}

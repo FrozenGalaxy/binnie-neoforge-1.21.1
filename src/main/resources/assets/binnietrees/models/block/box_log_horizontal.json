@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "binnietrees:block/box_log_top",
+    "side": "binnietrees:block/box_log"
+  }
+}

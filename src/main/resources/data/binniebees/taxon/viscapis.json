@@ -1,0 +1,21 @@
+{
+  "alleles": {
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_ectoplasm"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "UP_1"
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.8
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    }
+  },
+  "name": "viscapis",
+  "parent": "apidae",
+  "rank": "genus",
+  "type": "forestry:bee_species"
+}

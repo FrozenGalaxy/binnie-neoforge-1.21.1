@@ -1,0 +1,24 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binniebees:squeezer/seed_honey_drop",
+  "time": 10,
+  "resources": [
+    {
+      "type": "neoforge:components",
+      "items": "binniebees:honey_drop",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_drop",
+          "value": "seed"
+        }
+      }
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 200,
+      "id": "forestry:seed_oil"
+    }
+  },
+  "chance": 0.0
+}

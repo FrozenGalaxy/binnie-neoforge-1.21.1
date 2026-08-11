@@ -1,0 +1,8 @@
+{
+  "chance": 0.02,
+  "first": "forestry:majestic",
+  "id": "binniebees:bee_mutation/silver_2",
+  "result": "binniebees:silver",
+  "second": "binniebees:tin",
+  "type": "forestry:bee_mutation"
+}

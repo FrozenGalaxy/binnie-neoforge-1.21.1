@@ -1,0 +1,19 @@
+{
+  "category": "redstone",
+  "group": "wooden_door",
+  "key": {
+    "#": {
+      "item": "binnietrees:gingko_planks"
+    }
+  },
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "binnietrees:gingko_door"
+  },
+  "type": "minecraft:crafting_shaped"
+}

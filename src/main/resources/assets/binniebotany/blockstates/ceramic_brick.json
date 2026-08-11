@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "type=tile": {
+      "model": "binniebotany:block/ceramic_brick_tile"
+    },
+    "type=brick": {
+      "model": "binniebotany:block/ceramic_brick_brick"
+    },
+    "type=brickstripe": {
+      "model": "binniebotany:block/ceramic_brick_brickstripe"
+    },
+    "type=bricklarge": {
+      "model": "binniebotany:block/ceramic_brick_bricklarge"
+    },
+    "type=split": {
+      "model": "binniebotany:block/ceramic_brick_split"
+    },
+    "type=cheque": {
+      "model": "binniebotany:block/ceramic_brick_cheque"
+    },
+    "type=mixed": {
+      "model": "binniebotany:block/ceramic_brick_mixed"
+    },
+    "type=verticalbrick": {
+      "model": "binniebotany:block/ceramic_brick_verticalbrick"
+    },
+    "type=verticalbrickstripe": {
+      "model": "binniebotany:block/ceramic_brick_verticalbrickstripe"
+    },
+    "type=verticalbricklarge": {
+      "model": "binniebotany:block/ceramic_brick_verticalbricklarge"
+    }
+  }
+}

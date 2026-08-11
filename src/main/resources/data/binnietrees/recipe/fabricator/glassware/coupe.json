@@ -1,0 +1,31 @@
+{
+  "type": "forestry:fabricator",
+  "id": "binnietrees:fabricator/glassware/coupe",
+  "molten": {
+    "amount": 500,
+    "id": "forestry:liquid_glass"
+  },
+  "recipe": {
+    "category": "misc",
+    "key": {
+      "#": {
+        "item": "forestry:beeswax"
+      }
+    },
+    "pattern": [
+      " # ",
+      "# #",
+      " # "
+    ],
+    "result": {
+      "count": 8,
+      "id": "binnietrees:glassware",
+      "components": {
+        "binniecore:variant": {
+          "category": "binnietrees.glassware",
+          "value": "coupe"
+        }
+      }
+    }
+  }
+}

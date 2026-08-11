@@ -1,0 +1,4320 @@
+{
+  "fruits": [
+    {
+      "callow_color": 7180062,
+      "dominant": true,
+      "enum": "Blackthorn",
+      "id": "blackthorn",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "blackthorn",
+      "ripe_color": 14561129,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 7180062,
+      "dominant": true,
+      "enum": "CherryPlum",
+      "id": "cherry_plum",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "cherry_plum",
+      "ripe_color": 15211595,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 7180062,
+      "dominant": true,
+      "enum": "Peach",
+      "id": "peach",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "peach",
+      "ripe_color": 16424995,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 7180062,
+      "dominant": true,
+      "enum": "Nectarine",
+      "id": "nectarine",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "nectarine",
+      "ripe_color": 16405795,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 7180062,
+      "dominant": true,
+      "enum": "Apricot",
+      "id": "apricot",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "apricot",
+      "ripe_color": 16437027,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 7180062,
+      "dominant": true,
+      "enum": "Almond",
+      "id": "almond",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "almond",
+      "ripe_color": 9364342,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 7180062,
+      "dominant": true,
+      "enum": "WildCherry",
+      "id": "wild_cherry",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "wild_cherry",
+      "ripe_color": 16711680,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 7180062,
+      "dominant": true,
+      "enum": "SourCherry",
+      "id": "sour_cherry",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "sour_cherry",
+      "ripe_color": 10225963,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 7180062,
+      "dominant": true,
+      "enum": "BlackCherry",
+      "id": "black_cherry",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "black_cherry",
+      "ripe_color": 4852249,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 14201186,
+      "dominant": true,
+      "enum": "Fig",
+      "id": "fig",
+      "period": 9,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "fig",
+      "ripe_color": 7094086,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 7444317,
+      "dominant": true,
+      "enum": "Elderberry",
+      "id": "elderberry",
+      "period": 9,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "elderberry",
+      "ripe_color": 5331779,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 8887861,
+      "dominant": true,
+      "enum": "Olive",
+      "id": "olive",
+      "period": 9,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "olive",
+      "ripe_color": 6444842,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "Orange",
+      "id": "orange",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "orange",
+      "ripe_color": 16749578,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "Manderin",
+      "id": "manderin",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "manderin",
+      "ripe_color": 16749578,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "Tangerine",
+      "id": "tangerine",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "tangerine",
+      "ripe_color": 16749578,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "Satsuma",
+      "id": "satsuma",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "satsuma",
+      "ripe_color": 16749578,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "KeyLime",
+      "id": "key_lime",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "key_lime",
+      "ripe_color": 10223428,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "Lime",
+      "id": "lime",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "lime",
+      "ripe_color": 10223428,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "FingerLime",
+      "id": "finger_lime",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "finger_lime",
+      "ripe_color": 11156280,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "Pomelo",
+      "id": "pomelo",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "pomelo",
+      "ripe_color": 6083402,
+      "sprite": "larger"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "Grapefruit",
+      "id": "grapefruit",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "grapefruit",
+      "ripe_color": 16749578,
+      "sprite": "large"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "Kumquat",
+      "id": "kumquat",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "kumquat",
+      "ripe_color": 16749578,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "Citron",
+      "id": "citron",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "citron",
+      "ripe_color": 16772192,
+      "sprite": "large"
+    },
+    {
+      "callow_color": 3665987,
+      "dominant": true,
+      "enum": "BuddhaHand",
+      "id": "buddha_hand",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "buddha_hand",
+      "ripe_color": 16772192,
+      "sprite": "large"
+    },
+    {
+      "callow_color": 7915859,
+      "dominant": true,
+      "enum": "Apple",
+      "id": "apple",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "apple",
+      "ripe_color": 16193046,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 7915859,
+      "dominant": true,
+      "enum": "Crabapple",
+      "id": "crabapple",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "crabapple",
+      "ripe_color": 16760140,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 6654997,
+      "dominant": true,
+      "enum": "Mango",
+      "id": "mango",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "mango",
+      "ripe_color": 15902262,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 10456913,
+      "dominant": true,
+      "enum": "Pear",
+      "id": "pear",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "pear",
+      "ripe_color": 10474833,
+      "sprite": "pear"
+    },
+    {
+      "callow_color": 9934674,
+      "dominant": true,
+      "enum": "OsangeOrange",
+      "id": "osange_orange",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "osange_orange",
+      "ripe_color": 10665767,
+      "sprite": "larger"
+    },
+    {
+      "callow_color": 7310919,
+      "dominant": true,
+      "enum": "Banana",
+      "id": "banana",
+      "period": 10,
+      "pod": true,
+      "pod_type": "banana",
+      "product_count": 2,
+      "product_variant": "banana",
+      "ripe_color": 15387466,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 7310919,
+      "dominant": true,
+      "enum": "RedBanana",
+      "id": "red_banana",
+      "period": 10,
+      "pod": true,
+      "pod_type": "red_banana",
+      "product_count": 2,
+      "product_variant": "red_banana",
+      "ripe_color": 15387466,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 7310919,
+      "dominant": true,
+      "enum": "Plantain",
+      "id": "platain",
+      "period": 10,
+      "pod": true,
+      "pod_type": "plantain",
+      "product_count": 2,
+      "product_variant": "plantain",
+      "ripe_color": 15387466,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 7433501,
+      "dominant": true,
+      "enum": "Coffee",
+      "id": "coffee",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "coffee",
+      "ripe_color": 16273254,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 7310919,
+      "dominant": true,
+      "enum": "Coconut",
+      "id": "coconut",
+      "period": 10,
+      "pod": true,
+      "pod_type": "coconut",
+      "product_count": 1,
+      "product_variant": "coconut",
+      "ripe_color": 15387466,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 12879132,
+      "dominant": true,
+      "enum": "Cashew",
+      "id": "cashew",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "cashew",
+      "ripe_color": 15289111,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 10272370,
+      "dominant": true,
+      "enum": "Avocado",
+      "id": "avocado",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "avocado",
+      "ripe_color": 2170640,
+      "sprite": "pear"
+    },
+    {
+      "callow_color": 14861101,
+      "dominant": true,
+      "enum": "Nutmeg",
+      "id": "nutmeg",
+      "period": 9,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "nutmeg",
+      "ripe_color": 11305813,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 15180922,
+      "dominant": true,
+      "enum": "Allspice",
+      "id": "allspice",
+      "period": 9,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "allspice",
+      "ripe_color": 7423542,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 7430757,
+      "dominant": true,
+      "enum": "Chilli",
+      "id": "chilli",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "chilli",
+      "ripe_color": 15145010,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 8733742,
+      "dominant": true,
+      "enum": "StarAnise",
+      "id": "star_anise",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "star_anise",
+      "ripe_color": 13917189,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 9814541,
+      "dominant": true,
+      "enum": "Starfruit",
+      "id": "starfruit",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "starfruit",
+      "ripe_color": 15061550,
+      "sprite": "average"
+    },
+    {
+      "callow_color": 8235123,
+      "dominant": true,
+      "enum": "Candlenut",
+      "id": "candlenut",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "candlenut",
+      "ripe_color": 14600882,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 8223006,
+      "dominant": true,
+      "enum": "Hazelnut",
+      "id": "hazelnut",
+      "period": 7,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "hazelnut",
+      "ripe_color": 14463606,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 11712336,
+      "dominant": true,
+      "enum": "Butternut",
+      "id": "butternut",
+      "period": 7,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "butternut",
+      "ripe_color": 16102498,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 14401148,
+      "dominant": true,
+      "enum": "Beechnut",
+      "id": "beechnut",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "beechnut",
+      "ripe_color": 6241845,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 10660940,
+      "dominant": true,
+      "enum": "Pecan",
+      "id": "pecan",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "pecan",
+      "ripe_color": 15781769,
+      "sprite": "small"
+    },
+    {
+      "callow_color": 5875561,
+      "dominant": true,
+      "enum": "BrazilNut",
+      "id": "brazil_nut",
+      "period": 10,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 4,
+      "product_variant": "brazil_nut",
+      "ripe_color": 9852208,
+      "sprite": "large"
+    },
+    {
+      "callow_color": 7516710,
+      "dominant": true,
+      "enum": "Acorn",
+      "id": "acorn",
+      "period": 6,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "acorn",
+      "ripe_color": 11364893,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 9213787,
+      "dominant": true,
+      "enum": "GingkoNut",
+      "id": "gingko_nut",
+      "period": 7,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "gingko_nut",
+      "ripe_color": 15063725,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 6847532,
+      "dominant": true,
+      "enum": "Clove",
+      "id": "clove",
+      "period": 9,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 1,
+      "product_variant": "clove",
+      "ripe_color": 11224133,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 9407571,
+      "dominant": true,
+      "enum": "Blackcurrant",
+      "id": "blackcurrant",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 2,
+      "product_variant": "blackcurrant",
+      "ripe_color": 4935251,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 13008910,
+      "dominant": true,
+      "enum": "Redcurrant",
+      "id": "redcurrant",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 2,
+      "product_variant": "redcurrant",
+      "ripe_color": 15080974,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 9399665,
+      "dominant": true,
+      "enum": "Blackberry",
+      "id": "blackberry",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 2,
+      "product_variant": "blackberry",
+      "ripe_color": 4801393,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 15520197,
+      "dominant": true,
+      "enum": "Raspberry",
+      "id": "raspberry",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 2,
+      "product_variant": "raspberry",
+      "ripe_color": 14510449,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 10203799,
+      "dominant": true,
+      "enum": "Blueberry",
+      "id": "blueberry",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 2,
+      "product_variant": "blueberry",
+      "ripe_color": 6329278,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 12232496,
+      "dominant": true,
+      "enum": "Cranberry",
+      "id": "cranberry",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 2,
+      "product_variant": "cranberry",
+      "ripe_color": 14555696,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 10194034,
+      "dominant": true,
+      "enum": "Juniper",
+      "id": "juniper",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 2,
+      "product_variant": "juniper",
+      "ripe_color": 6316914,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 12164944,
+      "dominant": true,
+      "enum": "Gooseberry",
+      "id": "gooseberry",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 2,
+      "product_variant": "gooseberry",
+      "ripe_color": 12177232,
+      "sprite": "tiny"
+    },
+    {
+      "callow_color": 12496955,
+      "dominant": true,
+      "enum": "GoldenRaspberry",
+      "id": "golden_raspberry",
+      "period": 8,
+      "pod": false,
+      "pod_type": null,
+      "product_count": 2,
+      "product_variant": "golden_raspberry",
+      "ripe_color": 15970363,
+      "sprite": "tiny"
+    }
+  ],
+  "species": [
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "OrchardApple",
+      "generator": "WorldGenApple.OrchardApple",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_apple"
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.35
+        }
+      },
+      "genus": "malus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "orchard_apple",
+      "leaf_color": 648830,
+      "leaf_type": "deciduous",
+      "legacy_uid": "orchardapple",
+      "pollinated_color": 16751859,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "domestica",
+      "temperature": "normal",
+      "wood": "EnumETLog.Apple",
+      "wood_color": 8092283
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "SweetCrabapple",
+      "generator": "WorldGenApple.SweetCrabapple",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_crabapple"
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "malus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "sweet_crabapple",
+      "leaf_color": 8034643,
+      "leaf_type": "deciduous",
+      "legacy_uid": "sweetcrabapple",
+      "pollinated_color": 16528799,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "coronaria",
+      "temperature": "normal",
+      "wood": "EnumETLog.Apple",
+      "wood_color": 8092283
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "FloweringCrabapple",
+      "generator": "WorldGenApple.FloweringCrabapple",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_crabapple"
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.05
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "malus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "flowering_crabapple",
+      "leaf_color": 8034643,
+      "leaf_type": "deciduous",
+      "legacy_uid": "floweringcrabapple",
+      "pollinated_color": 16528799,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "hopa",
+      "temperature": "normal",
+      "wood": "EnumETLog.Apple",
+      "wood_color": 8092283
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "PrairieCrabapple",
+      "generator": "WorldGenApple.PrairieCrabapple",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_crabapple"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "malus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "prairie_crabapple",
+      "leaf_color": 8034643,
+      "leaf_type": "deciduous",
+      "legacy_uid": "prairiecrabapple",
+      "pollinated_color": 16528799,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "ioensis",
+      "temperature": "normal",
+      "wood": "EnumETLog.Apple",
+      "wood_color": 8092283
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Blackthorn",
+      "generator": "WorldGenPlum",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_blackthorn"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "prunus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "blackthorn",
+      "leaf_color": 7180062,
+      "leaf_type": "deciduous",
+      "legacy_uid": "blackthorn",
+      "pollinated_color": 16746439,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "spinosa",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.PLUM",
+      "wood_color": 11961953
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "CherryPlum",
+      "generator": "WorldGenPlum",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_cherry_plum"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "prunus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "cherry_plum",
+      "leaf_color": 7180062,
+      "leaf_type": "deciduous",
+      "legacy_uid": "cherryplum",
+      "pollinated_color": 16746439,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "cerasifera",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.PLUM",
+      "wood_color": 11961953
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Peach",
+      "generator": "WorldGenPlum",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_peach"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "prunus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "peach",
+      "leaf_color": 7180062,
+      "leaf_type": "deciduous",
+      "legacy_uid": "peach",
+      "pollinated_color": 16721562,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "persica",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.PLUM",
+      "wood_color": 11961953
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Nectarine",
+      "generator": "WorldGenPlum",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_nectarine"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "prunus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "nectarine",
+      "leaf_color": 7180062,
+      "leaf_type": "deciduous",
+      "legacy_uid": "nectarine",
+      "pollinated_color": 16721562,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "nectarina",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.PLUM",
+      "wood_color": 11961953
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Apricot",
+      "generator": "WorldGenPlum",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_apricot"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "prunus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "apricot",
+      "leaf_color": 7180062,
+      "leaf_type": "deciduous",
+      "legacy_uid": "apricot",
+      "pollinated_color": 16103640,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "armeniaca",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.PLUM",
+      "wood_color": 11961953
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Almond",
+      "generator": "WorldGenPlum",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_almond"
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "prunus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "almond",
+      "leaf_color": 7180062,
+      "leaf_type": "deciduous",
+      "legacy_uid": "almond",
+      "pollinated_color": 16090304,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "amygdalus",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.PLUM",
+      "wood_color": 11961953
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "WildCherry",
+      "generator": "WorldGenPlum",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_wild_cherry"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "prunus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "wild_cherry",
+      "leaf_color": 7180062,
+      "leaf_type": "deciduous",
+      "legacy_uid": "wildcherry",
+      "pollinated_color": 16247798,
+      "rarity": 0.0015,
+      "sapling_type": "fruit",
+      "species": "avium",
+      "temperature": "normal",
+      "wood": "EnumETLog.Cherry",
+      "wood_color": 7432272
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "SourCherry",
+      "generator": "WorldGenPlum",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_sour_cherry"
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "prunus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "sour_cherry",
+      "leaf_color": 7180062,
+      "leaf_type": "deciduous",
+      "legacy_uid": "sourcherry",
+      "pollinated_color": 16247798,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "cerasus",
+      "temperature": "normal",
+      "wood": "EnumETLog.Cherry",
+      "wood_color": 7432272
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "BlackCherry",
+      "generator": "WorldGenPlum",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_black_cherry"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.01
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "prunus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "black_cherry",
+      "leaf_color": 7180062,
+      "leaf_type": "deciduous",
+      "legacy_uid": "blackcherry",
+      "pollinated_color": 16441848,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "serotina",
+      "temperature": "normal",
+      "wood": "EnumETLog.Cherry",
+      "wood_color": 7432272
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Orange",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_orange"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "orange",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "orange",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "sinensis",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Manderin",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_manderin"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "manderin",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "manderin",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "reticulata",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Satsuma",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_satsuma"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "satsuma",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "satsuma",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "unshiu",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Tangerine",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_tangerine"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "tangerine",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "tangerine",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "tangerina",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Lime",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_lime"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "lime",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "lime",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "latifolia",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "KeyLime",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_key_lime"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.01
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "key_lime",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "keylime",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "aurantifolia",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "FingerLime",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_finger_lime"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "finger_lime",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "fingerlime",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "australasica",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Pomelo",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_pomelo"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "pomelo",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "pomelo",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "maxima",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Grapefruit",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_grapefruit"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "grapefruit",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "grapefruit",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "paradisi",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Kumquat",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_kumquat"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "kumquat",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "kumquat",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "margarita",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Citron",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_citron"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "citron",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "citron",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "medica",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "BuddhaHand",
+      "generator": "WorldGenLemon",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_buddha_hand"
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "citrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "buddha_hand",
+      "leaf_color": 8957780,
+      "leaf_type": "jungle",
+      "legacy_uid": "buddhahand",
+      "pollinated_color": 10729552,
+      "rarity": 0.0,
+      "sapling_type": "fruit",
+      "species": "sarcodactylus",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.CITRUS",
+      "wood_color": 5983033
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Banana",
+      "generator": "WorldGenBanana",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_banana"
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "musa",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "banana",
+      "leaf_color": 10603918,
+      "leaf_type": "palm",
+      "legacy_uid": "banana",
+      "pollinated_color": 4515072,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "sinensis",
+      "temperature": "normal",
+      "wood": "EnumETLog.Banana",
+      "wood_color": 8753743
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "RedBanana",
+      "generator": "WorldGenBanana",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_red_banana"
+        }
+      },
+      "genus": "musa",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "red_banana",
+      "leaf_color": 10603918,
+      "leaf_type": "palm",
+      "legacy_uid": "redbanana",
+      "pollinated_color": 4515072,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "rubra",
+      "temperature": "normal",
+      "wood": "EnumETLog.Banana",
+      "wood_color": 8753743
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Plantain",
+      "generator": "WorldGenBanana",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_platain"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "musa",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "plantain",
+      "leaf_color": 10603918,
+      "leaf_type": "palm",
+      "legacy_uid": "plantain",
+      "pollinated_color": 4515072,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "paradisiaca",
+      "temperature": "normal",
+      "wood": "EnumETLog.Banana",
+      "wood_color": 8753743
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Butternut",
+      "generator": "WorldGenWalnut.Butternut",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_butternut"
+        },
+        "forestry:girth": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "juglans",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "butternut",
+      "leaf_color": 8566156,
+      "leaf_type": "deciduous",
+      "legacy_uid": "butternut",
+      "pollinated_color": 8576396,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "cinerea",
+      "temperature": "normal",
+      "wood": "EnumETLog.Butternut",
+      "wood_color": 12037536
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Rowan",
+      "generator": "WorldGenSorbus.Rowan",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.5
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "sorbus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "rowan",
+      "leaf_color": 10405787,
+      "leaf_type": "deciduous",
+      "legacy_uid": "rowan",
+      "pollinated_color": 10414258,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "aucuparia",
+      "temperature": "normal",
+      "wood": "EnumETLog.Rowan",
+      "wood_color": 11972763
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Hemlock",
+      "generator": "WorldGenConifer.WesternHemlock",
+      "genome": {
+        "forestry:girth": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 7
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        }
+      },
+      "genus": "tsuga",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "hemlock",
+      "leaf_color": 6073458,
+      "leaf_type": "conifers",
+      "legacy_uid": "hemlock",
+      "pollinated_color": 6082930,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "heterophylla",
+      "temperature": "normal",
+      "wood": "EnumETLog.Hemlock",
+      "wood_color": 11379611
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Ash",
+      "generator": "WorldGenAsh.CommonAsh",
+      "genome": {
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "fraxinus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "ash",
+      "leaf_color": 4754987,
+      "leaf_type": "deciduous",
+      "legacy_uid": "ash",
+      "pollinated_color": 4777003,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "excelsior",
+      "temperature": "normal",
+      "wood": "EnumETLog.Ash",
+      "wood_color": 9013634
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Alder",
+      "generator": "WorldGenAlder.CommonAlder",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "alnus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "alder",
+      "leaf_color": 6916659,
+      "leaf_type": "deciduous",
+      "legacy_uid": "alder",
+      "pollinated_color": 6925875,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "glutinosa",
+      "temperature": "normal",
+      "wood": "EnumETLog.Alder",
+      "wood_color": 13025464
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Beech",
+      "generator": "WorldGenBeech.CommonBeech",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_beechnut"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "fagus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "beech",
+      "leaf_color": 8626252,
+      "leaf_type": "deciduous",
+      "legacy_uid": "beech",
+      "pollinated_color": 8635980,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "sylvatica",
+      "temperature": "normal",
+      "wood": "EnumETLog.Beech",
+      "wood_color": 11702654
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "CopperBeech",
+      "generator": "WorldGenBeech.CopperBeech",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_beechnut"
+        },
+        "forestry:maturation": {
+          "dominant": true,
+          "value": 5
+        }
+      },
+      "genus": "fagus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "copper_beech",
+      "leaf_color": 8393496,
+      "leaf_type": "deciduous",
+      "legacy_uid": "copperbeech",
+      "pollinated_color": 13720397,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "purpurea",
+      "temperature": "normal",
+      "wood": "EnumETLog.Beech",
+      "wood_color": 11702654
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Aspen",
+      "generator": "WorldGenPoplar.Aspen",
+      "genome": {
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.05
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "populus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "aspen",
+      "leaf_color": 9096247,
+      "leaf_type": "deciduous",
+      "legacy_uid": "aspen",
+      "pollinated_color": 9101711,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "tremula",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.POPLAR",
+      "wood_color": 9217671
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Yew",
+      "generator": "WorldGenConifer.Yew",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.25
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "taxus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "yew",
+      "leaf_color": 9734733,
+      "leaf_type": "conifers",
+      "legacy_uid": "yew",
+      "pollinated_color": 9743949,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "baccata",
+      "temperature": "normal",
+      "wood": "EnumETLog.Yew",
+      "wood_color": 13745089
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Cypress",
+      "generator": "WorldGenConifer.Cypress",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.5
+        },
+        "forestry:maturation": {
+          "dominant": true,
+          "value": 5
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "chamaecyparis",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "cypress",
+      "leaf_color": 9030055,
+      "leaf_type": "conifers",
+      "legacy_uid": "cypress",
+      "pollinated_color": 9035206,
+      "rarity": 0.0,
+      "sapling_type": "poplar",
+      "species": "lawsoniana",
+      "temperature": "normal",
+      "wood": "EnumETLog.Cypress",
+      "wood_color": 10126467
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "DouglasFir",
+      "generator": "WorldGenFir.DouglasFir",
+      "genome": {
+        "forestry:girth": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.5
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 7
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        }
+      },
+      "genus": "pseudotsuga",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "douglas_fir",
+      "leaf_color": 10073474,
+      "leaf_type": "conifers",
+      "legacy_uid": "douglasfir",
+      "pollinated_color": 10080682,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "menziesii",
+      "temperature": "normal",
+      "wood": "EnumETLog.Fir",
+      "wood_color": 8553346
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Hazel",
+      "generator": "WorldGenTree3.Hazel",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_hazelnut"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "corylus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "hazel",
+      "leaf_color": 10204498,
+      "leaf_type": "deciduous",
+      "legacy_uid": "hazel",
+      "pollinated_color": 10215762,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "avellana",
+      "temperature": "normal",
+      "wood": "EnumETLog.Hazel",
+      "wood_color": 11180143
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Sycamore",
+      "generator": "WorldGenTree3.Sycamore",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_fig"
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.01
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "ficus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "sycamore",
+      "leaf_color": 10528047,
+      "leaf_type": "deciduous",
+      "legacy_uid": "sycamore",
+      "pollinated_color": 11851100,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "sycomorus",
+      "temperature": "normal",
+      "wood": "EnumETLog.Fig",
+      "wood_color": 8418135
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Whitebeam",
+      "generator": "WorldGenSorbus.Whitebeam",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        }
+      },
+      "genus": "sorbus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "whitebeam",
+      "leaf_color": 12242585,
+      "leaf_type": "deciduous",
+      "legacy_uid": "whitebeam",
+      "pollinated_color": 7505471,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "aria",
+      "temperature": "normal",
+      "wood": "EnumETLog.Whitebeam",
+      "wood_color": 7891565
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Hawthorn",
+      "generator": "WorldGenTree3.Hawthorn",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        }
+      },
+      "genus": "crataegus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "hawthorn",
+      "leaf_color": 7055434,
+      "leaf_type": "deciduous",
+      "legacy_uid": "hawthorn",
+      "pollinated_color": 10008443,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "monogyna",
+      "temperature": "normal",
+      "wood": "EnumETLog.Hawthorn",
+      "wood_color": 6248261
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Pecan",
+      "generator": "WorldGenTree3.Pecan",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_pecan"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.25
+        },
+        "forestry:maturation": {
+          "dominant": true,
+          "value": 5
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "carya",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "pecan",
+      "leaf_color": 8762996,
+      "leaf_type": "deciduous",
+      "legacy_uid": "pecan",
+      "pollinated_color": 2906139,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "illinoinensis",
+      "temperature": "normal",
+      "wood": "EnumETLog.Hickory",
+      "wood_color": 4076848
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Elm",
+      "generator": "WorldGenTree3.Elm",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        }
+      },
+      "genus": "ulmus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "elm",
+      "leaf_color": 8163400,
+      "leaf_type": "deciduous",
+      "legacy_uid": "elm",
+      "pollinated_color": 8175176,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "procera",
+      "temperature": "normal",
+      "wood": "EnumETLog.Elm",
+      "wood_color": 8684422
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Elder",
+      "generator": "WorldGenTree3.Elder",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_elderberry"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        }
+      },
+      "genus": "sambucus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "elder",
+      "leaf_color": 11450483,
+      "leaf_type": "deciduous",
+      "legacy_uid": "elder",
+      "pollinated_color": 14739389,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "nigra",
+      "temperature": "normal",
+      "wood": "EnumETLog.Elder",
+      "wood_color": 14202996
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Holly",
+      "generator": "WorldGenHolly.Holly",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        }
+      },
+      "genus": "ilex",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "holly",
+      "leaf_color": 2444108,
+      "leaf_type": "deciduous",
+      "legacy_uid": "holly",
+      "pollinated_color": 7246468,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "aquifolium",
+      "temperature": "normal",
+      "wood": "EnumETLog.Holly",
+      "wood_color": 11905669
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Hornbeam",
+      "generator": "WorldGenTree3.Hornbeam",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:maturation": {
+          "dominant": true,
+          "value": 5
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "carpinus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "hornbeam",
+      "leaf_color": 9873179,
+      "leaf_type": "deciduous",
+      "legacy_uid": "hornbeam",
+      "pollinated_color": 9887003,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "betulus",
+      "temperature": "normal",
+      "wood": "EnumETLog.Hornbeam",
+      "wood_color": 10719862
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Sallow",
+      "generator": "WorldGenTree3.Sallow",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.25
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        }
+      },
+      "genus": "salix",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "sallow",
+      "leaf_color": 11449123,
+      "leaf_type": "willow",
+      "legacy_uid": "sallow",
+      "pollinated_color": 12053541,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "caprea",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.WILLOW",
+      "wood_color": 10590869
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "AcornOak",
+      "generator": "WorldGenTree3.AcornOak",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_acorn"
+        },
+        "forestry:girth": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.25
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "quercus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "acorn_oak",
+      "leaf_color": 6714174,
+      "leaf_type": "deciduous",
+      "legacy_uid": "acornoak",
+      "pollinated_color": 10396209,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "robur",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.OAK",
+      "wood_color": 6376752
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Fir",
+      "generator": "WorldGenFir.SilverFir",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.25
+        },
+        "forestry:maturation": {
+          "dominant": true,
+          "value": 5
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "abies",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "fir",
+      "leaf_color": 7306272,
+      "leaf_type": "conifers",
+      "legacy_uid": "fir",
+      "pollinated_color": 7328032,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "alba",
+      "temperature": "normal",
+      "wood": "EnumETLog.Fir",
+      "wood_color": 8553346
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Cedar",
+      "generator": "WorldGenConifer.Cedar",
+      "genome": {
+        "forestry:girth": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 7
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "cedrus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "cedar",
+      "leaf_color": 9806704,
+      "leaf_type": "conifers",
+      "legacy_uid": "cedar",
+      "pollinated_color": 9824368,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "libani",
+      "temperature": "normal",
+      "wood": "EnumETLog.Cedar",
+      "wood_color": 11368015
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Olive",
+      "generator": "WorldGenTree2.Olive",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_olive"
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "olea",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "olive",
+      "leaf_color": 3950644,
+      "leaf_type": "deciduous",
+      "legacy_uid": "olive",
+      "pollinated_color": 3950644,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "europaea",
+      "temperature": "normal",
+      "wood": "EnumETLog.Olive",
+      "wood_color": 8089706
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "RedMaple",
+      "generator": "WorldGenMaple.RedMaple",
+      "genome": {
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.05
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.6
+        }
+      },
+      "genus": "acer",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "red_maple",
+      "leaf_color": 15216151,
+      "leaf_type": "maple",
+      "legacy_uid": "redmaple",
+      "pollinated_color": 15216151,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "ubrum",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.MAPLE",
+      "wood_color": 9078657
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "BalsamFir",
+      "generator": "WorldGenFir.BalsamFir",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:maturation": {
+          "dominant": true,
+          "value": 5
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "abies",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "balsam_fir",
+      "leaf_color": 7643260,
+      "leaf_type": "conifers",
+      "legacy_uid": "balsamfir",
+      "pollinated_color": 7643260,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "balsamea",
+      "temperature": "normal",
+      "wood": "EnumETLog.Fir",
+      "wood_color": 8553346
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "LoblollyPine",
+      "generator": "WorldGenConifer.LoblollyPine",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:maturation": {
+          "dominant": true,
+          "value": 5
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "pinus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "loblolly_pine",
+      "leaf_color": 7309895,
+      "leaf_type": "conifers",
+      "legacy_uid": "loblollypine",
+      "pollinated_color": 7309895,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "taeda",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.PINE",
+      "wood_color": 7558729
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Sweetgum",
+      "generator": "WorldGenTree2.Sweetgum",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.1
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.4
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "liquidambar",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "sweetgum",
+      "leaf_color": 9144162,
+      "leaf_type": "deciduous",
+      "legacy_uid": "sweetgum",
+      "pollinated_color": 9144162,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "styraciflua",
+      "temperature": "normal",
+      "wood": "EnumETLog.Sweetgum",
+      "wood_color": 10592668
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Locust",
+      "generator": "WorldGenTree2.Locust",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        }
+      },
+      "genus": "robinia",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "locust",
+      "leaf_color": 8942336,
+      "leaf_type": "deciduous",
+      "legacy_uid": "locust",
+      "pollinated_color": 8942336,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "pseudoacacia",
+      "temperature": "normal",
+      "wood": "EnumETLog.Locust",
+      "wood_color": 11381948
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Pear",
+      "generator": "WorldGenTree2.Pear",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_pear"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "pyrus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "pear",
+      "leaf_color": 6195238,
+      "leaf_type": "deciduous",
+      "legacy_uid": "pear",
+      "pollinated_color": 6195238,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "communis",
+      "temperature": "normal",
+      "wood": "EnumETLog.Pear",
+      "wood_color": 11048825
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "OsangeOrange",
+      "generator": "WorldGenJungle.OsangeOrange",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_osange_orange"
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "maclura",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "osange_orange",
+      "leaf_color": 6847056,
+      "leaf_type": "jungle",
+      "legacy_uid": "osangeorange",
+      "pollinated_color": 6847056,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "pomifera",
+      "temperature": "normal",
+      "wood": "EnumETLog.Maclura",
+      "wood_color": 9131828
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "OldFustic",
+      "generator": "WorldGenJungle.OldFustic",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "maclura",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "old_fustic",
+      "leaf_color": 6847056,
+      "leaf_type": "jungle",
+      "legacy_uid": "oldfustic",
+      "pollinated_color": 6847056,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "tinctoria",
+      "temperature": "normal",
+      "wood": "EnumETLog.Maclura",
+      "wood_color": 9131828
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Brazilwood",
+      "generator": "WorldGenJungle.Brazilwood",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "caesalpinia",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "brazilwood",
+      "leaf_color": 6321241,
+      "leaf_type": "jungle",
+      "legacy_uid": "brazilwood",
+      "pollinated_color": 6321241,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "echinata",
+      "temperature": "normal",
+      "wood": "EnumETLog.Brazilwood",
+      "wood_color": 10387560
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Logwood",
+      "generator": "WorldGenJungle.Logwood",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "haematoxylum",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "logwood",
+      "leaf_color": 8953707,
+      "leaf_type": "jungle",
+      "legacy_uid": "logwood",
+      "pollinated_color": 8953707,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "campechianum",
+      "temperature": "normal",
+      "wood": "EnumETLog.Logwood",
+      "wood_color": 16376530
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Rosewood",
+      "generator": "WorldGenJungle.Rosewood",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "dalbergia",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "rosewood",
+      "leaf_color": 8887074,
+      "leaf_type": "jungle",
+      "legacy_uid": "rosewood",
+      "pollinated_color": 8887074,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "latifolia",
+      "temperature": "normal",
+      "wood": "EnumETLog.Rosewood",
+      "wood_color": 10061414
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Purpleheart",
+      "generator": "WorldGenJungle.Purpleheart",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.25
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "peltogyne",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "purpleheart",
+      "leaf_color": 7835477,
+      "leaf_type": "jungle",
+      "legacy_uid": "purpleheart",
+      "pollinated_color": 7835477,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "spp",
+      "temperature": "normal",
+      "wood": "EnumETLog.Purpleheart",
+      "wood_color": 9671330
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Iroko",
+      "generator": "WorldGenTree2.Iroko",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        }
+      },
+      "genus": "milicia",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "iroko",
+      "leaf_color": 11520108,
+      "leaf_type": "deciduous",
+      "legacy_uid": "iroko",
+      "pollinated_color": 11520108,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "excelsa",
+      "temperature": "normal",
+      "wood": "EnumETLog.Iroko",
+      "wood_color": 6315099
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Gingko",
+      "generator": "WorldGenTree2.Gingko",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_gingko_nut"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.25
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "ginkgo",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "gingko",
+      "leaf_color": 7444049,
+      "leaf_type": "jungle",
+      "legacy_uid": "gingko",
+      "pollinated_color": 7444049,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "biloba",
+      "temperature": "normal",
+      "wood": "EnumETLog.Gingko",
+      "wood_color": 11382428
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Brazilnut",
+      "generator": "WorldGenJungle.BrazilNut",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_brazil_nut"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.5
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "bertholletia",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "brazilnut",
+      "leaf_color": 8163195,
+      "leaf_type": "jungle",
+      "legacy_uid": "brazilnut",
+      "pollinated_color": 8163195,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "excelsa",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "RoseGum",
+      "generator": "WorldGenEucalyptus.RoseGum",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.75
+        },
+        "forestry:maturation": {
+          "dominant": true,
+          "value": 10
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "eucalyptus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "rose_gum",
+      "leaf_color": 10265176,
+      "leaf_type": "jungle",
+      "legacy_uid": "rosegum",
+      "pollinated_color": 10265176,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "grandis",
+      "temperature": "normal",
+      "wood": "EnumETLog.Eucalyptus",
+      "wood_color": 15392474
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "SwampGum",
+      "generator": "WorldGenEucalyptus.SwampGum",
+      "genome": {
+        "forestry:girth": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.75
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 7
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.01
+        }
+      },
+      "genus": "eucalyptus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "swamp_gum",
+      "leaf_color": 10667654,
+      "leaf_type": "jungle",
+      "legacy_uid": "swampgum",
+      "pollinated_color": 10667654,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "grandis",
+      "temperature": "normal",
+      "wood": "EnumETLog.Eucalyptus2",
+      "wood_color": 8814181
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Box",
+      "generator": "WorldGenTree2.Box",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 2
+        }
+      },
+      "genus": "boxus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "box",
+      "leaf_color": 7510381,
+      "leaf_type": "deciduous",
+      "legacy_uid": "box",
+      "pollinated_color": 7510381,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "sempervirens",
+      "temperature": "normal",
+      "wood": "EnumETLog.Box",
+      "wood_color": 11235159
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Clove",
+      "generator": "WorldGenTree2.Clove",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_clove"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "syzygium",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "clove",
+      "leaf_color": 8028703,
+      "leaf_type": "deciduous",
+      "legacy_uid": "clove",
+      "pollinated_color": 8028703,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "aromaticum",
+      "temperature": "normal",
+      "wood": "EnumETLog.Syzgium",
+      "wood_color": 11235159
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Coffee",
+      "generator": "WorldGenJungle.Coffee",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_coffee"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "coffea",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "coffee",
+      "leaf_color": 7311461,
+      "leaf_type": "jungle",
+      "legacy_uid": "coffee",
+      "pollinated_color": 7311461,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "arabica",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "MonkeyPuzzle",
+      "generator": "WorldGenConifer.MonkeyPuzzle",
+      "genome": {
+        "forestry:girth": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "araucaria",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "monkey_puzzle",
+      "leaf_color": 5726552,
+      "leaf_type": "conifers",
+      "legacy_uid": "monkeypuzzle",
+      "pollinated_color": 5726552,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "araucana",
+      "temperature": "normal",
+      "wood": "EnumForestryWoodType.PINE",
+      "wood_color": 7558729
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "RainbowGum",
+      "generator": "WorldGenEucalyptus.RainbowGum",
+      "genome": {
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "eucalyptus",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "rainbow_gum",
+      "leaf_color": 12054565,
+      "leaf_type": "jungle",
+      "legacy_uid": "rainbowgum",
+      "pollinated_color": 12054565,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "deglupta",
+      "temperature": "normal",
+      "wood": "EnumETLog.Eucalyptus3",
+      "wood_color": 7123007
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "PinkIvory",
+      "generator": "WorldGenTree2",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        }
+      },
+      "genus": "berchemia",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "pink_ivory",
+      "leaf_color": 8163673,
+      "leaf_type": "deciduous",
+      "legacy_uid": "pinkivory",
+      "pollinated_color": 8163673,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "zeyheri",
+      "temperature": "normal",
+      "wood": "EnumETLog.PinkIvory",
+      "wood_color": 8349012
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Blackcurrant",
+      "generator": "WorldGenShrub.Shrub",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_blackcurrant"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "ribes",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "blackcurrant",
+      "leaf_color": 10934876,
+      "leaf_type": "deciduous",
+      "legacy_uid": "blackcurrant",
+      "pollinated_color": 10934876,
+      "rarity": 0.0025,
+      "sapling_type": "shrub",
+      "species": "nigrum",
+      "temperature": "normal",
+      "wood": "EnumShrubLog.INSTANCE",
+      "wood_color": 16777215
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Redcurrant",
+      "generator": "WorldGenShrub.Shrub",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_redcurrant"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.05
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "ribes",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "redcurrant",
+      "leaf_color": 7646208,
+      "leaf_type": "deciduous",
+      "legacy_uid": "redcurrant",
+      "pollinated_color": 7646208,
+      "rarity": 0.0025,
+      "sapling_type": "shrub",
+      "species": "rubrum",
+      "temperature": "normal",
+      "wood": "EnumShrubLog.INSTANCE",
+      "wood_color": 16777215
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Blackberry",
+      "generator": "WorldGenShrub.Shrub",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_blackberry"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "rubus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "blackberry",
+      "leaf_color": 9617755,
+      "leaf_type": "deciduous",
+      "legacy_uid": "blackberry",
+      "pollinated_color": 9617755,
+      "rarity": 0.0,
+      "sapling_type": "shrub",
+      "species": "fruticosus",
+      "temperature": "normal",
+      "wood": "EnumShrubLog.INSTANCE",
+      "wood_color": 16777215
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Raspberry",
+      "generator": "WorldGenShrub.Shrub",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_raspberry"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "rubus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "raspberry",
+      "leaf_color": 8632686,
+      "leaf_type": "deciduous",
+      "legacy_uid": "raspberry",
+      "pollinated_color": 8632686,
+      "rarity": 0.0025,
+      "sapling_type": "shrub",
+      "species": "idaeus",
+      "temperature": "normal",
+      "wood": "EnumShrubLog.INSTANCE",
+      "wood_color": 16777215
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Blueberry",
+      "generator": "WorldGenShrub.Shrub",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_blueberry"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.05
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "vaccinium",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "blueberry",
+      "leaf_color": 7522128,
+      "leaf_type": "deciduous",
+      "legacy_uid": "blueberry",
+      "pollinated_color": 7522128,
+      "rarity": 0.0025,
+      "sapling_type": "shrub",
+      "species": "corymbosum",
+      "temperature": "normal",
+      "wood": "EnumShrubLog.INSTANCE",
+      "wood_color": 16777215
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Cranberry",
+      "generator": "WorldGenShrub.Shrub",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_cranberry"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.05
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "vaccinium",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "cranberry",
+      "leaf_color": 9884025,
+      "leaf_type": "deciduous",
+      "legacy_uid": "cranberry",
+      "pollinated_color": 9884025,
+      "rarity": 0.0025,
+      "sapling_type": "shrub",
+      "species": "oxycoccos",
+      "temperature": "normal",
+      "wood": "EnumShrubLog.INSTANCE",
+      "wood_color": 16777215
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Juniper",
+      "generator": "WorldGenShrub.Shrub",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_juniper"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "juniperus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "juniper",
+      "leaf_color": 9482569,
+      "leaf_type": "conifers",
+      "legacy_uid": "juniper",
+      "pollinated_color": 9482569,
+      "rarity": 0.0025,
+      "sapling_type": "shrub",
+      "species": "communis",
+      "temperature": "normal",
+      "wood": "EnumShrubLog.INSTANCE",
+      "wood_color": 16777215
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Gooseberry",
+      "generator": "WorldGenShrub.Shrub",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_gooseberry"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.1
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "ribes",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "gooseberry",
+      "leaf_color": 7977728,
+      "leaf_type": "deciduous",
+      "legacy_uid": "gooseberry",
+      "pollinated_color": 7977728,
+      "rarity": 0.0,
+      "sapling_type": "shrub",
+      "species": "grossularia",
+      "temperature": "normal",
+      "wood": "EnumShrubLog.INSTANCE",
+      "wood_color": 16777215
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "GoldenRaspberry",
+      "generator": "WorldGenShrub.Shrub",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_golden_raspberry"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 1
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "rubus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "golden_raspberry",
+      "leaf_color": 8632686,
+      "leaf_type": "deciduous",
+      "legacy_uid": "goldenraspberry",
+      "pollinated_color": 8632686,
+      "rarity": 0.0025,
+      "sapling_type": "shrub",
+      "species": "occidentalis",
+      "temperature": "normal",
+      "wood": "EnumShrubLog.INSTANCE",
+      "wood_color": 16777215
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Cinnamon",
+      "generator": "WorldGenLazy.Tree",
+      "genome": {
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.05
+        }
+      },
+      "genus": "cinnamomum",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "cinnamon",
+      "leaf_color": 7573003,
+      "leaf_type": "jungle",
+      "legacy_uid": "cinnamon",
+      "pollinated_color": 7573003,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "cassia",
+      "temperature": "normal",
+      "wood": "EnumETLog.Cinnamon",
+      "wood_color": 8804412
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Coconut",
+      "generator": "WorldGenPalm.Coconut",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_coconut"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.75
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "cocous",
+      "has_fruit_leaves": false,
+      "humidity": "normal",
+      "id": "coconut",
+      "leaf_color": 6592803,
+      "leaf_type": "palm",
+      "legacy_uid": "coconut",
+      "pollinated_color": 6592803,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "nucifera",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Cashew",
+      "generator": "WorldGenLazy.Tree",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_cashew"
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "anacardium",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "cashew",
+      "leaf_color": 11254114,
+      "leaf_type": "jungle",
+      "legacy_uid": "cashew",
+      "pollinated_color": 11254114,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "occidentale",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Avocado",
+      "generator": "WorldGenLazy.Tree",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_avocado"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "persea",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "avocado",
+      "leaf_color": 9872245,
+      "leaf_type": "jungle",
+      "legacy_uid": "avocado",
+      "pollinated_color": 9872245,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "americana",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Nutmeg",
+      "generator": "WorldGenLazy.Tree",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_nutmeg"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "myristica",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "nutmeg",
+      "leaf_color": 4754764,
+      "leaf_type": "jungle",
+      "legacy_uid": "nutmeg",
+      "pollinated_color": 4754764,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "fragrans",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Allspice",
+      "generator": "WorldGenLazy.Tree",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_allspice"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "pimenta",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "allspice",
+      "leaf_color": 8165156,
+      "leaf_type": "jungle",
+      "legacy_uid": "allspice",
+      "pollinated_color": 8165156,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "dioica",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Chilli",
+      "generator": "WorldGenLazy.Tree",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_chilli"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.35
+        }
+      },
+      "genus": "capsicum",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "chilli",
+      "leaf_color": 2793217,
+      "leaf_type": "jungle",
+      "legacy_uid": "chilli",
+      "pollinated_color": 2793217,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "annuum",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "StarAnise",
+      "generator": "WorldGenLazy.Tree",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_star_anise"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 1.0
+        },
+        "forestry:yield": {
+          "dominant": false,
+          "value": 0.3
+        }
+      },
+      "genus": "illicium",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "star_anise",
+      "leaf_color": 8373257,
+      "leaf_type": "jungle",
+      "legacy_uid": "staranise",
+      "pollinated_color": 8373257,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "verum",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Mango",
+      "generator": "WorldGenTropical.Mango",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_mango"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.5
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.035
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "mangifera",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "mango",
+      "leaf_color": 8893812,
+      "leaf_type": "jungle",
+      "legacy_uid": "mango",
+      "pollinated_color": 8893812,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "indica",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Starfruit",
+      "generator": "WorldGenLazy.Tree",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_starfruit"
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "averrhoa",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "starfruit",
+      "leaf_color": 7186733,
+      "leaf_type": "jungle",
+      "legacy_uid": "starfruit",
+      "pollinated_color": 7186733,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "carambola",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "Candlenut",
+      "generator": "WorldGenLazy.Tree",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_candlenut"
+        },
+        "forestry:height": {
+          "dominant": false,
+          "value": 0.25
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.01
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.3
+        },
+        "forestry:yield": {
+          "dominant": true,
+          "value": 0.1
+        }
+      },
+      "genus": "aleurites",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "candlenut",
+      "leaf_color": 9085804,
+      "leaf_type": "deciduous",
+      "legacy_uid": "candlenut",
+      "pollinated_color": 9085804,
+      "rarity": 0.0,
+      "sapling_type": "default",
+      "species": "moluccana",
+      "temperature": "normal",
+      "wood": "EnumVanillaWoodType.JUNGLE",
+      "wood_color": 5456154
+    },
+    {
+      "authority": "Binnie",
+      "dominant": true,
+      "enum": "DwarfHazel",
+      "generator": "WorldGenShrub.Shrub",
+      "genome": {
+        "forestry:fruits": {
+          "value": "binnietrees:fruit_hazelnut"
+        },
+        "forestry:maturation": {
+          "dominant": false,
+          "value": 2
+        },
+        "forestry:saplings": {
+          "dominant": true,
+          "value": 0.05
+        },
+        "forestry:sappiness": {
+          "dominant": true,
+          "value": 0.2
+        }
+      },
+      "genus": "corylus",
+      "has_fruit_leaves": true,
+      "humidity": "normal",
+      "id": "dwarf_hazel",
+      "leaf_color": 10204498,
+      "leaf_type": "deciduous",
+      "legacy_uid": "dwarfhazel",
+      "pollinated_color": 10215762,
+      "rarity": 0.0,
+      "sapling_type": "shrub",
+      "species": "americana",
+      "temperature": "normal",
+      "wood": "EnumETLog.Hazel",
+      "wood_color": 11180143
+    }
+  ]
+}

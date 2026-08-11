@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:sweetgum_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:sweetgum_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

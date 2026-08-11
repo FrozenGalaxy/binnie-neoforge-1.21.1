@@ -1,0 +1,18 @@
+{
+  "category": "redstone",
+  "ingredients": [
+    [
+      {
+        "item": "binnietrees:yew_planks"
+      },
+      {
+        "item": "binnietrees:yew_fireproof_planks"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:yew_button"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

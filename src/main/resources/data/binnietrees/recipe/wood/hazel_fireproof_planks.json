@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:hazel_fireproof_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:hazel_fireproof_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

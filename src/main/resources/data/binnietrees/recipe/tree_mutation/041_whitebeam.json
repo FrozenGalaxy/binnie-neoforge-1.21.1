@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:ash",
+  "id": "binnietrees:tree_mutation/whitebeam_41",
+  "result": "binnietrees:whitebeam",
+  "second": "forestry:birch",
+  "type": "forestry:tree_mutation"
+}

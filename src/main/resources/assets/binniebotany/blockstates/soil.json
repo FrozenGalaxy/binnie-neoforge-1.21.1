@@ -1,0 +1,220 @@
+{
+  "variants": {
+    "acidity=acid,fertility=0,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_dry"
+    },
+    "acidity=acid,fertility=0,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_dry"
+    },
+    "acidity=acid,fertility=1,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_dry"
+    },
+    "acidity=acid,fertility=1,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_dry"
+    },
+    "acidity=acid,fertility=2,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_dry"
+    },
+    "acidity=acid,fertility=2,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_dry"
+    },
+    "acidity=acid,fertility=3,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_dry"
+    },
+    "acidity=acid,fertility=3,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_dry"
+    },
+    "acidity=acid,fertility=0,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_normal"
+    },
+    "acidity=acid,fertility=0,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_normal"
+    },
+    "acidity=acid,fertility=1,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_normal"
+    },
+    "acidity=acid,fertility=1,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_normal"
+    },
+    "acidity=acid,fertility=2,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_normal"
+    },
+    "acidity=acid,fertility=2,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_normal"
+    },
+    "acidity=acid,fertility=3,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_normal"
+    },
+    "acidity=acid,fertility=3,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_normal"
+    },
+    "acidity=acid,fertility=0,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_damp"
+    },
+    "acidity=acid,fertility=0,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_damp"
+    },
+    "acidity=acid,fertility=1,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_damp"
+    },
+    "acidity=acid,fertility=1,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_damp"
+    },
+    "acidity=acid,fertility=2,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_damp"
+    },
+    "acidity=acid,fertility=2,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_damp"
+    },
+    "acidity=acid,fertility=3,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_acid_damp"
+    },
+    "acidity=acid,fertility=3,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_acid_damp"
+    },
+    "acidity=neutral,fertility=0,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_dry"
+    },
+    "acidity=neutral,fertility=0,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_dry"
+    },
+    "acidity=neutral,fertility=1,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_dry"
+    },
+    "acidity=neutral,fertility=1,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_dry"
+    },
+    "acidity=neutral,fertility=2,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_dry"
+    },
+    "acidity=neutral,fertility=2,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_dry"
+    },
+    "acidity=neutral,fertility=3,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_dry"
+    },
+    "acidity=neutral,fertility=3,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_dry"
+    },
+    "acidity=neutral,fertility=0,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_normal"
+    },
+    "acidity=neutral,fertility=0,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_normal"
+    },
+    "acidity=neutral,fertility=1,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_normal"
+    },
+    "acidity=neutral,fertility=1,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_normal"
+    },
+    "acidity=neutral,fertility=2,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_normal"
+    },
+    "acidity=neutral,fertility=2,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_normal"
+    },
+    "acidity=neutral,fertility=3,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_normal"
+    },
+    "acidity=neutral,fertility=3,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_normal"
+    },
+    "acidity=neutral,fertility=0,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_damp"
+    },
+    "acidity=neutral,fertility=0,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_damp"
+    },
+    "acidity=neutral,fertility=1,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_damp"
+    },
+    "acidity=neutral,fertility=1,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_damp"
+    },
+    "acidity=neutral,fertility=2,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_damp"
+    },
+    "acidity=neutral,fertility=2,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_damp"
+    },
+    "acidity=neutral,fertility=3,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_neutral_damp"
+    },
+    "acidity=neutral,fertility=3,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_neutral_damp"
+    },
+    "acidity=alkaline,fertility=0,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_dry"
+    },
+    "acidity=alkaline,fertility=0,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_dry"
+    },
+    "acidity=alkaline,fertility=1,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_dry"
+    },
+    "acidity=alkaline,fertility=1,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_dry"
+    },
+    "acidity=alkaline,fertility=2,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_dry"
+    },
+    "acidity=alkaline,fertility=2,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_dry"
+    },
+    "acidity=alkaline,fertility=3,moisture=dry,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_dry"
+    },
+    "acidity=alkaline,fertility=3,moisture=dry,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_dry"
+    },
+    "acidity=alkaline,fertility=0,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_normal"
+    },
+    "acidity=alkaline,fertility=0,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_normal"
+    },
+    "acidity=alkaline,fertility=1,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_normal"
+    },
+    "acidity=alkaline,fertility=1,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_normal"
+    },
+    "acidity=alkaline,fertility=2,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_normal"
+    },
+    "acidity=alkaline,fertility=2,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_normal"
+    },
+    "acidity=alkaline,fertility=3,moisture=normal,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_normal"
+    },
+    "acidity=alkaline,fertility=3,moisture=normal,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_normal"
+    },
+    "acidity=alkaline,fertility=0,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_damp"
+    },
+    "acidity=alkaline,fertility=0,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_damp"
+    },
+    "acidity=alkaline,fertility=1,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_damp"
+    },
+    "acidity=alkaline,fertility=1,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_damp"
+    },
+    "acidity=alkaline,fertility=2,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_damp"
+    },
+    "acidity=alkaline,fertility=2,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_damp"
+    },
+    "acidity=alkaline,fertility=3,moisture=damp,weedkilled=false": {
+      "model": "binniebotany:block/soil_legacy/soil_alkaline_damp"
+    },
+    "acidity=alkaline,fertility=3,moisture=damp,weedkilled=true": {
+      "model": "binniebotany:block/soil_legacy/soil_no_weed_alkaline_damp"
+    }
+  }
+}

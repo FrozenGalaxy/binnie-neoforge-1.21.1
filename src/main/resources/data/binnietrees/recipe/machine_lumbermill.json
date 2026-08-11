@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "gAg",
+    "GsG",
+    "gPg"
+  ],
+  "key": {
+    "g": {
+      "item": "binnietrees:proven_gear"
+    },
+    "A": {
+      "item": "minecraft:iron_axe"
+    },
+    "G": {
+      "tag": "c:glass_blocks"
+    },
+    "s": {
+      "item": "forestry:sturdy_casing"
+    },
+    "P": {
+      "tag": "c:gears/bronze"
+    }
+  },
+  "result": {
+    "id": "binnietrees:lumbermill",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 6847056,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.5
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "maclura",
+  "species": "tinctoria"
+}

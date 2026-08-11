@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:meadows",
+  "id": "binniebees:bee_mutation/lead_1",
+  "result": "binniebees:lead",
+  "second": "binniebees:mineral",
+  "type": "forestry:bee_mutation"
+}

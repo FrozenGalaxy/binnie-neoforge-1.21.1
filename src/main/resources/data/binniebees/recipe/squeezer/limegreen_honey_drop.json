@@ -1,0 +1,28 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binniebees:squeezer/limegreen_honey_drop",
+  "time": 10,
+  "resources": [
+    {
+      "type": "neoforge:components",
+      "items": "binniebees:honey_drop",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_drop",
+          "value": "limegreen"
+        }
+      }
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 200,
+      "id": "forestry:honey"
+    }
+  },
+  "chance": 1.0,
+  "remnant": {
+    "id": "minecraft:lime_dye",
+    "count": 1
+  }
+}

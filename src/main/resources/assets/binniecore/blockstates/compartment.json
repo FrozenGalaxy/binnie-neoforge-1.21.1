@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "tier=plain": {
+      "model": "binniecore:block/compartment_plain"
+    },
+    "tier=copper": {
+      "model": "binniecore:block/compartment_copper"
+    },
+    "tier=bronze": {
+      "model": "binniecore:block/compartment_bronze"
+    },
+    "tier=iron": {
+      "model": "binniecore:block/compartment_iron"
+    },
+    "tier=gold": {
+      "model": "binniecore:block/compartment_gold"
+    },
+    "tier=diamond": {
+      "model": "binniecore:block/compartment_diamond"
+    }
+  }
+}

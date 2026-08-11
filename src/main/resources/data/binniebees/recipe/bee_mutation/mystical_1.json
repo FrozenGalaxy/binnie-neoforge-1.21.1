@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:noble",
+  "id": "binniebees:bee_mutation/mystical_1",
+  "result": "binniebees:mystical",
+  "second": "forestry:monastic",
+  "type": "forestry:bee_mutation"
+}

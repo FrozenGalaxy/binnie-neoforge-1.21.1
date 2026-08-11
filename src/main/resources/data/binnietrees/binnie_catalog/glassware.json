@@ -1,0 +1,21 @@
+{
+  "catalog": "binnietrees.glassware",
+  "count": 15,
+  "values": [
+    "beer_mug",
+    "pint",
+    "snifter",
+    "flute",
+    "cocktail",
+    "cordial",
+    "collins",
+    "highball",
+    "hurricane",
+    "margarita",
+    "old_fashioned",
+    "wine",
+    "shot",
+    "sherry",
+    "coupe"
+  ]
+}

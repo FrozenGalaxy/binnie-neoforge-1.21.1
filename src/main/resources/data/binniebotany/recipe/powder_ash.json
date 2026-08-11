@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "forestry:ash"
+    }
+  ],
+  "result": {
+    "id": "binniebotany:powder_ash",
+    "count": 4
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "pcp",
+    "cbc",
+    "pcp"
+  ],
+  "key": {
+    "p": {
+      "tag": "c:gems/emerald"
+    },
+    "c": {
+      "tag": "c:ingots/gold"
+    },
+    "b": {
+      "item": "binniecore:compartment",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniecore.compartment",
+          "value": "iron"
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "binniecore:compartment",
+    "count": 1,
+    "components": {
+      "binniecore:variant": {
+        "category": "binniecore.compartment",
+        "value": "gold"
+      }
+    }
+  }
+}

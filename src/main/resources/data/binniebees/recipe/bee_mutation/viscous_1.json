@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:exotic",
+  "id": "binniebees:bee_mutation/viscous_1",
+  "result": "binniebees:viscous",
+  "second": "binniebees:water",
+  "type": "forestry:bee_mutation"
+}

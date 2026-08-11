@@ -1,0 +1,30 @@
+{
+  "alleles": {
+    "forestry:activity": {
+      "dominant": true,
+      "value": "forestry:activity_cathemeral"
+    },
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_meteor"
+    },
+    "forestry:lifespan": {
+      "dominant": false,
+      "value": 40
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 20
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "forestry:temperature_tolerance": {
+      "value": "DOWN_2"
+    }
+  },
+  "name": "irrapis",
+  "parent": "apidae",
+  "rank": "genus",
+  "type": "forestry:bee_species"
+}

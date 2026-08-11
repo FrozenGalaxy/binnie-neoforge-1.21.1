@@ -1,0 +1,38 @@
+{
+  "alleles": {
+    "forestry:activity": {
+      "dominant": true,
+      "value": "forestry:activity_cathemeral"
+    },
+    "forestry:cave_dwelling": {
+      "dominant": true,
+      "value": true
+    },
+    "forestry:fertility": {
+      "dominant": true,
+      "value": 1
+    },
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_rock"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "BOTH_2"
+    },
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 30
+    },
+    "forestry:temperature_tolerance": {
+      "value": "BOTH_2"
+    },
+    "forestry:tolerates_rain": {
+      "dominant": true,
+      "value": true
+    }
+  },
+  "name": "lamminapis",
+  "parent": "apidae",
+  "rank": "genus",
+  "type": "forestry:bee_species"
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "binnietrees:block/hickory_planks",
+    "side": "binnietrees:block/hickory_planks",
+    "top": "binnietrees:block/hickory_planks"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:elm_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:elm_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

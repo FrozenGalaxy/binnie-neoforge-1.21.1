@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:blackberry",
+  "id": "binnietrees:tree_mutation/blueberry_81",
+  "result": "binnietrees:blueberry",
+  "second": "binnietrees:raspberry",
+  "type": "forestry:tree_mutation"
+}

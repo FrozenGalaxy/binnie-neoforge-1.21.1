@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:maple",
+  "id": "binnietrees:tree_mutation/sweetgum_57",
+  "result": "binnietrees:sweetgum",
+  "second": "forestry:larch",
+  "type": "forestry:tree_mutation"
+}

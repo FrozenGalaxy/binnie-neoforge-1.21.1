@@ -1,0 +1,196 @@
+{
+  "variants": {
+    "age=0,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=0,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=0,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=0,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=1,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=1,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=1,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=1,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=2,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=2,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=2,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=2,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=3,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=3,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=3,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=3,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=4,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=4,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=4,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=4,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=5,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=5,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=5,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=5,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=6,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=6,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=6,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=6,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=7,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=7,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=7,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=7,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=8,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=8,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=8,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=8,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=9,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=9,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=9,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=9,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=10,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=10,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=10,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=10,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=11,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=11,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=11,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=11,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=12,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=12,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=12,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=12,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=13,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=13,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=13,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=13,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=14,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=14,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=14,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=14,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=15,flowered=false,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=15,flowered=false,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=15,flowered=true,wilted=false": {
+      "model": "binniebotany:block/genetic_flower"
+    },
+    "age=15,flowered=true,wilted=true": {
+      "model": "binniebotany:block/genetic_flower"
+    }
+  }
+}

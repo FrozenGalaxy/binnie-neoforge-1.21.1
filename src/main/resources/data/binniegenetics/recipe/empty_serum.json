@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " g ",
+    " G ",
+    "GGG"
+  ],
+  "key": {
+    "g": {
+      "tag": "c:ingots/gold"
+    },
+    "G": {
+      "tag": "c:glass_panes"
+    }
+  },
+  "result": {
+    "id": "binniegenetics:genetic_material",
+    "count": 1,
+    "components": {
+      "binniecore:variant": {
+        "category": "binniegenetics.material",
+        "value": "serum"
+      }
+    }
+  }
+}

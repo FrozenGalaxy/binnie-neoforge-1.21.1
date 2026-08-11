@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "binnietrees:block/design_patterns/glass/letter_h_primary",
+    "particle": "binnietrees:block/design_patterns/glass/letter_h_primary"
+  },
+  "render_type": "minecraft:translucent"
+}

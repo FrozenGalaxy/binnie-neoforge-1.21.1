@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:allspice",
+  "id": "binnietrees:tree_mutation/star_anise_92",
+  "result": "binnietrees:star_anise",
+  "second": "binnietrees:clove",
+  "type": "forestry:tree_mutation"
+}

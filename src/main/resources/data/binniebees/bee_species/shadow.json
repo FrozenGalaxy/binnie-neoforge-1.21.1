@@ -1,0 +1,47 @@
+{
+  "authority": "Binnie",
+  "body": 3355443,
+  "dominant": false,
+  "genome": {
+    "forestry:activity": {
+      "dominant": true,
+      "value": "forestry:activity_nocturnal"
+    },
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_blindness"
+    },
+    "forestry:lifespan": {
+      "dominant": false,
+      "value": 40
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 20
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "forestry:temperature_tolerance": {
+      "value": "DOWN_2"
+    }
+  },
+  "genus": "pullapis",
+  "humidity": "arid",
+  "outline": 5855577,
+  "products": [
+    {
+      "chance": 0.05,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "shadow"
+        }
+      }
+    }
+  ],
+  "species": "shadowa",
+  "stripes": 0,
+  "temperature": "hellish"
+}

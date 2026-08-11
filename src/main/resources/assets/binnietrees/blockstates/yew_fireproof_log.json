@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "binnietrees:block/yew_fireproof_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "binnietrees:block/yew_fireproof_log"
+    },
+    "axis=z": {
+      "model": "binnietrees:block/yew_fireproof_log_horizontal",
+      "x": 90
+    }
+  }
+}

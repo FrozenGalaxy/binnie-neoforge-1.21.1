@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:willow",
+  "id": "binnietrees:tree_mutation/sour_cherry_24",
+  "result": "binnietrees:sour_cherry",
+  "second": "forestry:cherry",
+  "type": "forestry:tree_mutation"
+}

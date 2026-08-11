@@ -1,0 +1,23 @@
+{
+  "category": "redstone",
+  "group": "wooden_trapdoor",
+  "key": {
+    "#": [
+      {
+        "item": "binnietrees:alder_planks"
+      },
+      {
+        "item": "binnietrees:alder_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "binnietrees:alder_trapdoor"
+  },
+  "type": "minecraft:crafting_shaped"
+}

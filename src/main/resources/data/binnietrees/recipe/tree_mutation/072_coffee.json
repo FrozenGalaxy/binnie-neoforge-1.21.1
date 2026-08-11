@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:cherry",
+  "id": "binnietrees:tree_mutation/coffee_72",
+  "result": "binnietrees:coffee",
+  "second": "forestry:jungle",
+  "type": "forestry:tree_mutation"
+}

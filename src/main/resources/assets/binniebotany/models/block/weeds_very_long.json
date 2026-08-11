@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "binniebotany:block/weeds_very_long"
+  }
+}

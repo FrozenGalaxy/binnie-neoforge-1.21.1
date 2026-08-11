@@ -1,0 +1,34 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": false,
+  "genome": {
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_lightning"
+    },
+    "forestry:cave_dwelling": {
+      "dominant": true,
+      "value": true
+    },
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_redstone"
+    }
+  },
+  "genus": "incitapis",
+  "outline": 15218119,
+  "products": [
+    {
+      "chance": 0.12,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "redstone"
+        }
+      }
+    }
+  ],
+  "species": "energia",
+  "stripes": 0
+}

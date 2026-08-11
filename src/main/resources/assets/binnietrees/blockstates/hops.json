@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "age=0,half=lower": {
+      "model": "binnietrees:block/hops_stage_0_down"
+    },
+    "age=0,half=upper": {
+      "model": "binnietrees:block/hops_stage_0_up"
+    },
+    "age=1,half=lower": {
+      "model": "binnietrees:block/hops_stage_1_down"
+    },
+    "age=1,half=upper": {
+      "model": "binnietrees:block/hops_stage_1_up"
+    },
+    "age=2,half=lower": {
+      "model": "binnietrees:block/hops_stage_2_down"
+    },
+    "age=2,half=upper": {
+      "model": "binnietrees:block/hops_stage_2_up"
+    },
+    "age=3,half=lower": {
+      "model": "binnietrees:block/hops_stage_3_down"
+    },
+    "age=3,half=upper": {
+      "model": "binnietrees:block/hops_stage_3_up"
+    },
+    "age=4,half=lower": {
+      "model": "binnietrees:block/hops_stage_4_down"
+    },
+    "age=4,half=upper": {
+      "model": "binnietrees:block/hops_stage_4_up"
+    },
+    "age=5,half=lower": {
+      "model": "binnietrees:block/hops_stage_5_down"
+    },
+    "age=5,half=upper": {
+      "model": "binnietrees:block/hops_stage_5_up"
+    },
+    "age=6,half=lower": {
+      "model": "binnietrees:block/hops_stage_6_down"
+    },
+    "age=6,half=upper": {
+      "model": "binnietrees:block/hops_stage_6_up"
+    },
+    "age=7,half=lower": {
+      "model": "binnietrees:block/hops_stage_7_down"
+    },
+    "age=7,half=upper": {
+      "model": "binnietrees:block/hops_stage_7_up"
+    }
+  }
+}

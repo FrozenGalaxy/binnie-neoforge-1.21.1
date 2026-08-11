@@ -1,0 +1,28 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 7180062,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_peach"
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.25
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.4
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "prunus",
+  "species": "persica"
+}

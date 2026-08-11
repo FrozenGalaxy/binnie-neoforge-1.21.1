@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:ebony",
+  "id": "binnietrees:tree_mutation/rosewood_65",
+  "result": "binnietrees:rosewood",
+  "second": "forestry:teak",
+  "type": "forestry:tree_mutation"
+}

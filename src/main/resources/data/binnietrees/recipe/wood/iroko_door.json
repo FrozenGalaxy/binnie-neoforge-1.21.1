@@ -1,0 +1,19 @@
+{
+  "category": "redstone",
+  "group": "wooden_door",
+  "key": {
+    "#": {
+      "item": "binnietrees:iroko_planks"
+    }
+  },
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "binnietrees:iroko_door"
+  },
+  "type": "minecraft:crafting_shaped"
+}

@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:syzgium_planks"
+      },
+      {
+        "item": "binnietrees:syzgium_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:syzgium_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

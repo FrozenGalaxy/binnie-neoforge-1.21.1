@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:willow",
+  "id": "binnietrees:tree_mutation/sallow_37",
+  "result": "binnietrees:sallow",
+  "second": "binnietrees:aspen",
+  "type": "forestry:tree_mutation"
+}

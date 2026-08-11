@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "binnietrees:block/iroko_fireproof_log",
+    "side": "binnietrees:block/iroko_fireproof_log"
+  }
+}

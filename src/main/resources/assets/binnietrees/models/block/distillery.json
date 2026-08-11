@@ -1,0 +1,6 @@
+{
+  "parent": "binniecore:block/machine",
+  "textures": {
+    "texture": "binnietrees:block/machine/distillery"
+  }
+}

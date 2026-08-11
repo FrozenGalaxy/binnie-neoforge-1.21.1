@@ -1,0 +1,32 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": true,
+  "genome": {
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_bonemeal_mushroom"
+    }
+  },
+  "genus": "paludapis",
+  "outline": 13722112,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "forestry:mossy_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "fungal"
+        }
+      }
+    }
+  ],
+  "species": "boletus",
+  "stripes": 0
+}

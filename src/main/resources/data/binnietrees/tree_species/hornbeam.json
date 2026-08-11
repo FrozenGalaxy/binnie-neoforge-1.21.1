@@ -1,0 +1,25 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 9873179,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.5
+    },
+    "forestry:maturation": {
+      "dominant": true,
+      "value": 5
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.05
+    }
+  },
+  "genus": "carpinus",
+  "species": "betulus"
+}

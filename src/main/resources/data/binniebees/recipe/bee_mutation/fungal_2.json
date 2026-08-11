@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "forestry:boggy",
+  "id": "binniebees:bee_mutation/fungal_2",
+  "result": "binniebees:fungal",
+  "second": "binniebees:swamp",
+  "type": "forestry:bee_mutation"
+}

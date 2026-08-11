@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:rosewood",
+  "id": "binnietrees:tree_mutation/logwood_66",
+  "result": "binnietrees:logwood",
+  "second": "forestry:kapok",
+  "type": "forestry:tree_mutation"
+}

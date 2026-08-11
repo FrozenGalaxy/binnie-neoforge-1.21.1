@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/syzgium_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/syzgium_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/syzgium_slab_top"
+    }
+  }
+}

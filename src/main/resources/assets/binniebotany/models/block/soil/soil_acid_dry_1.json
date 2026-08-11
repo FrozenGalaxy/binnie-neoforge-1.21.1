@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "binniebotany:block/soil/soil_acid_dry_1"
+  }
+}

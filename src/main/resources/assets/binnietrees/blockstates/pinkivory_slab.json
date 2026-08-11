@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/pinkivory_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/pinkivory_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/pinkivory_slab_top"
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "layer0": "binniebotany:block/ceramic_brick/mixed_0",
+    "layer1": "binniebotany:block/ceramic_brick/mixed_1",
+    "layer2": "binniebotany:block/ceramic_brick/mixed_2"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#layer0",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#layer0",
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#layer0",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#layer0",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#layer0",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#layer0",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        -0.01,
+        -0.01,
+        -0.01
+      ],
+      "to": [
+        16.01,
+        16.01,
+        16.01
+      ],
+      "faces": {
+        "down": {
+          "texture": "#layer1",
+          "cullface": "down",
+          "tintindex": 1
+        },
+        "up": {
+          "texture": "#layer1",
+          "cullface": "up",
+          "tintindex": 1
+        },
+        "north": {
+          "texture": "#layer1",
+          "cullface": "north",
+          "tintindex": 1
+        },
+        "south": {
+          "texture": "#layer1",
+          "cullface": "south",
+          "tintindex": 1
+        },
+        "west": {
+          "texture": "#layer1",
+          "cullface": "west",
+          "tintindex": 1
+        },
+        "east": {
+          "texture": "#layer1",
+          "cullface": "east",
+          "tintindex": 1
+        }
+      }
+    },
+    {
+      "from": [
+        -0.02,
+        -0.02,
+        -0.02
+      ],
+      "to": [
+        16.02,
+        16.02,
+        16.02
+      ],
+      "faces": {
+        "down": {
+          "texture": "#layer2",
+          "cullface": "down",
+          "tintindex": 2
+        },
+        "up": {
+          "texture": "#layer2",
+          "cullface": "up",
+          "tintindex": 2
+        },
+        "north": {
+          "texture": "#layer2",
+          "cullface": "north",
+          "tintindex": 2
+        },
+        "south": {
+          "texture": "#layer2",
+          "cullface": "south",
+          "tintindex": 2
+        },
+        "west": {
+          "texture": "#layer2",
+          "cullface": "west",
+          "tintindex": 2
+        },
+        "east": {
+          "texture": "#layer2",
+          "cullface": "east",
+          "tintindex": 2
+        }
+      }
+    }
+  ]
+}

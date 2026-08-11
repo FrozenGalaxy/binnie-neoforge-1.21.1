@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/cypress_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/cypress_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/cypress_slab_top"
+    }
+  }
+}

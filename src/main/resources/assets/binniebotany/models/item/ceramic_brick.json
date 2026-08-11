@@ -1,0 +1,14 @@
+{
+  "parent": "binniebotany:block/ceramic_brick_tile",
+  "overrides": [
+    { "predicate": { "binniebotany:ceramic_brick_type": 1 }, "model": "binniebotany:block/ceramic_brick_brick" },
+    { "predicate": { "binniebotany:ceramic_brick_type": 2 }, "model": "binniebotany:block/ceramic_brick_brickstripe" },
+    { "predicate": { "binniebotany:ceramic_brick_type": 3 }, "model": "binniebotany:block/ceramic_brick_bricklarge" },
+    { "predicate": { "binniebotany:ceramic_brick_type": 4 }, "model": "binniebotany:block/ceramic_brick_split" },
+    { "predicate": { "binniebotany:ceramic_brick_type": 5 }, "model": "binniebotany:block/ceramic_brick_cheque" },
+    { "predicate": { "binniebotany:ceramic_brick_type": 6 }, "model": "binniebotany:block/ceramic_brick_mixed" },
+    { "predicate": { "binniebotany:ceramic_brick_type": 7 }, "model": "binniebotany:block/ceramic_brick_verticalbrick" },
+    { "predicate": { "binniebotany:ceramic_brick_type": 8 }, "model": "binniebotany:block/ceramic_brick_verticalbrickstripe" },
+    { "predicate": { "binniebotany:ceramic_brick_type": 9 }, "model": "binniebotany:block/ceramic_brick_verticalbricklarge" }
+  ]
+}

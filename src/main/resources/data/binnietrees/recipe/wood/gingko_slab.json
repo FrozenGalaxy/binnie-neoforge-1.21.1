@@ -1,0 +1,17 @@
+{
+  "category": "building",
+  "group": "wooden_slab",
+  "key": {
+    "#": {
+      "item": "binnietrees:gingko_planks"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "binnietrees:gingko_slab"
+  },
+  "type": "minecraft:crafting_shaped"
+}

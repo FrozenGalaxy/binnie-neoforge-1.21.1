@@ -1,0 +1,8 @@
+{
+  "chance": 0.15,
+  "first": "forestry:forest",
+  "id": "binniebees:bee_mutation/bone_1",
+  "result": "binniebees:bone",
+  "second": "binniebees:desolate",
+  "type": "forestry:bee_mutation"
+}

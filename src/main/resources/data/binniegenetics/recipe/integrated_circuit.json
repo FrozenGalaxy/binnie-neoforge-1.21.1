@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "l g",
+    " c ",
+    "g l"
+  ],
+  "key": {
+    "c": {
+      "item": "forestry:enhanced_circuit_board"
+    },
+    "l": {
+      "tag": "c:gems/lapis"
+    },
+    "g": {
+      "tag": "c:dusts/glowstone"
+    }
+  },
+  "result": {
+    "id": "binniegenetics:integrated_circuit",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "binniebotany:soil_progression",
+  "ingredients": [
+    {
+      "tag": "minecraft:dirt"
+    },
+    {
+      "tag": "minecraft:dirt"
+    },
+    {
+      "tag": "minecraft:dirt"
+    },
+    {
+      "tag": "minecraft:dirt"
+    },
+    {
+      "tag": "binniebotany:fertilisers/nutrient"
+    }
+  ],
+  "result": {
+    "id": "binniebotany:soil",
+    "count": 4
+  }
+}

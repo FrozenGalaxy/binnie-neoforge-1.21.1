@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/logwood_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/logwood_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/logwood_slab_top"
+    }
+  }
+}

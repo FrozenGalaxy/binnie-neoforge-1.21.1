@@ -1,0 +1,24 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 7444049,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_gingko_nut"
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 1.25
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.3
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.05
+    }
+  },
+  "genus": "ginkgo",
+  "species": "biloba"
+}

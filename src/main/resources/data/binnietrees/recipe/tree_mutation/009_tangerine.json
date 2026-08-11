@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:kumquat",
+  "id": "binnietrees:tree_mutation/tangerine_9",
+  "result": "binnietrees:tangerine",
+  "second": "binnietrees:manderin",
+  "type": "forestry:tree_mutation"
+}

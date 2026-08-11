@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " g ",
+    "g g",
+    "   "
+  ],
+  "key": {
+    "g": {
+      "tag": "c:glass_panes"
+    }
+  },
+  "result": {
+    "id": "binniecore:cylinder",
+    "count": 8
+  }
+}

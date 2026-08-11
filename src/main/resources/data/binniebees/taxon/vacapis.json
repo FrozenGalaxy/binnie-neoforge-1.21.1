@@ -1,0 +1,34 @@
+{
+  "alleles": {
+    "forestry:activity": {
+      "dominant": true,
+      "value": "forestry:activity_cathemeral"
+    },
+    "forestry:fertility": {
+      "dominant": true,
+      "value": 1
+    },
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_dead"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "DOWN_1"
+    },
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 30
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    }
+  },
+  "name": "vacapis",
+  "parent": "apidae",
+  "rank": "genus",
+  "type": "forestry:bee_species"
+}

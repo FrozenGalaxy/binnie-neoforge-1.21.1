@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:maclura_fireproof_log",
+    "binnietrees:maclura_fireproof_stripped_log",
+    "binnietrees:maclura_fireproof_stripped_wood",
+    "binnietrees:maclura_fireproof_wood"
+  ]
+}

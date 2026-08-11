@@ -1,0 +1,18 @@
+{
+  "category": "redstone",
+  "ingredients": [
+    [
+      {
+        "item": "binnietrees:apple_planks"
+      },
+      {
+        "item": "binnietrees:apple_fireproof_planks"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:apple_button"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

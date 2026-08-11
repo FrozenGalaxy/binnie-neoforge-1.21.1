@@ -1,0 +1,8 @@
+{
+  "chance": 0.15,
+  "first": "forestry:meadows",
+  "id": "binniebees:bee_mutation/rotten_1",
+  "result": "binniebees:rotten",
+  "second": "binniebees:desolate",
+  "type": "forestry:bee_mutation"
+}

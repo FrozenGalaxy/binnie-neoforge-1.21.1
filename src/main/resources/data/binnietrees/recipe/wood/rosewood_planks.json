@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:rosewood_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:rosewood_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "s s",
+    " i ",
+    "s s"
+  ],
+  "key": {
+    "i": {
+      "tag": "c:ingots/iron"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "result": {
+    "id": "binnietrees:glass_fitting",
+    "count": 6
+  }
+}

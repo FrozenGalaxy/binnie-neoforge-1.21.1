@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "binniebees:coal_dust"
+    },
+    {
+      "item": "binniebees:coal_dust"
+    },
+    {
+      "item": "binniebees:coal_dust"
+    },
+    {
+      "item": "binniebees:coal_dust"
+    }
+  ],
+  "result": {
+    "id": "minecraft:coal",
+    "count": 1
+  }
+}

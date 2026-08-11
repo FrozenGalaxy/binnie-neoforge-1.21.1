@@ -1,0 +1,21 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 8163400,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.5
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.4
+    }
+  },
+  "genus": "ulmus",
+  "species": "procera"
+}

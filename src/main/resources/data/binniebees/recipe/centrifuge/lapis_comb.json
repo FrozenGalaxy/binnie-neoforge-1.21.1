@@ -1,0 +1,30 @@
+{
+  "type": "forestry:centrifuge",
+  "id": "binniebees:centrifuge/lapis_comb",
+  "time": 20,
+  "input": {
+    "type": "neoforge:components",
+    "items": "binniebees:honey_comb",
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebees.honey_comb",
+        "value": "lapis"
+      }
+    }
+  },
+  "products": [
+    {
+      "chance": 0.5,
+      "item": "forestry:beeswax"
+    },
+    {
+      "chance": 0.25,
+      "item": "forestry:honey_drop"
+    },
+    {
+      "chance": 1.0,
+      "item": "minecraft:lapis_lazuli",
+      "count": 6
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:brazilwood",
+  "id": "binnietrees:tree_mutation/purpleheart_64",
+  "result": "binnietrees:purpleheart",
+  "second": "forestry:kapok",
+  "type": "forestry:tree_mutation"
+}

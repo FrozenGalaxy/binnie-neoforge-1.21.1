@@ -1,0 +1,18 @@
+{
+  "category": "redstone",
+  "ingredients": [
+    [
+      {
+        "item": "binnietrees:maclura_planks"
+      },
+      {
+        "item": "binnietrees:maclura_fireproof_planks"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:maclura_button"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

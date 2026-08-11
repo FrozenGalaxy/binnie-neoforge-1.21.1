@@ -1,0 +1,68 @@
+{
+  "authority": "Binnie",
+  "body": 13362036,
+  "dominant": true,
+  "genome": {
+    "forestry:activity": {
+      "dominant": true,
+      "value": "forestry:activity_cathemeral"
+    },
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_spawn_creeper"
+    },
+    "forestry:cave_dwelling": {
+      "dominant": true,
+      "value": true
+    },
+    "forestry:fertility": {
+      "dominant": true,
+      "value": 1
+    },
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_dead"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "DOWN_1"
+    },
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 30
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    },
+    "forestry:tolerates_rain": {
+      "dominant": true,
+      "value": true
+    }
+  },
+  "genus": "infenapis",
+  "humidity": "arid",
+  "outline": 2942485,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "barren"
+        }
+      }
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.08,
+      "item": "forestry:powdery_comb"
+    }
+  ],
+  "species": "erepo",
+  "stripes": 0,
+  "temperature": "hot"
+}

@@ -1,0 +1,14 @@
+{
+  "chance": 0.1,
+  "conditions": [
+    {
+      "biome": "minecraft:is_ocean",
+      "type": "forestry:biome"
+    }
+  ],
+  "first": "forestry:diligent",
+  "id": "binniebees:bee_mutation/ocean_1",
+  "result": "binniebees:ocean",
+  "second": "binniebees:water",
+  "type": "forestry:bee_mutation"
+}

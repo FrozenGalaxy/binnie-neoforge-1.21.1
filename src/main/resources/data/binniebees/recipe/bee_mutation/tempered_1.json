@@ -1,0 +1,14 @@
+{
+  "chance": 0.3,
+  "conditions": [
+    {
+      "biome": "minecraft:is_nether",
+      "type": "forestry:biome"
+    }
+  ],
+  "first": "forestry:fiendish",
+  "id": "binniebees:bee_mutation/tempered_1",
+  "result": "binniebees:tempered",
+  "second": "binniebees:basalt",
+  "type": "forestry:bee_mutation"
+}

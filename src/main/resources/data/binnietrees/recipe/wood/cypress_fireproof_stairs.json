@@ -1,0 +1,19 @@
+{
+  "category": "building",
+  "group": "wooden_stairs",
+  "key": {
+    "#": {
+      "item": "binnietrees:cypress_fireproof_planks"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:cypress_fireproof_stairs"
+  },
+  "type": "minecraft:crafting_shaped"
+}

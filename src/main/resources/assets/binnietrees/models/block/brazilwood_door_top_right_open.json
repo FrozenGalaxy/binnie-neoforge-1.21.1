@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right_open",
+  "textures": {
+    "bottom": "binnietrees:block/brazilwood_door_bottom",
+    "top": "binnietrees:block/brazilwood_door_top"
+  }
+}

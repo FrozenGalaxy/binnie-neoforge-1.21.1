@@ -1,0 +1,7 @@
+{
+  "parent": "binniebotany:block/soil_base",
+  "textures": {
+    "top": "binniebotany:block/soil/soil.acid.dry.0",
+    "side": "binniebotany:block/soil/soil.acid.dry.1"
+  }
+}

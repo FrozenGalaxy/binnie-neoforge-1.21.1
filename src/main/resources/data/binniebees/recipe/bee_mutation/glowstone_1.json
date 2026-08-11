@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:tempered",
+  "id": "binniebees:bee_mutation/glowstone_1",
+  "result": "binniebees:glowstone",
+  "second": "binniebees:excited",
+  "type": "forestry:bee_mutation"
+}

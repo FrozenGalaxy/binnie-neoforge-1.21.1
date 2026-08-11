@@ -1,0 +1,23 @@
+{
+  "category": "redstone",
+  "group": "wooden_trapdoor",
+  "key": {
+    "#": [
+      {
+        "item": "binnietrees:purpleheart_planks"
+      },
+      {
+        "item": "binnietrees:purpleheart_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "binnietrees:purpleheart_trapdoor"
+  },
+  "type": "minecraft:crafting_shaped"
+}

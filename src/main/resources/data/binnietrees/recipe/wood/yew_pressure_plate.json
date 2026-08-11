@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:yew_planks"
+      },
+      {
+        "item": "binnietrees:yew_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:yew_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

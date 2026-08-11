@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "binniebees:gold_dust"
+    },
+    {
+      "item": "binniebees:gold_dust"
+    },
+    {
+      "item": "binniebees:gold_dust"
+    },
+    {
+      "item": "binniebees:gold_dust"
+    },
+    {
+      "item": "binniebees:gold_dust"
+    },
+    {
+      "item": "binniebees:gold_dust"
+    },
+    {
+      "item": "binniebees:gold_dust"
+    },
+    {
+      "item": "binniebees:gold_dust"
+    },
+    {
+      "item": "binniebees:gold_dust"
+    }
+  ],
+  "result": {
+    "id": "minecraft:gold_ingot",
+    "count": 1
+  }
+}

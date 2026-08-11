@@ -1,0 +1,14 @@
+{
+  "catalog": "binnietrees.machine",
+  "count": 8,
+  "values": [
+    "lumbermill",
+    "woodworker",
+    "panelworker",
+    "nursery",
+    "press",
+    "brewery",
+    "distillery",
+    "glassworker"
+  ]
+}

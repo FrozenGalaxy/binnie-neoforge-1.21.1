@@ -1,0 +1,29 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": true,
+  "genome": {
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 30
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 15
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    }
+  },
+  "genus": "grecapis",
+  "outline": 11373488,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "forestry:honey_comb"
+    }
+  ],
+  "species": "roman",
+  "stripes": 0
+}

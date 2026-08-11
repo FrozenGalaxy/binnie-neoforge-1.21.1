@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "binniebees:emerald_shard"
+    },
+    {
+      "item": "binniebees:emerald_shard"
+    },
+    {
+      "item": "binniebees:emerald_shard"
+    },
+    {
+      "item": "binniebees:emerald_shard"
+    },
+    {
+      "item": "binniebees:emerald_shard"
+    },
+    {
+      "item": "binniebees:emerald_shard"
+    },
+    {
+      "item": "binniebees:emerald_shard"
+    },
+    {
+      "item": "binniebees:emerald_shard"
+    },
+    {
+      "item": "binniebees:emerald_shard"
+    }
+  ],
+  "result": {
+    "id": "minecraft:emerald",
+    "count": 1
+  }
+}

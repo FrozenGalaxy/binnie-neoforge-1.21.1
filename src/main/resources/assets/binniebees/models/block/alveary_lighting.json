@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "binniebees:block/alveary/lighting_top",
+    "side": "binniebees:block/alveary/lighting_side"
+  }
+}

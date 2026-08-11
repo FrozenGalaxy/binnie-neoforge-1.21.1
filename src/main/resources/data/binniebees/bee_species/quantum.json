@@ -1,0 +1,73 @@
+{
+  "authority": "Binnie",
+  "body": 13963227,
+  "dominant": true,
+  "genome": {
+    "forestry:activity": {
+      "dominant": true,
+      "value": "forestry:activity_diurnal"
+    },
+    "forestry:bee_effect": {
+      "value": "forestry:bee_effect_none"
+    },
+    "forestry:fertility": {
+      "dominant": true,
+      "value": 2
+    },
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 20
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.3
+    },
+    "forestry:temperature_tolerance": {
+      "value": "NONE"
+    },
+    "forestry:territory": {
+      "dominant": false,
+      "value": [
+        9,
+        6,
+        9
+      ]
+    }
+  },
+  "genus": "quantapis",
+  "outline": 3655131,
+  "products": [
+    {
+      "chance": 0.25,
+      "item": "binniebees:quartz_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "certus"
+        }
+      }
+    },
+    {
+      "chance": 0.15,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "enderpearl"
+        }
+      }
+    }
+  ],
+  "species": "quanta",
+  "stripes": 0
+}

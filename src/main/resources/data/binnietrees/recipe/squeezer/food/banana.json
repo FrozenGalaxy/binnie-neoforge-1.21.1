@@ -1,0 +1,28 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binnietrees:squeezer/food/banana",
+  "time": 10,
+  "resources": [
+    {
+      "type": "neoforge:components",
+      "items": "binnietrees:food",
+      "components": {
+        "binniecore:variant": {
+          "category": "binnietrees.food",
+          "value": "banana"
+        }
+      }
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 100,
+      "id": "forestry:fruit_juice"
+    }
+  },
+  "remnant": {
+    "count": 1,
+    "id": "forestry:mulch"
+  },
+  "chance": 0.3
+}

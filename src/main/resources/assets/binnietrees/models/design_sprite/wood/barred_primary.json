@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "binnietrees:block/design_patterns/wood/barred_primary",
+    "particle": "binnietrees:block/design_patterns/wood/barred_primary"
+  },
+  "render_type": "minecraft:cutout_mipped"
+}

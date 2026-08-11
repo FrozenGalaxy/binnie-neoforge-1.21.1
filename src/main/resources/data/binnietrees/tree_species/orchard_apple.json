@@ -1,0 +1,16 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 648830,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_apple"
+    },
+    "forestry:yield": {
+      "dominant": false,
+      "value": 0.35
+    }
+  },
+  "genus": "malus",
+  "species": "domestica"
+}

@@ -1,0 +1,24 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binniebees:squeezer/alcohol_propolis",
+  "time": 20,
+  "resources": [
+    {
+      "type": "neoforge:components",
+      "items": "binniebees:propolis",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniebees.propolis",
+          "value": "alcohol"
+        }
+      }
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 500,
+      "id": "forestry:short_mead"
+    }
+  },
+  "chance": 0.0
+}

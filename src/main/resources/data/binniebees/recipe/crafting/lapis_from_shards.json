@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "binniebees:lapis_shard"
+    },
+    {
+      "item": "binniebees:lapis_shard"
+    },
+    {
+      "item": "binniebees:lapis_shard"
+    },
+    {
+      "item": "binniebees:lapis_shard"
+    }
+  ],
+  "result": {
+    "id": "minecraft:lapis_lazuli",
+    "count": 1
+  }
+}

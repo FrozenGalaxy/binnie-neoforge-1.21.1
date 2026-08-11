@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "type": "binniegenetics:filled_genetic_material",
+    "kind": "sequence"
+  },
+  "result": { "id": "binniegenetics:empty_sequencer" },
+  "experience": 0.0,
+  "cookingtime": 200
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:blackberry",
+  "id": "binnietrees:tree_mutation/cranberry_82",
+  "result": "binnietrees:cranberry",
+  "second": "binnietrees:cherry_plum",
+  "type": "forestry:tree_mutation"
+}

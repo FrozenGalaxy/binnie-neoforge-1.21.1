@@ -1,0 +1,477 @@
+plugins {
+    id 'idea'
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.moddev' version '2.0.143'
+}
+
+group = 'com.binniesmods'
+version = binnieVersion
+base.archivesName = "binnie-mods-neoforge-${minecraftVersion}"
+
+def targetJavaVersion = providers.gradleProperty('javaVersion').get().toInteger()
+def skipJade = providers.gradleProperty('binnieSkipJade').map { it.toBoolean() }.orElse(false).get()
+def skipJeiRuntime = providers.gradleProperty('binnieSkipJeiRuntime').map { it.toBoolean() }.orElse(false).get()
+def skipOptionalDevRuntime = providers.gradleProperty('binnieSkipOptionalDevRuntime').map { it.toBoolean() }.orElse(false).get()
+def forestryModuleCoordinate = { String module ->
+    "${forestryGroup}:forestry${module}-${minecraftVersion}:${forestryVersion}"
+}
+def requiredForestrySplitCoordinates = ['farms', 'butterflies', 'mail'].collect(forestryModuleCoordinate)
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+    withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.named('wrapper', Wrapper).configure {
+    distributionType = Wrapper.DistributionType.BIN
+}
+
+neoForge {
+    version = neoForgeVersion
+
+    parchment {
+        mappingsVersion = project.mappingsVersion
+        minecraftVersion = project.minecraftVersion
+    }
+
+    runs {
+        configureEach {
+            logLevel = org.slf4j.event.Level.DEBUG
+            jvmArgument '-XX:+AllowEnhancedClassRedefinition'
+            jvmArgument '-XX:+IgnoreUnrecognizedVMOptions'
+        }
+
+        client {
+            client()
+            gameDirectory.set(project.layout.projectDirectory.dir('run/client'))
+        }
+
+        server {
+            server()
+            gameDirectory.set(project.layout.projectDirectory.dir('run/server'))
+            programArgument '--nogui'
+        }
+
+        data {
+            data()
+            gameDirectory.set(project.layout.projectDirectory.dir('run/data'))
+            programArguments.addAll(
+                    '--mod', 'binniecore',
+                    '--mod', 'binniedesign',
+                    '--mod', 'binniebotany',
+                    '--mod', 'binniebees',
+                    '--mod', 'binnietrees',
+                    '--mod', 'binniegenetics',
+                    '--all',
+                    '--output', file('src/generated/resources/').absolutePath,
+                    '--existing', file('src/main/resources/').absolutePath
+            )
+        }
+
+        gameTestServer {
+            type = 'gameTestServer'
+            gameDirectory.set(project.layout.projectDirectory.dir('run/gametest'))
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'binniecore,binniedesign,binniebotany,binniebees,binnietrees,binniegenetics,forestry'
+        }
+    }
+
+    mods {
+        binniecore {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.test
+        }
+    }
+
+    addModdingDependenciesTo sourceSets.test
+}
+
+repositories {
+    // The split Forestry development build is published to Maven Local.
+    mavenLocal {
+        name = 'Host Maven Local'
+        content { includeGroup forestryGroup }
+    }
+    maven {
+        name = 'ModMaven'
+        url = 'https://modmaven.dev/'
+        content {
+            includeGroup forestryGroup
+            includeGroup 'mekanism'
+        }
+    }
+    maven {
+        name = 'JEI and Patchouli'
+        url = 'https://maven.blamejared.com/'
+        content {
+            includeGroup 'mezz.jei'
+            includeGroup 'vazkii.patchouli'
+        }
+    }
+    maven {
+        name = 'Architectury API'
+        url = 'https://maven.architectury.dev'
+        content { includeGroup 'dev.architectury' }
+    }
+    maven {
+        name = 'KubeJS and Rhino'
+        url = 'https://maven.latvian.dev/releases'
+        content { includeGroupAndSubgroups 'dev.latvian' }
+    }
+    maven {
+        name = 'Curios'
+        url = 'https://maven.theillusivec4.top/'
+        content { includeGroup 'top.theillusivec4.curios' }
+    }
+    maven {
+        name = 'CurseMaven development tools'
+        url = 'https://www.cursemaven.com'
+        content { includeGroup 'curse.maven' }
+    }
+    maven { url = 'https://maven.createmod.net' }
+    maven {
+        name = 'Ponder'
+        url = 'https://raw.githubusercontent.com/Fuzss/modresources/main/maven/'
+    }
+    maven {
+        name = 'ForestryCE development dependencies'
+        url = 'https://jitpack.io'
+        content {
+            includeGroup 'com.github.thedarkcolour'
+            includeGroup 'com.github.rtyley'
+        }
+    }
+    mavenCentral()
+}
+
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+    testRuntimeClasspath.extendsFrom localRuntime
+}
+
+dependencies {
+    implementation("${forestryGroup}:${forestryArtifact}:${forestryVersion}") {
+        transitive = false
+    }
+    // Forestry 3.0.0-alpha2 publishes its optional modules independently.
+    // Farms is a compile/runtime dependency because Botany's farm logic uses
+    // its supported API. Butterflies and mail complete the development runtime.
+    implementation(forestryModuleCoordinate('farms')) { transitive = false }
+    runtimeOnly(forestryModuleCoordinate('butterflies')) { transitive = false }
+    runtimeOnly(forestryModuleCoordinate('mail')) { transitive = false }
+
+    compileOnly "mezz.jei:jei-${minecraftVersion}-neoforge-api:${jeiVersion}"
+    if (!skipJeiRuntime) {
+        localRuntime "mezz.jei:jei-${minecraftVersion}-neoforge:${jeiVersion}"
+    }
+
+    compileOnly "vazkii.patchouli:Patchouli:${patchouliVersion}-NEOFORGE:api"
+    localRuntime "vazkii.patchouli:Patchouli:${patchouliVersion}-NEOFORGE"
+    // Development runtime aid only; Binnie has no Mekanism API dependency.
+    if (!skipOptionalDevRuntime) {
+        localRuntime "mekanism:Mekanism:${mekanismVersion}:all"
+    }
+    // Jade is an optional development/runtime integration. Binnie's own jar does not bundle it.
+    if (!skipJade) {
+        compileOnly "curse.maven:jade-324717:${jadeFileId}"
+        localRuntime "curse.maven:jade-324717:${jadeFileId}"
+    }
+
+    // Forestry's published POM omits these runtime dependencies.
+    implementation "dev.architectury:architectury-neoforge:${architecturyVersion}"
+    implementation "dev.latvian.mods:rhino:${rhinoVersion}"
+    implementation "dev.latvian.mods:kubejs-neoforge:${kubejsVersion}"
+    implementation "top.theillusivec4.curios:curios-neoforge:${curiosVersion}+${minecraftVersion}"
+    implementation "net.createmod.ponder:ponder-neoforge:${ponderVersion}+mc${minecraftVersion}"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+}
+
+sourceSets.main.java {
+    if (skipJade) {
+        exclude 'binnie/binniegenetics/integration/jade/**'
+    }
+}
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+    srcDir tasks.register('generateModMetadata', ProcessResources) {
+        exclude '.gitkeep', '**/.gitkeep'
+
+        def replaceProperties = [
+                version: project.version,
+                neoForgeVersionRange: neoForgeVersionRange,
+                fmlVersionRange: fmlVersionRange,
+                forestryVersion: forestryVersion,
+                patchouliVersionRange: patchouliVersionRange,
+                jeiVersionRange: jeiVersionRange
+        ]
+        inputs.properties replaceProperties
+        expand replaceProperties
+        from 'src/main/templates'
+        into 'build/generated/sources/modMetadata'
+    }
+}
+
+neoForge.ideSyncTask tasks.named('generateModMetadata')
+tasks.named('processResources', ProcessResources).configure {
+    dependsOn tasks.named('generateModMetadata')
+    exclude '.gitkeep', '**/.gitkeep'
+}
+
+tasks.withType(Jar).configureEach {
+    exclude '.gitkeep', '**/.gitkeep'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = targetJavaVersion
+    options.compilerArgs.addAll(['-Xlint:all', '-Xmaxerrs', '400'])
+}
+
+tasks.register('apiJar', Jar) {
+    archiveClassifier = 'api'
+    from sourceSets.main.output
+    from sourceSets.main.allJava
+    include 'binnie/**/api/**'
+}
+
+tasks.named('assemble').configure { dependsOn tasks.named('apiJar') }
+
+tasks.register('verifyRunConfigurations') {
+    group = 'verification'
+    doLast {
+        ['runClient', 'runServer', 'runData', 'runGameTestServer'].each { taskName ->
+            if (tasks.findByName(taskName) == null) {
+                throw new GradleException("Required ModDev run task is absent: ${taskName}")
+            }
+        }
+    }
+}
+
+
+tasks.register('validateLegacyCatalogs') {
+    group = 'verification'
+    description = 'Validates the imported 1.12 catalog counts and uniqueness.'
+    doLast {
+        def expected = [
+            'binniebees.bee_species': 115,
+            'binniebees.bee_branch': 29,
+            'binniebees.bee_effect': 24,
+            'binniebees.honey_comb': 85,
+            'binniebees.honey_drop': 28,
+            'binniebees.propolis': 10,
+            'binniebees.industrial_frame': 16,
+            'binniebees.hive_type': 4,
+            'binniebees.simulator_circuit': 9,
+            'binniebees.alveary_component': 7,
+            'binnietrees.tree_species': 97,
+            'binnietrees.plank': 36,
+            'binnietrees.forestry_plank': 29,
+            'binnietrees.vanilla_plank': 6,
+            'binnietrees.log': 40,
+            'binnietrees.food': 60,
+            'binnietrees.glassware': 15,
+            'binniebotany.flower': 47,
+            'binniebotany.flower_color': 80,
+            'binniebotany.flower_chromosome': 12,
+            'binniebotany.ceramic_pattern': 10,
+            'binniedesign.design': 101,
+            'binniedesign.pattern': 213
+        ]
+        def catalogDir = file('src/main/resources/data')
+        expected.each { key, count ->
+            def parts = key.tokenize('.')
+            def file = new File(catalogDir, "${parts[0]}/binnie_catalog/${parts[1]}.json")
+            if (!file.isFile()) throw new GradleException("Missing catalog file: ${file}")
+            def parsed = new groovy.json.JsonSlurper().parse(file)
+            def values = parsed instanceof List ? parsed : parsed.values
+            if (values.size() != count) throw new GradleException("${key}: expected ${count}, got ${values.size()}")
+            if (values.toSet().size() != values.size()) throw new GradleException("${key}: duplicate IDs")
+        }
+        def liquids = ['alcohol':29, 'cocktail':29, 'juice':19, 'liqueur':17, 'misc_fluid':8, 'spirit':27]
+        int total = 0
+        liquids.each { id, count ->
+            def parsed = new groovy.json.JsonSlurper().parse(file("src/main/resources/data/binnietrees/binnie_catalog/${id}.json"))
+            def values = parsed instanceof List ? parsed : parsed.values
+            if (values.size() != count) throw new GradleException("binnietrees.${id}: expected ${count}, got ${values.size()}")
+            total += values.size()
+        }
+        if (total != 129) throw new GradleException("Expected 129 legacy liquids, got ${total}")
+
+        def flowers = new groovy.json.JsonSlurper().parse(file('src/main/resources/binniebotany/legacy_flower_catalog.json'))
+        if (flowers.colors.size() != 80) throw new GradleException("Expected 80 flower colors, got ${flowers.colors.size()}")
+        if (flowers.species.size() != 47) throw new GradleException("Expected 47 flower species, got ${flowers.species.size()}")
+        if (flowers.mutations.size() != 37) throw new GradleException("Expected 37 executable flower mutation registrations, got ${flowers.mutations.size()}")
+        if (flowers.color_mixes.size() != 2815) throw new GradleException("Expected 2815 executable flower color mixes, got ${flowers.color_mixes.size()}")
+        def speciesIds = flowers.species.collect { it.id } as Set
+        def colorIds = flowers.colors.collect { it.id } as Set
+        if (speciesIds.size() != 47) throw new GradleException('Duplicate flower species IDs')
+        if (colorIds.size() != 80) throw new GradleException('Duplicate flower color IDs')
+        flowers.species.each { flower ->
+            if (flower.alleles.size() != 11) throw new GradleException("${flower.id}: expected 11 explicit alleles plus the species chromosome, got ${flower.alleles.size()} explicit alleles")
+        }
+        flowers.mutations.each { mutation ->
+            if (!(mutation.first in speciesIds) || !(mutation.second in speciesIds) || !(mutation.result in speciesIds)) {
+                throw new GradleException("Unresolved flower mutation ${mutation.id}: ${mutation.first} + ${mutation.second} -> ${mutation.result}")
+            }
+            if (!(mutation.chance > 0 && mutation.chance <= 100)) throw new GradleException("Invalid flower mutation chance for ${mutation.id}")
+        }
+        def colorPairs = new HashSet<String>()
+        flowers.color_mixes.each { mix ->
+            if (!(mix.first in colorIds) || !(mix.second in colorIds) || !(mix.result in colorIds)) {
+                throw new GradleException("Unresolved color mix ${mix.first} + ${mix.second} -> ${mix.result}")
+            }
+            def pair = [mix.first, mix.second].sort().join('|')
+            if (!colorPairs.add(pair)) throw new GradleException("Duplicate flower color mix pair ${pair}")
+            if (!(mix.chance > 0)) throw new GradleException("Invalid flower color mix chance for ${pair}")
+        }
+        logger.lifecycle("Validated ${expected.size()} catalogs, all 129 legacy liquids, 37/38 flower mutations and 2815/2816 color mixes")
+    }
+}
+
+tasks.named('check').configure { dependsOn tasks.named('validateLegacyCatalogs') }
+
+tasks.register('validateForestrySplitDependencies') {
+    group = 'verification'
+    description = 'Resolves and verifies the published Forestry alpha2 split-module Maven artifacts.'
+    doLast {
+        def splitDependencies = requiredForestrySplitCoordinates.collect {
+            project.dependencies.create(it) { transitive = false }
+        }
+        def resolved = project.configurations.detachedConfiguration(
+                splitDependencies as org.gradle.api.artifacts.Dependency[])
+        resolved.transitive = false
+        def files = resolved.resolve().sort { it.name }
+        if (files.size() != requiredForestrySplitCoordinates.size()) {
+            throw new GradleException("Expected ${requiredForestrySplitCoordinates.size()} Forestry split artifacts, resolved ${files.size()}: ${files}")
+        }
+        logger.lifecycle("Validated Forestry split Maven artifacts: ${files*.name.join(', ')}")
+    }
+}
+
+tasks.named('compileJava').configure { dependsOn tasks.named('validateForestrySplitDependencies') }
+tasks.named('check').configure { dependsOn tasks.named('validateForestrySplitDependencies') }
+
+tasks.register('validateRuntimeIntegrations') {
+    group = 'verification'
+    description = 'Rejects obsolete external-energy adapters and terminology from active runtime sources.'
+    doLast {
+        def oldPipePower = 'Build' + 'Craft'
+        def oldEnergyUnit = 'R' + 'F'
+        def forbidden = [
+            [name: 'obsolete pipe/power integration', pattern: ~/(?i)${oldPipePower}/],
+            [name: 'MJ compatibility', pattern: ~/(^|[^A-Za-z0-9_])MJ([^A-Za-z0-9_]|$)/],
+            [name: 'old energy name', pattern: ~/(?i)redstone\s*flux/],
+            [name: 'old energy unit', pattern: ~/(^|[^A-Za-z0-9_])${oldEnergyUnit}(\/t)?([^A-Za-z0-9_]|$)/],
+        ]
+        def failures = []
+        [file('src/main/java'), file('src/main/resources')].each { root ->
+            if (!root.isDirectory()) return
+            fileTree(root).matching {
+                include '**/*.java', '**/*.json', '**/*.toml', '**/*.mcmeta', '**/*.properties', '**/*.txt', '**/*.md'
+            }.files.sort().each { source ->
+                def text = source.getText('UTF-8')
+                forbidden.each { rule ->
+                    def matcher = rule.pattern.matcher(text)
+                    while (matcher.find()) {
+                        def line = text.substring(0, matcher.start()).count('\n') + 1
+                        failures << "${project.relativePath(source)}:${line}: ${rule.name}: ${matcher.group()}"
+                    }
+                }
+            }
+        }
+        if (!failures.isEmpty()) {
+            throw new GradleException('Obsolete runtime integration or energy terminology detected:\n' + failures.join('\n'))
+        }
+        logger.lifecycle('Runtime integration audit passed: Forge Energy is the sole machine-energy terminology/API.')
+    }
+}
+
+tasks.named('check').configure { dependsOn tasks.named('validateRuntimeIntegrations') }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact tasks.named('apiJar')
+        }
+    }
+}
+
+// The project runner avoids starting Minecraft for plain unit tests.
+tasks.register('runUnitTests', JavaExec) {
+    group = 'verification'
+    description = 'Executes every JUnit Jupiter @Test method using the deterministic project runner.'
+    dependsOn tasks.named('testClasses')
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'binnie.test.UnitTestRunner'
+}
+
+tasks.named('test', Test).configure {
+    dependsOn tasks.named('runUnitTests')
+    exclude '**/*'
+}
+
+tasks.withType(Jar).configureEach {
+    exclude '**/gametest/**'
+}
+
+// Reject unresolved Binnie-owned resource references before packaging.
+tasks.register('validateBinnieResources') {
+    group = 'verification'
+    description = 'Validates Binnie model parents, blockstate model references, and texture references.'
+    doLast {
+        def namespaces = ['binniecore', 'binniedesign', 'binniebotany', 'binniebees', 'binnietrees', 'binniegenetics'] as Set
+        def roots = [file('src/main/resources'), file('src/generated/resources')].findAll { it.exists() }
+        def slurper = new groovy.json.JsonSlurper()
+        def errors = []
+        def resolve = { String ns, String kind, String path, String ext ->
+            roots.any { new File(it, "assets/${ns}/${kind}/${path}${ext}").isFile() }
+        }
+        def checkModelRef = { String ref, File source ->
+            if (ref == null || ref.startsWith('#') || ref.startsWith('builtin/')) return
+            def bits = ref.contains(':') ? ref.split(':', 2) : [source.toPath().getName(source.toPath().getNameCount() - 4).toString(), ref] as String[]
+            if (namespaces.contains(bits[0]) && !resolve(bits[0], 'models', bits[1], '.json')) {
+                errors << "${source}: missing model ${ref}"
+            }
+        }
+        roots.each { root ->
+            namespaces.each { ns ->
+                def assets = new File(root, "assets/${ns}")
+                if (!assets.exists()) return
+                fileTree(new File(assets, 'models')).matching { include '**/*.json' }.files.each { model ->
+                    def data = slurper.parse(model)
+                    checkModelRef(data.parent as String, model)
+                    (data.textures ?: [:]).each { key, value ->
+                        if (!(value instanceof String) || value.startsWith('#')) return
+                        def bits = value.contains(':') ? value.split(':', 2) : [ns, value] as String[]
+                        if (namespaces.contains(bits[0]) && !resolve(bits[0], 'textures', bits[1], '.png')) {
+                            errors << "${model}: texture ${key} references missing ${value}"
+                        }
+                    }
+                    (data.overrides ?: []).each { override -> checkModelRef(override.model as String, model) }
+                }
+                fileTree(new File(assets, 'blockstates')).matching { include '**/*.json' }.files.each { state ->
+                    def data = slurper.parse(state)
+                    (data.variants ?: [:]).values().each { value ->
+                        def entries = value instanceof Collection ? value : [value]
+                        entries.each { checkModelRef(it.model as String, state) }
+                    }
+                    (data.multipart ?: []).each { part ->
+                        def apply = part.apply
+                        def entries = apply instanceof Collection ? apply : [apply]
+                        entries.findAll { it != null }.each { checkModelRef(it.model as String, state) }
+                    }
+                }
+            }
+        }
+        if (!errors.isEmpty()) throw new GradleException("Binnie resource validation failed (${errors.size()}):\n" + errors.join('\n'))
+        logger.lifecycle("Validated Binnie-owned model, blockstate, and texture references across ${roots.size()} resource roots")
+    }
+}
+
+tasks.named('check').configure { dependsOn tasks.named('validateBinnieResources') }

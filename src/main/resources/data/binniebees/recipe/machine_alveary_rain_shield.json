@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " b ",
+    "bab",
+    "t t"
+  ],
+  "key": {
+    "b": {
+      "tag": "c:bricks"
+    },
+    "a": {
+      "item": "forestry:alveary_block"
+    },
+    "t": {
+      "item": "forestry:golden_electron_tube"
+    }
+  },
+  "result": {
+    "id": "binniebees:alveary_rain_shield",
+    "count": 1
+  }
+}

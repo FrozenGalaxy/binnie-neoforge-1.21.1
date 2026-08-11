@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:unstable",
+  "id": "binniebees:bee_mutation/nuclear_4",
+  "result": "binniebees:nuclear",
+  "second": "binniebees:zinc",
+  "type": "forestry:bee_mutation"
+}

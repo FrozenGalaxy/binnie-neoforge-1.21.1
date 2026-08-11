@@ -1,0 +1,16 @@
+{
+  "catalog": "binniebees.propolis",
+  "count": 10,
+  "values": [
+    "water",
+    "oil",
+    "fuel",
+    "milk",
+    "fruit",
+    "seed",
+    "alcohol",
+    "creosote",
+    "glacial",
+    "peat"
+  ]
+}

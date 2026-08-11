@@ -1,0 +1,33 @@
+{
+  "authority": "Binnie",
+  "body": 16777215,
+  "dominant": true,
+  "genome": {
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_mystical"
+    },
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 30
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 15
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    }
+  },
+  "genus": "botaniapis",
+  "outline": 4630306,
+  "products": [
+    {
+      "chance": 0.2,
+      "item": "forestry:dripping_comb"
+    }
+  ],
+  "species": "mystica",
+  "stripes": 0
+}

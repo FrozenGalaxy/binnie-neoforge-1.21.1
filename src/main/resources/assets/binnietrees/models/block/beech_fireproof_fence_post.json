@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "binnietrees:block/beech_fireproof_planks"
+  }
+}

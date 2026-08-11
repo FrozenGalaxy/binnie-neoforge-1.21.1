@@ -1,0 +1,20 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 10603918,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_platain"
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 1.0
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.05
+    }
+  },
+  "genus": "musa",
+  "species": "paradisiaca"
+}

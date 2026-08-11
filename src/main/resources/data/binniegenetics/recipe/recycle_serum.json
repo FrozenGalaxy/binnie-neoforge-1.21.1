@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "type": "binniegenetics:filled_genetic_material",
+    "kind": "serum"
+  },
+  "result": {
+    "id": "binniegenetics:genetic_material",
+    "components": {
+      "binniecore:variant": { "category": "binniegenetics.material", "value": "serum" }
+    }
+  },
+  "experience": 0.0,
+  "cookingtime": 200
+}

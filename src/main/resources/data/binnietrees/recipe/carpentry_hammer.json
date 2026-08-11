@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "pattern": [
+    "wiw",
+    " s ",
+    " s "
+  ],
+  "key": {
+    "w": {
+      "tag": "minecraft:planks"
+    },
+    "i": {
+      "tag": "c:ingots/iron"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "result": {
+    "id": "binnietrees:carpentry_hammer",
+    "count": 1
+  }
+}

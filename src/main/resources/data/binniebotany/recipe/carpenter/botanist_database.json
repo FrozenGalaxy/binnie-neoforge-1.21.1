@@ -1,0 +1,42 @@
+{
+  "type": "forestry:carpenter",
+  "box": [],
+  "id": "binniebotany:carpenter/botanist_database",
+  "liquid": {
+    "amount": 2000,
+    "id": "minecraft:water"
+  },
+  "recipe": {
+    "category": "misc",
+    "pattern": [
+      "X#X",
+      "YEY",
+      "RDR"
+    ],
+    "key": {
+      "#": {
+        "tag": "c:glass_panes"
+      },
+      "X": {
+        "tag": "c:ingots/gold"
+      },
+      "Y": {
+        "tag": "c:nuggets/gold"
+      },
+      "R": {
+        "tag": "c:dusts/redstone"
+      },
+      "D": {
+        "tag": "c:gems/diamond"
+      },
+      "E": {
+        "tag": "c:gems/emerald"
+      }
+    },
+    "result": {
+      "id": "binniebotany:botanist_database",
+      "count": 1
+    }
+  },
+  "time": 100
+}

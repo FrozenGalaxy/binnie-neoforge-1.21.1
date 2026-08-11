@@ -1,0 +1,25 @@
+{
+  "alleles": {
+    "forestry:bee_effect": {
+      "value": "forestry:bee_effect_miasmic"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "UP_1"
+    },
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 30
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    }
+  },
+  "name": "virapis",
+  "parent": "apidae",
+  "rank": "genus",
+  "type": "forestry:bee_species"
+}

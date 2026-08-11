@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ccc",
+    "cdc",
+    "ccc"
+  ],
+  "key": {
+    "c": {
+      "item": "binniegenetics:integrated_circuit"
+    },
+    "d": {
+      "item": "binniegenetics:laboratory_casing"
+    }
+  },
+  "result": {
+    "id": "binniegenetics:integrated_casing",
+    "count": 1
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:alder_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:alder_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

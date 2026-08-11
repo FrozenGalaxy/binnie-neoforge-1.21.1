@@ -1,0 +1,7 @@
+{
+  "parent": "binniegenetics:block/machine_base",
+  "textures": {
+    "all": "binniegenetics:block/machine/polymeriser",
+    "particle": "binniegenetics:block/machine/polymeriser"
+  }
+}

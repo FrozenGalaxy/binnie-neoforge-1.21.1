@@ -1,0 +1,25 @@
+{
+  "alleles": {
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_acid"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "UP_1"
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 20
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 1.2
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    }
+  },
+  "name": "morbapis",
+  "parent": "apidae",
+  "rank": "genus",
+  "type": "forestry:bee_species"
+}

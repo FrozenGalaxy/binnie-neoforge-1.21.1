@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:ash",
+  "id": "binnietrees:tree_mutation/elm_42",
+  "result": "binnietrees:elm",
+  "second": "forestry:pine",
+  "type": "forestry:tree_mutation"
+}

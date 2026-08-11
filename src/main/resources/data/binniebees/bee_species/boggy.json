@@ -1,0 +1,20 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": false,
+  "genome": {
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_slow"
+    }
+  },
+  "genus": "paludapis",
+  "outline": 7887913,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "forestry:mossy_comb"
+    }
+  ],
+  "species": "lama",
+  "stripes": 0
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:rose_gum",
+  "id": "binnietrees:tree_mutation/swamp_gum_70",
+  "result": "binnietrees:swamp_gum",
+  "second": "forestry:mahogany",
+  "type": "forestry:tree_mutation"
+}

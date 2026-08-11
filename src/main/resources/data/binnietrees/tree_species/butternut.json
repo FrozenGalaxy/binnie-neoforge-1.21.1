@@ -1,0 +1,24 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 8566156,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_butternut"
+    },
+    "forestry:girth": {
+      "dominant": false,
+      "value": 2
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.5
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.1
+    }
+  },
+  "genus": "juglans",
+  "species": "cinerea"
+}

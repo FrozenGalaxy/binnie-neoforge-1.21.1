@@ -1,0 +1,5 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {"layer0": "binniecore:item/liquids/glass_bottle"},
+  "overrides": [{"predicate": {"binniecore:filled": 1.0}, "model": "binniecore:item/glass_filled"}]
+}

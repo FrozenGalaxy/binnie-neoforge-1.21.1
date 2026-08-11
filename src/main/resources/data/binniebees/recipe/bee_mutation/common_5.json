@@ -1,0 +1,8 @@
+{
+  "chance": 0.15,
+  "first": "forestry:marshy",
+  "id": "binniebees:bee_mutation/common_5",
+  "result": "forestry:common",
+  "second": "binniebees:water",
+  "type": "forestry:bee_mutation"
+}

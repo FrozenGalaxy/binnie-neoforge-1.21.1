@@ -1,0 +1,14 @@
+{
+  "chance": 0.2,
+  "conditions": [
+    {
+      "biome": "minecraft:is_nether",
+      "type": "forestry:biome"
+    }
+  ],
+  "first": "forestry:demonic",
+  "id": "binniebees:bee_mutation/volcanic_1",
+  "result": "binniebees:volcanic",
+  "second": "binniebees:tempered",
+  "type": "forestry:bee_mutation"
+}

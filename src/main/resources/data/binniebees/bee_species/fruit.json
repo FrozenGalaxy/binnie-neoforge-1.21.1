@@ -1,0 +1,40 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": true,
+  "genome": {
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_bonemeal_fruit"
+    },
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_sugar"
+    }
+  },
+  "genus": "sacchapis",
+  "outline": 14375030,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "forestry:honey_comb"
+    },
+    {
+      "chance": 0.15,
+      "item": "minecraft:sugar"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.2,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "fruit"
+        }
+      }
+    }
+  ],
+  "species": "pomum",
+  "stripes": 0
+}

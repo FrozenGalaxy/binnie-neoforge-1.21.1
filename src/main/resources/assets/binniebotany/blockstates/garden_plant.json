@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "type=weeds": {
+      "model": "binniebotany:block/weeds"
+    },
+    "type=long_weeds": {
+      "model": "binniebotany:block/weeds_long"
+    },
+    "type=very_long_weeds": {
+      "model": "binniebotany:block/weeds_very_long"
+    },
+    "type=dead_flower": {
+      "model": "binniebotany:block/dead_flower"
+    },
+    "type=decaying_flower": {
+      "model": "binniebotany:block/decaying_flower"
+    }
+  }
+}

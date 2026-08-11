@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "forestry:miry",
+  "id": "binniebees:bee_mutation/resin_1",
+  "result": "binniebees:resin",
+  "second": "binniebees:primeval",
+  "type": "forestry:bee_mutation"
+}

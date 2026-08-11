@@ -1,0 +1,9 @@
+{
+  "catalog": "binniebotany.acidity",
+  "count": 3,
+  "values": [
+    "acid",
+    "neutral",
+    "alkaline"
+  ]
+}

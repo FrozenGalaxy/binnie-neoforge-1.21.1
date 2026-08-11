@@ -1,0 +1,25 @@
+{
+  "type": "forestry:centrifuge",
+  "id": "binniebees:centrifuge/glowstone_comb",
+  "time": 20,
+  "input": {
+    "type": "neoforge:components",
+    "items": "binniebees:honey_comb",
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebees.honey_comb",
+        "value": "glowstone"
+      }
+    }
+  },
+  "products": [
+    {
+      "chance": 0.25,
+      "item": "forestry:honey_drop"
+    },
+    {
+      "chance": 1.0,
+      "item": "minecraft:glowstone_dust"
+    }
+  ]
+}

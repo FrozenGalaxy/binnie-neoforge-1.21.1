@@ -1,0 +1,60 @@
+{
+  "authority": "Binnie",
+  "body": 14453483,
+  "dominant": true,
+  "genome": {
+    "forestry:bee_effect": {
+      "value": "forestry:bee_effect_beatific"
+    },
+    "forestry:fertility": {
+      "dominant": false,
+      "value": 4
+    },
+    "forestry:lifespan": {
+      "dominant": false,
+      "value": 40
+    },
+    "forestry:pollination": {
+      "dominant": true,
+      "value": 99
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "forestry:territory": {
+      "dominant": false,
+      "value": [
+        15,
+        13,
+        15
+      ]
+    }
+  },
+  "genus": "eftebeapis",
+  "outline": 16386666,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "forestry:honey_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.2,
+      "item": "forestry:pollen_cluster"
+    },
+    {
+      "chance": 0.15,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "purple"
+        }
+      }
+    }
+  ],
+  "species": "jadeca",
+  "stripes": 0
+}

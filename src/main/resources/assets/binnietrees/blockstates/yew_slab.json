@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/yew_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/yew_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/yew_slab_top"
+    }
+  }
+}

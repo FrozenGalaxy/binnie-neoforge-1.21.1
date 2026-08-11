@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:water",
+  "id": "binniebees:bee_mutation/sapphire_1",
+  "result": "binniebees:sapphire",
+  "second": "binniebees:lapis",
+  "type": "forestry:bee_mutation"
+}

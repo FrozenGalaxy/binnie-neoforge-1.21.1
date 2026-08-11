@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "binnietrees:block/hemlock_planks",
+    "side": "binnietrees:block/hemlock_planks",
+    "top": "binnietrees:block/hemlock_planks"
+  }
+}

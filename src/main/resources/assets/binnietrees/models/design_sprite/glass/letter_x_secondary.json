@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "binnietrees:block/design_patterns/glass/letter_x_secondary",
+    "particle": "binnietrees:block/design_patterns/glass/letter_x_secondary"
+  },
+  "render_type": "minecraft:translucent"
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binniebees:marble",
+  "id": "binniebees:bee_mutation/roman_1",
+  "result": "binniebees:roman",
+  "second": "forestry:heroic",
+  "type": "forestry:bee_mutation"
+}

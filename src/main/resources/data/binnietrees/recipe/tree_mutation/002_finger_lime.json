@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:key_lime",
+  "id": "binnietrees:tree_mutation/finger_lime_2",
+  "result": "binnietrees:finger_lime",
+  "second": "forestry:lemon",
+  "type": "forestry:tree_mutation"
+}

@@ -1,0 +1,28 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 10204498,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_hazelnut"
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 1.0
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.1
+    }
+  },
+  "genus": "corylus",
+  "species": "avellana"
+}

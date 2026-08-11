@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:brazilwood_fireproof_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:brazilwood_fireproof_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

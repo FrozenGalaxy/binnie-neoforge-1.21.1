@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:teak",
+  "id": "binnietrees:tree_mutation/allspice_91",
+  "result": "binnietrees:allspice",
+  "second": "binnietrees:clove",
+  "type": "forestry:tree_mutation"
+}

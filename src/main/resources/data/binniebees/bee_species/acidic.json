@@ -1,0 +1,48 @@
+{
+  "authority": "Binnie",
+  "body": 431972,
+  "dominant": true,
+  "genome": {
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_acid"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "UP_1"
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 20
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 1.2
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    }
+  },
+  "genus": "morbapis",
+  "humidity": "damp",
+  "outline": 12644374,
+  "products": [
+    {
+      "chance": 0.2,
+      "item": "forestry:silky_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.16,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "acidic"
+        }
+      }
+    }
+  ],
+  "species": "acidus",
+  "stripes": 0,
+  "temperature": "warm"
+}

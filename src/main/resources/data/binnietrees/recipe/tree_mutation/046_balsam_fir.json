@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:larch",
+  "id": "binnietrees:tree_mutation/balsam_fir_46",
+  "result": "binnietrees:balsam_fir",
+  "second": "binnietrees:alder",
+  "type": "forestry:tree_mutation"
+}

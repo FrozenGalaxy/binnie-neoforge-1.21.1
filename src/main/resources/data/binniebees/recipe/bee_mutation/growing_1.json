@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:forest",
+  "id": "binniebees:bee_mutation/growing_1",
+  "result": "binniebees:growing",
+  "second": "forestry:diligent",
+  "type": "forestry:bee_mutation"
+}

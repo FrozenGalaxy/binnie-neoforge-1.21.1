@@ -1,0 +1,26 @@
+{
+  "type": "forestry:carpenter",
+  "box": [],
+  "id": "binnietrees:carpenter/sawdust_paper",
+  "liquid": {
+    "amount": 250,
+    "id": "minecraft:water"
+  },
+  "recipe": {
+    "category": "misc",
+    "key": {
+      "#": {
+        "tag": "c:sawdust"
+      }
+    },
+    "pattern": [
+      "#",
+      "#"
+    ],
+    "result": {
+      "count": 1,
+      "id": "minecraft:paper"
+    }
+  },
+  "time": 5
+}

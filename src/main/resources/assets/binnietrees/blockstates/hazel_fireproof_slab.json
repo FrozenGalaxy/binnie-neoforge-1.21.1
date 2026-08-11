@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/hazel_fireproof_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/hazel_fireproof_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/hazel_fireproof_slab_top"
+    }
+  }
+}

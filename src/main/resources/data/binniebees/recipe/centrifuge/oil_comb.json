@@ -1,0 +1,31 @@
+{
+  "type": "forestry:centrifuge",
+  "id": "binniebees:centrifuge/oil_comb",
+  "time": 20,
+  "input": {
+    "type": "neoforge:components",
+    "items": "binniebees:honey_comb",
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebees.honey_comb",
+        "value": "oil"
+      }
+    }
+  },
+  "products": [
+    {
+      "chance": 0.6,
+      "item": "binniebees:propolis",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.propolis",
+          "value": "oil"
+        }
+      }
+    },
+    {
+      "chance": 0.75,
+      "item": "forestry:honey_drop"
+    }
+  ]
+}

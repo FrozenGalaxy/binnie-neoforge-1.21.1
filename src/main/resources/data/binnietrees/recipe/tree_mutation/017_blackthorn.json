@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:plum",
+  "id": "binnietrees:tree_mutation/blackthorn_17",
+  "result": "binnietrees:blackthorn",
+  "second": "binnietrees:orchard_apple",
+  "type": "forestry:tree_mutation"
+}

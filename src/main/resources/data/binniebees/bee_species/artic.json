@@ -1,0 +1,30 @@
+{
+  "authority": "Binnie",
+  "body": 14349811,
+  "dominant": true,
+  "genome": {
+    "forestry:fertility": {
+      "dominant": false,
+      "value": 4
+    },
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 30
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    }
+  },
+  "genus": "coagapis",
+  "outline": 11395296,
+  "products": [
+    {
+      "chance": 0.25,
+      "item": "forestry:frozen_comb"
+    }
+  ],
+  "species": "artica",
+  "stripes": 0,
+  "temperature": "icy"
+}

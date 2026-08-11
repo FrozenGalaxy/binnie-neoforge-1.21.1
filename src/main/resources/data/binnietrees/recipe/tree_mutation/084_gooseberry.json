@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:raspberry",
+  "id": "binnietrees:tree_mutation/gooseberry_84",
+  "result": "binnietrees:gooseberry",
+  "second": "binnietrees:lime",
+  "type": "forestry:tree_mutation"
+}

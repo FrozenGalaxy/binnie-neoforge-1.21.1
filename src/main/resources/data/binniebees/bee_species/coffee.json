@@ -1,0 +1,27 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": true,
+  "genus": "agriapis",
+  "outline": 9199152,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "forestry:wheaten_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.08,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "coffee"
+        }
+      }
+    }
+  ],
+  "species": "arabica",
+  "stripes": 0
+}

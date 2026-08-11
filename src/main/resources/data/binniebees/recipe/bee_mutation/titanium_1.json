@@ -1,0 +1,8 @@
+{
+  "chance": 0.03,
+  "first": "forestry:cultivated",
+  "id": "binniebees:bee_mutation/titanium_1",
+  "result": "binniebees:titanium",
+  "second": "binniebees:mineral",
+  "type": "forestry:bee_mutation"
+}

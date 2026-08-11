@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:plum",
+  "id": "binnietrees:tree_mutation/almond_22",
+  "result": "binnietrees:almond",
+  "second": "forestry:walnut",
+  "type": "forestry:tree_mutation"
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "forestry:imperial",
+  "id": "binniebees:bee_mutation/relic_1",
+  "result": "binniebees:relic",
+  "second": "binniebees:prehistoric",
+  "type": "forestry:bee_mutation"
+}

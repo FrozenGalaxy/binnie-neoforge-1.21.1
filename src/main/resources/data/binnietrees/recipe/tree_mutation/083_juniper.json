@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:raspberry",
+  "id": "binnietrees:tree_mutation/juniper_83",
+  "result": "binnietrees:juniper",
+  "second": "binnietrees:fir",
+  "type": "forestry:tree_mutation"
+}

@@ -1,0 +1,25 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 9030055,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 1.5
+    },
+    "forestry:maturation": {
+      "dominant": true,
+      "value": 5
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "chamaecyparis",
+  "species": "lawsoniana"
+}

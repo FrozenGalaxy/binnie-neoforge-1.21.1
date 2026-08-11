@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:cypress_fireproof_log",
+    "binnietrees:cypress_fireproof_stripped_log",
+    "binnietrees:cypress_fireproof_stripped_wood",
+    "binnietrees:cypress_fireproof_wood"
+  ]
+}

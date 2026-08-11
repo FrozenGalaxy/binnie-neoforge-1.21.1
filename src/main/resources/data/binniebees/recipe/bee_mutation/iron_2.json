@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:forest",
+  "id": "binniebees:bee_mutation/iron_2",
+  "result": "binniebees:iron",
+  "second": "binniebees:mineral",
+  "type": "forestry:bee_mutation"
+}

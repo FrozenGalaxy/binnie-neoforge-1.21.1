@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:cypress_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:cypress_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:nuclear",
+  "id": "binniebees:bee_mutation/cyanite_1",
+  "result": "binniebees:cyanite",
+  "second": "binniebees:yellorium",
+  "type": "forestry:bee_mutation"
+}

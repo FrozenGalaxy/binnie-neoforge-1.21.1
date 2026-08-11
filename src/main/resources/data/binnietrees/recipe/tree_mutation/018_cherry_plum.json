@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:plum",
+  "id": "binnietrees:tree_mutation/cherry_plum_18",
+  "result": "binnietrees:cherry_plum",
+  "second": "forestry:cherry",
+  "type": "forestry:tree_mutation"
+}

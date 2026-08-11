@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:forest",
+  "id": "binniebees:bee_mutation/arid_2",
+  "result": "binniebees:arid",
+  "second": "forestry:frugal",
+  "type": "forestry:bee_mutation"
+}

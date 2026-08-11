@@ -1,0 +1,19 @@
+{
+  "category": "redstone",
+  "group": "wooden_door",
+  "key": {
+    "#": {
+      "item": "binnietrees:fir_planks"
+    }
+  },
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "binnietrees:fir_door"
+  },
+  "type": "minecraft:crafting_shaped"
+}

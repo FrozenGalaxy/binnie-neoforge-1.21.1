@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "group": "binniebotany:ceramic",
+  "ingredient": {
+    "type": "neoforge:components",
+    "items": "binniebotany:clay",
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebotany.flower_color",
+        "value": "gray"
+      }
+    }
+  },
+  "result": {
+    "id": "binniebotany:ceramic",
+    "count": 1,
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebotany.flower_color",
+        "value": "gray"
+      }
+    }
+  },
+  "experience": 0.0,
+  "cookingtime": 200
+}

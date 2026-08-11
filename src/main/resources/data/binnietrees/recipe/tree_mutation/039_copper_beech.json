@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:beech",
+  "id": "binnietrees:tree_mutation/copper_beech_39",
+  "result": "binnietrees:copper_beech",
+  "second": "forestry:spruce",
+  "type": "forestry:tree_mutation"
+}

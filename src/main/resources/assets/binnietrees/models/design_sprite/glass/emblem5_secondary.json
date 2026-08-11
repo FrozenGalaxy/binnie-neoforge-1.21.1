@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "binnietrees:block/design_patterns/glass/emblem5_secondary",
+    "particle": "binnietrees:block/design_patterns/glass/emblem5_secondary"
+  },
+  "render_type": "minecraft:translucent"
+}

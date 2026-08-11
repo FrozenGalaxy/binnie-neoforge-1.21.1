@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "forestry:industrious",
+  "id": "binniebees:bee_mutation/distilled_1",
+  "result": "binniebees:distilled",
+  "second": "binniebees:oil",
+  "type": "forestry:bee_mutation"
+}

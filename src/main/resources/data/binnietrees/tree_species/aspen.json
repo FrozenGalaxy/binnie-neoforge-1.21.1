@@ -1,0 +1,17 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 9096247,
+  "genome": {
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.05
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "populus",
+  "species": "tremula"
+}

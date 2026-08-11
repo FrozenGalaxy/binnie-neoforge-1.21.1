@@ -1,0 +1,25 @@
+{
+  "type": "forestry:carpenter",
+  "box": [],
+  "id": "binnietrees:carpenter/wood_wax_turpentine",
+  "liquid": {
+    "amount": 50,
+    "id": "binnietrees:turpentine"
+  },
+  "recipe": {
+    "category": "misc",
+    "key": {
+      "x": {
+        "item": "forestry:beeswax"
+      }
+    },
+    "pattern": [
+      "x"
+    ],
+    "result": {
+      "count": 4,
+      "id": "binnietrees:wood_wax"
+    }
+  },
+  "time": 25
+}

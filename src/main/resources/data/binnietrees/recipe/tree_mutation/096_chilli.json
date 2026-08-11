@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:hazel",
+  "id": "binnietrees:tree_mutation/chilli_96",
+  "result": "binnietrees:chilli",
+  "second": "binnietrees:gingko",
+  "type": "forestry:tree_mutation"
+}

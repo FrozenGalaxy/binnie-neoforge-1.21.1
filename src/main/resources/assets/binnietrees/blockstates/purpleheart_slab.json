@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/purpleheart_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/purpleheart_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/purpleheart_slab_top"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": true,
+  "genome": {
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_fruit"
+    }
+  },
+  "genus": "sacchapis",
+  "outline": 11716445,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "forestry:honey_comb"
+    },
+    {
+      "chance": 0.1,
+      "item": "minecraft:sugar"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.1,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "fruit"
+        }
+      }
+    }
+  ],
+  "species": "ripa",
+  "stripes": 0
+}

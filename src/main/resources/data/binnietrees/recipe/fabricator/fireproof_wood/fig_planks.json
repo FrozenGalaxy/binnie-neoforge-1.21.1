@@ -1,0 +1,28 @@
+{
+  "type": "forestry:fabricator",
+  "id": "binnietrees:fabricator/fireproof_wood/fig_planks",
+  "molten": {
+    "amount": 500,
+    "id": "forestry:liquid_glass"
+  },
+  "recipe": {
+    "category": "building",
+    "key": {
+      "#": {
+        "item": "forestry:refractory_wax"
+      },
+      "X": {
+        "item": "binnietrees:fig_planks"
+      }
+    },
+    "pattern": [
+      "X#X",
+      "#X#",
+      "X#X"
+    ],
+    "result": {
+      "count": 5,
+      "id": "binnietrees:fig_fireproof_planks"
+    }
+  }
+}

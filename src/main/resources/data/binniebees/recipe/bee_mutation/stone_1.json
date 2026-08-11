@@ -1,0 +1,8 @@
+{
+  "chance": 0.12,
+  "first": "forestry:diligent",
+  "id": "binniebees:bee_mutation/stone_1",
+  "result": "binniebees:stone",
+  "second": "binniebees:rock",
+  "type": "forestry:bee_mutation"
+}

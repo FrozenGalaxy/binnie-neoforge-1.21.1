@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "binniegenetics:integrated_circuit"
+    },
+    {
+      "item": "binniebees:bee_database"
+    },
+    {
+      "item": "binnietrees:arborist_database"
+    },
+    {
+      "item": "binnietrees:moth_database"
+    },
+    {
+      "item": "binniebotany:botanist_database"
+    }
+  ],
+  "result": {
+    "id": "binniegenetics:registry",
+    "count": 1
+  }
+}

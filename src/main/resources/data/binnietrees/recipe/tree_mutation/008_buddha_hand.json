@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:citron",
+  "id": "binnietrees:tree_mutation/buddha_hand_8",
+  "result": "binnietrees:buddha_hand",
+  "second": "binnietrees:manderin",
+  "type": "forestry:tree_mutation"
+}

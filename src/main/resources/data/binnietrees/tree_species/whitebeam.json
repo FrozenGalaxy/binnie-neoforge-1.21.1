@@ -1,0 +1,13 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 12242585,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.5
+    }
+  },
+  "genus": "sorbus",
+  "species": "aria"
+}

@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "gBg",
+    "cCc",
+    "aPa"
+  ],
+  "key": {
+    "C": {
+      "item": "binniegenetics:laboratory_casing"
+    },
+    "c": {
+      "item": "binniegenetics:integrated_circuit"
+    },
+    "g": {
+      "tag": "c:nuggets/gold"
+    },
+    "P": {
+      "tag": "c:gears/bronze"
+    },
+    "B": {
+      "tag": "c:gears/bronze"
+    },
+    "a": {
+      "item": "binniegenetics:fluorescent_dye"
+    }
+  },
+  "result": {
+    "id": "binniegenetics:sequencer",
+    "count": 1
+  }
+}

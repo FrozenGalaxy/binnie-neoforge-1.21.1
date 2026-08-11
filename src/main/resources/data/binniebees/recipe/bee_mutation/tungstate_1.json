@@ -1,0 +1,8 @@
+{
+  "chance": 0.03,
+  "first": "forestry:common",
+  "id": "binniebees:bee_mutation/tungstate_1",
+  "result": "binniebees:tungstate",
+  "second": "binniebees:mineral",
+  "type": "forestry:bee_mutation"
+}

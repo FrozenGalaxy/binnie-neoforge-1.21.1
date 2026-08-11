@@ -1,0 +1,12 @@
+{
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.15,
+  "ingredient": {
+    "item": "binnietrees:ash_log"
+  },
+  "result": {
+    "id": "minecraft:charcoal"
+  },
+  "type": "minecraft:smelting"
+}

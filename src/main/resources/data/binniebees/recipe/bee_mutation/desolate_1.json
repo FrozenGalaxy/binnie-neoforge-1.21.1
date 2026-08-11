@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binniebees:arid",
+  "id": "binniebees:bee_mutation/desolate_1",
+  "result": "binniebees:desolate",
+  "second": "binniebees:barren",
+  "type": "forestry:bee_mutation"
+}

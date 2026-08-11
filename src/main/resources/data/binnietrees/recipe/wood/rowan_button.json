@@ -1,0 +1,18 @@
+{
+  "category": "redstone",
+  "ingredients": [
+    [
+      {
+        "item": "binnietrees:rowan_planks"
+      },
+      {
+        "item": "binnietrees:rowan_fireproof_planks"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:rowan_button"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

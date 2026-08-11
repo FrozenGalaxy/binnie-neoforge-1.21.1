@@ -1,0 +1,20 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 9872245,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_avocado"
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.25
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "persea",
+  "species": "americana"
+}

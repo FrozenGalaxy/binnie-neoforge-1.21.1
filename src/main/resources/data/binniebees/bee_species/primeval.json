@@ -1,0 +1,35 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": true,
+  "genome": {
+    "forestry:lifespan": {
+      "dominant": false,
+      "value": 50
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 15
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    }
+  },
+  "genus": "priscapis",
+  "outline": 11773563,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "old"
+        }
+      }
+    }
+  ],
+  "species": "priscus",
+  "stripes": 0
+}

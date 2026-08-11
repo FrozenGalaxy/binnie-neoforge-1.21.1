@@ -1,0 +1,7 @@
+{
+  "parent": "binnietrees:block/saplings/base_sapling",
+  "textures": {
+    "leaves": "binnietrees:block/saplings/poplar.leaves",
+    "trunk": "binnietrees:block/saplings/poplar.trunk"
+  }
+}

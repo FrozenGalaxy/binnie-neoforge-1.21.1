@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:gingko_log",
+    "binnietrees:gingko_stripped_log",
+    "binnietrees:gingko_stripped_wood",
+    "binnietrees:gingko_wood"
+  ]
+}

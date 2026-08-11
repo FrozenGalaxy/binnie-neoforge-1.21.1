@@ -1,0 +1,28 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binnietrees:squeezer/food/brazil_nut",
+  "time": 20,
+  "resources": [
+    {
+      "type": "neoforge:components",
+      "items": "binnietrees:food",
+      "components": {
+        "binniecore:variant": {
+          "category": "binnietrees.food",
+          "value": "brazil_nut"
+        }
+      }
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 20,
+      "id": "forestry:seed_oil"
+    }
+  },
+  "remnant": {
+    "count": 1,
+    "id": "forestry:mulch"
+  },
+  "chance": 0.02
+}

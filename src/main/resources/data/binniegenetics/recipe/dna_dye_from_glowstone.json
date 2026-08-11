@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:dusts/glowstone"
+    },
+    {
+      "tag": "c:dyes/purple"
+    }
+  ],
+  "result": {
+    "id": "binniegenetics:dna_dye",
+    "count": 8
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "binniebotany:soil_progression",
+  "ingredients": [
+    {
+      "item": "binniebotany:soil"
+    },
+    {
+      "item": "binniebotany:soil"
+    },
+    {
+      "item": "binniebotany:soil"
+    },
+    {
+      "item": "binniebotany:soil"
+    },
+    {
+      "tag": "binniebotany:fertilisers/nutrient"
+    }
+  ],
+  "result": {
+    "id": "binniebotany:loam",
+    "count": 4
+  }
+}

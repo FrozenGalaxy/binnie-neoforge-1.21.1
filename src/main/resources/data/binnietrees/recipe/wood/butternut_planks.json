@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:butternut_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:butternut_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

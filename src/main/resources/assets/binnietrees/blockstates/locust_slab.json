@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/locust_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/locust_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/locust_slab_top"
+    }
+  }
+}

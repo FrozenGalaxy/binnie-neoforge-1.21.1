@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:mineral",
+  "id": "binniebees:bee_mutation/bauxite_1",
+  "result": "binniebees:bauxite",
+  "second": "forestry:diligent",
+  "type": "forestry:bee_mutation"
+}

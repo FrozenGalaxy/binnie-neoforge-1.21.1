@@ -1,0 +1,36 @@
+{
+  "type": "forestry:carpenter",
+  "box": [],
+  "id": "binniebees:carpenter/scented_gear",
+  "liquid": {
+    "amount": 500,
+    "id": "forestry:honey"
+  },
+  "recipe": {
+    "category": "misc",
+    "pattern": [
+      " j ",
+      "bgb",
+      " p "
+    ],
+    "key": {
+      "j": {
+        "item": "forestry:royal_jelly"
+      },
+      "b": {
+        "item": "forestry:beeswax"
+      },
+      "p": {
+        "item": "forestry:pollen_cluster"
+      },
+      "g": {
+        "tag": "minecraft:planks"
+      }
+    },
+    "result": {
+      "id": "binniebees:scented_gear",
+      "count": 1
+    }
+  },
+  "time": 100
+}

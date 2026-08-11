@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:hickory_log",
+    "binnietrees:hickory_stripped_log",
+    "binnietrees:hickory_stripped_wood",
+    "binnietrees:hickory_wood"
+  ]
+}

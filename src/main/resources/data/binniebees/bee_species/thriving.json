@@ -1,0 +1,29 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": true,
+  "genome": {
+    "forestry:fertility": {
+      "dominant": false,
+      "value": 3
+    },
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_leaves"
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 25
+    }
+  },
+  "genus": "rustapis",
+  "outline": 3466109,
+  "products": [
+    {
+      "chance": 0.35,
+      "item": "forestry:honey_comb"
+    }
+  ],
+  "species": "thriva",
+  "stripes": 0
+}

@@ -1,0 +1,21 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 7643260,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 1.0
+    },
+    "forestry:maturation": {
+      "dominant": true,
+      "value": 5
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "abies",
+  "species": "balsamea"
+}

@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:fir_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:fir_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

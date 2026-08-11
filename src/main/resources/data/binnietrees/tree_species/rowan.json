@@ -1,0 +1,21 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 10405787,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 1.5
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "sorbus",
+  "species": "aucuparia"
+}

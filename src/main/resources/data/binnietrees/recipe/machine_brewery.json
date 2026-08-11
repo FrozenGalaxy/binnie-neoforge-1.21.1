@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "bGb",
+    "iSi",
+    "bPb"
+  ],
+  "key": {
+    "b": {
+      "tag": "c:gears/bronze"
+    },
+    "G": {
+      "tag": "c:glass_blocks"
+    },
+    "i": {
+      "tag": "c:ingots/iron"
+    },
+    "S": {
+      "item": "forestry:sturdy_casing"
+    },
+    "P": {
+      "tag": "c:gears/bronze"
+    }
+  },
+  "result": {
+    "id": "binnietrees:brewery",
+    "count": 1
+  }
+}

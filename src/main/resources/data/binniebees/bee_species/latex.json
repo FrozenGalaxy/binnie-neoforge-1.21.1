@@ -1,0 +1,47 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": true,
+  "genome": {
+    "forestry:lifespan": {
+      "dominant": false,
+      "value": 40
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 15
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    }
+  },
+  "genus": "petrapis",
+  "outline": 4803134,
+  "products": [
+    {
+      "chance": 0.1,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "resin"
+        }
+      }
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.05,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "latex"
+        }
+      }
+    }
+  ],
+  "species": "latex",
+  "stripes": 0
+}

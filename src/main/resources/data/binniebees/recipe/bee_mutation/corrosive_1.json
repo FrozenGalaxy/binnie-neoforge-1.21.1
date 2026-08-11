@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binniebees:malicious",
+  "id": "binniebees:bee_mutation/corrosive_1",
+  "result": "binniebees:corrosive",
+  "second": "binniebees:viscous",
+  "type": "forestry:bee_mutation"
+}

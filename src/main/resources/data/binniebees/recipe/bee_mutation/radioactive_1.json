@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:nuclear",
+  "id": "binniebees:bee_mutation/radioactive_1",
+  "result": "binniebees:radioactive",
+  "second": "binniebees:gold",
+  "type": "forestry:bee_mutation"
+}

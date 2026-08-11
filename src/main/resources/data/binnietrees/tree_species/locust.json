@@ -1,0 +1,13 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 8942336,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.25
+    }
+  },
+  "genus": "robinia",
+  "species": "pseudoacacia"
+}

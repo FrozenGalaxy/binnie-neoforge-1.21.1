@@ -1,0 +1,17 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 11449123,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 1.25
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    }
+  },
+  "genus": "salix",
+  "species": "caprea"
+}

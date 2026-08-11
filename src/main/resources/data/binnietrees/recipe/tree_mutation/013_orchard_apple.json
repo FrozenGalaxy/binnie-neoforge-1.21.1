@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:oak",
+  "id": "binnietrees:tree_mutation/orchard_apple_13",
+  "result": "binnietrees:orchard_apple",
+  "second": "forestry:cherry",
+  "type": "forestry:tree_mutation"
+}

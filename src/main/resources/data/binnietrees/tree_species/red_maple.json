@@ -1,0 +1,17 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 15216151,
+  "genome": {
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.05
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.6
+    }
+  },
+  "genus": "acer",
+  "species": "ubrum"
+}

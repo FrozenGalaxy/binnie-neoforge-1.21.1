@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:yew_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:yew_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

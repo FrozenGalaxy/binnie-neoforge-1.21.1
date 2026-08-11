@@ -1,0 +1,17 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 7510381,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.5
+    },
+    "forestry:maturation": {
+      "dominant": false,
+      "value": 2
+    }
+  },
+  "genus": "boxus",
+  "species": "sempervirens"
+}

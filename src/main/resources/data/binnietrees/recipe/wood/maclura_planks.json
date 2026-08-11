@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:maclura_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:maclura_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

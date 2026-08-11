@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "binniebees:primeval",
+  "id": "binniebees:bee_mutation/coal_1",
+  "result": "binniebees:coal",
+  "second": "binniebees:growing",
+  "type": "forestry:bee_mutation"
+}

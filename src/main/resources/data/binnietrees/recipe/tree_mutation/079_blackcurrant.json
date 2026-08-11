@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:black_cherry",
+  "id": "binnietrees:tree_mutation/blackcurrant_79",
+  "result": "binnietrees:blackcurrant",
+  "second": "binnietrees:redcurrant",
+  "type": "forestry:tree_mutation"
+}

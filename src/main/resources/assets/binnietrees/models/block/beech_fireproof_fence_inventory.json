@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "binnietrees:block/beech_fireproof_planks"
+  }
+}

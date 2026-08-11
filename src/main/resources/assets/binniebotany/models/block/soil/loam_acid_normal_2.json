@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "binniebotany:block/soil/loam_acid_normal_2"
+  }
+}

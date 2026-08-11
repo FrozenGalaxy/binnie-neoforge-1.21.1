@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "binniebees:primeval",
+  "id": "binniebees:bee_mutation/prehistoric_1",
+  "result": "binniebees:prehistoric",
+  "second": "binniebees:ancient",
+  "type": "forestry:bee_mutation"
+}

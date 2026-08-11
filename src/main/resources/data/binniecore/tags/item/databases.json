@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binniebees:bee_database",
+    "binniebotany:botanist_database",
+    "binnietrees:arborist_database",
+    "binnietrees:moth_database"
+  ]
+}

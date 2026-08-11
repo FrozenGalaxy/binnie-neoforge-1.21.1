@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:rowan_log",
+    "binnietrees:rowan_stripped_log",
+    "binnietrees:rowan_stripped_wood",
+    "binnietrees:rowan_wood"
+  ]
+}

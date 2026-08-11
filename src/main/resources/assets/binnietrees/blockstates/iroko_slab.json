@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/iroko_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/iroko_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/iroko_slab_top"
+    }
+  }
+}

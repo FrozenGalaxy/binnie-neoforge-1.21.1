@@ -1,0 +1,7 @@
+{
+  "parent": "binniebotany:block/soil_base",
+  "textures": {
+    "top": "binniebotany:block/soil/flowerbed.acid.damp.0",
+    "side": "binniebotany:block/soil/flowerbed.acid.damp.1"
+  }
+}

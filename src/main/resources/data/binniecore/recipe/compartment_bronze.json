@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "pcp",
+    "cbc",
+    "pcp"
+  ],
+  "key": {
+    "p": {
+      "tag": "c:nuggets/gold"
+    },
+    "c": {
+      "tag": "c:gears/bronze"
+    },
+    "b": {
+      "item": "binniecore:compartment",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniecore.compartment",
+          "value": "copper"
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "binniecore:compartment",
+    "count": 1,
+    "components": {
+      "binniecore:variant": {
+        "category": "binniecore.compartment",
+        "value": "bronze"
+      }
+    }
+  }
+}

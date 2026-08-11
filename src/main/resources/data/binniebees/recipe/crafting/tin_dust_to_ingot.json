@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "binniebees:tin_dust"
+    },
+    {
+      "item": "binniebees:tin_dust"
+    },
+    {
+      "item": "binniebees:tin_dust"
+    },
+    {
+      "item": "binniebees:tin_dust"
+    },
+    {
+      "item": "binniebees:tin_dust"
+    },
+    {
+      "item": "binniebees:tin_dust"
+    },
+    {
+      "item": "binniebees:tin_dust"
+    },
+    {
+      "item": "binniebees:tin_dust"
+    },
+    {
+      "item": "binniebees:tin_dust"
+    }
+  ],
+  "result": {
+    "id": "forestry:tin_ingot",
+    "count": 1
+  }
+}

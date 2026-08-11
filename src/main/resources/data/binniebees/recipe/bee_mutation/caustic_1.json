@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "forestry:fiendish",
+  "id": "binniebees:bee_mutation/caustic_1",
+  "result": "binniebees:caustic",
+  "second": "binniebees:corrosive",
+  "type": "forestry:bee_mutation"
+}

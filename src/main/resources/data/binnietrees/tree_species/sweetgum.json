@@ -1,0 +1,25 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 9144162,
+  "genome": {
+    "forestry:height": {
+      "dominant": false,
+      "value": 1.0
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.1
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.4
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.1
+    }
+  },
+  "genus": "liquidambar",
+  "species": "styraciflua"
+}

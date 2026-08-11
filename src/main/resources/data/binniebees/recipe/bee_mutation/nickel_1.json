@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:forest",
+  "id": "binniebees:bee_mutation/nickel_1",
+  "result": "binniebees:nickel",
+  "second": "binniebees:mineral",
+  "type": "forestry:bee_mutation"
+}

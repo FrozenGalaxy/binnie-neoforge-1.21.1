@@ -1,0 +1,7 @@
+{
+  "parent": "binniegenetics:block/machine_base",
+  "textures": {
+    "all": "binniegenetics:block/machine/isolator",
+    "particle": "binniegenetics:block/machine/isolator"
+  }
+}

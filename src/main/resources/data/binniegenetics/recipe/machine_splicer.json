@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "gBg",
+    "cCc",
+    "aPa"
+  ],
+  "key": {
+    "C": {
+      "item": "binniegenetics:integrated_casing"
+    },
+    "B": {
+      "tag": "c:ingots/iron"
+    },
+    "c": {
+      "item": "binniegenetics:integrated_cpu"
+    },
+    "g": {
+      "tag": "c:nuggets/gold"
+    },
+    "P": {
+      "tag": "c:gears/bronze"
+    },
+    "a": {
+      "tag": "c:rods/blaze"
+    }
+  },
+  "result": {
+    "id": "binniegenetics:splicer",
+    "count": 1
+  }
+}

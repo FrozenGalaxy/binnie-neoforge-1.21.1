@@ -1,0 +1,28 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binnietrees:squeezer/food/star_anise",
+  "time": 20,
+  "resources": [
+    {
+      "type": "neoforge:components",
+      "items": "binnietrees:food",
+      "components": {
+        "binniecore:variant": {
+          "category": "binnietrees.food",
+          "value": "star_anise"
+        }
+      }
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 100,
+      "id": "forestry:seed_oil"
+    }
+  },
+  "remnant": {
+    "count": 1,
+    "id": "forestry:mulch"
+  },
+  "chance": 0.1
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "binnietrees:block/rowan_planks",
+    "side": "binnietrees:block/rowan_planks",
+    "top": "binnietrees:block/rowan_planks"
+  }
+}

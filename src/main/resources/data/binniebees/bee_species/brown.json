@@ -1,0 +1,27 @@
+{
+  "authority": "Binnie",
+  "body": 9240320,
+  "dominant": true,
+  "genus": "primapis",
+  "outline": 6042895,
+  "products": [
+    {
+      "chance": 0.75,
+      "item": "forestry:honey_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.25,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "brown"
+        }
+      }
+    }
+  ],
+  "species": "fuscus",
+  "stripes": 0
+}

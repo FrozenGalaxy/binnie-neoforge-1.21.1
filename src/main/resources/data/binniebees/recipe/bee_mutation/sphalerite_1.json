@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:tin",
+  "id": "binniebees:bee_mutation/sphalerite_1",
+  "result": "binniebees:sphalerite",
+  "second": "forestry:sinister",
+  "type": "forestry:bee_mutation"
+}

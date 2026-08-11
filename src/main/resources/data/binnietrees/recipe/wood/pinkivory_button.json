@@ -1,0 +1,18 @@
+{
+  "category": "redstone",
+  "ingredients": [
+    [
+      {
+        "item": "binnietrees:pinkivory_planks"
+      },
+      {
+        "item": "binnietrees:pinkivory_fireproof_planks"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:pinkivory_button"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

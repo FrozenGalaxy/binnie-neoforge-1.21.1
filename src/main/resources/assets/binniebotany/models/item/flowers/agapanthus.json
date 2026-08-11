@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "binniebotany:block/flowers/agapanthus.0",
+    "layer1": "binniebotany:block/flowers/agapanthus.1",
+    "layer2": "binniebotany:block/flowers/agapanthus.2"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:purpleheart_fireproof_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:purpleheart_fireproof_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

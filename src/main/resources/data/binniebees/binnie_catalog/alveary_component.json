@@ -1,0 +1,13 @@
+{
+  "catalog": "binniebees.alveary_component",
+  "count": 7,
+  "values": [
+    "mutator",
+    "frame",
+    "rain_shield",
+    "lighting",
+    "stimulator",
+    "hatchery",
+    "transmission"
+  ]
+}

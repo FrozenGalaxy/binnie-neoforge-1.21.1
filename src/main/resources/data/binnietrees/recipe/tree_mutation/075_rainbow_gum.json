@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:rose_gum",
+  "id": "binnietrees:tree_mutation/rainbow_gum_75",
+  "result": "binnietrees:rainbow_gum",
+  "second": "forestry:balsa",
+  "type": "forestry:tree_mutation"
+}

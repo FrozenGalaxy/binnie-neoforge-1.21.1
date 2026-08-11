@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "binniebees:greek",
+  "id": "binniebees:bee_mutation/classical_1",
+  "result": "binniebees:classical",
+  "second": "binniebees:roman",
+  "type": "forestry:bee_mutation"
+}

@@ -1,0 +1,29 @@
+{
+  "type": "forestry:centrifuge",
+  "id": "binniebees:centrifuge/coal_comb",
+  "time": 20,
+  "input": {
+    "type": "neoforge:components",
+    "items": "binniebees:honey_comb",
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebees.honey_comb",
+        "value": "coal"
+      }
+    }
+  },
+  "products": [
+    {
+      "chance": 0.8,
+      "item": "forestry:beeswax"
+    },
+    {
+      "chance": 0.75,
+      "item": "forestry:honey_drop"
+    },
+    {
+      "chance": 1.0,
+      "item": "binniebees:coal_dust"
+    }
+  ]
+}

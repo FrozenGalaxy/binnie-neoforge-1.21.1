@@ -1,0 +1,24 @@
+{
+  "alleles": {
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_mystical"
+    },
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 30
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 15
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    }
+  },
+  "name": "botaniapis",
+  "parent": "apidae",
+  "rank": "genus",
+  "type": "forestry:bee_species"
+}

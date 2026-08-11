@@ -1,0 +1,48 @@
+{
+  "authority": "Binnie",
+  "body": 12231403,
+  "dominant": true,
+  "genome": {
+    "forestry:activity": {
+      "dominant": true,
+      "value": "forestry:activity_cathemeral"
+    },
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_gravity"
+    },
+    "forestry:fertility": {
+      "dominant": true,
+      "value": 1
+    },
+    "forestry:lifespan": {
+      "dominant": false,
+      "value": 60
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    },
+    "forestry:territory": {
+      "dominant": false,
+      "value": [
+        11,
+        8,
+        11
+      ]
+    }
+  },
+  "genus": "quantapis",
+  "outline": 5874874,
+  "products": [
+    {
+      "chance": 0.25,
+      "item": "binniebees:quartz_comb"
+    }
+  ],
+  "species": "daniella",
+  "stripes": 0,
+  "temperature": "cold"
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:aspen",
+  "id": "binnietrees:tree_mutation/rowan_32",
+  "result": "binnietrees:rowan",
+  "second": "binnietrees:alder",
+  "type": "forestry:tree_mutation"
+}

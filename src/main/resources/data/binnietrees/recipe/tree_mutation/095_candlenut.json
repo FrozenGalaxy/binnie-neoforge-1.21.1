@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:hazel",
+  "id": "binnietrees:tree_mutation/candlenut_95",
+  "result": "binnietrees:candlenut",
+  "second": "binnietrees:gingko",
+  "type": "forestry:tree_mutation"
+}

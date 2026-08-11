@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:ash",
+  "id": "binnietrees:tree_mutation/hornbeam_43",
+  "result": "binnietrees:hornbeam",
+  "second": "forestry:larch",
+  "type": "forestry:tree_mutation"
+}

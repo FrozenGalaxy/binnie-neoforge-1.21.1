@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "binniebees:distilled",
+  "id": "binniebees:bee_mutation/creosote_1",
+  "result": "binniebees:creosote",
+  "second": "binniebees:coal",
+  "type": "forestry:bee_mutation"
+}

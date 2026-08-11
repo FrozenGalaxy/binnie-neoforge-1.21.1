@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:iroko_planks"
+      },
+      {
+        "item": "binnietrees:iroko_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:iroko_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

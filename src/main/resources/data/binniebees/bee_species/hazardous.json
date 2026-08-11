@@ -1,0 +1,39 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": true,
+  "genome": {
+    "forestry:bee_effect": {
+      "value": "forestry:bee_effect_creeper"
+    },
+    "forestry:lifespan": {
+      "dominant": false,
+      "value": 60
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.3
+    },
+    "forestry:temperature_tolerance": {
+      "value": "DOWN_2"
+    }
+  },
+  "genus": "modapis",
+  "humidity": "arid",
+  "outline": 11562024,
+  "products": [
+    {
+      "chance": 0.12,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "saltpeter"
+        }
+      }
+    }
+  ],
+  "species": "infensus",
+  "stripes": 0,
+  "temperature": "hot"
+}

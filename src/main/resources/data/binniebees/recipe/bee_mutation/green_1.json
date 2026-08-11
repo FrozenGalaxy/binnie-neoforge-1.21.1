@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:tropical",
+  "id": "binniebees:bee_mutation/green_1",
+  "result": "binniebees:green",
+  "second": "forestry:valiant",
+  "type": "forestry:bee_mutation"
+}

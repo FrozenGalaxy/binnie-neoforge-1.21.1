@@ -1,0 +1,7 @@
+{
+  "parent": "binniecore:block/compartment_base",
+  "textures": {
+    "all": "binniecore:block/compartment_diamond",
+    "particle": "binniecore:block/compartment_diamond"
+  }
+}

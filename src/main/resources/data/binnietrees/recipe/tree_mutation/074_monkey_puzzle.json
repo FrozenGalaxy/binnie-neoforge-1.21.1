@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:hemlock",
+  "id": "binnietrees:tree_mutation/monkey_puzzle_74",
+  "result": "binnietrees:monkey_puzzle",
+  "second": "forestry:jungle",
+  "type": "forestry:tree_mutation"
+}

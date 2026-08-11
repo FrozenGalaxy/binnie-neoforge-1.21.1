@@ -1,0 +1,292 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "binniebotany:block/flowers/poppy.0",
+    "layer1": "binniebotany:block/flowers/poppy.1",
+    "layer2": "binniebotany:block/flowers/poppy.2"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "binniebotany:item/flowers/dandelion"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 2
+      },
+      "model": "binniebotany:item/flowers/poppy"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 3
+      },
+      "model": "binniebotany:item/flowers/orchid"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4
+      },
+      "model": "binniebotany:item/flowers/allium"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 5
+      },
+      "model": "binniebotany:item/flowers/bluet"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 6
+      },
+      "model": "binniebotany:item/flowers/tulip"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 7
+      },
+      "model": "binniebotany:item/flowers/daisy"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 8
+      },
+      "model": "binniebotany:item/flowers/cornflower"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 9
+      },
+      "model": "binniebotany:item/flowers/pansy"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 10
+      },
+      "model": "binniebotany:item/flowers/iris"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 11
+      },
+      "model": "binniebotany:item/flowers/double/lavender"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 12
+      },
+      "model": "binniebotany:item/flowers/viola"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 13
+      },
+      "model": "binniebotany:item/flowers/daffodil"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 14
+      },
+      "model": "binniebotany:item/flowers/dahlia"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 15
+      },
+      "model": "binniebotany:item/flowers/double/peony"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 16
+      },
+      "model": "binniebotany:item/flowers/double/rose"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 17
+      },
+      "model": "binniebotany:item/flowers/double/lilac"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 18
+      },
+      "model": "binniebotany:item/flowers/double/hydrangea"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 19
+      },
+      "model": "binniebotany:item/flowers/double/foxglove"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20
+      },
+      "model": "binniebotany:item/flowers/zinnia"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 21
+      },
+      "model": "binniebotany:item/flowers/chrysanthemum"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 22
+      },
+      "model": "binniebotany:item/flowers/marigold"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 23
+      },
+      "model": "binniebotany:item/flowers/geranium"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 24
+      },
+      "model": "binniebotany:item/flowers/azalea"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 25
+      },
+      "model": "binniebotany:item/flowers/primrose"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 26
+      },
+      "model": "binniebotany:item/flowers/aster"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 27
+      },
+      "model": "binniebotany:item/flowers/carnation"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 28
+      },
+      "model": "binniebotany:item/flowers/lily"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 29
+      },
+      "model": "binniebotany:item/flowers/yarrow"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 30
+      },
+      "model": "binniebotany:item/flowers/petunia"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 31
+      },
+      "model": "binniebotany:item/flowers/agapanthus"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 32
+      },
+      "model": "binniebotany:item/flowers/fuchsia"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 33
+      },
+      "model": "binniebotany:item/flowers/dianthus"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 34
+      },
+      "model": "binniebotany:item/flowers/forget"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 35
+      },
+      "model": "binniebotany:item/flowers/anemone"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 36
+      },
+      "model": "binniebotany:item/flowers/aquilegia"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 37
+      },
+      "model": "binniebotany:item/flowers/edelweiss"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 38
+      },
+      "model": "binniebotany:item/flowers/scabious"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 39
+      },
+      "model": "binniebotany:item/flowers/coneflower"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 40
+      },
+      "model": "binniebotany:item/flowers/gaillardia"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 41
+      },
+      "model": "binniebotany:item/flowers/auricula"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 42
+      },
+      "model": "binniebotany:item/flowers/double/camellia"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 43
+      },
+      "model": "binniebotany:item/flowers/double/goldenrod"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 44
+      },
+      "model": "binniebotany:item/flowers/double/althea"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 45
+      },
+      "model": "binniebotany:item/flowers/double/penstemon"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 46
+      },
+      "model": "binniebotany:item/flowers/double/delphinium"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 47
+      },
+      "model": "binniebotany:item/flowers/double/hollyhock"
+    }
+  ]
+}

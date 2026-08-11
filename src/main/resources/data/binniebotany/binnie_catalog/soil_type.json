@@ -1,0 +1,9 @@
+{
+  "catalog": "binniebotany.soil_type",
+  "count": 3,
+  "values": [
+    "soil",
+    "loam",
+    "flowerbed"
+  ]
+}

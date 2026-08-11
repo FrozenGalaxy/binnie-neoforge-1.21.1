@@ -1,0 +1,15 @@
+{
+  "catalog": "binniebees.simulator_circuit",
+  "count": 9,
+  "values": [
+    "low_voltage",
+    "high_voltage",
+    "plant",
+    "death",
+    "life",
+    "nether",
+    "mutation",
+    "inhibitor",
+    "territory"
+  ]
+}

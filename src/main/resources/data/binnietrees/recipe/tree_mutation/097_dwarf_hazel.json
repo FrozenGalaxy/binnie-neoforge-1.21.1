@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:hazel",
+  "id": "binnietrees:tree_mutation/dwarf_hazel_97",
+  "result": "binnietrees:dwarf_hazel",
+  "second": "binnietrees:alder",
+  "type": "forestry:tree_mutation"
+}

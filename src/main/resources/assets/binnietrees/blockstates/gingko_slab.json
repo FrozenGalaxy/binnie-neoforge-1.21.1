@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/gingko_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/gingko_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/gingko_slab_top"
+    }
+  }
+}

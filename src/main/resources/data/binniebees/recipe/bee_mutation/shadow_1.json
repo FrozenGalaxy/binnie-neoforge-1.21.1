@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:sinister",
+  "id": "binniebees:bee_mutation/shadow_1",
+  "result": "binniebees:shadow",
+  "second": "binniebees:rock",
+  "type": "forestry:bee_mutation"
+}

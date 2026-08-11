@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "binniebees:item/honey_drop_base",
+    "layer1": "binniebees:item/honey_drop_overlay"
+  }
+}

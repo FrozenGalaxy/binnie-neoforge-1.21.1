@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:hornbeam_planks"
+      },
+      {
+        "item": "binnietrees:hornbeam_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:hornbeam_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

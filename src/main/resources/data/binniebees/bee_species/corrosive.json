@@ -1,0 +1,36 @@
+{
+  "authority": "Binnie",
+  "body": 431972,
+  "dominant": false,
+  "genome": {
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_acid"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "UP_1"
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 20
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 1.2
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    }
+  },
+  "genus": "morbapis",
+  "humidity": "damp",
+  "outline": 4873227,
+  "products": [
+    {
+      "chance": 0.2,
+      "item": "forestry:silky_comb"
+    }
+  ],
+  "species": "corrumpo",
+  "stripes": 0,
+  "temperature": "warm"
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:kumquat",
+  "id": "binnietrees:tree_mutation/satsuma_10",
+  "result": "binnietrees:satsuma",
+  "second": "binnietrees:manderin",
+  "type": "forestry:tree_mutation"
+}

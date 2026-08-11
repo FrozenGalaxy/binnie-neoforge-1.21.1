@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:unweary",
+  "id": "binniebees:bee_mutation/thriving_1",
+  "result": "binniebees:thriving",
+  "second": "binniebees:growing",
+  "type": "forestry:bee_mutation"
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "binnietrees:block/brazilwood_stripped_log",
+    "side": "binnietrees:block/brazilwood_stripped_log"
+  }
+}

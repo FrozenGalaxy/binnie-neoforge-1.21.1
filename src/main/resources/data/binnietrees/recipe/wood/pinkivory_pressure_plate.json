@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:pinkivory_planks"
+      },
+      {
+        "item": "binnietrees:pinkivory_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:pinkivory_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

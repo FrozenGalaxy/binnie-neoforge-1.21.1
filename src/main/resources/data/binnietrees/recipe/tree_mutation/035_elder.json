@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:alder",
+  "id": "binnietrees:tree_mutation/elder_35",
+  "result": "binnietrees:elder",
+  "second": "binnietrees:aspen",
+  "type": "forestry:tree_mutation"
+}

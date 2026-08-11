@@ -1,0 +1,28 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 7977728,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_gooseberry"
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.25
+    },
+    "forestry:maturation": {
+      "dominant": false,
+      "value": 2
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.1
+    },
+    "forestry:yield": {
+      "dominant": false,
+      "value": 0.3
+    }
+  },
+  "genus": "ribes",
+  "species": "grossularia"
+}

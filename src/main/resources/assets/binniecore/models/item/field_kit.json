@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "binniecore:item/field_kit3"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "damage": 0.375
+      },
+      "model": "binniecore:item/field_kit2"
+    },
+    {
+      "predicate": {
+        "damage": 0.75
+      },
+      "model": "binniecore:item/field_kit1"
+    },
+    {
+      "predicate": {
+        "damage": 1.0
+      },
+      "model": "binniecore:item/field_kit_empty"
+    }
+  ]
+}

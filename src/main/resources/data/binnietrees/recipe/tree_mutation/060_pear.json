@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:orchard_apple",
+  "id": "binnietrees:tree_mutation/pear_60",
+  "result": "binnietrees:pear",
+  "second": "forestry:birch",
+  "type": "forestry:tree_mutation"
+}

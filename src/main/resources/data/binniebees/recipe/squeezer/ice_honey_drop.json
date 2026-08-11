@@ -1,0 +1,24 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binniebees:squeezer/ice_honey_drop",
+  "time": 10,
+  "resources": [
+    {
+      "type": "neoforge:components",
+      "items": "binniebees:honey_drop",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_drop",
+          "value": "ice"
+        }
+      }
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 200,
+      "id": "forestry:crushed_ice"
+    }
+  },
+  "chance": 0.0
+}

@@ -1,0 +1,38 @@
+{
+  "modules": {
+    "binnietrees": [
+      "lumbermill",
+      "woodworker",
+      "panelworker",
+      "press",
+      "brewery",
+      "distillery",
+      "glassworker"
+    ],
+    "binniegenetics": [
+      "isolator",
+      "sequencer",
+      "polymeriser",
+      "inoculator",
+      "splicer",
+      "analyser",
+      "genepool",
+      "incubator",
+      "acclimatiser",
+      "laboratory_machine"
+    ],
+    "binniebotany": [
+      "tileworker"
+    ],
+    "binniebees": [
+      "alveary_mutator",
+      "alveary_frame",
+      "alveary_rain_shield",
+      "alveary_lighting",
+      "alveary_stimulator",
+      "alveary_hatchery",
+      "alveary_transmission"
+    ]
+  },
+  "total": 25
+}

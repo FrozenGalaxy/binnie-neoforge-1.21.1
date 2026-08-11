@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:cherry",
+  "id": "binnietrees:tree_mutation/redcurrant_78",
+  "result": "binnietrees:redcurrant",
+  "second": "binnietrees:elder",
+  "type": "forestry:tree_mutation"
+}

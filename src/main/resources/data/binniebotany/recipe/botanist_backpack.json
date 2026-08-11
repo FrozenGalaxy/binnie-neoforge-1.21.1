@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "pattern": [
+    "X#X",
+    "VYZ",
+    "X#X"
+  ],
+  "key": {
+    "X": {
+      "tag": "c:strings"
+    },
+    "#": {
+      "tag": "minecraft:wool"
+    },
+    "V": {
+      "item": "binniebotany:soil_meter"
+    },
+    "Y": {
+      "tag": "c:chests/wooden"
+    },
+    "Z": {
+      "tag": "c:tools/trowel"
+    }
+  },
+  "result": {
+    "id": "binniebotany:botanist_backpack",
+    "count": 1
+  }
+}

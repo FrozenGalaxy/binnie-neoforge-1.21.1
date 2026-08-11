@@ -1,0 +1,8 @@
+{
+  "chance": 0.15,
+  "first": "forestry:modest",
+  "id": "binniebees:bee_mutation/creeper_1",
+  "result": "binniebees:creeper",
+  "second": "binniebees:desolate",
+  "type": "forestry:bee_mutation"
+}

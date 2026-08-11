@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "pattern": [
+    "d  ",
+    " x ",
+    "  s"
+  ],
+  "key": {
+    "d": {
+      "tag": "minecraft:dirt"
+    },
+    "x": {
+      "tag": "c:ingots/iron"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "result": {
+    "id": "binniebotany:trowel_iron",
+    "count": 1
+  }
+}

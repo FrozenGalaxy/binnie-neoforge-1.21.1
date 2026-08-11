@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/holly_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/holly_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/holly_slab_top"
+    }
+  }
+}

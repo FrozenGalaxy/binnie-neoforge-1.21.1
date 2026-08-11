@@ -1,0 +1,33 @@
+{
+  "catalog": "binnietrees.spirit",
+  "count": 27,
+  "values": [
+    "neutral_spirit",
+    "vodka",
+    "white_rum",
+    "dark_rum",
+    "whiskey",
+    "corn_whiskey",
+    "rye_whiskey",
+    "wheat_whiskey",
+    "fortified_wine",
+    "tequila",
+    "brandy",
+    "apple_brandy",
+    "pear_brandy",
+    "apricot_brandy",
+    "plum_brandy",
+    "cherry_brandy",
+    "elderberry_brandy",
+    "citrus_brandy",
+    "fruit_brandy",
+    "cachaca",
+    "gin",
+    "apple_liquor",
+    "pear_liquor",
+    "cherry_liquor",
+    "elderberry_liquor",
+    "apricot_liquor",
+    "fruit_liquor"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binnietrees:squeezer/spruce_resin",
+  "time": 10,
+  "resources": [
+    {
+      "item": "minecraft:spruce_log"
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 50,
+      "id": "binnietrees:resin"
+    }
+  },
+  "remnant": {
+    "count": 1,
+    "id": "forestry:wood_pulp"
+  },
+  "chance": 0.5
+}

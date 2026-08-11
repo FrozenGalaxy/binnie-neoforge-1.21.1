@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:hops",
+    "binnietrees:grain_wheat",
+    "binnietrees:grain_barley",
+    "binnietrees:grain_corn",
+    "binnietrees:grain_rye"
+  ]
+}

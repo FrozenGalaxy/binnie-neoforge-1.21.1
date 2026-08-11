@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "kik",
+    "iai",
+    " t "
+  ],
+  "key": {
+    "i": {
+      "tag": "c:nuggets/gold"
+    },
+    "a": {
+      "item": "forestry:alveary_block"
+    },
+    "t": {
+      "item": "forestry:golden_electron_tube"
+    },
+    "k": {
+      "item": "forestry:refined_circuit_board"
+    }
+  },
+  "result": {
+    "id": "binniebees:alveary_stimulator",
+    "count": 1
+  }
+}

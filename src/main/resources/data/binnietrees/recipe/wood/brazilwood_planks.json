@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:brazilwood_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:brazilwood_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

@@ -1,0 +1,28 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binnietrees:squeezer/food/plantain",
+  "time": 10,
+  "resources": [
+    {
+      "type": "neoforge:components",
+      "items": "binnietrees:food",
+      "components": {
+        "binniecore:variant": {
+          "category": "binnietrees.food",
+          "value": "plantain"
+        }
+      }
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 100,
+      "id": "forestry:fruit_juice"
+    }
+  },
+  "remnant": {
+    "count": 1,
+    "id": "forestry:mulch"
+  },
+  "chance": 0.4
+}

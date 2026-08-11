@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:teak",
+  "id": "binnietrees:tree_mutation/nutmeg_90",
+  "result": "binnietrees:nutmeg",
+  "second": "binnietrees:clove",
+  "type": "forestry:tree_mutation"
+}

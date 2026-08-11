@@ -1,0 +1,19 @@
+{
+  "alleles": {
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_lightning"
+    },
+    "forestry:cave_dwelling": {
+      "dominant": true,
+      "value": true
+    },
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_redstone"
+    }
+  },
+  "name": "incitapis",
+  "parent": "apidae",
+  "rank": "genus",
+  "type": "forestry:bee_species"
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/alder_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/alder_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/alder_slab_top"
+    }
+  }
+}

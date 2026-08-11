@@ -1,0 +1,18 @@
+{
+  "category": "redstone",
+  "ingredients": [
+    [
+      {
+        "item": "binnietrees:rosewood_planks"
+      },
+      {
+        "item": "binnietrees:rosewood_fireproof_planks"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:rosewood_button"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

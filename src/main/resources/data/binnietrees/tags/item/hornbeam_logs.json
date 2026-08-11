@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:hornbeam_log",
+    "binnietrees:hornbeam_stripped_log",
+    "binnietrees:hornbeam_stripped_wood",
+    "binnietrees:hornbeam_wood"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:walnut",
+  "id": "binnietrees:tree_mutation/acorn_oak_54",
+  "result": "binnietrees:acorn_oak",
+  "second": "forestry:oak",
+  "type": "forestry:tree_mutation"
+}

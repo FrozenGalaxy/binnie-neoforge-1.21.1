@@ -1,0 +1,8 @@
+{
+  "chance": 0.15,
+  "first": "forestry:rural",
+  "id": "binniebees:bee_mutation/sugar_1",
+  "result": "binniebees:sugar",
+  "second": "binniebees:sweet",
+  "type": "forestry:bee_mutation"
+}

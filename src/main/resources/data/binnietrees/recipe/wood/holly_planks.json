@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:holly_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:holly_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

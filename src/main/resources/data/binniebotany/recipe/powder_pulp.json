@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "forestry:wood_pulp"
+    }
+  ],
+  "result": {
+    "id": "binniebotany:powder_pulp",
+    "count": 4
+  }
+}

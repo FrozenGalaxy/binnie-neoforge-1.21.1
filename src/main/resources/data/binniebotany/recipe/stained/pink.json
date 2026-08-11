@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "binniebotany:stained",
+  "pattern": [
+    " G ",
+    "GPG",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "P": {
+      "item": "minecraft:pink_dye"
+    }
+  },
+  "result": {
+    "id": "binniebotany:stained",
+    "count": 4,
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebotany.flower_color",
+        "value": "pink"
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": true,
+  "genome": {
+    "forestry:bee_effect": {
+      "value": "binniebees:bee_effect_water"
+    },
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_water"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "BOTH_1"
+    },
+    "forestry:pollination": {
+      "dominant": true,
+      "value": 5
+    },
+    "forestry:tolerates_rain": {
+      "dominant": true,
+      "value": true
+    }
+  },
+  "genus": "aquapis",
+  "humidity": "damp",
+  "outline": 9741055,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "water"
+        }
+      }
+    }
+  ],
+  "species": "aqua",
+  "stripes": 0
+}

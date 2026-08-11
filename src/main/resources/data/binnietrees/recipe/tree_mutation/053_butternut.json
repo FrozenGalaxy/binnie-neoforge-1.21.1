@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:walnut",
+  "id": "binnietrees:tree_mutation/butternut_53",
+  "result": "binnietrees:butternut",
+  "second": "forestry:cherry",
+  "type": "forestry:tree_mutation"
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "forestry:bronze_electron_tube"
+    },
+    {
+      "item": "forestry:bronze_electron_tube"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "binniebotany:insulated_tube",
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebotany.insulated_tube",
+        "value": "bronze_cobblestone"
+      }
+    }
+  }
+}

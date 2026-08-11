@@ -1,0 +1,14 @@
+{
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "binnietrees:cedar_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "binnietrees:cedar_planks"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

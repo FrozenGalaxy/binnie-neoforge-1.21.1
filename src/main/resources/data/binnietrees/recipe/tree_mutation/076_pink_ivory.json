@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:rose_gum",
+  "id": "binnietrees:tree_mutation/pink_ivory_76",
+  "result": "binnietrees:pink_ivory",
+  "second": "binnietrees:brazilwood",
+  "type": "forestry:tree_mutation"
+}

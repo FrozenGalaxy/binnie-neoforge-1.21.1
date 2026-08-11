@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:pomelo",
+  "id": "binnietrees:tree_mutation/orange_7",
+  "result": "binnietrees:orange",
+  "second": "binnietrees:manderin",
+  "type": "forestry:tree_mutation"
+}

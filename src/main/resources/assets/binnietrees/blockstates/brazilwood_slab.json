@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/brazilwood_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/brazilwood_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/brazilwood_slab_top"
+    }
+  }
+}

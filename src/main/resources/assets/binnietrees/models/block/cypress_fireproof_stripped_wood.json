@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "binnietrees:block/cypress_fireproof_stripped_log",
+    "side": "binnietrees:block/cypress_fireproof_stripped_log"
+  }
+}

@@ -1,0 +1,368 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "binnietrees:item/food/crabapple"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "binnietrees:item/food/crabapple"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 2
+      },
+      "model": "binnietrees:item/food/orange"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 3
+      },
+      "model": "binnietrees:item/food/kumquat"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4
+      },
+      "model": "binnietrees:item/food/lime"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 5
+      },
+      "model": "binnietrees:item/food/wild_cherry"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 6
+      },
+      "model": "binnietrees:item/food/sour_cherry"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 7
+      },
+      "model": "binnietrees:item/food/black_cherry"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 8
+      },
+      "model": "binnietrees:item/food/blackthorn"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 9
+      },
+      "model": "binnietrees:item/food/cherry_plum"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 10
+      },
+      "model": "binnietrees:item/food/almond"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 11
+      },
+      "model": "binnietrees:item/food/apricot"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 12
+      },
+      "model": "binnietrees:item/food/grapefruit"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 13
+      },
+      "model": "binnietrees:item/food/peach"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 14
+      },
+      "model": "binnietrees:item/food/satsuma"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 15
+      },
+      "model": "binnietrees:item/food/buddha_hand"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 16
+      },
+      "model": "binnietrees:item/food/citron"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 17
+      },
+      "model": "binnietrees:item/food/finger_lime"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 18
+      },
+      "model": "binnietrees:item/food/key_lime"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 19
+      },
+      "model": "binnietrees:item/food/manderin"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20
+      },
+      "model": "binnietrees:item/food/nectarine"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 21
+      },
+      "model": "binnietrees:item/food/pomelo"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 22
+      },
+      "model": "binnietrees:item/food/tangerine"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 23
+      },
+      "model": "binnietrees:item/food/pear"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 24
+      },
+      "model": "binnietrees:item/food/sand_pear"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 25
+      },
+      "model": "binnietrees:item/food/hazelnut"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 26
+      },
+      "model": "binnietrees:item/food/butternut"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 27
+      },
+      "model": "binnietrees:item/food/beechnut"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 28
+      },
+      "model": "binnietrees:item/food/pecan"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 29
+      },
+      "model": "binnietrees:item/food/banana"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 30
+      },
+      "model": "binnietrees:item/food/red_banana"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 31
+      },
+      "model": "binnietrees:item/food/plantain"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 32
+      },
+      "model": "binnietrees:item/food/brazil_nut"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 33
+      },
+      "model": "binnietrees:item/food/fig"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 34
+      },
+      "model": "binnietrees:item/food/acorn"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 35
+      },
+      "model": "binnietrees:item/food/elderberry"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 36
+      },
+      "model": "binnietrees:item/food/olive"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 37
+      },
+      "model": "binnietrees:item/food/gingko_nut"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 38
+      },
+      "model": "binnietrees:item/food/coffee"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 39
+      },
+      "model": "binnietrees:item/food/osange_orange"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 40
+      },
+      "model": "binnietrees:item/food/clove"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 41
+      },
+      "model": "binnietrees:item/food/papayimar"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 42
+      },
+      "model": "binnietrees:item/food/blackcurrant"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 43
+      },
+      "model": "binnietrees:item/food/redcurrant"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 44
+      },
+      "model": "binnietrees:item/food/blackberry"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 45
+      },
+      "model": "binnietrees:item/food/raspberry"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 46
+      },
+      "model": "binnietrees:item/food/blueberry"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 47
+      },
+      "model": "binnietrees:item/food/cranberry"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 48
+      },
+      "model": "binnietrees:item/food/juniper"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 49
+      },
+      "model": "binnietrees:item/food/gooseberry"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 50
+      },
+      "model": "binnietrees:item/food/golden_raspberry"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 51
+      },
+      "model": "binnietrees:item/food/coconut"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 52
+      },
+      "model": "binnietrees:item/food/cashew"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 53
+      },
+      "model": "binnietrees:item/food/avocado"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 54
+      },
+      "model": "binnietrees:item/food/nutmeg"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 55
+      },
+      "model": "binnietrees:item/food/allspice"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 56
+      },
+      "model": "binnietrees:item/food/chilli"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 57
+      },
+      "model": "binnietrees:item/food/star_anise"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 58
+      },
+      "model": "binnietrees:item/food/mango"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 59
+      },
+      "model": "binnietrees:item/food/starfruit"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 60
+      },
+      "model": "binnietrees:item/food/candlenut"
+    }
+  ]
+}

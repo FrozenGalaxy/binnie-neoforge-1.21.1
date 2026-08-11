@@ -1,0 +1,8 @@
+{
+  "chance": 0.02,
+  "first": "forestry:ended",
+  "id": "binniebees:bee_mutation/jaded_1",
+  "result": "binniebees:jaded",
+  "second": "binniebees:relic",
+  "type": "forestry:bee_mutation"
+}

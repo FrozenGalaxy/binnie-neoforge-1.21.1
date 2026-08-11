@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "CGC",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:clay_ball"
+    },
+    "G": {
+      "item": "minecraft:gravel"
+    }
+  },
+  "result": {
+    "id": "binniebotany:mortar",
+    "count": 6
+  }
+}

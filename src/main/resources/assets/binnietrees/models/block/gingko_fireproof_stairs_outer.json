@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "binnietrees:block/gingko_fireproof_planks",
+    "side": "binnietrees:block/gingko_fireproof_planks",
+    "top": "binnietrees:block/gingko_fireproof_planks"
+  }
+}

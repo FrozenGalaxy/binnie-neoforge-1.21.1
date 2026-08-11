@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:farmerly",
+  "id": "binniebees:bee_mutation/coffee_1",
+  "result": "binniebees:coffee",
+  "second": "forestry:tropical",
+  "type": "forestry:bee_mutation"
+}

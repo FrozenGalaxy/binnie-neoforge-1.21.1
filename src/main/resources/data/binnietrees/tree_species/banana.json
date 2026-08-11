@@ -1,0 +1,24 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 10603918,
+  "genome": {
+    "forestry:fruits": {
+      "value": "binnietrees:fruit_banana"
+    },
+    "forestry:maturation": {
+      "dominant": false,
+      "value": 3
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.3
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.1
+    }
+  },
+  "genus": "musa",
+  "species": "sinensis"
+}

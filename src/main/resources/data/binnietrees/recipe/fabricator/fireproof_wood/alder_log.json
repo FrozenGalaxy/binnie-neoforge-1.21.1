@@ -1,0 +1,28 @@
+{
+  "type": "forestry:fabricator",
+  "id": "binnietrees:fabricator/fireproof_wood/alder_log",
+  "molten": {
+    "amount": 500,
+    "id": "forestry:liquid_glass"
+  },
+  "recipe": {
+    "category": "building",
+    "key": {
+      "#": {
+        "item": "forestry:refractory_wax"
+      },
+      "X": {
+        "item": "binnietrees:alder_log"
+      }
+    },
+    "pattern": [
+      " # ",
+      "#X#",
+      " # "
+    ],
+    "result": {
+      "count": 1,
+      "id": "binnietrees:alder_fireproof_log"
+    }
+  }
+}

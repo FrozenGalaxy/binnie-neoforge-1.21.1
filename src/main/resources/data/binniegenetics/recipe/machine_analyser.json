@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "gBg",
+    "cCc",
+    "aPa"
+  ],
+  "key": {
+    "C": {
+      "item": "binniegenetics:laboratory_casing"
+    },
+    "c": {
+      "item": "forestry:enhanced_circuit_board"
+    },
+    "g": {
+      "tag": "c:glass_panes"
+    },
+    "P": {
+      "tag": "c:gears/bronze"
+    },
+    "B": {
+      "item": "forestry:portable_analyzer"
+    },
+    "a": {
+      "item": "binniegenetics:dna_dye"
+    }
+  },
+  "result": {
+    "id": "binniegenetics:analyser",
+    "count": 1
+  }
+}

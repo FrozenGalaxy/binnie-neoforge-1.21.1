@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:beech",
+  "id": "binnietrees:tree_mutation/pecan_38",
+  "result": "binnietrees:pecan",
+  "second": "forestry:birch",
+  "type": "forestry:tree_mutation"
+}

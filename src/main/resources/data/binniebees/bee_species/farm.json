@@ -1,0 +1,27 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": true,
+  "genus": "rustapis",
+  "outline": 7723872,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "forestry:wheaten_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.1,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "seed"
+        }
+      }
+    }
+  ],
+  "species": "ager",
+  "stripes": 0
+}

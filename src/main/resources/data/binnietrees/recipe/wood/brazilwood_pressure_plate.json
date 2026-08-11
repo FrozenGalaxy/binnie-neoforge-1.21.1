@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:brazilwood_planks"
+      },
+      {
+        "item": "binnietrees:brazilwood_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:brazilwood_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

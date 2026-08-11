@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:lime",
+  "id": "binnietrees:tree_mutation/ash_40",
+  "result": "binnietrees:ash",
+  "second": "forestry:spruce",
+  "type": "forestry:tree_mutation"
+}

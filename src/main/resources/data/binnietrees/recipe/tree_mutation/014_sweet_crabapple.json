@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:orchard_apple",
+  "id": "binnietrees:tree_mutation/sweet_crabapple_14",
+  "result": "binnietrees:sweet_crabapple",
+  "second": "forestry:maple",
+  "type": "forestry:tree_mutation"
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "binnietrees:block/saplings/default.leaves",
+    "layer1": "binnietrees:block/saplings/default.trunk"
+  }
+}

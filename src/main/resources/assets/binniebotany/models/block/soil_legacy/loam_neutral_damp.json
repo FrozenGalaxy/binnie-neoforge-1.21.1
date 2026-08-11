@@ -1,0 +1,7 @@
+{
+  "parent": "binniebotany:block/soil_base",
+  "textures": {
+    "top": "binniebotany:block/soil/loam.neutral.damp.0",
+    "side": "binniebotany:block/soil/loam.neutral.damp.1"
+  }
+}

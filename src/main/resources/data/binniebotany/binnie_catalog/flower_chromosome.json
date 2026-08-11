@@ -1,0 +1,18 @@
+{
+  "catalog": "binniebotany.flower_chromosome",
+  "count": 12,
+  "values": [
+    "species",
+    "primary",
+    "secondary",
+    "fertility",
+    "territory",
+    "effect",
+    "lifespan",
+    "temperature_tolerance",
+    "humidity_tolerance",
+    "ph_tolerance",
+    "sappiness",
+    "stem"
+  ]
+}

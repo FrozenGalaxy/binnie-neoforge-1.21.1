@@ -1,0 +1,35 @@
+{
+  "parent": "binniecore:block/compartment_plain",
+  "overrides": [
+    {
+      "predicate": {
+        "binniecore:tier": 1
+      },
+      "model": "binniecore:block/compartment_copper"
+    },
+    {
+      "predicate": {
+        "binniecore:tier": 2
+      },
+      "model": "binniecore:block/compartment_bronze"
+    },
+    {
+      "predicate": {
+        "binniecore:tier": 3
+      },
+      "model": "binniecore:block/compartment_iron"
+    },
+    {
+      "predicate": {
+        "binniecore:tier": 4
+      },
+      "model": "binniecore:block/compartment_gold"
+    },
+    {
+      "predicate": {
+        "binniecore:tier": 5
+      },
+      "model": "binniecore:block/compartment_diamond"
+    }
+  ]
+}

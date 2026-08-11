@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:banana",
+  "id": "binnietrees:tree_mutation/red_banana_27",
+  "result": "binnietrees:red_banana",
+  "second": "forestry:kapok",
+  "type": "forestry:tree_mutation"
+}

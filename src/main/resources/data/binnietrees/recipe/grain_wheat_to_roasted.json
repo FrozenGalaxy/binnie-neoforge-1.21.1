@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "binnietrees:grain_wheat"
+  },
+  "result": {
+    "id": "binnietrees:grain_roasted"
+  }
+}

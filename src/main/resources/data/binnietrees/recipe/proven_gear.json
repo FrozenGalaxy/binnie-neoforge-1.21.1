@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " s ",
+    "s s",
+    " s "
+  ],
+  "key": {
+    "s": {
+      "item": "forestry:impregnated_stick"
+    }
+  },
+  "result": {
+    "id": "binnietrees:proven_gear",
+    "count": 1
+  }
+}

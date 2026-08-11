@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:rosewood_planks"
+      },
+      {
+        "item": "binnietrees:rosewood_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:rosewood_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

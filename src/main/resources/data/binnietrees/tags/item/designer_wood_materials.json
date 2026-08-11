@@ -1,0 +1,339 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:oak_planks",
+    "minecraft:spruce_planks",
+    "minecraft:birch_planks",
+    "minecraft:jungle_planks",
+    "minecraft:acacia_planks",
+    "minecraft:dark_oak_planks",
+    {
+      "id": "forestry:oak_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:spruce_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:birch_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:jungle_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:acacia_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:dark_oak_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:larch_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:larch_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:teak_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:teak_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:camelthorn_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:camelthorn_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:lime_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:lime_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:chestnut_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:chestnut_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:wenge_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:wenge_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:baobab_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:baobab_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:sequoia_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:sequoia_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:kapok_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:kapok_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:ebony_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:ebony_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:mahogany_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:mahogany_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:balsa_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:balsa_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:willow_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:willow_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:walnut_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:walnut_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:greenheart_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:greenheart_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:sour_cherry_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:sour_cherry_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:mahoe_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:mahoe_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:poplar_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:poplar_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:palm_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:palm_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:papaya_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:papaya_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:pine_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:pine_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:plum_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:plum_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:maple_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:maple_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:lemon_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:lemon_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:giant_sequoia_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:giant_sequoia_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:ipe_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:ipe_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:padauk_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:padauk_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:cocobolo_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:cocobolo_fireproof_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:zebrano_planks",
+      "required": false
+    },
+    {
+      "id": "forestry:zebrano_fireproof_planks",
+      "required": false
+    },
+    "binnietrees:apple_planks",
+    "binnietrees:apple_fireproof_planks",
+    "binnietrees:fig_planks",
+    "binnietrees:fig_fireproof_planks",
+    "binnietrees:butternut_planks",
+    "binnietrees:butternut_fireproof_planks",
+    "binnietrees:whitebeam_planks",
+    "binnietrees:whitebeam_fireproof_planks",
+    "binnietrees:rowan_planks",
+    "binnietrees:rowan_fireproof_planks",
+    "binnietrees:hemlock_planks",
+    "binnietrees:hemlock_fireproof_planks",
+    "binnietrees:ash_planks",
+    "binnietrees:ash_fireproof_planks",
+    "binnietrees:alder_planks",
+    "binnietrees:alder_fireproof_planks",
+    "binnietrees:beech_planks",
+    "binnietrees:beech_fireproof_planks",
+    "binnietrees:hawthorn_planks",
+    "binnietrees:hawthorn_fireproof_planks",
+    "binnietrees:banana_planks",
+    "binnietrees:banana_fireproof_planks",
+    "binnietrees:yew_planks",
+    "binnietrees:yew_fireproof_planks",
+    "binnietrees:cypress_planks",
+    "binnietrees:cypress_fireproof_planks",
+    "binnietrees:fir_planks",
+    "binnietrees:fir_fireproof_planks",
+    "binnietrees:hazel_planks",
+    "binnietrees:hazel_fireproof_planks",
+    "binnietrees:hickory_planks",
+    "binnietrees:hickory_fireproof_planks",
+    "binnietrees:elm_planks",
+    "binnietrees:elm_fireproof_planks",
+    "binnietrees:elder_planks",
+    "binnietrees:elder_fireproof_planks",
+    "binnietrees:holly_planks",
+    "binnietrees:holly_fireproof_planks",
+    "binnietrees:hornbeam_planks",
+    "binnietrees:hornbeam_fireproof_planks",
+    "binnietrees:cedar_planks",
+    "binnietrees:cedar_fireproof_planks",
+    "binnietrees:olive_planks",
+    "binnietrees:olive_fireproof_planks",
+    "binnietrees:sweetgum_planks",
+    "binnietrees:sweetgum_fireproof_planks",
+    "binnietrees:locust_planks",
+    "binnietrees:locust_fireproof_planks",
+    "binnietrees:pear_planks",
+    "binnietrees:pear_fireproof_planks",
+    "binnietrees:maclura_planks",
+    "binnietrees:maclura_fireproof_planks",
+    "binnietrees:brazilwood_planks",
+    "binnietrees:brazilwood_fireproof_planks",
+    "binnietrees:logwood_planks",
+    "binnietrees:logwood_fireproof_planks",
+    "binnietrees:rosewood_planks",
+    "binnietrees:rosewood_fireproof_planks",
+    "binnietrees:purpleheart_planks",
+    "binnietrees:purpleheart_fireproof_planks",
+    "binnietrees:iroko_planks",
+    "binnietrees:iroko_fireproof_planks",
+    "binnietrees:gingko_planks",
+    "binnietrees:gingko_fireproof_planks",
+    "binnietrees:eucalyptus_planks",
+    "binnietrees:eucalyptus_fireproof_planks",
+    "binnietrees:box_planks",
+    "binnietrees:box_fireproof_planks",
+    "binnietrees:syzgium_planks",
+    "binnietrees:syzgium_fireproof_planks",
+    "binnietrees:pinkivory_planks",
+    "binnietrees:pinkivory_fireproof_planks"
+  ]
+}

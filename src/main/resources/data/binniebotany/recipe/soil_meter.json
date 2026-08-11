@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "pattern": [
+    " gg",
+    " rg",
+    "i  "
+  ],
+  "key": {
+    "g": {
+      "tag": "c:ingots/gold"
+    },
+    "r": {
+      "tag": "c:dusts/redstone"
+    },
+    "i": {
+      "tag": "c:ingots/iron"
+    }
+  },
+  "result": {
+    "id": "binniebotany:soil_meter",
+    "count": 1
+  }
+}

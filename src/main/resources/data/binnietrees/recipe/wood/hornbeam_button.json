@@ -1,0 +1,18 @@
+{
+  "category": "redstone",
+  "ingredients": [
+    [
+      {
+        "item": "binnietrees:hornbeam_planks"
+      },
+      {
+        "item": "binnietrees:hornbeam_fireproof_planks"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:hornbeam_button"
+  },
+  "type": "minecraft:crafting_shapeless"
+}

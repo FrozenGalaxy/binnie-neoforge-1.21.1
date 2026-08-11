@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "binniebotany:trowel_wood",
+    "binniebotany:trowel_stone",
+    "binniebotany:trowel_iron",
+    "binniebotany:trowel_gold",
+    "binniebotany:trowel_diamond"
+  ]
+}

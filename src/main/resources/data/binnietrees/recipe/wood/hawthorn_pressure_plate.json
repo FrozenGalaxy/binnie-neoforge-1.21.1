@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:hawthorn_planks"
+      },
+      {
+        "item": "binnietrees:hawthorn_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:hawthorn_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

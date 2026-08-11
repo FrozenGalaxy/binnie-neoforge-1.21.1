@@ -1,0 +1,8 @@
+{
+  "chance": 0.15,
+  "first": "binniebees:basalt",
+  "id": "binniebees:bee_mutation/common_15",
+  "result": "forestry:common",
+  "second": "binniebees:rock",
+  "type": "forestry:bee_mutation"
+}

@@ -1,0 +1,29 @@
+{
+  "type": "forestry:centrifuge",
+  "id": "binniebees:centrifuge/fungal_comb",
+  "time": 20,
+  "input": {
+    "type": "neoforge:components",
+    "items": "binniebees:honey_comb",
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebees.honey_comb",
+        "value": "fungal"
+      }
+    }
+  },
+  "products": [
+    {
+      "chance": 0.9,
+      "item": "forestry:beeswax"
+    },
+    {
+      "chance": 1.0,
+      "item": "minecraft:brown_mushroom_block"
+    },
+    {
+      "chance": 0.75,
+      "item": "minecraft:red_mushroom_block"
+    }
+  ]
+}

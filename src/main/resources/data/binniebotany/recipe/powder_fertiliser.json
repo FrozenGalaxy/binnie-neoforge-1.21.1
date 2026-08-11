@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "forestry:fertilizer"
+    }
+  ],
+  "result": {
+    "id": "binniebotany:powder_fertiliser",
+    "count": 4
+  }
+}

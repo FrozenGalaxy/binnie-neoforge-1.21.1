@@ -1,0 +1,30 @@
+{
+  "catalog": "binniebees.bee_effect",
+  "count": 24,
+  "values": [
+    "ectoplasm",
+    "acid",
+    "spawn_zombie",
+    "spawn_skeleton",
+    "spawn_creeper",
+    "lightning",
+    "radioactive",
+    "meteor",
+    "hunger",
+    "food",
+    "blindness",
+    "confusion",
+    "fireworks",
+    "festival",
+    "birthday",
+    "teleport",
+    "gravity",
+    "thief",
+    "wither",
+    "water",
+    "slow",
+    "bonemeal_sapling",
+    "bonemeal_fruit",
+    "bonemeal_mushroom"
+  ]
+}

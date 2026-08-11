@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "binniebotany:block/design_patterns/ceramic/letter_s2_secondary",
+    "particle": "binniebotany:block/design_patterns/ceramic/letter_s2_secondary"
+  },
+  "render_type": "minecraft:cutout_mipped"
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "CFC",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:clay_ball"
+    },
+    "F": {
+      "item": "forestry:impregnated_frame"
+    }
+  },
+  "result": {
+    "id": "binniebees:hive_frame",
+    "count": 1,
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebees.hive_frame",
+        "value": "clay"
+      }
+    }
+  }
+}

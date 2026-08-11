@@ -1,0 +1,12 @@
+{
+  "alleles": {
+    "forestry:flower_type": {
+      "dominant": true,
+      "value": "binniebees:flower_type_sugar"
+    }
+  },
+  "name": "sacchapis",
+  "parent": "apidae",
+  "rank": "genus",
+  "type": "forestry:bee_species"
+}

@@ -1,0 +1,8 @@
+{
+  "chance": 0.08,
+  "first": "forestry:industrious",
+  "id": "binniebees:bee_mutation/blooming_1",
+  "result": "binniebees:blooming",
+  "second": "binniebees:thriving",
+  "type": "forestry:bee_mutation"
+}

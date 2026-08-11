@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binnietrees:old_fustic",
+  "id": "binnietrees:tree_mutation/osange_orange_62",
+  "result": "binnietrees:osange_orange",
+  "second": "forestry:kapok",
+  "type": "forestry:tree_mutation"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " t ",
+    "tat",
+    " t "
+  ],
+  "key": {
+    "a": {
+      "item": "forestry:alveary_block"
+    },
+    "t": {
+      "tag": "c:gears/tin"
+    }
+  },
+  "result": {
+    "id": "binniebees:alveary_transmission",
+    "count": 1
+  }
+}

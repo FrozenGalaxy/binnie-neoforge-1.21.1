@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:birch",
+  "id": "binnietrees:tree_mutation/alder_30",
+  "result": "binnietrees:alder",
+  "second": "binnietrees:beech",
+  "type": "forestry:tree_mutation"
+}

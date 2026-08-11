@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "binnietrees:block/design_patterns/wood/thin_striped_corner2_secondary",
+    "particle": "binnietrees:block/design_patterns/wood/thin_striped_corner2_secondary"
+  },
+  "render_type": "minecraft:cutout_mipped"
+}

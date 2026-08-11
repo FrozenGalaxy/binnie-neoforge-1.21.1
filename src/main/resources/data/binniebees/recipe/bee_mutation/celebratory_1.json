@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:austere",
+  "id": "binniebees:bee_mutation/celebratory_1",
+  "result": "binniebees:celebratory",
+  "second": "binniebees:excited",
+  "type": "forestry:bee_mutation"
+}

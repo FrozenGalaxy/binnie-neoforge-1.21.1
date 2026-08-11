@@ -1,0 +1,52 @@
+{
+  "authority": "Binnie",
+  "body": 431972,
+  "dominant": false,
+  "genome": {
+    "forestry:bee_effect": {
+      "value": "forestry:bee_effect_miasmic"
+    },
+    "forestry:humidity_tolerance": {
+      "value": "UP_1"
+    },
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 30
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 20
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    },
+    "forestry:temperature_tolerance": {
+      "value": "UP_1"
+    }
+  },
+  "genus": "virapis",
+  "humidity": "damp",
+  "outline": 15733740,
+  "products": [
+    {
+      "chance": 0.25,
+      "item": "forestry:silky_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.12,
+      "item": "binniebees:honey_comb",
+      "tag": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_comb",
+          "value": "venomous"
+        }
+      }
+    }
+  ],
+  "species": "morbus",
+  "stripes": 0,
+  "temperature": "warm"
+}

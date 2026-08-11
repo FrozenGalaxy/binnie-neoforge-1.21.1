@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "binnietrees:block/rowan_slab"
+    },
+    "type=double": {
+      "model": "binnietrees:block/rowan_planks"
+    },
+    "type=top": {
+      "model": "binnietrees:block/rowan_slab_top"
+    }
+  }
+}

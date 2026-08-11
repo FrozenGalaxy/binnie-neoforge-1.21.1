@@ -1,0 +1,24 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binniebees:squeezer/fruit_propolis",
+  "time": 20,
+  "resources": [
+    {
+      "type": "neoforge:components",
+      "items": "binniebees:propolis",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniebees.propolis",
+          "value": "fruit"
+        }
+      }
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 500,
+      "id": "forestry:fruit_juice"
+    }
+  },
+  "chance": 0.0
+}

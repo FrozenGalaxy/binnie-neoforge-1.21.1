@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:wenge",
+  "id": "binnietrees:tree_mutation/gingko_67",
+  "result": "binnietrees:gingko",
+  "second": "forestry:lime",
+  "type": "forestry:tree_mutation"
+}

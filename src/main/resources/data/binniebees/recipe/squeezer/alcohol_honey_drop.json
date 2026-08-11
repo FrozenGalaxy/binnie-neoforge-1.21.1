@@ -1,0 +1,24 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binniebees:squeezer/alcohol_honey_drop",
+  "time": 10,
+  "resources": [
+    {
+      "type": "neoforge:components",
+      "items": "binniebees:honey_drop",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniebees.honey_drop",
+          "value": "alcohol"
+        }
+      }
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 200,
+      "id": "forestry:short_mead"
+    }
+  },
+  "chance": 0.0
+}

@@ -1,0 +1,24 @@
+{
+  "type": "forestry:squeezer",
+  "id": "binniebees:squeezer/glacial_propolis",
+  "time": 20,
+  "resources": [
+    {
+      "type": "neoforge:components",
+      "items": "binniebees:propolis",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniebees.propolis",
+          "value": "glacial"
+        }
+      }
+    }
+  ],
+  "output": {
+    "stack": {
+      "amount": 500,
+      "id": "forestry:crushed_ice"
+    }
+  },
+  "chance": 0.0
+}

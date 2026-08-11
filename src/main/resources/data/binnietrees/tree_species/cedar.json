@@ -1,0 +1,25 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 9806704,
+  "genome": {
+    "forestry:girth": {
+      "dominant": false,
+      "value": 2
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 0.5
+    },
+    "forestry:maturation": {
+      "dominant": false,
+      "value": 7
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "cedrus",
+  "species": "libani"
+}

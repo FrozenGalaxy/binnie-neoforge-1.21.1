@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:plum",
+  "id": "binnietrees:tree_mutation/peach_19",
+  "result": "binnietrees:peach",
+  "second": "forestry:chestnut",
+  "type": "forestry:tree_mutation"
+}

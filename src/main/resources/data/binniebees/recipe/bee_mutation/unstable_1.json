@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:prehistoric",
+  "id": "binniebees:bee_mutation/unstable_1",
+  "result": "binniebees:unstable",
+  "second": "binniebees:mineral",
+  "type": "forestry:bee_mutation"
+}

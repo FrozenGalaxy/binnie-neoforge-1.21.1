@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "binniebees:ocean",
+  "id": "binniebees:bee_mutation/freezing_1",
+  "result": "binniebees:freezing",
+  "second": "binniebees:artic",
+  "type": "forestry:bee_mutation"
+}

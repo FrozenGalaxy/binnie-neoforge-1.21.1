@@ -1,0 +1,8 @@
+{
+  "chance": 0.15,
+  "first": "forestry:wintry",
+  "id": "binniebees:bee_mutation/common_6",
+  "result": "forestry:common",
+  "second": "binniebees:water",
+  "type": "forestry:bee_mutation"
+}

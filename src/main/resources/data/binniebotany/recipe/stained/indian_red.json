@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "binniebotany:stained",
+  "pattern": [
+    " G ",
+    "GPG",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "P": {
+      "type": "neoforge:components",
+      "items": "binniebotany:pigment",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniebotany.flower_color",
+          "value": "indian_red"
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "binniebotany:stained",
+    "count": 4,
+    "components": {
+      "binniecore:variant": {
+        "category": "binniebotany.flower_color",
+        "value": "indian_red"
+      }
+    }
+  }
+}

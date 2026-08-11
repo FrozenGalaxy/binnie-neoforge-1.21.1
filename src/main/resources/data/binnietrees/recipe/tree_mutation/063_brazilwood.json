@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:ebony",
+  "id": "binnietrees:tree_mutation/brazilwood_63",
+  "result": "binnietrees:brazilwood",
+  "second": "forestry:teak",
+  "type": "forestry:tree_mutation"
+}

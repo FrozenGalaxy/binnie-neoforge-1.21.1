@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:red",
+  "id": "binniebees:bee_mutation/purple_1",
+  "result": "binniebees:purple",
+  "second": "binniebees:blue",
+  "type": "forestry:bee_mutation"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "SSS",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:wheat_seeds"
+    }
+  },
+  "result": {
+    "id": "binnietrees:grain_wheat",
+    "count": 5
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "binniegenetics:block/machine_base",
+  "textures": {
+    "all": "binniegenetics:block/machine/sequencer",
+    "particle": "binniegenetics:block/machine/sequencer"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "sss",
+    "sss",
+    "sss"
+  ],
+  "key": {
+    "s": {
+      "type": "neoforge:components",
+      "items": "binniegenetics:genetic_material",
+      "components": {
+        "binniecore:variant": {
+          "category": "binniegenetics.material",
+          "value": "serum"
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "binniegenetics:genetic_material",
+    "count": 1,
+    "components": {
+      "binniecore:variant": {
+        "category": "binniegenetics.material",
+        "value": "serum_array"
+      }
+    }
+  }
+}

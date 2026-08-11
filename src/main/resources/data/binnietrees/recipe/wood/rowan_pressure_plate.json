@@ -1,0 +1,21 @@
+{
+  "category": "redstone",
+  "key": {
+    "P": [
+      {
+        "item": "binnietrees:rowan_planks"
+      },
+      {
+        "item": "binnietrees:rowan_fireproof_planks"
+      }
+    ]
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "binnietrees:rowan_pressure_plate"
+  },
+  "type": "minecraft:crafting_shaped"
+}

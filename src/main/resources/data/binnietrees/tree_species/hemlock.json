@@ -1,0 +1,25 @@
+{
+  "authority": "Binnie",
+  "dominant": true,
+  "escritoire_color": 6073458,
+  "genome": {
+    "forestry:girth": {
+      "dominant": false,
+      "value": 2
+    },
+    "forestry:height": {
+      "dominant": false,
+      "value": 1.0
+    },
+    "forestry:maturation": {
+      "dominant": false,
+      "value": 7
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    }
+  },
+  "genus": "tsuga",
+  "species": "heterophylla"
+}

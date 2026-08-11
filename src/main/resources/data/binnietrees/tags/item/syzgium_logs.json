@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:syzgium_log",
+    "binnietrees:syzgium_stripped_log",
+    "binnietrees:syzgium_stripped_wood",
+    "binnietrees:syzgium_wood"
+  ]
+}

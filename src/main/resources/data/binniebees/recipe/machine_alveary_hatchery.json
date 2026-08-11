@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "i i",
+    " a ",
+    "iti"
+  ],
+  "key": {
+    "i": {
+      "tag": "c:glass_panes"
+    },
+    "a": {
+      "item": "forestry:alveary_block"
+    },
+    "t": {
+      "item": "forestry:diamantine_electron_tube"
+    }
+  },
+  "result": {
+    "id": "binniebees:alveary_hatchery",
+    "count": 1
+  }
+}

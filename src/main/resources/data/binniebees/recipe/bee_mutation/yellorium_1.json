@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "forestry:frugal",
+  "id": "binniebees:bee_mutation/yellorium_1",
+  "result": "binniebees:yellorium",
+  "second": "binniebees:nuclear",
+  "type": "forestry:bee_mutation"
+}

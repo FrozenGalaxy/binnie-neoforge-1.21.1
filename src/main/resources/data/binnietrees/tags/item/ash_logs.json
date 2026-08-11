@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:ash_log",
+    "binnietrees:ash_stripped_log",
+    "binnietrees:ash_stripped_wood",
+    "binnietrees:ash_wood"
+  ]
+}

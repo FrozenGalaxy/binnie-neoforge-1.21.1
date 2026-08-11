@@ -1,0 +1,8 @@
+{
+  "chance": 0.1,
+  "first": "forestry:teak",
+  "id": "binnietrees:tree_mutation/cashew_88",
+  "result": "binnietrees:cashew",
+  "second": "forestry:oak",
+  "type": "forestry:tree_mutation"
+}

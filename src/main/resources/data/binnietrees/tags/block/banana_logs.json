@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "binnietrees:banana_log",
+    "binnietrees:banana_stripped_log",
+    "binnietrees:banana_stripped_wood",
+    "binnietrees:banana_wood"
+  ]
+}

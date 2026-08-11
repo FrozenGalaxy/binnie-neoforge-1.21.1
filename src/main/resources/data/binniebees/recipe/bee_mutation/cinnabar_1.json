@@ -1,0 +1,8 @@
+{
+  "chance": 0.05,
+  "first": "binniebees:mineral",
+  "id": "binniebees:bee_mutation/cinnabar_1",
+  "result": "binniebees:cinnabar",
+  "second": "forestry:sinister",
+  "type": "forestry:bee_mutation"
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "binniebotany:block/soil_base",
+  "textures": {
+    "top": "binniebotany:block/soil/soil.alkaline.normal.2",
+    "side": "binniebotany:block/soil/soil.alkaline.normal.1"
+  }
+}

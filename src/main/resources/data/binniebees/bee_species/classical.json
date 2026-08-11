@@ -1,0 +1,35 @@
+{
+  "authority": "Binnie",
+  "body": 16768022,
+  "dominant": false,
+  "genome": {
+    "forestry:lifespan": {
+      "dominant": true,
+      "value": 30
+    },
+    "forestry:pollination": {
+      "dominant": false,
+      "value": 15
+    },
+    "forestry:speed": {
+      "dominant": true,
+      "value": 0.6
+    }
+  },
+  "genus": "grecapis",
+  "outline": 8592780,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "forestry:honey_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.25,
+      "item": "forestry:royal_jelly"
+    }
+  ],
+  "species": "classica",
+  "stripes": 0
+}

@@ -1,0 +1,16 @@
+{
+  "catalog": "binniegenetics.machine",
+  "count": 10,
+  "values": [
+    "isolator",
+    "sequencer",
+    "polymeriser",
+    "inoculator",
+    "splicer",
+    "lab_machine",
+    "analyser",
+    "incubator",
+    "genepool",
+    "acclimatiser"
+  ]
+}

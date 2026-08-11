@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "pattern": [
+    "g  ",
+    " is",
+    " pi"
+  ],
+  "key": {
+    "g": {
+      "tag": "c:glass_panes"
+    },
+    "i": {
+      "tag": "c:ingots/iron"
+    },
+    "s": {
+      "tag": "c:dyes/red"
+    },
+    "p": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "id": "binniecore:field_kit",
+    "count": 1,
+    "components": {
+      "minecraft:damage": 63
+    }
+  }
+}

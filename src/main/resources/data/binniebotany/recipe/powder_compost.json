@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "forestry:compost"
+    }
+  ],
+  "result": {
+    "id": "binniebotany:powder_compost",
+    "count": 4
+  }
+}
