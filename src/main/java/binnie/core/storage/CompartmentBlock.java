@@ -85,6 +85,7 @@ public final class CompartmentBlock extends Block implements EntityBlock {
     }
 
     @Override
+    @SuppressWarnings("deprecation") // Required Block override in Minecraft 1.21.1.
     public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
         ItemStack clone = CompartmentBlockItem.createStack(state.getValue(TIER));
         if (level.getBlockEntity(pos) instanceof CompartmentBlockEntity compartment && compartment.customName() != null) {

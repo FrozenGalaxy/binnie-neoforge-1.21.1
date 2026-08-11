@@ -9,7 +9,7 @@
   ],
   "key": {
     "G": {
-      "item": "minecraft:glass"
+      "tag": "c:glass_blocks"
     },
     "P": {
       "type": "neoforge:components",

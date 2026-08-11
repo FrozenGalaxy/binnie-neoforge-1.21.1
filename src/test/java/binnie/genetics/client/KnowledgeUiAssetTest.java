@@ -74,20 +74,19 @@ final class KnowledgeUiAssetTest {
 
     @Test
     void specialistDatabasesUseTheirExactOriginalItemTextures() throws Exception {
-        assertOriginal("src/main/resources/assets/binniebees/textures/item/bee_database.png",
-                "../reference/Binnie-1.12/extrabees/src/main/resources/assets/extrabees/textures/items/apiarist_database.png");
-        assertOriginal("src/main/resources/assets/binniebees/textures/item/master_bee_database.png",
-                "../reference/Binnie-1.12/extrabees/src/main/resources/assets/extrabees/textures/items/master_apiarist_database.png");
-        assertOriginal("src/main/resources/assets/binnietrees/textures/item/moth_database.png",
-                "../reference/Binnie-1.12/extratrees/src/main/resources/assets/extratrees/textures/items/lepi_database.png");
-        assertOriginal("src/main/resources/assets/binnietrees/textures/item/master_moth_database.png",
-                "../reference/Binnie-1.12/extratrees/src/main/resources/assets/extratrees/textures/items/master_lepi_database.png");
+        assertHash("src/main/resources/assets/binniebees/textures/item/bee_database.png",
+                "75abcbc7779e473c0adaef6dd701cc2de990c65131ad89cd30b4491da68b4570");
+        assertHash("src/main/resources/assets/binniebees/textures/item/master_bee_database.png",
+                "1a1f34bee37138112073afe76190ba1a70e96eea1132b11759f85f5d1d447227");
+        assertHash("src/main/resources/assets/binnietrees/textures/item/moth_database.png",
+                "f22e406c6a9837806d947f7f1e2f0b10be27e7c30f2f84dfecabc25018b15090");
+        assertHash("src/main/resources/assets/binnietrees/textures/item/master_moth_database.png",
+                "dddf7faa81ef629612246b2e06ad3244213251d3ffc2e9d21d9b1373412e1f09");
     }
 
-    private static void assertOriginal(String modern, String legacy) throws Exception {
+    private static void assertHash(String asset, String expectedHash) throws Exception {
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        String modernHash = HexFormat.of().formatHex(digest.digest(Files.readAllBytes(Path.of(modern))));
-        String legacyHash = HexFormat.of().formatHex(digest.digest(Files.readAllBytes(Path.of(legacy))));
-        assertTrue(modernHash.equals(legacyHash), modern + " != " + legacy);
+        String actualHash = HexFormat.of().formatHex(digest.digest(Files.readAllBytes(Path.of(asset))));
+        assertTrue(actualHash.equals(expectedHash), asset + " has SHA-256 " + actualHash);
     }
 }

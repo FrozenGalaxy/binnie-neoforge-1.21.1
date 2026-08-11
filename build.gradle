@@ -232,6 +232,13 @@ tasks.withType(JavaCompile).configureEach {
     options.compilerArgs.addAll(['-Xlint:all', '-Xmaxerrs', '400'])
 }
 
+tasks.withType(Javadoc).configureEach {
+    // Records expose their components in the generated signatures; requiring a
+    // duplicate @param sentence for every data carrier only obscures actionable
+    // documentation warnings.
+    options.addStringOption('Xdoclint:-missing', '-quiet')
+}
+
 tasks.register('apiJar', Jar) {
     archiveClassifier = 'api'
     from sourceSets.main.output
@@ -335,17 +342,18 @@ tasks.register('validateLegacyCatalogs') {
 
 tasks.named('check').configure { dependsOn tasks.named('validateLegacyCatalogs') }
 
+def forestrySplitValidation = configurations.detachedConfiguration(
+        requiredForestrySplitCoordinates.collect {
+            dependencies.create(it) { transitive = false }
+        } as org.gradle.api.artifacts.Dependency[])
+forestrySplitValidation.transitive = false
+
 tasks.register('validateForestrySplitDependencies') {
     group = 'verification'
     description = 'Resolves and verifies the published Forestry alpha2 split-module Maven artifacts.'
+    inputs.files(forestrySplitValidation)
     doLast {
-        def splitDependencies = requiredForestrySplitCoordinates.collect {
-            project.dependencies.create(it) { transitive = false }
-        }
-        def resolved = project.configurations.detachedConfiguration(
-                splitDependencies as org.gradle.api.artifacts.Dependency[])
-        resolved.transitive = false
-        def files = resolved.resolve().sort { it.name }
+        def files = forestrySplitValidation.resolve().sort { it.name }
         if (files.size() != requiredForestrySplitCoordinates.size()) {
             throw new GradleException("Expected ${requiredForestrySplitCoordinates.size()} Forestry split artifacts, resolved ${files.size()}: ${files}")
         }

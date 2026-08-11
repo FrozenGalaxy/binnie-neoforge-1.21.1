@@ -9,6 +9,7 @@ import forestry.api.agriculture.IFarmable;
 import forestry.agriculture.farmlogic.FarmLogicCrops;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -24,7 +25,8 @@ public final class BotanyGardenFarmLogic extends FarmLogicCrops {
     protected boolean maintainCrops(Level level, IFarmHousing housing, BlockPos pos, Direction direction, int extent) {
         for (int i = 0; i < extent; i++) {
             BlockPos plant = translateWithOffset(pos, direction, i);
-            if (!level.hasChunkAt(plant) || !level.getBlockState(plant).canBeReplaced()) continue;
+            if (!level.hasChunk(SectionPos.blockToSectionCoord(plant.getX()),
+                    SectionPos.blockToSectionCoord(plant.getZ())) || !level.getBlockState(plant).canBeReplaced()) continue;
             BlockState soil = level.getBlockState(plant.below());
             if (!(soil.getBlock() instanceof BotanySoilBlock)
                     || soil.getValue(BotanySoilBlock.MOISTURE) != moisture

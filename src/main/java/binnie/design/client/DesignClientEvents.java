@@ -7,6 +7,7 @@ import binnie.botany.registry.BotanyWorldContent;
 import binnie.trees.registry.BinnieTreesDesignContent;
 import net.minecraft.client.renderer.block.BlockModelShaper;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -15,6 +16,7 @@ import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
 /** Client registration for the ordinary baked, model-data-aware Design renderer. */
 @EventBusSubscriber(modid = BinnieTrees.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+@SuppressWarnings("removal") // Mod-bus selector remains required by NeoForge 21.1.
 public final class DesignClientEvents {
     private DesignClientEvents() {}
 
@@ -48,7 +50,7 @@ public final class DesignClientEvents {
         for (var state : block.getStateDefinition().getPossibleStates()) {
             event.getModels().put(BlockModelShaper.stateToModelLocation(state), model);
         }
-        event.getModels().put(ModelResourceLocation.inventory(item.builtInRegistryHolder().key().location()), model);
+        event.getModels().put(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(item)), model);
     }
 
     @SubscribeEvent

@@ -56,6 +56,7 @@ import java.util.concurrent.ConcurrentHashMap;
   * those quads here lets the vanilla block renderer provide real AO, directional
   * light and translucent sorting instead of imitating lighting in a BER.</p>
   */
+@SuppressWarnings("deprecation") // BakedModel's 1.21.1 compatibility methods remain required overrides.
 public final class DesignedBlockModel implements BakedModel {
     private static final FaceBakery FACE_BAKERY = new FaceBakery();
     private static final ItemTransforms BLOCK_TRANSFORMS = new ItemTransforms(

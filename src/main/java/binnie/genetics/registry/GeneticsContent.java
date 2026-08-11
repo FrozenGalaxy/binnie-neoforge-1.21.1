@@ -94,7 +94,7 @@ public final class GeneticsContent {
                     java.util.ArrayList<GeneticAlleleData> genes = new java.util.ArrayList<>();
                     for (var chromosomeObject : genome.getKaryotype().getChromosomes()) {
                         forestry.api.core.genetics.alleles.IChromosome chromosome = (forestry.api.core.genetics.alleles.IChromosome) chromosomeObject;
-                        forestry.api.core.genetics.alleles.Allele allele = (forestry.api.core.genetics.alleles.Allele) genome.getActiveAllele(chromosome);
+                        forestry.api.core.genetics.alleles.Allele allele = genome.getActiveAllele(chromosome);
                         genes.add(new GeneticAlleleData(type.id(), chromosome.id(), AlleleValue.fromJava(allele.value()), allele.dominant(), GeneticAlleleData.Origin.ACTIVE));
                     }
                     if (genes.isEmpty()) continue;
