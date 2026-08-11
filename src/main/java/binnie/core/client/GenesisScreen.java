@@ -24,6 +24,7 @@ public final class GenesisScreen extends AbstractContainerScreen<GenesisMenu> {
     private static final int OPTION_X = 274, OPTION_Y = 28, OPTION_W = 130, OPTION_H = 100;
     private static final int PICKUP_X = 16, PICKUP_Y = 140, PICKUP_W = 60, PICKUP_H = 42;
     private static final int ANALYZED_X = 16, ANALYZED_Y = 186;
+    private static final int PICKUP_SLOT_OFFSET = 3, PICKUP_SLOT_SIZE = 18;
     private static final int ROW_HEIGHT = 20;
     private int geneScroll;
     private int alleleScroll;
@@ -40,7 +41,7 @@ public final class GenesisScreen extends AbstractContainerScreen<GenesisMenu> {
     @Override
     protected void init() {
         super.init();
-        analyzedCheckbox = Checkbox.builder(Component.translatable("screen.binniecore.genesis.analyzed"), font)
+        analyzedCheckbox = Checkbox.builder(Component.empty(), font)
                 .pos(leftPos + ANALYZED_X, topPos + ANALYZED_Y)
                 .selected(menu.analyzed())
                 .tooltip(Tooltip.create(Component.translatable("screen.binniecore.genesis.analyzed.tooltip")))
@@ -124,11 +125,11 @@ public final class GenesisScreen extends AbstractContainerScreen<GenesisMenu> {
     private void renderPickup(GuiGraphics graphics) {
         List<ILifeStage> stages = menu.stages();
         for (int i = 0; i < Math.min(6, stages.size()); i++) {
-            int x = leftPos + PICKUP_X + 4 + i % 3 * 18;
-            int y = topPos + PICKUP_Y + 4 + i / 3 * 18;
-            LegacyParchmentGui.slot(graphics, x - 1, y - 1);
+            int x = leftPos + PICKUP_X + PICKUP_SLOT_OFFSET + i % 3 * PICKUP_SLOT_SIZE;
+            int y = topPos + PICKUP_Y + PICKUP_SLOT_OFFSET + i / 3 * PICKUP_SLOT_SIZE;
+            LegacyParchmentGui.slot(graphics, x, y);
             ItemStack preview = menu.preview(stages.get(i));
-            if (!preview.isEmpty()) graphics.renderItem(preview, x, y);
+            if (!preview.isEmpty()) graphics.renderItem(preview, x + 1, y + 1);
         }
     }
 
@@ -141,6 +142,8 @@ public final class GenesisScreen extends AbstractContainerScreen<GenesisMenu> {
     @Override
     protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
         drawCenteredNoShadow(graphics, title, imageWidth / 2, 9, 0x333333);
+        graphics.drawString(font, Component.translatable("screen.binniecore.genesis.analyzed"),
+                ANALYZED_X + 24, ANALYZED_Y + 5, 0x333333, false);
     }
 
     @Override
@@ -161,10 +164,10 @@ public final class GenesisScreen extends AbstractContainerScreen<GenesisMenu> {
                 return select(button == 1 ? GenesisMenu.Action.INACTIVE : GenesisMenu.Action.ACTIVE, target);
             }
         }
-        if (x >= PICKUP_X + 4 && x < PICKUP_X + 58 && y >= PICKUP_Y + 4 && y < PICKUP_Y + 40) {
-            int index = (int) ((x - PICKUP_X - 4) / 18) + (int) ((y - PICKUP_Y - 4) / 18) * 3;
-            if (index < menu.stages().size()) {
-                select(GenesisMenu.Action.STAGE, index);
+        int pickupIndex = pickupIndexAtScreen(mouseX, mouseY);
+        if (pickupIndex >= 0) {
+            if (pickupIndex < menu.stages().size()) {
+                select(GenesisMenu.Action.STAGE, pickupIndex);
                 return send(GenesisMenu.Action.CREATE, 1);
             }
         }
@@ -230,11 +233,25 @@ public final class GenesisScreen extends AbstractContainerScreen<GenesisMenu> {
             int index = (int) ((y - 28) / 24);
             var adapters = binnie.genetics.api.GeneticOrganismAdapters.all();
             if (index < adapters.size()) graphics.renderTooltip(font, adapters.get(index).speciesType().getDisplayName(), mouseX, mouseY);
-        } else if (x >= PICKUP_X + 4 && x < PICKUP_X + 58 && y >= PICKUP_Y + 4 && y < PICKUP_Y + 40) {
-            int index = (int) ((x - PICKUP_X - 4) / 18) + (int) ((y - PICKUP_Y - 4) / 18) * 3;
-            if (index < menu.stages().size()) graphics.renderTooltip(font, menu.preview(menu.stages().get(index)), mouseX, mouseY);
+        } else {
+            int index = pickupIndexAtScreen(mouseX, mouseY);
+            if (index >= 0 && index < menu.stages().size())
+                graphics.renderTooltip(font, menu.preview(menu.stages().get(index)), mouseX, mouseY);
         }
         super.renderTooltip(graphics, mouseX, mouseY);
+    }
+
+    /** Uses the exact screen-space rectangles used by renderPickup. */
+    private int pickupIndexAtScreen(double mouseX, double mouseY) {
+        for (int index = 0; index < Math.min(6, menu.stages().size()); index++) {
+            int slotX = leftPos + PICKUP_X + PICKUP_SLOT_OFFSET + index % 3 * PICKUP_SLOT_SIZE;
+            int slotY = topPos + PICKUP_Y + PICKUP_SLOT_OFFSET + index / 3 * PICKUP_SLOT_SIZE;
+            if (mouseX >= slotX && mouseX < slotX + PICKUP_SLOT_SIZE
+                    && mouseY >= slotY && mouseY < slotY + PICKUP_SLOT_SIZE) {
+                return index;
+            }
+        }
+        return -1;
     }
 
     @Override

@@ -27,6 +27,8 @@ final class GenesisPunnettParityTest {
         assertTrue(menu.contains("private boolean analyzed = true"));
         assertTrue(menu.contains("if (analyzed) individual.analyze()"));
         assertTrue(screen.contains("Checkbox.builder"));
+        assertTrue(screen.contains("pickupIndexAtScreen(mouseX, mouseY)"));
+        assertTrue(screen.contains("slotX + PICKUP_SLOT_SIZE"));
         assertTrue(menu.contains("if (analyzed) individual.analyze();\n            return individual.createStack(stage)"));
         assertTrue(screen.contains("menu.select(action, index)"));
         assertTrue(screen.contains("drawCenteredNoShadow"));
