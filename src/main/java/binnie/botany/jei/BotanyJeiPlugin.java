@@ -25,6 +25,10 @@ import mezz.jei.api.registration.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.Items;
+import net.minecraft.core.registries.BuiltInRegistries;
+import binnie.botany.api.genetics.SoilAcidity;
+import binnie.botany.api.genetics.SoilMoisture;
 import forestry.api.core.genetics.alleles.Allele;
 import forestry.api.core.genetics.alleles.AllelePair;
 import java.util.*;
@@ -32,6 +36,7 @@ import java.util.*;
 @JeiPlugin
 public final class BotanyJeiPlugin implements IModPlugin {
     public static final RecipeType<TileworkerJeiRecipe> TILEWORKER = RecipeType.create(BinnieBotany.MOD_ID, "tileworker", TileworkerJeiRecipe.class);
+    public static final RecipeType<GardeningJeiRecipe> GARDENING = RecipeType.create(BinnieBotany.MOD_ID, "gardening", GardeningJeiRecipe.class);
     public static final ClickArea CLICK_AREA = ClickArea.fixed(92,50,18,18);
     public static final ClickArea TITLE_CLICK_AREA = ClickArea.title(320);
     @Override public ResourceLocation getPluginUid() { return ResourceLocation.fromNamespaceAndPath(BinnieBotany.MOD_ID, "jei"); }
@@ -52,10 +57,14 @@ public final class BotanyJeiPlugin implements IModPlugin {
         r.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, BotanyWorldContent.STAINED_GLASS_ITEM.get(), components);
         r.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, BotanyWorldContent.CERAMIC_BRICK_ITEM.get(), components);
         r.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, BotanyWorldContent.CERAMIC_TILE_ITEM.get(), components);
+        r.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, BotanyWorldContent.SOIL_ITEM.get(), components);
+        r.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, BotanyWorldContent.LOAM_ITEM.get(), components);
+        r.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, BotanyWorldContent.FLOWERBED_ITEM.get(), components);
     }
     @Override public void registerCategories(IRecipeCategoryRegistration r) {
         var gui = r.getJeiHelpers().getGuiHelper();
         r.addRecipeCategories(new TileworkerJeiCategory(TILEWORKER, gui));
+        r.addRecipeCategories(new GardeningJeiCategory(GARDENING, gui));
     }
     @Override public void registerVanillaCategoryExtensions(IVanillaCategoryExtensionRegistration r) {
         r.getCraftingCategory().addExtension(FlowerPigmentRecipe.class, new FlowerPigmentCraftingExtension());
@@ -75,7 +84,78 @@ public final class BotanyJeiPlugin implements IModPlugin {
         r.addRecipes(TILEWORKER, List.of(new TileworkerJeiRecipe(
                 ResourceLocation.fromNamespaceAndPath(BinnieBotany.MOD_ID, "jei/tileworker/operation"),
                 material, material, materials, new ItemStack(BotanyContent.MORTAR.get()), outputs)));
+        r.addRecipes(GARDENING, gardeningRecipes());
     }
+
+    static List<GardeningJeiRecipe> gardeningRecipes() {
+        ArrayList<GardeningJeiRecipe> recipes = new ArrayList<>();
+        List<ItemStack> trowels = List.of(BotanyContent.TROWEL_WOOD, BotanyContent.TROWEL_STONE,
+                BotanyContent.TROWEL_IRON, BotanyContent.TROWEL_GOLD, BotanyContent.TROWEL_DIAMOND)
+                .stream().map(item -> new ItemStack(item.get())).toList();
+        List<ItemStack> dirt = List.of(new ItemStack(Items.DIRT), new ItemStack(Items.GRASS_BLOCK),
+                new ItemStack(Items.DIRT_PATH), new ItemStack(Items.COARSE_DIRT), new ItemStack(Items.ROOTED_DIRT));
+        ArrayList<ItemStack> acquiredSoils = new ArrayList<>();
+        for (SoilMoisture moisture : SoilMoisture.values()) for (SoilAcidity acidity : SoilAcidity.values())
+            acquiredSoils.add(soil("soil", moisture, acidity, false));
+        recipes.add(guide("acquire", List.of(trowels, dirt), acquiredSoils,
+                "jei.binniebotany.gardening.acquire"));
+        for (String family : List.of("soil", "loam", "flowerbed")) {
+            for (SoilMoisture moisture : SoilMoisture.values()) for (SoilAcidity acidity : SoilAcidity.values()) {
+                ItemStack plain = soil(family, moisture, acidity, false);
+                ItemStack treated = soil(family, moisture, acidity, true);
+                recipes.add(guide("weedkiller/" + family + '/' + acidity.getSerializedName() + '/' + moisture.getSerializedName(),
+                        List.of(List.of(withCount(plain, 4)), List.of(new ItemStack(BotanyContent.WEEDKILLER.get()))),
+                        List.of(withCount(treated, 4)), "jei.binniebotany.gardening.weedkiller"));
+                addAmendments(recipes, family, moisture, acidity, false);
+                addAmendments(recipes, family, moisture, acidity, true);
+            }
+        }
+        return List.copyOf(recipes);
+    }
+
+    private static void addAmendments(List<GardeningJeiRecipe> recipes, String family, SoilMoisture moisture,
+                                      SoilAcidity acidity, boolean treated) {
+        ItemStack input = soil(family, moisture, acidity, treated);
+        String suffix = family + '/' + acidity.getSerializedName() + '/' + moisture.getSerializedName() + '/' + treated;
+        if (acidity != SoilAcidity.ACID) {
+            SoilAcidity target = SoilAcidity.values()[acidity.ordinal() - 1];
+            addAmendment(recipes, "mulch/" + suffix, input, item("forestry:mulch"), soil(family, moisture, target, treated), "acid");
+        }
+        if (acidity != SoilAcidity.ALKALINE) {
+            SoilAcidity target = SoilAcidity.values()[acidity.ordinal() + 1];
+            addAmendment(recipes, "ash/" + suffix, input, item("forestry:ash"), soil(family, moisture, target, treated), "alkaline");
+            addAmendment(recipes, "wood_pulp/" + suffix, input, item("forestry:wood_pulp"), soil(family, moisture, target, treated), "alkaline");
+        }
+        if (!family.equals("flowerbed")) {
+            String target = family.equals("soil") ? "loam" : "flowerbed";
+            addAmendment(recipes, "fertilizer/" + suffix, input, item("forestry:fertilizer"),
+                    soil(target, moisture, acidity, treated), "nutrient");
+        }
+    }
+
+    private static void addAmendment(List<GardeningJeiRecipe> recipes, String id, ItemStack soil,
+                                     ItemStack reagent, ItemStack output, String kind) {
+        recipes.add(guide(id, List.of(List.of(withCount(soil, 4)), List.of(reagent)),
+                List.of(withCount(output, 4)), "jei.binniebotany.gardening." + kind));
+    }
+
+    private static GardeningJeiRecipe guide(String id, List<List<ItemStack>> inputs, List<ItemStack> outputs, String text) {
+        return new GardeningJeiRecipe(ResourceLocation.fromNamespaceAndPath(BinnieBotany.MOD_ID, "jei/gardening/" + id),
+                inputs, outputs, net.minecraft.network.chat.Component.translatable(text));
+    }
+
+    private static ItemStack soil(String family, SoilMoisture moisture, SoilAcidity acidity, boolean treated) {
+        var item = switch (family) {
+            case "loam" -> BotanyWorldContent.LOAM_ITEM.get();
+            case "flowerbed" -> BotanyWorldContent.FLOWERBED_ITEM.get();
+            default -> BotanyWorldContent.SOIL_ITEM.get();
+        };
+        int fertility = family.equals("soil") ? 1 : family.equals("loam") ? 2 : 3;
+        return BotanyWorldContent.soilStack(item, moisture, acidity, fertility, treated);
+    }
+
+    private static ItemStack item(String id) { return new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse(id))); }
+    private static ItemStack withCount(ItemStack stack, int count) { ItemStack copy = stack.copy(); copy.setCount(count); return copy; }
 
     static List<PigmentPair> pigmentPairs() {
         var type = FlowerSpeciesType.get();

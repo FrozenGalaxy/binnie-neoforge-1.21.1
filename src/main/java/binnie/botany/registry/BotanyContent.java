@@ -75,7 +75,24 @@ public final class BotanyContent {
         CONTENT.setDisplayItems(output -> {
             // 1.12 Gardening registration order: five plant states, then six 9-state soil families.
             for (var item : BotanyWorldContent.LEGACY_PLANT_ITEMS) output.accept(item.get());
-            for (var item : BotanyWorldContent.LEGACY_SOIL_ITEMS) output.accept(item.get());
+            // Display the real component-bearing block items. The old fixed-ID
+            // aliases remain registry-internal, but cannot participate in the
+            // component-sensitive gardening recipes or JEI usage graph.
+            for (var quality : binnie.botany.block.SoilQuality.values()) {
+                var item = switch (quality) {
+                    case SOIL -> BotanyWorldContent.SOIL_ITEM.get();
+                    case LOAM -> BotanyWorldContent.LOAM_ITEM.get();
+                    case FLOWERBED -> BotanyWorldContent.FLOWERBED_ITEM.get();
+                };
+                for (var moisture : binnie.botany.api.genetics.SoilMoisture.values()) {
+                    for (var acidity : binnie.botany.api.genetics.SoilAcidity.values()) {
+                        output.accept(BotanyWorldContent.soilStack(item, moisture, acidity,
+                                quality.initialFertility(), false));
+                        output.accept(BotanyWorldContent.soilStack(item, moisture, acidity,
+                                quality.initialFertility(), true));
+                    }
+                }
+            }
             output.accept(SOIL_METER.get());
             output.accept(TROWEL_WOOD.get());
             output.accept(TROWEL_STONE.get());

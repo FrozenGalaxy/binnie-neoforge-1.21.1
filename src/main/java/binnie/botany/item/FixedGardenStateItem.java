@@ -2,7 +2,6 @@ package binnie.botany.item;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
@@ -12,8 +11,6 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import binnie.botany.api.genetics.SoilAcidity;
-import binnie.botany.api.genetics.SoilMoisture;
 import binnie.botany.block.BotanySoilBlock;
 
 import java.util.function.Supplier;
@@ -33,22 +30,11 @@ public final class FixedGardenStateItem extends Item {
         BlockState placed = state.get();
         if (!(placed.getBlock() instanceof BotanySoilBlock)) return;
 
-        SoilMoisture moisture = placed.getValue(BotanySoilBlock.MOISTURE);
-        SoilAcidity acidity = placed.getValue(BotanySoilBlock.ACIDITY);
-        Component conditions = Component.empty();
-        if (moisture != SoilMoisture.NORMAL) {
-            conditions = Component.translatable("tooltip.binniebotany.soil.moisture",
-                    Component.translatable("tooltip.binniebotany.soil.moisture." + moisture.getSerializedName()));
-        }
-        if (acidity != SoilAcidity.NEUTRAL) {
-            Component ph = Component.translatable("tooltip.binniebotany.soil.ph",
-                    Component.translatable("tooltip.binniebotany.soil.ph." + acidity.getSerializedName()));
-            conditions = conditions.getString().isEmpty() ? ph : conditions.copy().append(", ").append(ph);
-        }
-        if (!conditions.getString().isEmpty()) tooltip.add(conditions.copy().withStyle(ChatFormatting.GRAY));
-        if (placed.getValue(BotanySoilBlock.WEEDKILLED)) {
-            tooltip.add(Component.translatable("tooltip.binniebotany.soil.weedkiller").withStyle(ChatFormatting.GREEN));
-        }
+        java.util.Map<String, String> properties = new java.util.LinkedHashMap<>();
+        properties.put(BotanySoilBlock.MOISTURE.getName(), placed.getValue(BotanySoilBlock.MOISTURE).getSerializedName());
+        properties.put(BotanySoilBlock.ACIDITY.getName(), placed.getValue(BotanySoilBlock.ACIDITY).getSerializedName());
+        properties.put(BotanySoilBlock.WEEDKILLED.getName(), Boolean.toString(placed.getValue(BotanySoilBlock.WEEDKILLED)));
+        SoilBlockItem.appendSoilTooltip(properties, tooltip);
     }
 
     @Override

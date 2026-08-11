@@ -14,6 +14,7 @@ import binnie.botany.item.CeramicItem;
 import binnie.botany.item.CeramicBrickItem;
 import binnie.botany.item.GardenPlantItem;
 import binnie.botany.item.FixedGardenStateItem;
+import binnie.botany.item.SoilBlockItem;
 import binnie.design.api.DesignedBlockKind;
 import binnie.design.block.DesignedBlock;
 import binnie.design.block.DesignedBlockItem;
@@ -40,9 +41,9 @@ public final class BotanyWorldContent {
     public static final DeferredBlock<BotanySoilBlock> SOIL = soil("soil", SoilQuality.SOIL);
     public static final DeferredBlock<BotanySoilBlock> LOAM = soil("loam", SoilQuality.LOAM);
     public static final DeferredBlock<BotanySoilBlock> FLOWERBED = soil("flowerbed", SoilQuality.FLOWERBED);
-    public static final DeferredItem<BlockItem> SOIL_ITEM = blockItem(SOIL);
-    public static final DeferredItem<BlockItem> LOAM_ITEM = blockItem(LOAM);
-    public static final DeferredItem<BlockItem> FLOWERBED_ITEM = blockItem(FLOWERBED);
+    public static final DeferredItem<SoilBlockItem> SOIL_ITEM = soilItem(SOIL);
+    public static final DeferredItem<SoilBlockItem> LOAM_ITEM = soilItem(LOAM);
+    public static final DeferredItem<SoilBlockItem> FLOWERBED_ITEM = soilItem(FLOWERBED);
     public static final DeferredBlock<StainedGlassBlock> STAINED_GLASS = BLOCKS.register("stained", () -> new StainedGlassBlock(
             BlockBehaviour.Properties.of().strength(0.3F).sound(SoundType.GLASS).noOcclusion()));
     public static final DeferredItem<StainedGlassItem> STAINED_GLASS_ITEM = ITEMS.registerItem("stained",
@@ -97,12 +98,12 @@ public final class BotanyWorldContent {
 
 
     private static void registerLegacySoils(String family, DeferredBlock<BotanySoilBlock> block,
-                                            DeferredItem<BlockItem> ignoredBaseItem, SoilQuality quality) {
+                                            DeferredItem<? extends BlockItem> ignoredBaseItem, SoilQuality quality) {
         registerLegacySoils(family, block, ignoredBaseItem, quality, false);
     }
 
     private static void registerLegacySoils(String family, DeferredBlock<BotanySoilBlock> block,
-                                            DeferredItem<BlockItem> ignoredBaseItem, SoilQuality quality,
+                                            DeferredItem<? extends BlockItem> ignoredBaseItem, SoilQuality quality,
                                             boolean weedKilled) {
         for (binnie.botany.api.genetics.SoilAcidity acidity : binnie.botany.api.genetics.SoilAcidity.values()) {
             for (binnie.botany.api.genetics.SoilMoisture moisture : binnie.botany.api.genetics.SoilMoisture.values()) {
@@ -124,6 +125,10 @@ public final class BotanyWorldContent {
 
     private static DeferredItem<BlockItem> blockItem(DeferredBlock<? extends net.minecraft.world.level.block.Block> block) {
         return ITEMS.registerItem(block.getId().getPath(), properties -> new BlockItem(block.get(), properties));
+    }
+
+    private static DeferredItem<SoilBlockItem> soilItem(DeferredBlock<BotanySoilBlock> block) {
+        return ITEMS.registerItem(block.getId().getPath(), properties -> new SoilBlockItem(block.get(), properties));
     }
 
     public static void includeCreativeItems() {
