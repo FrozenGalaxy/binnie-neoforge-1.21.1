@@ -17,6 +17,7 @@ import binnie.trees.registry.BinnieTreesContent;
 import binnie.trees.registry.BinnieTreesMachines;
 import binnie.trees.registry.BinnieTreesFluids;
 import binnie.core.registry.BinnieDataComponents;
+import binnie.core.registry.CoreContent;
 import mezz.jei.api.ingredients.subtypes.ISubtypeInterpreter;
 import mezz.jei.api.ingredients.subtypes.UidContext;
 import mezz.jei.api.neoforge.NeoForgeTypes;
@@ -41,7 +42,7 @@ import java.util.*;
 @JeiPlugin
 public final class BinnieTreesJeiPlugin implements IModPlugin {
     private static volatile IJeiRuntime runtime;
-    public static final List<String> MACHINES = List.of("press", "brewery", "distillery", "lumbermill", "woodworker", "panelworker", "glassworker");
+    public static final List<String> MACHINES = List.of("press", "brewery", "distillery", "lumbermill", "woodworker", "panelworker", "glassworker", "bottler");
     public static final Map<String, ClickArea> CLICK_AREAS = Map.of(
             "press", ClickArea.title(194),
             "brewery", ClickArea.title(228),
@@ -54,8 +55,29 @@ public final class BinnieTreesJeiPlugin implements IModPlugin {
     private static final Map<String, RecipeType<BinnieTreesJeiRecipe>> TYPES = types();
     private static Map<String, RecipeType<BinnieTreesJeiRecipe>> types() { Map<String, RecipeType<BinnieTreesJeiRecipe>> m = new LinkedHashMap<>(); for (String n : MACHINES) m.put(n, RecipeType.create(BinnieTrees.MOD_ID, n, BinnieTreesJeiRecipe.class)); return Map.copyOf(m); }
     @Override public ResourceLocation getPluginUid() { return ResourceLocation.fromNamespaceAndPath(BinnieTrees.MOD_ID, "jei"); }
-    @Override public void onRuntimeAvailable(IJeiRuntime jeiRuntime) { runtime = jeiRuntime; }
+    @Override public void onRuntimeAvailable(IJeiRuntime jeiRuntime) {
+        runtime = jeiRuntime;
+        hideUnavailableOptionalBeverages(jeiRuntime);
+    }
+
     @Override public void onRuntimeUnavailable() { runtime = null; }
+
+    private static void hideUnavailableOptionalBeverages(IJeiRuntime jeiRuntime) {
+        var ingredients = jeiRuntime.getIngredientManager();
+        for (var operation : BinnieTreesMachineProcesses.taggedFruitPressOperations()) {
+            if (Ingredient.of(operation.tag()).getItems().length != 0) continue;
+            var juice = BinnieTreesFluids.beverage("juice", operation.juice());
+            var wine = BinnieTreesFluids.beverage("alcohol", operation.juice());
+            if (juice != null) {
+                ingredients.removeIngredientsAtRuntime(NeoForgeTypes.FLUID_STACK, List.of(juice.stack(1_000)));
+                ingredients.removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, List.of(new ItemStack(juice.bucket())));
+            }
+            if (wine != null) {
+                ingredients.removeIngredientsAtRuntime(NeoForgeTypes.FLUID_STACK, List.of(wine.stack(1_000)));
+                ingredients.removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, List.of(new ItemStack(wine.bucket())));
+            }
+        }
+    }
 
     /** Opens the crafting recipes that produce the selected database relation. */
     public static boolean showCraftingRecipe(ItemStack output) {
@@ -71,7 +93,14 @@ public final class BinnieTreesJeiPlugin implements IModPlugin {
         ISubtypeInterpreter<ItemStack> variants = new ISubtypeInterpreter<>() {
             @Override public Object getSubtypeData(ItemStack stack, UidContext context) {
                 var beverage = stack.get(BinnieDataComponents.BEVERAGE);
-                return beverage != null ? beverage.beverage() : stack.get(BinnieDataComponents.VARIANT);
+                if (beverage != null) return beverage.beverage();
+                var variant = stack.get(BinnieDataComponents.VARIANT);
+                if (stack.getItem() instanceof binnie.trees.item.GlasswareItem glassware) {
+                    FluidStack fluid = glassware.fluid(stack);
+                    var fluidData = BinnieTreesFluids.data(fluid);
+                    return variant + "|" + (fluidData == null ? "empty" : fluidData.beverage());
+                }
+                return variant;
             }
             @SuppressWarnings("deprecation")
             @Override public String getLegacyStringSubtypeInfo(ItemStack stack, UidContext context) {
@@ -80,9 +109,28 @@ public final class BinnieTreesJeiPlugin implements IModPlugin {
             }
         };
         registration.registerSubtypeInterpreter(BinnieTreesContent.FOOD.get(), variants);
+        registration.registerSubtypeInterpreter(BinnieTreesContent.GLASSWARE.get(), variants);
+        registration.registerSubtypeInterpreter(CoreContent.GLASS.get(), new ISubtypeInterpreter<>() {
+            @Override public Object getSubtypeData(ItemStack stack, UidContext context) {
+                FluidStack fluid = CoreContent.GLASS.get().fluid(stack);
+                var data = BinnieTreesFluids.data(fluid);
+                return data == null ? "empty" : data.beverage();
+            }
+            @SuppressWarnings("deprecation")
+            @Override public String getLegacyStringSubtypeInfo(ItemStack stack, UidContext context) {
+                return getSubtypeData(stack, context).toString();
+            }
+        });
     }
     @Override public void registerCategories(IRecipeCategoryRegistration r) { var g = r.getJeiHelpers().getGuiHelper(); for (String n : MACHINES) r.addRecipeCategories(new BinnieTreesJeiCategory(n, TYPES.get(n), g)); }
-    @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration r) { for (String n : MACHINES) r.addRecipeCatalyst(BinnieTreesMachines.REGISTRY.block(n).get(), TYPES.get(n)); }
+    @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration r) {
+        for (String n : MACHINES) {
+            if (n.equals("bottler")) {
+                var block = BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("forestry", "bottler"));
+                if (block != net.minecraft.world.level.block.Blocks.AIR) r.addRecipeCatalyst(block, TYPES.get(n));
+            } else r.addRecipeCatalyst(BinnieTreesMachines.REGISTRY.block(n).get(), TYPES.get(n));
+        }
+    }
     @Override public void registerRecipes(IRecipeRegistration r) { build().forEach((n, v) -> r.addRecipes(TYPES.get(n), v)); }
     @Override public void registerGuiHandlers(IGuiHandlerRegistration r) {
         r.addGuiContainerHandler(PressScreen.class, handler());
@@ -125,8 +173,24 @@ public final class BinnieTreesJeiPlugin implements IModPlugin {
                 List.of(BinnieTreesMachineProcesses.beverageStack("juice",operation.juice(),operation.outputAmount())),50,20,
                 "Forestry squeezer provenance: " + operation.sourceSqueezerTime() + " ticks, mulch " + operation.sourceMulchChance() + "%"
                         + (operation.sourceWasSeedOil() ? "; source seed oil amount doubled for Fruit Press" : "")));
+        BinnieTreesMachineProcesses.taggedFruitPressOperations().forEach(operation -> {
+            Ingredient input = Ingredient.of(operation.tag());
+            // Legacy ModuleAlcohol only created these routes when another mod
+            // actually supplied an ore-dictionary crop. Keep the modern tag
+            // contract, but do not advertise an impossible recipe for an
+            // empty optional common tag (for example tomatoes in this pack).
+            if (input.getItems().length == 0) return;
+            r.get("press").add(new BinnieTreesJeiRecipe(
+                        ResourceLocation.fromNamespaceAndPath(BinnieTrees.MOD_ID,
+                                "jei/press/tag/" + operation.juice()),
+                        "press", List.of(), List.of(), List.of(), List.of(), List.of(),
+                        List.of(BinnieTreesMachineProcesses.beverageStack("juice", operation.juice(), operation.outputAmount())),
+                        50, 20, -1, "1.12 ore-dictionary fruit route modernized as #" + operation.inputTag(),
+                        List.of(input), List.of(), List.of()));
+        });
         BinnieTreesMachineProcesses.breweryFermentations().forEach(operation -> {
             String input = operation.inputBeverage().substring(operation.inputBeverage().lastIndexOf('/') + 1);
+            if (!optionalCropAvailable(input)) return;
             add(r, "brewery", "fermentation_" + input, List.of(), List.of(),
                     List.of(new ItemStack(BinnieTreesContent.YEAST.get())), List.of(),
                     List.of(BinnieTreesMachineProcesses.beverageStack("juice", input, 1000)),
@@ -149,6 +213,7 @@ public final class BinnieTreesJeiPlugin implements IModPlugin {
             var route = distillation.get(index);
             BinnieTreesMachineProcesses.BeverageIdentity identity = BinnieTreesMachineProcesses.beverageIdentity(route.inputBeverage());
             String category = identity.category(), value = identity.value();
+            if (category.equals("alcohol") && !optionalCropAvailable(value)) continue;
             add(r, "distillery", String.format(java.util.Locale.ROOT, "%03d_%s_%d", index, value, route.mode()),
                     List.of(), List.of(), List.of(), List.of(),
                     List.of(BinnieTreesMachineProcesses.beverageStack(category, value, 1000)),
@@ -161,7 +226,40 @@ public final class BinnieTreesJeiPlugin implements IModPlugin {
                 DesignMaterialCatalog.woodMaterialStacks(), new ItemStack(BinnieTreesContent.WOOD_WAX.get()));
         addDesignerRecipe(r, "glassworker", DesignerMaterialTags.GLASS,
                 DesignMaterialCatalog.glassMaterialStacks(), new ItemStack(BinnieTreesContent.GLASS_FITTING.get()));
+        addBottlerRecipes(r);
         r.replaceAll((k,v)->List.copyOf(v)); return Map.copyOf(r);
+    }
+
+    private static void addBottlerRecipes(Map<String, List<BinnieTreesJeiRecipe>> all) {
+        for (var beverage : BinnieTreesFluids.beverages()) {
+            addBottlerRecipe(all, "bottle", new ItemStack(CoreContent.GLASS.get()),
+                    CoreContent.GLASS.get().filled(beverage.stack(1_000)), beverage.stack(1_000));
+            for (String shape : BinnieTreesContent.GLASSWARE.get().variants()) {
+                ItemStack empty = BinnieTreesContent.GLASSWARE.get().createStack(shape);
+                int amount = BinnieTreesContent.GLASSWARE.get().capacity(empty);
+                addBottlerRecipe(all, shape, empty,
+                        BinnieTreesContent.GLASSWARE.get().filled(shape, beverage.stack(amount)), beverage.stack(amount));
+            }
+        }
+    }
+
+    private static void addBottlerRecipe(Map<String, List<BinnieTreesJeiRecipe>> all, String vessel,
+                                         ItemStack empty, ItemStack filled, FluidStack fluid) {
+        if (filled.isEmpty()) return;
+        var data = BinnieTreesFluids.data(fluid);
+        String beverage = data == null ? BuiltInRegistries.FLUID.getKey(fluid.getFluid()).getPath()
+                : data.beverage().replace(':', '/');
+        add(all, "bottler", vessel + "/" + beverage, List.of(empty), List.of(), List.of(),
+                List.of(filled), List.of(fluid), List.of(), 20, 20,
+                "Forestry Bottler fluid-container filling contract");
+    }
+
+
+    private static boolean optionalCropAvailable(String beverage) {
+        for (var operation : BinnieTreesMachineProcesses.taggedFruitPressOperations()) {
+            if (operation.juice().equals(beverage)) return Ingredient.of(operation.tag()).getItems().length != 0;
+        }
+        return true;
     }
     private static void addDesignerRecipe(Map<String,List<BinnieTreesJeiRecipe>> all, String machine,
                                           net.minecraft.tags.TagKey<net.minecraft.world.item.Item> materialTag,
