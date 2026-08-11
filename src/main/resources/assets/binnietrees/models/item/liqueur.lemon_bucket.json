@@ -1,5 +1,0 @@
-{
-  "parent": "neoforge:item/bucket",
-  "fluid": "binnietrees:liqueur.lemon",
-  "loader": "neoforge:fluid_container"
-}

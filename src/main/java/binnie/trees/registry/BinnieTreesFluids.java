@@ -38,7 +38,7 @@ public final class BinnieTreesFluids {
             // ModuleAlcohol.preInit registered exactly these four enums. MiscFluid
             // was never registered and cocktails were ItemDrink compositions.
             if (!switch (definition.category()) {
-                case "juice", "alcohol", "spirit", "liqueur" -> true;
+                case "juice", "alcohol", "spirit" -> true;
                 default -> false;
             }) continue;
             String key = definition.category() + ":" + definition.value();

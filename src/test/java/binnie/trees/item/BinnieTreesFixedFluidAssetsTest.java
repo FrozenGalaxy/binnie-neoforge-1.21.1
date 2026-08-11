@@ -53,6 +53,20 @@ final class BinnieTreesFixedFluidAssetsTest {
             assertTrue(!Files.exists(assets.resolve("blockstates/" + removed + ".json")));
             assertTrue(!Files.exists(assets.resolve("textures/block/fluid/" + removed + ".png")));
         }
+
+        var unfinishedBeverages = new java.util.ArrayList<String>();
+        for (String flavor : List.of("almond", "orange", "banana", "chocolate", "mint", "hazelnut",
+                "cinnamon", "coffee", "melon", "anise", "peach", "lemon", "herbal", "cherry",
+                "blackcurrant", "blackberry", "raspberry")) {
+            unfinishedBeverages.add("liqueur." + flavor);
+        }
+        unfinishedBeverages.addAll(List.of("rum.white", "rum.dark", "wine.fortified",
+                "spirit.sugarcane", "spirit.gin"));
+        for (String removed : unfinishedBeverages) {
+            assertTrue(!Files.exists(assets.resolve("models/item/" + removed + "_bucket.json")), removed);
+            assertTrue(!Files.exists(assets.resolve("models/block/" + removed + ".json")), removed);
+            assertTrue(!Files.exists(assets.resolve("blockstates/" + removed + ".json")), removed);
+        }
     }
 
     @Test
@@ -61,7 +75,7 @@ final class BinnieTreesFixedFluidAssetsTest {
         var language = JsonParser.parseString(Files.readString(assets.resolve("lang/en_us.json"))).getAsJsonObject();
         int count = 0;
         for (var definition : binnie.trees.beverage.LegacyBeverageCatalog.definitions().values()) {
-            if (!List.of("juice", "alcohol", "spirit", "liqueur").contains(definition.category())) continue;
+            if (!List.of("juice", "alcohol", "spirit").contains(definition.category())) continue;
             String id = definition.legacyIdentifier().toLowerCase(java.util.Locale.ROOT);
             assertTrue(Files.isRegularFile(assets.resolve("models/item/" + id + "_bucket.json")), id);
             assertTrue(Files.isRegularFile(assets.resolve("models/block/" + id + ".json")), id);
@@ -69,7 +83,7 @@ final class BinnieTreesFixedFluidAssetsTest {
             assertTrue(language.has("item.binnietrees." + id + "_bucket"), id);
             count++;
         }
-        assertEquals(92, count);
+        assertEquals(70, count);
     }
 
     @Test
@@ -85,6 +99,26 @@ final class BinnieTreesFixedFluidAssetsTest {
             assertTrue(Files.isRegularFile(assets.resolve("models/item/glassware/" + id + "_filled.json")), id);
             assertTrue(Files.isRegularFile(assets.resolve("textures/item/glassware/" + id + "_glass.png")), id);
             assertTrue(Files.isRegularFile(assets.resolve("textures/item/glassware/" + id + "_contents.png")), id);
+        }
+    }
+
+    @Test
+    void glassFabricatorRecipesUseTheExactLegacyWaxPatternsAndGlassCost() throws Exception {
+        Path recipes = Path.of("src/main/resources/data/binnietrees/recipe/fabricator/glassware");
+        try (var files = Files.list(recipes)) {
+            var list = files.filter(path -> path.toString().endsWith(".json")).toList();
+            assertEquals(15, list.size());
+            for (Path path : list) {
+                var root = JsonParser.parseString(Files.readString(path)).getAsJsonObject();
+                var recipe = root.getAsJsonObject("recipe");
+                int wax = 0;
+                for (var row : recipe.getAsJsonArray("pattern"))
+                    for (char c : row.getAsString().toCharArray()) if (c == '#') wax++;
+                assertEquals(wax * 100, root.getAsJsonObject("molten").get("amount").getAsInt(), path.toString());
+                assertEquals(path.getFileName().toString().replace(".json", ""),
+                        recipe.getAsJsonObject("result").getAsJsonObject("components")
+                                .getAsJsonObject("binniecore:variant").get("value").getAsString());
+            }
         }
     }
 }

@@ -301,7 +301,9 @@ tasks.register('validateLegacyCatalogs') {
             if (values.size() != count) throw new GradleException("${key}: expected ${count}, got ${values.size()}")
             if (values.toSet().size() != values.size()) throw new GradleException("${key}: duplicate IDs")
         }
-        def liquids = ['alcohol':29, 'cocktail':29, 'juice':19, 'liqueur':17, 'misc_fluid':8, 'spirit':27]
+        // Excludes source registrations that never acquired working production code:
+        // all liqueurs plus white/dark rum, fortified wine, cachaca, and gin.
+        def liquids = ['alcohol':29, 'cocktail':29, 'juice':19, 'misc_fluid':8, 'spirit':22]
         int total = 0
         liquids.each { id, count ->
             def parsed = new groovy.json.JsonSlurper().parse(file("src/main/resources/data/binnietrees/binnie_catalog/${id}.json"))
@@ -309,7 +311,7 @@ tasks.register('validateLegacyCatalogs') {
             if (values.size() != count) throw new GradleException("binnietrees.${id}: expected ${count}, got ${values.size()}")
             total += values.size()
         }
-        if (total != 129) throw new GradleException("Expected 129 legacy liquids, got ${total}")
+        if (total != 107) throw new GradleException("Expected 107 completed legacy liquids, got ${total}")
 
         def flowers = new groovy.json.JsonSlurper().parse(file('src/main/resources/binniebotany/legacy_flower_catalog.json'))
         if (flowers.colors.size() != 80) throw new GradleException("Expected 80 flower colors, got ${flowers.colors.size()}")
@@ -338,7 +340,7 @@ tasks.register('validateLegacyCatalogs') {
             if (!colorPairs.add(pair)) throw new GradleException("Duplicate flower color mix pair ${pair}")
             if (!(mix.chance > 0)) throw new GradleException("Invalid flower color mix chance for ${pair}")
         }
-        logger.lifecycle("Validated ${expected.size()} catalogs, all 129 legacy liquids, 37/38 flower mutations and 2815/2816 color mixes")
+        logger.lifecycle("Validated ${expected.size()} catalogs, all 107 completed legacy liquids, 37/38 flower mutations and 2815/2816 color mixes")
     }
 }
 

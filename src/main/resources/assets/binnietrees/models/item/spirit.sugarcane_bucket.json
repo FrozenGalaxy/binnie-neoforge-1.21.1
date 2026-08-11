@@ -1,5 +1,0 @@
-{
-  "parent": "neoforge:item/bucket",
-  "fluid": "binnietrees:spirit.sugarcane",
-  "loader": "neoforge:fluid_container"
-}

@@ -6,7 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/** 1.12 identity, color, and alcohol metadata for all 129 1.12 beverages. */
+/** Identity, color, and alcohol metadata for completed 1.12 beverage content. */
 public final class LegacyBeverageCatalog {
     private static final Map<String, Definition> DEFINITIONS = create();
 
@@ -87,23 +87,6 @@ public final class LegacyBeverageCatalog {
         put(values, "alcohol", "wheat", "mash.wheat", 0xC63A21, 5);
         put(values, "alcohol", "rye", "mash.rye", 0xA55827, 5);
         put(values, "alcohol", "corn", "mash.corn", 0xCCA424, 5);
-        put(values, "liqueur", "almond", "liqueur.almond", 0xE45D2F, 20);
-        put(values, "liqueur", "orange", "liqueur.orange", 0xF98900, 20);
-        put(values, "liqueur", "banana", "liqueur.banana", 0xF8C200, 20);
-        put(values, "liqueur", "chocolate", "liqueur.chocolate", 0xC14B20, 20);
-        put(values, "liqueur", "mint", "liqueur.mint", 0x29C67C, 20);
-        put(values, "liqueur", "hazelnut", "liqueur.hazelnut", 0xED982B, 20);
-        put(values, "liqueur", "cinnamon", "liqueur.cinnamon", 0xE55000, 20);
-        put(values, "liqueur", "coffee", "liqueur.coffee", 0x964319, 20);
-        put(values, "liqueur", "melon", "liqueur.melon", 0xB0C231, 20);
-        put(values, "liqueur", "anise", "liqueur.anise", 0xDAE1E9, 20);
-        put(values, "liqueur", "peach", "liqueur.peach", 0xFE9560, 20);
-        put(values, "liqueur", "lemon", "liqueur.lemon", 0xF8E46D, 20);
-        put(values, "liqueur", "herbal", "liqueur.herbal", 0xFED501, 20);
-        put(values, "liqueur", "cherry", "liqueur.cherry", 0xD71901, 20);
-        put(values, "liqueur", "blackcurrant", "liqueur.blackcurrant", 0x6A3D6D, 20);
-        put(values, "liqueur", "blackberry", "liqueur.blackberry", 0x68554D, 20);
-        put(values, "liqueur", "raspberry", "liqueur.raspberry", 0x9B0300, 20);
         put(values, "misc_fluid", "carbonated_water", "water.carbonated", 0xCCCCFF, 0);
         put(values, "misc_fluid", "tonic_water", "water.tonic", 0xCCCCFF, 0);
         put(values, "misc_fluid", "cream", "cream", 0xEAEADE, 0);
@@ -114,13 +97,10 @@ public final class LegacyBeverageCatalog {
         put(values, "misc_fluid", "grenadine_syrup", "syrup.grenadine", 0xF44965, 0);
         put(values, "spirit", "neutral_spirit", "spirit.neutral", 0xFFFFFF, 80);
         put(values, "spirit", "vodka", "vodka", 0xF4F5F7, 40);
-        put(values, "spirit", "white_rum", "rum.white", 0xE6E5E4, 40);
-        put(values, "spirit", "dark_rum", "rum.dark", 0xA82200, 40);
         put(values, "spirit", "whiskey", "whiskey", 0xCF6F00, 40);
         put(values, "spirit", "corn_whiskey", "whiskey.corn", 0x961201, 40);
         put(values, "spirit", "rye_whiskey", "whiskey.rye", 0xF57328, 40);
         put(values, "spirit", "wheat_whiskey", "whiskey.wheat", 0xE48612, 40);
-        put(values, "spirit", "fortified_wine", "wine.fortified", 0xED921F, 20);
         put(values, "spirit", "tequila", "tequila", 0xF5E9C0, 40);
         put(values, "spirit", "brandy", "brandy.grape", 0xF79F20, 40);
         put(values, "spirit", "apple_brandy", "brandy.apple", 0xE4AA3E, 40);
@@ -131,14 +111,14 @@ public final class LegacyBeverageCatalog {
         put(values, "spirit", "elderberry_brandy", "brandy.elderberry", 0xBE2B47, 40);
         put(values, "spirit", "citrus_brandy", "brandy.citrus", 0xCB7F43, 40);
         put(values, "spirit", "fruit_brandy", "brandy.fruit", 0xE4AA3E, 40);
-        put(values, "spirit", "cachaca", "spirit.sugarcane", 0xE9F0CF, 40);
-        put(values, "spirit", "gin", "spirit.gin", 0xF6F6F6, 40);
-        put(values, "spirit", "apple_liquor", "liquor.apple", 0xCCCCCC, 40);
-        put(values, "spirit", "pear_liquor", "liquor.pear", 0xCCCCCC, 40);
-        put(values, "spirit", "cherry_liquor", "liquor.cherry", 0xCCCCCC, 40);
-        put(values, "spirit", "elderberry_liquor", "liquor.elderberry", 0xCCCCCC, 40);
-        put(values, "spirit", "apricot_liquor", "liquor.apricot", 0xCCCCCC, 40);
-        put(values, "spirit", "fruit_liquor", "liquor.fruit", 0xCCCCCC, 40);
+        // The legacy enum left every completed liquor at the same placeholder grey.
+        // Preserve the color of the fermented fruit stream feeding each Distillery route.
+        put(values, "spirit", "apple_liquor", "liquor.apple", 0xFABE3C, 40);
+        put(values, "spirit", "pear_liquor", "liquor.pear", 0xE5D067, 40);
+        put(values, "spirit", "cherry_liquor", "liquor.cherry", 0xAB0416, 40);
+        put(values, "spirit", "elderberry_liquor", "liquor.elderberry", 0x950001, 40);
+        put(values, "spirit", "apricot_liquor", "liquor.apricot", 0xF0CF36, 40);
+        put(values, "spirit", "fruit_liquor", "liquor.fruit", 0xFABE3C, 40);
         put(values, "cocktail", "bellini", "Bellini", 0xF3C16C, 7);
         put(values, "cocktail", "black_russian", "BlackRussian", 0x331618, 34);
         put(values, "cocktail", "bloody_mary", "BloodyMary", 0xC12F00, 12);
@@ -168,7 +148,7 @@ public final class LegacyBeverageCatalog {
         put(values, "cocktail", "tommys_margarita", "TommysMargarita", 0xE2DC88, 27);
         put(values, "cocktail", "vesper", "Vesper", 0xEEEEEC, 38);
         put(values, "cocktail", "sex_on_the_beach", "SexOnTheBeach", 0xFE7A32, 14);
-        if (values.size() != 129) throw new IllegalStateException("Expected 129 beverages, got " + values.size());
+        if (values.size() != 107) throw new IllegalStateException("Expected 107 completed beverages, got " + values.size());
         return Map.copyOf(values);
     }
 
