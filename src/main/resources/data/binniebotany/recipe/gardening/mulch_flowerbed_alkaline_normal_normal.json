@@ -1,0 +1,69 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": "binniebotany:flowerbed",
+      "components": {
+        "minecraft:block_state": {
+          "acidity": "alkaline",
+          "moisture": "normal",
+          "fertility": "3",
+          "weedkilled": "false"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": "binniebotany:flowerbed",
+      "components": {
+        "minecraft:block_state": {
+          "acidity": "alkaline",
+          "moisture": "normal",
+          "fertility": "3",
+          "weedkilled": "false"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": "binniebotany:flowerbed",
+      "components": {
+        "minecraft:block_state": {
+          "acidity": "alkaline",
+          "moisture": "normal",
+          "fertility": "3",
+          "weedkilled": "false"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": "binniebotany:flowerbed",
+      "components": {
+        "minecraft:block_state": {
+          "acidity": "alkaline",
+          "moisture": "normal",
+          "fertility": "3",
+          "weedkilled": "false"
+        }
+      }
+    },
+    {
+      "item": "forestry:mulch"
+    }
+  ],
+  "result": {
+    "id": "binniebotany:flowerbed",
+    "count": 4,
+    "components": {
+      "minecraft:block_state": {
+        "acidity": "neutral",
+        "moisture": "normal",
+        "fertility": "3",
+        "weedkilled": "false"
+      }
+    }
+  }
+}

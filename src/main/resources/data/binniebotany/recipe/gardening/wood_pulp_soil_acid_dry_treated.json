@@ -1,0 +1,69 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": "binniebotany:soil",
+      "components": {
+        "minecraft:block_state": {
+          "acidity": "acid",
+          "moisture": "dry",
+          "fertility": "1",
+          "weedkilled": "true"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": "binniebotany:soil",
+      "components": {
+        "minecraft:block_state": {
+          "acidity": "acid",
+          "moisture": "dry",
+          "fertility": "1",
+          "weedkilled": "true"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": "binniebotany:soil",
+      "components": {
+        "minecraft:block_state": {
+          "acidity": "acid",
+          "moisture": "dry",
+          "fertility": "1",
+          "weedkilled": "true"
+        }
+      }
+    },
+    {
+      "type": "neoforge:components",
+      "items": "binniebotany:soil",
+      "components": {
+        "minecraft:block_state": {
+          "acidity": "acid",
+          "moisture": "dry",
+          "fertility": "1",
+          "weedkilled": "true"
+        }
+      }
+    },
+    {
+      "item": "forestry:wood_pulp"
+    }
+  ],
+  "result": {
+    "id": "binniebotany:soil",
+    "count": 4,
+    "components": {
+      "minecraft:block_state": {
+        "acidity": "neutral",
+        "moisture": "dry",
+        "fertility": "1",
+        "weedkilled": "true"
+      }
+    }
+  }
+}
