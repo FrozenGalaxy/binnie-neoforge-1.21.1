@@ -3,31 +3,31 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "binniebees:tin_dust"
+      "tag": "c:dusts/tin"
     },
     {
-      "item": "binniebees:tin_dust"
+      "tag": "c:dusts/tin"
     },
     {
-      "item": "binniebees:tin_dust"
+      "tag": "c:dusts/tin"
     },
     {
-      "item": "binniebees:tin_dust"
+      "tag": "c:dusts/tin"
     },
     {
-      "item": "binniebees:tin_dust"
+      "tag": "c:dusts/tin"
     },
     {
-      "item": "binniebees:tin_dust"
+      "tag": "c:dusts/tin"
     },
     {
-      "item": "binniebees:tin_dust"
+      "tag": "c:dusts/tin"
     },
     {
-      "item": "binniebees:tin_dust"
+      "tag": "c:dusts/tin"
     },
     {
-      "item": "binniebees:tin_dust"
+      "tag": "c:dusts/tin"
     }
   ],
   "result": {

@@ -3,31 +3,31 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "binniebees:copper_dust"
+      "tag": "c:dusts/copper"
     },
     {
-      "item": "binniebees:copper_dust"
+      "tag": "c:dusts/copper"
     },
     {
-      "item": "binniebees:copper_dust"
+      "tag": "c:dusts/copper"
     },
     {
-      "item": "binniebees:copper_dust"
+      "tag": "c:dusts/copper"
     },
     {
-      "item": "binniebees:copper_dust"
+      "tag": "c:dusts/copper"
     },
     {
-      "item": "binniebees:copper_dust"
+      "tag": "c:dusts/copper"
     },
     {
-      "item": "binniebees:copper_dust"
+      "tag": "c:dusts/copper"
     },
     {
-      "item": "binniebees:copper_dust"
+      "tag": "c:dusts/copper"
     },
     {
-      "item": "binniebees:copper_dust"
+      "tag": "c:dusts/copper"
     }
   ],
   "result": {

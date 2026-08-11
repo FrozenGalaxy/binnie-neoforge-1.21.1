@@ -3,31 +3,31 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "binniebees:gold_dust"
+      "tag": "c:dusts/gold"
     },
     {
-      "item": "binniebees:gold_dust"
+      "tag": "c:dusts/gold"
     },
     {
-      "item": "binniebees:gold_dust"
+      "tag": "c:dusts/gold"
     },
     {
-      "item": "binniebees:gold_dust"
+      "tag": "c:dusts/gold"
     },
     {
-      "item": "binniebees:gold_dust"
+      "tag": "c:dusts/gold"
     },
     {
-      "item": "binniebees:gold_dust"
+      "tag": "c:dusts/gold"
     },
     {
-      "item": "binniebees:gold_dust"
+      "tag": "c:dusts/gold"
     },
     {
-      "item": "binniebees:gold_dust"
+      "tag": "c:dusts/gold"
     },
     {
-      "item": "binniebees:gold_dust"
+      "tag": "c:dusts/gold"
     }
   ],
   "result": {

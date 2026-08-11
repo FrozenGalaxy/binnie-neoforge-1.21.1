@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "#c:dusts/coal",
+    "#c:dusts/iron",
+    "#c:dusts/gold",
+    "#c:dusts/silver",
+    "#c:dusts/platinum",
+    "#c:dusts/copper",
+    "#c:dusts/tin",
+    "#c:dusts/nickel",
+    "#c:dusts/lead",
+    "#c:dusts/zinc",
+    "#c:dusts/titanium",
+    "#c:dusts/tungsten",
+    "#c:dusts/clay",
+    "#c:dusts/uranium",
+    "#c:dusts/yellorium",
+    "#c:dusts/blutonium",
+    "#c:dusts/cyanite",
+    "#c:dusts/ash",
+    "#c:dusts/sulfur"
+  ]
+}

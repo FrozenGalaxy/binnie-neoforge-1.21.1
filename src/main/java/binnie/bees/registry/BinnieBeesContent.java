@@ -25,7 +25,6 @@ public final class BinnieBeesContent {
             "scented_gear", "diamond_shard", "emerald_shard", "ruby_shard", "sapphire_shard", "lapis_shard",
             "iron_dust", "gold_dust", "silver_dust", "platinum_dust", "copper_dust", "tin_dust", "nickel_dust",
             "lead_dust", "zinc_dust", "titanium_dust", "tungsten_dust", "radioactive_dust", "coal_dust",
-            "dye_red", "dye_yellow", "dye_blue", "dye_green", "dye_white", "dye_black", "dye_brown",
             "clay_dust", "yellorium_dust", "blutonium_dust", "cyanite_dust");
     public static final Map<String, DeferredItem<Item>> MISC_PRODUCTS = createMiscProducts();
     public static final DeferredItem<VariantItem> HONEY_DROP = CONTENT.variants("honey_drop", "binniebees.honey_drop", binnie.core.catalog.LegacyCatalogs.values("binniebees.honey_drop"));

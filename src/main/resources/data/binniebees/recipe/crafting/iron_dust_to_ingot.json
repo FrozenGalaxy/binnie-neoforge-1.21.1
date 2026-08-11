@@ -3,31 +3,31 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "binniebees:iron_dust"
+      "tag": "c:dusts/iron"
     },
     {
-      "item": "binniebees:iron_dust"
+      "tag": "c:dusts/iron"
     },
     {
-      "item": "binniebees:iron_dust"
+      "tag": "c:dusts/iron"
     },
     {
-      "item": "binniebees:iron_dust"
+      "tag": "c:dusts/iron"
     },
     {
-      "item": "binniebees:iron_dust"
+      "tag": "c:dusts/iron"
     },
     {
-      "item": "binniebees:iron_dust"
+      "tag": "c:dusts/iron"
     },
     {
-      "item": "binniebees:iron_dust"
+      "tag": "c:dusts/iron"
     },
     {
-      "item": "binniebees:iron_dust"
+      "tag": "c:dusts/iron"
     },
     {
-      "item": "binniebees:iron_dust"
+      "tag": "c:dusts/iron"
     }
   ],
   "result": {
