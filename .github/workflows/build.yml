@@ -2,8 +2,6 @@ name: Build Binnie's Mods
 
 on:
   push:
-    branches:
-      - runnertest
   pull_request:
   workflow_dispatch:
 
