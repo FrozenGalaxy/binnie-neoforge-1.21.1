@@ -1,0 +1,64 @@
+name: Build Binnie's Mods
+
+on:
+  push:
+    branches:
+      - runnertest
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: ForestryCE + Binnie's Mods
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out Binnie's Mods
+        uses: actions/checkout@v4
+
+      - name: Check out pinned ForestryCE source
+        uses: actions/checkout@v4
+        with:
+          repository: FrozenGalaxy/ForestryCE
+          ref: fcce12b4963e6e249d0af07e2797e30b90788345
+          path: forestry-ce
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Gradle caches
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Publish ForestryCE split modules to runner Maven Local
+        working-directory: forestry-ce
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon --console=plain publishToMavenLocal
+
+      - name: Build and validate Binnie's Mods
+        run: |
+          chmod +x gradlew
+          ./gradlew \
+            --no-daemon \
+            --console=plain \
+            clean \
+            build \
+            validateLegacyCatalogs \
+            validateBinnieResources
+
+      - name: Upload Binnie's Mods artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: binnie-mods-neoforge-1.21.1
+          path: |
+            build/libs/*.jar
+          if-no-files-found: error
+          retention-days: 14
