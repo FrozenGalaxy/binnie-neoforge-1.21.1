@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: FrozenGalaxy/ForestryCE
-          ref: fcce12b4963e6e249d0af07e2797e30b90788345
+          ref: 1.21.1
           path: forestry-ce
 
       - name: Set up Java 21

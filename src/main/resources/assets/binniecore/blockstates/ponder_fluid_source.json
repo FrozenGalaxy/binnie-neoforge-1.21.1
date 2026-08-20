@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "binniecore:block/ponder_fluid_source" }
+  }
+}

@@ -1,0 +1,198 @@
+From d0a4f0cef0a5c471fb9d771153e5f2515be5ba2c Mon Sep 17 00:00:00 2001
+From: OpenAI <noreply@openai.com>
+Date: Thu, 13 Aug 2026 22:33:15 +0000
+Subject: [PATCH] fix: pace and keyframe Ponder machine guides
+
+---
+ .../client/ponder/BinniePonderScenes.java     |  17 ++-
+ .../client/ponder/LeftPonderTextElement.java  | 133 ------------------
+ 2 files changed, 10 insertions(+), 140 deletions(-)
+ delete mode 100644 src/main/java/binnie/core/client/ponder/LeftPonderTextElement.java
+
+diff --git a/src/main/java/binnie/core/client/ponder/BinniePonderScenes.java b/src/main/java/binnie/core/client/ponder/BinniePonderScenes.java
+index 0044dd1..e40156d 100644
+--- a/src/main/java/binnie/core/client/ponder/BinniePonderScenes.java
++++ b/src/main/java/binnie/core/client/ponder/BinniePonderScenes.java
+@@ -33,6 +33,7 @@ public final class BinniePonderScenes {
+     private static final int OVERLAY_FADE_TICKS = 5;
+     private static final int OVERLAY_SEPARATION_TICKS = OVERLAY_FADE_TICKS * 2 + 1;
+     private static final int ITEM_CALLOUT_TICKS = 18;
++    private static final int MACHINE_GUI_PREVIEW_TICKS = 120;
+ 
+     private BinniePonderScenes() {
+     }
+@@ -464,15 +465,16 @@ public final class BinniePonderScenes {
+     }
+ 
+     /**
+-     * Keep the right-side GUI preview on a strictly exclusive beat. Native Ponder
+-     * overlay durations do not include their 5-tick fade-in and fade-out tails, so
+-     * wait for the complete lifetime before the next story text is created.
++     * Give every machine GUI the same deliberate inspection beat. A keyframe is
++     * placed immediately before it so the native Ponder timeline can seek directly
++     * to the preview. Native Ponder overlay durations do not include their five-tick
++     * fade-in and fade-out tails, so wait for the complete lifetime before continuing.
+      */
+     private static void showMachineGui(SceneBuilder scene, ResourceLocation machineId, GeneticsJeiRecipe recipe) {
+-        int duration = 55;
+         scene.idle(25);
+-        GeneticsPonderGuiPreview.show(scene, machineId, recipe, duration);
+-        scene.idle(duration + OVERLAY_SEPARATION_TICKS);
++        scene.addKeyframe();
++        GeneticsPonderGuiPreview.show(scene, machineId, recipe, MACHINE_GUI_PREVIEW_TICKS);
++        scene.idle(MACHINE_GUI_PREVIEW_TICKS + OVERLAY_SEPARATION_TICKS);
+     }
+ 
+     private static void moveThroughStation(SceneBuilder scene, SceneBuildingUtil util, ItemStack inputStack, ItemStack output) {
+@@ -524,7 +526,8 @@ public final class BinniePonderScenes {
+         scene.overlay().showText(duration)
+                 .placeNearTarget()
+                 .text(text)
+-                .pointAt(util.vector().topOf(pos));
++                .pointAt(util.vector().topOf(pos))
++                .attachKeyFrame();
+     }
+ 
+     private static BlockPos machinePos(SceneBuildingUtil util) {
+diff --git a/src/main/java/binnie/core/client/ponder/LeftPonderTextElement.java b/src/main/java/binnie/core/client/ponder/LeftPonderTextElement.java
+deleted file mode 100644
+index 39981bc..0000000
+--- a/src/main/java/binnie/core/client/ponder/LeftPonderTextElement.java
++++ /dev/null
+@@ -1,133 +0,0 @@
+-package binnie.core.client.ponder;
+-
+-import com.mojang.blaze3d.vertex.PoseStack;
+-import net.createmod.catnip.data.Couple;
+-import net.createmod.catnip.gui.element.BoxElement;
+-import net.createmod.catnip.theme.Color;
+-import net.createmod.ponder.api.PonderPalette;
+-import net.createmod.ponder.api.scene.SceneBuilder;
+-import net.createmod.ponder.foundation.PonderScene;
+-import net.createmod.ponder.foundation.PonderScene.SceneTransform;
+-import net.createmod.ponder.foundation.element.AnimatedOverlayElementBase;
+-import net.createmod.ponder.foundation.instruction.FadeInOutInstruction;
+-import net.createmod.ponder.foundation.ui.PonderUI;
+-import net.minecraft.client.gui.GuiGraphics;
+-import net.minecraft.network.chat.FormattedText;
+-import net.minecraft.network.chat.Style;
+-import net.minecraft.world.phys.Vec2;
+-import net.minecraft.world.phys.Vec3;
+-
+-import java.util.List;
+-import java.util.function.Supplier;
+-
+-/**
+- * Native-looking Ponder text window anchored to the left side of the screen.
+- *
+- * <p>Ponder's stock {@code TextWindowElement} intentionally computes its X position
+- * in the right-hand portion of the screen and exposes no horizontal-position API.
+- * Genetics GUI previews deliberately occupy that same area, so Binnie uses this
+- * small mirror of the stock renderer for narrative beats while retaining Ponder's
+- * normal translation registration, fade timing and pointer-line presentation.</p>
+- */
+-public final class LeftPonderTextElement extends AnimatedOverlayElementBase {
+-    private static final Couple<Color> COLOR_WINDOW_BORDER = Couple.create(
+-            new Color(0x607a6000, true),
+-            new Color(0x207a6000, true)
+-    ).map(Color::setImmutable);
+-
+-    private static final int LEFT_MARGIN = 24;
+-    private static final int MAX_TEXT_WIDTH = 190;
+-
+-    private final Supplier<String> textGetter;
+-    private final Vec3 target;
+-    private String bakedText;
+-
+-    private LeftPonderTextElement(Supplier<String> textGetter, Vec3 target) {
+-        this.textGetter = textGetter;
+-        this.target = target;
+-    }
+-
+-    public static void show(SceneBuilder scene, Vec3 target, int duration, String defaultText) {
+-        // Use the same per-scene translation registration as TextWindowElement.Builder#text.
+-        LeftPonderTextElement element = new LeftPonderTextElement(
+-                scene.getScene().registerText(defaultText), target);
+-
+-        scene.addInstruction(new FadeInOutInstruction(duration) {
+-            @Override
+-            protected void show(PonderScene ponderScene) {
+-                ponderScene.addElement(element);
+-                element.setVisible(true);
+-            }
+-
+-            @Override
+-            protected void hide(PonderScene ponderScene) {
+-                element.setVisible(false);
+-            }
+-
+-            @Override
+-            protected void applyFade(PonderScene ponderScene, float fade) {
+-                element.setFade(fade);
+-            }
+-        });
+-        scene.addLazyKeyframe();
+-    }
+-
+-    @Override
+-    public void render(PonderScene scene, PonderUI screen, GuiGraphics graphics, float partialTicks, float fade) {
+-        if (bakedText == null) bakedText = textGetter.get();
+-        if (fade < 1.0F / 16.0F) return;
+-
+-        SceneTransform transform = scene.getTransform();
+-        Vec2 sceneToScreen = transform.sceneToScreen(target, partialTicks);
+-        boolean settled = transform.xRotation.settled() && transform.yRotation.settled();
+-        float pY = settled ? (int) sceneToScreen.y : sceneToScreen.y;
+-
+-        int availableWidth = Math.max(80, (int) sceneToScreen.x - LEFT_MARGIN - 35);
+-        int textWidth = Math.min(MAX_TEXT_WIDTH, availableWidth);
+-        List<FormattedText> lines = screen.getFontRenderer().getSplitter()
+-                .splitLines(bakedText, textWidth, Style.EMPTY);
+-
+-        int boxWidth = 0;
+-        for (FormattedText line : lines) {
+-            boxWidth = Math.max(boxWidth, screen.getFontRenderer().width(line));
+-        }
+-        int boxHeight = screen.getFontRenderer().wordWrapHeight(bakedText, Math.max(1, boxWidth));
+-        int boxX = LEFT_MARGIN;
+-
+-        PoseStack poseStack = graphics.pose();
+-        poseStack.pushPose();
+-        poseStack.translate(0, pY, 400);
+-
+-        new BoxElement()
+-                .withBackground(PonderUI.BACKGROUND_FLAT)
+-                .gradientBorder(COLOR_WINDOW_BORDER)
+-                .at(boxX, 3, -101)
+-                .withBounds(boxWidth, boxHeight - 1)
+-                .render(graphics);
+-
+-        Color brighter = PonderPalette.WHITE.getColorObject()
+-                .mixWith(new Color(0xff_ffffdd), 0.5f)
+-                .setImmutable();
+-        Color c1 = new Color(0xff_494949);
+-        Color c2 = new Color(0xff_393939);
+-
+-        // Mirror the stock horizontal pointer line: text is on the left, target is in the scene.
+-        float lineStart = boxX + boxWidth + 10;
+-        if (sceneToScreen.x > lineStart) {
+-            poseStack.pushPose();
+-            poseStack.translate(lineStart, 0, 0);
+-            double lineTarget = (sceneToScreen.x - lineStart) * fade;
+-            poseStack.scale((float) lineTarget, 1, 1);
+-            graphics.fillGradient(0, 0, 1, 1, -100, brighter.getRGB(), brighter.getRGB());
+-            graphics.fillGradient(0, 1, 1, 2, -100, c1.getRGB(), c2.getRGB());
+-            poseStack.popPose();
+-        }
+-
+-        poseStack.translate(0, 0, 400);
+-        for (int i = 0; i < lines.size(); i++) {
+-            graphics.drawString(screen.getFontRenderer(), lines.get(i).getString(), boxX,
+-                    3 + 9 * i, brighter.scaleAlphaForText(fade).getRGB(), false);
+-        }
+-        poseStack.popPose();
+-    }
+-}
+-- 
+2.47.3
+

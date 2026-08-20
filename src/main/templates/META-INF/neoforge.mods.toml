@@ -66,11 +66,11 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.binniecore]]
-modId = "patchouli"
-type = "REQUIRED"
-versionRange = "${patchouliVersionRange}"
+modId = "ponder"
+type = "OPTIONAL"
+versionRange = "${ponderVersionRange}"
 ordering = "AFTER"
-side = "BOTH"
+side = "CLIENT"
 
 [[dependencies.binniecore]]
 modId = "jei"

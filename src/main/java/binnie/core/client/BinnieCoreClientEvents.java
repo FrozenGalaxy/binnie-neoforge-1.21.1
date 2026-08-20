@@ -1,6 +1,7 @@
 package binnie.core.client;
 
 import binnie.core.BinnieCore;
+import binnie.core.client.ponder.BinniePonderCompat;
 import binnie.core.machine.MachineRegistries;
 import binnie.core.registry.CoreRegistries;
 import binnie.core.registry.CoreContent;
@@ -17,6 +18,7 @@ import binnie.core.liquid.BinnieFluidContainerItem;
 import binnie.core.registry.BinnieDataComponents;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.ModList;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import binnie.core.storage.CompartmentBlockItem;
@@ -36,6 +38,9 @@ public final class BinnieCoreClientEvents {
                 ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(BinnieCore.MOD_ID, "filled"),
                         (stack, level, entity, seed) -> item.fluid(stack).isEmpty() ? 0.0F : 1.0F);
             }
+            if (ModList.get().isLoaded("ponder")) {
+                BinniePonderCompat.register();
+            }
         });
     }
 
@@ -54,6 +59,7 @@ public final class BinnieCoreClientEvents {
     @SubscribeEvent
     public static void registerBlockEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(GeneticsMachines.REGISTRY.blockEntityType().get(), LabStandRenderer::new);
+        event.registerBlockEntityRenderer(CoreRegistries.PONDER_FLUID_PIPE_BLOCK_ENTITY.get(), PonderFluidPipeRenderer::new);
     }
 
     @SubscribeEvent

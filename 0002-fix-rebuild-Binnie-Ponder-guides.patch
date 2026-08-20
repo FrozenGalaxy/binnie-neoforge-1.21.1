@@ -1,0 +1,1015 @@
+From 36a775027d69fb0317b222bd8cf6531c5042461e Mon Sep 17 00:00:00 2001
+From: OpenAI <noreply@openai.com>
+Date: Thu, 13 Aug 2026 14:54:33 +0000
+Subject: [PATCH 2/3] fix: rebuild Binnie Ponder guides
+
+---
+ build.gradle                                  |   3 +
+ .../client/ponder/BinniePonderScenes.java     | 459 ++++++++++++++----
+ .../client/GeneticsPonderGuiPreview.java      | 248 ++++++++++
+ .../assets/binniecore/lang/en_us.json         |  58 ++-
+ .../binniecore/ponder/alveary_components.nbt  | Bin 352 -> 745 bytes
+ .../binniecore/ponder/botany_breeding.nbt     | Bin 272 -> 652 bytes
+ .../binniecore/ponder/genetics_pipeline.nbt   | Bin 310 -> 913 bytes
+ .../binniecore/ponder/genetics_station.nbt    | Bin 0 -> 593 bytes
+ 8 files changed, 668 insertions(+), 100 deletions(-)
+ create mode 100644 src/main/java/binnie/genetics/client/GeneticsPonderGuiPreview.java
+ create mode 100644 src/main/resources/assets/binniecore/ponder/genetics_station.nbt
+
+diff --git a/build.gradle b/build.gradle
+index 41108b2..c76f152 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -183,6 +183,9 @@ dependencies {
+     implementation "dev.latvian.mods:rhino:${rhinoVersion}"
+     implementation "dev.latvian.mods:kubejs-neoforge:${kubejsVersion}"
+     implementation "top.theillusivec4.curios:curios-neoforge:${curiosVersion}+${minecraftVersion}"
++    // Forestry requires Patchouli at runtime; keep it on the dev run without making it a Binnie dependency.
++    localRuntime "vazkii.patchouli:Patchouli:${patchouliVersion}-NEOFORGE"
++
+     // Match Create's 1.21.1 distribution model: Ponder is a separate library,
+     // but is embedded so Binnie users do not have to install it manually.
+     // The integration itself remains guarded and the metadata dependency optional.
+diff --git a/src/main/java/binnie/core/client/ponder/BinniePonderScenes.java b/src/main/java/binnie/core/client/ponder/BinniePonderScenes.java
+index 9e5eaa8..ff9ce66 100644
+--- a/src/main/java/binnie/core/client/ponder/BinniePonderScenes.java
++++ b/src/main/java/binnie/core/client/ponder/BinniePonderScenes.java
+@@ -1,6 +1,11 @@
+ package binnie.core.client.ponder;
+ 
++import binnie.core.machine.MachineBlockEntity;
++import binnie.genetics.client.GeneticsPonderGuiPreview;
++import net.createmod.catnip.math.Pointing;
+ import net.createmod.ponder.api.PonderPalette;
++import net.createmod.ponder.api.element.ElementLink;
++import net.createmod.ponder.api.element.EntityElement;
+ import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
+ import net.createmod.ponder.api.scene.SceneBuilder;
+ import net.createmod.ponder.api.scene.SceneBuildingUtil;
+@@ -9,21 +14,46 @@ import net.minecraft.core.BlockPos;
+ import net.minecraft.core.Direction;
+ import net.minecraft.core.registries.BuiltInRegistries;
+ import net.minecraft.resources.ResourceLocation;
++import net.minecraft.world.entity.Entity;
+ import net.minecraft.world.item.ItemStack;
++import net.minecraft.world.item.Items;
+ import net.minecraft.world.level.block.Block;
+ import net.minecraft.world.phys.Vec3;
+ 
++/** Ponder scenes for Binnie's systems, paced and staged after Create's own scenes. */
+ public final class BinniePonderScenes {
+     private BinniePonderScenes() {
+     }
+ 
+     public static void register(PonderSceneRegistrationHelper<ResourceLocation> helper) {
++        // One shared laboratory overview, plus one focused scene for every processing machine.
+         helper.forComponents(
+                 id("binniegenetics", "isolator"), id("binniegenetics", "sequencer"),
+                 id("binniegenetics", "polymeriser"), id("binniegenetics", "inoculator"),
+                 id("binniegenetics", "splicer"), id("binniegenetics", "analyser"),
+-                id("binniegenetics", "genepool"))
++                id("binniegenetics", "genepool"), id("binniegenetics", "incubator"),
++                id("binniegenetics", "acclimatiser"))
+                 .addStoryBoard("genetics_pipeline", BinniePonderScenes::geneticsPipeline);
++        helper.forComponents(id("binniegenetics", "isolator"))
++                .addStoryBoard("genetics_station", BinniePonderScenes::isolator);
++        helper.forComponents(id("binniegenetics", "sequencer"))
++                .addStoryBoard("genetics_station", BinniePonderScenes::sequencer);
++        helper.forComponents(id("binniegenetics", "polymeriser"))
++                .addStoryBoard("genetics_station", BinniePonderScenes::polymeriser);
++        helper.forComponents(id("binniegenetics", "inoculator"))
++                .addStoryBoard("genetics_station", BinniePonderScenes::inoculator);
++        helper.forComponents(id("binniegenetics", "splicer"))
++                .addStoryBoard("genetics_station", BinniePonderScenes::splicer);
++        helper.forComponents(id("binniegenetics", "analyser"))
++                .addStoryBoard("genetics_station", BinniePonderScenes::analyser);
++        helper.forComponents(id("binniegenetics", "genepool"))
++                .addStoryBoard("genetics_station", BinniePonderScenes::genePool);
++        helper.forComponents(id("binniegenetics", "incubator"))
++                .addStoryBoard("genetics_station", BinniePonderScenes::incubator);
++        helper.forComponents(id("binniegenetics", "acclimatiser"))
++                .addStoryBoard("genetics_station", BinniePonderScenes::acclimatiser);
++        helper.forComponents(id("binniegenetics", "laboratory_machine"))
++                .addStoryBoard("genetics_station", BinniePonderScenes::labStand);
+ 
+         helper.forComponents(
+                 id("binniebees", "alveary_mutator"), id("binniebees", "alveary_frame"),
+@@ -39,161 +69,392 @@ public final class BinniePonderScenes {
+     }
+ 
+     public static void geneticsPipeline(SceneBuilder scene, SceneBuildingUtil util) {
+-        scene.title("genetics_pipeline", "From organism to usable genetics");
+-        scene.configureBasePlate(0, 0, 9);
+-        scene.showBasePlate();
+-        scene.scaleSceneView(0.72f);
+-        scene.idle(10);
++        scene.title("genetics_pipeline", "From specimen to engineered genetics");
++        scene.configureBasePlate(0, 0, 11);
++        scene.scaleSceneView(0.64F);
+ 
+-        BlockPos isolator = util.grid().at(1, 1, 2);
+-        BlockPos sequencer = util.grid().at(3, 1, 2);
+-        BlockPos polymeriser = util.grid().at(5, 1, 2);
+-        BlockPos inoculator = util.grid().at(7, 1, 2);
+-        BlockPos analyser = util.grid().at(3, 1, 5);
+-        BlockPos genepool = util.grid().at(5, 1, 5);
+-        BlockPos splicer = util.grid().at(7, 1, 5);
+-
+-        place(scene, util, isolator, "binniegenetics", "isolator");
+-        place(scene, util, sequencer, "binniegenetics", "sequencer");
+-        place(scene, util, polymeriser, "binniegenetics", "polymeriser");
+-        place(scene, util, inoculator, "binniegenetics", "inoculator");
+-        place(scene, util, analyser, "binniegenetics", "analyser");
+-        place(scene, util, genepool, "binniegenetics", "genepool");
+-        place(scene, util, splicer, "binniegenetics", "splicer");
+-        scene.idle(15);
+-
+-        text(scene, util, isolator, 70,
+-                "The Isolator samples one active or inactive allele from a genetic individual. Empty Sequencers, enzyme and ethanol support the extraction.");
+-        drop(scene, util, isolator, "binniegenetics", "empty_sequencer");
+-        scene.idle(75);
++        Selection floor = util.select().layer(0);
++        Selection wall = util.select().fromTo(0, 1, 7, 10, 3, 7);
++        Selection support = util.select().fromTo(1, 1, 5, 10, 1, 6);
++        scene.world().showSection(floor, Direction.UP);
++        scene.idle(5);
++        scene.world().showSection(wall, Direction.NORTH);
++        scene.idle(6);
++
++        text(scene, util, util.grid().at(1, 1, 2), 65,
++                "Binnie's Genetics laboratory is a chain of specialised machines. The main route extracts a gene, identifies it, charges it into a serum, then applies it to another organism.");
++        scene.world().showSection(util.select().fromTo(0, 1, 2, 2, 1, 2), Direction.DOWN);
++        scene.idle(12);
++        controls(scene, util, util.grid().at(1, 1, 2), item("binniebotany", "flower"));
++        controls(scene, util, util.grid().at(1, 1, 2), item("binniegenetics", "empty_sequencer"));
++        controls(scene, util, util.grid().at(1, 1, 2), item("binniegenetics", "enzyme"));
++        controls(scene, util, util.grid().at(1, 1, 2), item("forestry", "bucket_ethanol"));
++        scene.idle(60);
++
++        scene.world().showSection(util.select().fromTo(3, 1, 2, 4, 1, 2), Direction.WEST);
++        scene.idle(8);
++        text(scene, util, util.grid().at(3, 1, 2), 55,
++                "The Sequencer decodes the isolated sample. Fluorescent Dye is consumed as the readout advances, and a completed gene is added to the owner's genetic knowledge.");
++        scene.overlay().showLine(PonderPalette.GREEN, util.vector().centerOf(2, 1, 2), util.vector().centerOf(3, 1, 2), 45);
++        controls(scene, util, util.grid().at(3, 1, 2), item("binniegenetics", "fluorescent_dye"));
++        scene.idle(60);
+ 
+-        text(scene, util, sequencer, 65,
+-                "The Sequencer turns that unsequenced sample into identified genetic material. Fluorescent Dye is consumed as sequencing progresses.");
+-        drop(scene, util, sequencer, "binniegenetics", "fluorescent_dye");
++        scene.world().showSection(util.select().fromTo(5, 1, 2, 6, 1, 2), Direction.WEST);
++        scene.idle(8);
++        text(scene, util, util.grid().at(5, 1, 2), 60,
++                "The Polymeriser adds charges to a serum using Polymerising Bacteria and Raw DNA. More genes cost more fluid; a Gold Nugget can accelerate the process.");
++        controls(scene, util, util.grid().at(5, 1, 2), item("binniegenetics", "polymerising_bacteria_bucket"));
++        controls(scene, util, util.grid().at(5, 1, 2), item("binniegenetics", "raw_dna_bucket"));
++        scene.idle(65);
++
++        scene.world().showSection(util.select().fromTo(7, 1, 2, 10, 1, 2), Direction.WEST);
++        scene.idle(8);
++        text(scene, util, util.grid().at(8, 1, 2), 65,
++                "Use the Inoculator for controlled serum application with Vector Bacteria, or the faster and much more power-hungry Splicer for serum arrays.");
++        scene.overlay().showLine(PonderPalette.GREEN, util.vector().centerOf(6, 1, 2), util.vector().centerOf(10, 1, 2), 55);
++        controls(scene, util, util.grid().at(7, 1, 2), item("binniegenetics", "vector_bacteria_bucket"));
+         scene.idle(70);
+ 
+-        text(scene, util, polymeriser, 70,
+-                "The Polymeriser charges a serum or serum array with Raw DNA. A charged serum can then be used to change an organism's genome.");
+-        drop(scene, util, polymeriser, "binniegenetics", "genetic_material");
++        scene.world().showSection(support, Direction.UP);
++        scene.idle(12);
++        scene.rotateCameraY(28);
++        text(scene, util, util.grid().at(6, 1, 5), 70,
++                "The Analyser reveals genetics, the Gene Pool turns organisms into Raw DNA, and the Incubator and Acclimatiser handle reagent production and environmental tolerance. Each has its own focused Ponder scene.");
+         scene.idle(75);
++        scene.markAsFinished();
++    }
+ 
+-        text(scene, util, inoculator, 65,
+-                "The Inoculator is the deliberate route: apply the selected serum genes to an individual using Vector Bacteria.");
+-        scene.idle(70);
+-        text(scene, util, splicer, 65,
+-                "The Splicer is the high-throughput alternative for serum arrays. It works much faster, but demands substantially more power.");
+-        scene.idle(70);
++    public static void isolator(SceneBuilder scene, SceneBuildingUtil util) {
++        setupStation(scene, util, "isolator", "Sampling genes with the Isolator");
++        BlockPos machine = machinePos(util);
++        text(scene, util, machine, 55,
++                "The Isolator takes a genetic individual and samples one active or inactive allele into an Empty Sequencer.");
++        showInputs(scene, util, machine, item("binniebotany", "flower"), item("binniegenetics", "empty_sequencer"),
++                item("binniegenetics", "enzyme"), item("forestry", "bucket_ethanol"));
++        scene.idle(60);
++        GeneticsPonderGuiPreview.show(scene, id("binniegenetics", "isolator"), 75);
++        text(scene, util, machine, 65,
++                "The live interface exposes the organism, sequencer, enzyme charge and ethanol tank separately. The machine can consume the specimen during extraction, so keep valuable breeding stock backed up.");
++        moveThroughStation(scene, util, item("binniegenetics", "genetic_material"));
++        scene.idle(80);
++        scene.markAsFinished();
++    }
+ 
+-        scene.rotateCameraY(35);
+-        text(scene, util, analyser, 65,
+-                "The Analyser reveals hidden genetic information, while your genetic databases retain discoveries made by laboratory work.");
+-        scene.idle(70);
+-        text(scene, util, genepool, 65,
+-                "The Gene Pool is the destructive branch: sacrifice an individual when what you need is Raw DNA rather than its intact genome.");
+-        scene.idle(70);
++    public static void sequencer(SceneBuilder scene, SceneBuildingUtil util) {
++        setupStation(scene, util, "sequencer", "Decoding genes with the Sequencer");
++        BlockPos machine = machinePos(util);
++        text(scene, util, machine, 55,
++                "The Sequencer accepts unsequenced genetic material and progressively identifies the allele stored in it.");
++        showInputs(scene, util, machine, item("binniegenetics", "genetic_material"), item("binniegenetics", "fluorescent_dye"));
++        scene.idle(55);
++        GeneticsPonderGuiPreview.show(scene, id("binniegenetics", "sequencer"), 80);
++        text(scene, util, machine, 70,
++                "Fluorescent Dye provides the sequencing charge. The live readout fills with decoded bases while progress is retained on the sequence itself.");
++        scene.idle(75);
++        text(scene, util, util.grid().at(5, 1, 2), 55,
++                "When sequencing completes, the discovered gene is recorded for the owner and the Empty Sequencer can be recovered for another sample.");
++        moveThroughStation(scene, util, item("binniegenetics", "empty_sequencer"));
++        scene.idle(60);
++        scene.markAsFinished();
++    }
++
++    public static void polymeriser(SceneBuilder scene, SceneBuildingUtil util) {
++        setupStation(scene, util, "polymeriser", "Charging serums with the Polymeriser");
++        BlockPos machine = machinePos(util);
++        text(scene, util, machine, 60,
++                "The Polymeriser turns a serum or serum array into a reusable genetic tool by adding charges, up to sixteen charges.");
++        showInputs(scene, util, machine, item("binniegenetics", "genetic_material"), item("binniegenetics", "polymerising_bacteria_bucket"),
++                item("binniegenetics", "raw_dna_bucket"));
++        scene.idle(65);
++        GeneticsPonderGuiPreview.show(scene, id("binniegenetics", "polymeriser"), 80);
++        text(scene, util, machine, 70,
++                "Its two horizontal tanks are Polymerising Bacteria and Raw DNA. Fluid demand scales with the number of genes in the serum array.");
++        scene.idle(75);
++        controls(scene, util, machine, new ItemStack(Items.GOLD_NUGGET));
++        text(scene, util, machine, 55,
++                "A charged Gold Nugget is optional: supplying one accelerates polymerisation rather than changing the result.");
++        scene.idle(60);
++        scene.markAsFinished();
++    }
++
++    public static void inoculator(SceneBuilder scene, SceneBuildingUtil util) {
++        setupStation(scene, util, "inoculator", "Applying a serum with the Inoculator");
++        BlockPos machine = machinePos(util);
++        text(scene, util, machine, 60,
++                "The Inoculator applies the genes stored in a charged serum or serum array to a compatible genetic individual.");
++        showInputs(scene, util, machine, item("binniebotany", "flower"), item("binniegenetics", "genetic_material"),
++                item("binniegenetics", "vector_bacteria_bucket"));
++        scene.idle(65);
++        GeneticsPonderGuiPreview.show(scene, id("binniegenetics", "inoculator"), 80);
++        text(scene, util, machine, 70,
++                "Vector Bacteria is the carrier fluid. Successful processing returns the modified organism and removes one charge from the serum.");
++        moveThroughStation(scene, util, item("binniebotany", "flower"));
++        scene.idle(80);
++        scene.markAsFinished();
++    }
++
++    public static void splicer(SceneBuilder scene, SceneBuildingUtil util) {
++        setupStation(scene, util, "splicer", "High-throughput gene application with the Splicer");
++        BlockPos machine = machinePos(util);
++        text(scene, util, machine, 65,
++                "The Splicer is the aggressive alternative to the Inoculator: it works with serum arrays and processes organisms much faster at a much higher power cost.");
++        showInputs(scene, util, machine, item("binniebotany", "flower"), item("binniegenetics", "genetic_material"));
++        scene.idle(65);
++        GeneticsPonderGuiPreview.show(scene, id("binniegenetics", "splicer"), 80);
++        text(scene, util, machine, 65,
++                "Unlike the Inoculator, its application path does not require a Vector Bacteria tank. Use it when throughput matters more than efficiency.");
++        moveThroughStation(scene, util, item("binniebotany", "flower"));
++        scene.idle(75);
++        scene.markAsFinished();
++    }
++
++    public static void analyser(SceneBuilder scene, SceneBuildingUtil util) {
++        setupStation(scene, util, "analyser", "Revealing genetics with the Analyser");
++        BlockPos machine = machinePos(util);
++        text(scene, util, machine, 60,
++                "The Analyser identifies hidden information on an unanalysed genetic individual or sequence and records the discovery for its owner.");
++        showInputs(scene, util, machine, item("binniebotany", "flower"), item("binniegenetics", "dna_dye"));
++        scene.idle(60);
++        GeneticsPonderGuiPreview.show(scene, id("binniegenetics", "analyser"), 75);
++        text(scene, util, machine, 65,
++                "DNA Dye is consumed as a charged laboratory reagent. Analysed results can then be understood by Binnie's database and genetics tools instead of remaining opaque.");
++        scene.idle(75);
++        scene.markAsFinished();
++    }
++
++    public static void genePool(SceneBuilder scene, SceneBuildingUtil util) {
++        setupStation(scene, util, "genepool", "Extracting Raw DNA in the Gene Pool");
++        BlockPos machine = machinePos(util);
++        text(scene, util, machine, 60,
++                "The Gene Pool is the destructive route through the laboratory: it consumes a genetic individual to produce Raw DNA fluid.");
++        showInputs(scene, util, machine, item("binniebotany", "flower"), item("binniegenetics", "enzyme"),
++                item("forestry", "bucket_ethanol"));
++        scene.idle(60);
++        GeneticsPonderGuiPreview.show(scene, id("binniegenetics", "genepool"), 80);
++        text(scene, util, machine, 65,
++                "Ethanol feeds the input tank and Enzyme supplies the reagent charge. The organism itself is not returned, so use expendable stock.");
++        controls(scene, util, util.grid().at(5, 1, 2), item("binniegenetics", "raw_dna_bucket"));
++        scene.idle(75);
++        scene.markAsFinished();
++    }
++
++    public static void incubator(SceneBuilder scene, SceneBuildingUtil util) {
++        setupStation(scene, util, "incubator", "Culturing laboratory reagents in the Incubator");
++        BlockPos machine = machinePos(util);
++        text(scene, util, machine, 65,
++                "The Incubator is a continuous culture machine rather than a single timed recipe. Reagent and fluid combinations are attempted while it has power.");
++        GeneticsPonderGuiPreview.show(scene, id("binniegenetics", "incubator"), 85);
++        showInputs(scene, util, machine, item("binniegenetics", "growth_medium"), new ItemStack(Items.WATER_BUCKET));
++        text(scene, util, machine, 50,
++                "Growth Medium with water produces Growth Medium fluid.");
++        scene.idle(55);
++        showInputs(scene, util, machine, new ItemStack(Items.WHEAT), item("binniegenetics", "growth_medium_bucket"));
++        text(scene, util, machine, 50,
++                "Wheat in Growth Medium cultures ordinary Bacteria.");
++        scene.idle(55);
++        showInputs(scene, util, machine, new ItemStack(Items.SUGAR), item("binniegenetics", "bacteria_bucket"));
++        text(scene, util, machine, 65,
++                "From there, Sugar can make Enzyme; White Dye produces Polymerising Bacteria and Blaze Powder produces Vector Bacteria. The same machine also matures bee larvae in Growth Medium.");
++        scene.idle(75);
++        scene.markAsFinished();
++    }
++
++    public static void acclimatiser(SceneBuilder scene, SceneBuildingUtil util) {
++        setupStation(scene, util, "acclimatiser", "Adapting organisms with the Acclimatiser");
++        BlockPos machine = machinePos(util);
++        text(scene, util, machine, 65,
++                "The Acclimatiser changes an organism's tolerance alleles in place. It repeatedly attempts a valid adjustment while supplied with power and reagents.");
++        GeneticsPonderGuiPreview.show(scene, id("binniegenetics", "acclimatiser"), 85);
++        showInputs(scene, util, machine, item("binniebotany", "flower"), item("binniebotany", "acid_fertiliser"), item("binniebotany", "alkaline_fertiliser"));
++        text(scene, util, machine, 55,
++                "Acid and alkaline fertilisers steer pH tolerance in opposite directions.");
++        scene.idle(60);
++        showInputs(scene, util, machine, new ItemStack(Items.LAVA_BUCKET), new ItemStack(Items.SNOWBALL),
++                new ItemStack(Items.WATER_BUCKET), new ItemStack(Items.SAND));
++        text(scene, util, machine, 70,
++                "Heat and cold reagents adjust temperature tolerance, while Water and Sand adjust humidity tolerance. The machine never emits a separate finished genome: the individual itself changes.");
++        scene.idle(80);
++        scene.markAsFinished();
++    }
++
++    public static void labStand(SceneBuilder scene, SceneBuildingUtil util) {
++        setupStation(scene, util, "laboratory_machine", "Mounting databases on the Lab Stand");
++        BlockPos machine = machinePos(util);
++        text(scene, util, machine, 60,
++                "The Lab Stand is not a processing machine. It is a physical home for Binnie's genetic knowledge databases, keeping frequently used reference tools in the laboratory world.");
++        ItemStack database = item("binniegenetics", "database");
++        scene.overlay().showControls(util.vector().topOf(machine), Pointing.DOWN, 40)
++                .rightClick().withItem(database);
++        scene.idle(10);
++        scene.world().modifyBlockEntity(machine, MachineBlockEntity.class,
++                be -> be.inventory().setStackInSlot(MachineBlockEntity.INPUT_SLOT, database.copy()));
++        scene.effects().indicateSuccess(machine);
++        text(scene, util, machine, 60,
++                "Right-click the placed stand with a compatible database to mount it. The mounted item is rendered on the stand instead of disappearing into an invisible inventory.");
++        scene.idle(65);
++        scene.overlay().showControls(util.vector().topOf(machine), Pointing.DOWN, 40).rightClick();
++        text(scene, util, machine, 65,
++                "Right-click the occupied stand to access the mounted database. Database items can be moved between compatible Lab Stands when you reorganise the laboratory.");
++        scene.idle(75);
+         scene.markAsFinished();
+     }
+ 
+     public static void alvearyComponents(SceneBuilder scene, SceneBuildingUtil util) {
+         scene.title("alveary_components", "Specialising a Forestry Alveary");
+         scene.configureBasePlate(0, 0, 9);
+-        scene.showBasePlate();
+-        scene.scaleSceneView(0.72f);
+-        scene.idle(10);
++        scene.scaleSceneView(0.76F);
++        scene.world().showSection(util.select().layer(0), Direction.UP);
++        scene.idle(5);
+ 
+-        Selection cube = util.select().fromTo(3, 1, 3, 5, 3, 5);
++        Selection alveary = util.select().fromTo(3, 1, 3, 5, 3, 5);
+         Selection cap = util.select().fromTo(3, 4, 3, 5, 4, 5);
+-        scene.world().setBlocks(cube, block("forestry", "alveary_block").defaultBlockState(), false);
+-        scene.world().setBlocks(cap, net.minecraft.world.level.block.Blocks.OAK_SLAB.defaultBlockState(), false);
+-        scene.world().showSection(cube, Direction.DOWN);
++        Selection workshop = util.select().fromTo(1, 1, 1, 7, 1, 7).substract(alveary);
++        scene.world().showSection(workshop, Direction.DOWN);
++        scene.idle(8);
++        for (int y = 1; y <= 3; y++) {
++            scene.world().showSection(util.select().fromTo(3, y, 3, 5, y, 5), Direction.DOWN);
++            scene.idle(6);
++        }
+         scene.world().showSection(cap, Direction.DOWN);
+-        scene.idle(20);
++        scene.idle(12);
+ 
+         BlockPos slot = util.grid().at(4, 2, 3);
+         text(scene, util, slot, 60,
+-                "Binnie's Alveary blocks replace ordinary wall blocks. Each one specialises the completed Forestry multiblock without changing its footprint.");
++                "Binnie's Alveary components replace ordinary exterior Alveary blocks. The Forestry multiblock keeps its normal 3×3×3 body and slab cap; only the chosen wall positions change.");
+         scene.idle(65);
+ 
+         component(scene, util, slot, "alveary_mutator", 55,
+-                "The Mutator consumes mutagen items and multiplies mutation chance, with the final modifier capped rather than growing without limit.");
++                "The Mutator consumes mutagen items and multiplies mutation chance, with the resulting modifier capped rather than growing without limit.");
+         component(scene, util, slot, "alveary_frame", 55,
+-                "The Frame Housing contributes the modifier of one Forestry hive frame and wears that frame while the Alveary runs.");
++                "The Frame Housing accepts one Forestry hive frame, contributes that frame's modifiers, and wears the frame while the Alveary runs.");
+         component(scene, util, slot, "alveary_rain_shield", 50,
+-                "The Rain Shield seals the Alveary so rain-sensitive bees can keep working through bad weather.");
++                "The Rain Shield lets rain-sensitive bees continue working through bad weather.");
+         component(scene, util, slot, "alveary_lighting", 50,
+-                "The Lighting block supplies artificial daylight for species that would otherwise stop when they cannot see the sky.");
++                "The Lighting block supplies artificial daylight for species that would otherwise stop without suitable light or sky conditions.");
+         component(scene, util, slot, "alveary_stimulator", 60,
+-                "The Stimulator accepts a compatible circuit board and applies its configured bee modifiers while the block is powered.");
++                "The Stimulator accepts a compatible circuit board and applies its configured bee modifiers while the component is powered.");
+         component(scene, util, slot, "alveary_hatchery", 55,
+-                "The Hatchery occasionally produces larvae from a healthy working queen and keeps the results in its internal inventory.");
++                "The Hatchery can produce larvae from a healthy working queen and stores the resulting larvae internally.");
+         component(scene, util, slot, "alveary_transmission", 60,
+-                "The Transmission block accepts FE and distributes it to Alveary components that need energy, giving powered upgrades a shared supply point.");
++                "The Transmission block accepts FE and distributes it to Alveary components that require power, giving powered upgrades a shared supply point.");
+         scene.markAsFinished();
+     }
+ 
+     public static void botanyBreeding(SceneBuilder scene, SceneBuildingUtil util) {
+         scene.title("botany_breeding", "Breeding Binnie's genetic flowers");
+-        scene.configureBasePlate(0, 0, 7);
+-        scene.showBasePlate();
+-        scene.scaleSceneView(0.82f);
+-        scene.idle(10);
++        scene.configureBasePlate(0, 0, 9);
++        scene.scaleSceneView(0.78F);
++        scene.world().showSection(util.select().layer(0), Direction.UP);
++        scene.idle(5);
++        scene.world().showSection(util.select().fromTo(1, 1, 8, 7, 3, 8), Direction.NORTH);
++        scene.world().showSection(util.select().fromTo(1, 1, 1, 7, 1, 7), Direction.DOWN);
++        scene.idle(12);
+ 
+-        BlockPos leftSoil = util.grid().at(2, 1, 3);
+-        BlockPos rightSoil = util.grid().at(4, 1, 3);
+-        BlockPos childSoil = util.grid().at(3, 1, 5);
+-        scene.world().setBlock(leftSoil, block("binniebotany", "flowerbed").defaultBlockState(), false);
+-        scene.world().setBlock(rightSoil, block("binniebotany", "flowerbed").defaultBlockState(), false);
+-        scene.world().setBlock(childSoil, block("binniebotany", "flowerbed").defaultBlockState(), false);
+-        scene.world().showSection(util.select().fromTo(2, 1, 3, 4, 1, 5), Direction.DOWN);
+-        scene.idle(15);
+-
+-        drop(scene, util, leftSoil.above(), "binniebotany", "flower");
+-        drop(scene, util, rightSoil.above(), "binniebotany", "flower");
+-        text(scene, util, leftSoil, 65,
+-                "Binnie's flowers are genetic organisms. Two flowers can look similar while carrying different active and inactive alleles.");
++        BlockPos left = util.grid().at(2, 1, 3);
++        BlockPos right = util.grid().at(6, 1, 3);
++        BlockPos child = util.grid().at(4, 1, 6);
++        controls(scene, util, left, item("binniebotany", "flower"));
++        controls(scene, util, right, item("binniebotany", "flower"));
++        text(scene, util, left, 65,
++                "Binnie's flowers are genetic organisms. Two flowers can look alike while carrying different active and inactive alleles, so parent choice matters.");
+         scene.idle(70);
+ 
+-        drop(scene, util, util.grid().at(3, 2, 3), "binniebotany", "pollen");
+-        text(scene, util, util.grid().at(3, 1, 3), 65,
+-                "Pollen carries a flower genome. Pollination combines parent genetics, allowing inherited traits and mutations to appear in the offspring.");
++        ElementLink<EntityElement> pollen = scene.world().createItemEntity(util.vector().topOf(left).add(0, 0.6, 0),
++                util.vector().of(0.10, 0.18, 0), item("binniebotany", "pollen"));
++        scene.idle(18);
++        scene.world().modifyEntity(pollen, Entity::discard);
++        scene.overlay().showControls(util.vector().topOf(right), Pointing.DOWN, 35)
++                .rightClick().withItem(item("binniebotany", "pollen"));
++        text(scene, util, right, 65,
++                "Pollen carries a flower genome. Apply it to another mature flower to pollinate that parent with the donor's genetics.");
+         scene.idle(70);
+ 
+-        drop(scene, util, childSoil.above(), "binniebotany", "seed");
+-        text(scene, util, childSoil, 65,
+-                "The result is a genetic seed. Grow and analyse promising offspring, then keep breeding toward the traits and colours you want.");
++        controls(scene, util, child, item("binniebotany", "seed"));
++        text(scene, util, child, 65,
++                "Offspring are produced as genetic seeds. Their genomes combine the parents and can contain new inherited traits or mutations, so grow and select the offspring you want to continue breeding.");
+         scene.idle(70);
+ 
+-        drop(scene, util, util.grid().at(1, 2, 5), "binniebotany", "soil_meter");
+-        text(scene, util, childSoil, 70,
+-                "Flowerbeds also track moisture, acidity, fertility and weedkiller. The Soil Meter lets you inspect those conditions instead of guessing what a plant needs.");
+-        scene.idle(75);
++        scene.overlay().showControls(util.vector().topOf(child), Pointing.DOWN, 35)
++                .rightClick().withItem(item("binniebotany", "soil_meter"));
++        controls(scene, util, util.grid().at(2, 1, 6), new ItemStack(Items.WATER_BUCKET));
++        controls(scene, util, child, item("binniebotany", "acid_fertiliser"));
++        text(scene, util, child, 70,
++                "Flowerbeds track moisture, acidity, fertility and weedkiller. Use the Soil Meter to inspect the bed, then water or amend the soil instead of guessing what the flower needs.");
++        scene.idle(80);
+         scene.markAsFinished();
+     }
+ 
++    private static void setupStation(SceneBuilder scene, SceneBuildingUtil util, String machineId, String title) {
++        scene.title(machineId, title);
++        scene.configureBasePlate(0, 0, 7);
++        scene.scaleSceneView(0.88F);
++        BlockPos machine = machinePos(util);
++        scene.world().setBlock(machine, block("binniegenetics", machineId).defaultBlockState(), false);
++        scene.world().showSection(util.select().layer(0), Direction.UP);
++        scene.idle(5);
++        scene.world().showSection(util.select().fromTo(0, 1, 5, 6, 3, 5), Direction.NORTH);
++        scene.idle(5);
++        scene.world().showSection(util.select().fromTo(1, 1, 2, 5, 1, 2), Direction.DOWN);
++        scene.idle(6);
++        scene.world().showSection(util.select().fromTo(2, 1, 4, 4, 1, 4), Direction.DOWN);
++        scene.idle(10);
++        scene.effects().indicateSuccess(machine);
++        scene.overlay().showOutline(PonderPalette.GREEN, machineId, util.select().position(machine), 25);
++        scene.idle(8);
++    }
++
++    private static void moveThroughStation(SceneBuilder scene, SceneBuildingUtil util, ItemStack output) {
++        BlockPos input = util.grid().at(1, 1, 2);
++        BlockPos machine = machinePos(util);
++        BlockPos result = util.grid().at(5, 1, 2);
++        ElementLink<EntityElement> entity = scene.world().createItemEntity(util.vector().topOf(input).add(0, 0.3, 0),
++                util.vector().of(0.14, 0.12, 0), output);
++        scene.idle(12);
++        scene.world().modifyEntity(entity, Entity::discard);
++        scene.effects().indicateSuccess(machine);
++        scene.idle(8);
++        scene.overlay().showControls(util.vector().topOf(result), Pointing.DOWN, 35).withItem(output);
++    }
++
++    private static void showInputs(SceneBuilder scene, SceneBuildingUtil util, BlockPos machine, ItemStack... inputs) {
++        for (int i = 0; i < inputs.length; i++) {
++            Vec3 point = util.vector().topOf(machine).add((i - (inputs.length - 1) / 2.0) * 0.28, 0.18 + (i % 2) * 0.18, 0);
++            scene.overlay().showControls(point, Pointing.DOWN, 35).withItem(inputs[i]);
++            scene.idle(5);
++        }
++    }
++
+     private static void component(SceneBuilder scene, SceneBuildingUtil util, BlockPos pos, String id, int duration,
+                                   String description) {
+         scene.world().setBlock(pos, block("binniebees", id).defaultBlockState(), true);
++        scene.effects().indicateSuccess(pos);
++        scene.overlay().showControls(util.vector().topOf(pos), Pointing.DOWN, 28)
++                .withItem(item("binniebees", id));
+         scene.overlay().showOutlineWithText(util.select().position(pos), duration)
++                .attachKeyFrame()
+                 .colored(PonderPalette.GREEN)
+                 .text(description);
+         scene.idle(duration + 5);
+     }
+ 
+-    private static void place(SceneBuilder scene, SceneBuildingUtil util, BlockPos pos, String namespace, String path) {
+-        scene.world().setBlock(pos, block(namespace, path).defaultBlockState(), false);
+-        scene.world().showSection(util.select().position(pos), Direction.DOWN);
++    private static void controls(SceneBuilder scene, SceneBuildingUtil util, BlockPos pos, ItemStack stack) {
++        if (!stack.isEmpty()) scene.overlay().showControls(util.vector().topOf(pos), Pointing.DOWN, 32).withItem(stack);
+     }
+ 
+     private static void text(SceneBuilder scene, SceneBuildingUtil util, BlockPos pos, int duration, String text) {
+-        scene.overlay().showText(duration).text(text).pointAt(util.vector().topOf(pos));
++        scene.overlay().showText(duration)
++                .attachKeyFrame()
++                .text(text)
++                .pointAt(util.vector().topOf(pos))
++                .placeNearTarget();
+     }
+ 
+-    private static void drop(SceneBuilder scene, SceneBuildingUtil util, BlockPos pos, String namespace, String path) {
+-        ItemStack stack = new ItemStack(BuiltInRegistries.ITEM.get(id(namespace, path)));
+-        if (!stack.isEmpty()) {
+-            Vec3 location = util.vector().centerOf(pos).add(0, 0.45, 0);
+-            scene.world().createItemEntity(location, Vec3.ZERO, stack);
+-        }
++    private static BlockPos machinePos(SceneBuildingUtil util) {
++        return util.grid().at(3, 1, 2);
++    }
++
++    private static ItemStack item(String namespace, String path) {
++        return new ItemStack(BuiltInRegistries.ITEM.get(id(namespace, path)));
+     }
+ 
+     private static Block block(String namespace, String path) {
+diff --git a/src/main/java/binnie/genetics/client/GeneticsPonderGuiPreview.java b/src/main/java/binnie/genetics/client/GeneticsPonderGuiPreview.java
+new file mode 100644
+index 0000000..86fed84
+--- /dev/null
++++ b/src/main/java/binnie/genetics/client/GeneticsPonderGuiPreview.java
+@@ -0,0 +1,248 @@
++package binnie.genetics.client;
++
++import binnie.genetics.machine.GeneticsMachineInventoryLayout;
++import binnie.genetics.machine.GeneticsMachineLayout;
++import net.createmod.ponder.foundation.PonderScene;
++import net.createmod.ponder.foundation.element.AnimatedOverlayElementBase;
++import net.createmod.ponder.foundation.instruction.FadeInOutInstruction;
++import net.createmod.ponder.foundation.ui.PonderUI;
++import net.createmod.ponder.api.scene.SceneBuilder;
++import net.minecraft.client.Minecraft;
++import net.minecraft.client.gui.GuiGraphics;
++import net.minecraft.core.registries.BuiltInRegistries;
++import net.minecraft.network.chat.Component;
++import net.minecraft.resources.ResourceLocation;
++import net.minecraft.world.item.ItemStack;
++import net.minecraft.world.item.Items;
++import net.neoforged.neoforge.fluids.FluidStack;
++
++/**
++ * Small, non-interactive preview of the real Genetics machine GUI used from Ponder.
++ *
++ * <p>This deliberately reuses the same legacy GUI atlas helpers and machine layout
++ * coordinates as the live screens. It is a visual explanation, not a second menu:</n * no fake buttons are clickable and no machine state is mutated.</p>
++ */
++public final class GeneticsPonderGuiPreview {
++    private GeneticsPonderGuiPreview() {
++    }
++
++    public static void show(SceneBuilder scene, ResourceLocation machineId, int duration) {
++        PreviewElement element = new PreviewElement(machineId);
++        scene.addInstruction(new FadeInOutInstruction(duration) {
++            @Override
++            protected void show(PonderScene ponderScene) {
++                ponderScene.addElement(element);
++                element.setVisible(true);
++            }
++
++            @Override
++            protected void hide(PonderScene ponderScene) {
++                element.setVisible(false);
++            }
++
++            @Override
++            protected void applyFade(PonderScene ponderScene, float fade) {
++                element.setFade(fade);
++            }
++        });
++    }
++
++    private static final class PreviewElement extends AnimatedOverlayElementBase {
++        private final ResourceLocation machineId;
++        private final GeneticsMachineLayout.Layout layout;
++
++        private PreviewElement(ResourceLocation machineId) {
++            this.machineId = machineId;
++            this.layout = GeneticsMachineLayout.forMachine(machineId)
++                    .orElseThrow(() -> new IllegalArgumentException("Not a Genetics machine: " + machineId));
++        }
++
++        @Override
++        public void render(PonderScene scene, PonderUI screen, GuiGraphics graphics, float partialTicks, float fade) {
++            if (fade < 1.0F / 16.0F) return;
++
++            int originalWidth = layout.width();
++            int originalHeight = layout.height();
++            float scale = Math.min(0.72F, Math.min(260.0F / originalWidth, 155.0F / originalHeight));
++            int renderedWidth = Math.round(originalWidth * scale);
++            int renderedHeight = Math.round(originalHeight * scale);
++            int x = screen.width - renderedWidth - 24;
++            int y = Math.max(52, screen.height - renderedHeight - 88);
++
++            graphics.pose().pushPose();
++            graphics.pose().translate(x, y, 700);
++            graphics.pose().scale(scale, scale, scale);
++            graphics.setColor(1.0F, 1.0F, 1.0F, fade);
++
++            // The exact same panel and process artwork used by the live machine screens.
++            LegacyGeneticsGui.window(graphics, 0, 0, originalWidth, originalHeight);
++            renderMachineFace(graphics, machineId);
++            renderSlots(graphics, machineId, layout);
++
++            String title = BuiltInRegistries.BLOCK.get(machineId).getName().getString();
++            graphics.drawCenteredString(Minecraft.getInstance().font, title, originalWidth / 2, 10, 0xFF555555);
++
++            graphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
++            graphics.pose().popPose();
++        }
++    }
++
++    private static void renderSlots(GuiGraphics graphics, ResourceLocation machineId, GeneticsMachineLayout.Layout layout) {
++        slot(graphics, layout.inputX(), layout.inputY(), representativeInput(machineId));
++        slot(graphics, layout.catalystX(), layout.catalystY(), representativeCatalyst(machineId));
++        slot(graphics, layout.reagentX(), layout.reagentY(), representativeReagent(machineId));
++        slot(graphics, layout.outputX(), layout.outputY(), representativeOutput(machineId));
++        slot(graphics, layout.secondaryX(), layout.secondaryY(), ItemStack.EMPTY);
++        slot(graphics, layout.tertiaryX(), layout.tertiaryY(), ItemStack.EMPTY);
++
++        for (GeneticsMachineInventoryLayout.SlotDefinition definition : GeneticsMachineInventoryLayout.extraSlots(machineId)) {
++            if (definition.x() <= -512 || definition.y() <= -512) continue;
++            ItemStack stack = switch (definition.mode()) {
++                case INPUT -> representativeInput(machineId);
++                case OUTPUT -> representativeOutput(machineId);
++            };
++            // Keep the preview readable: only populate the first slot in each visual group.
++            boolean first = GeneticsMachineInventoryLayout.slots(machineId, definition.group()).stream()
++                    .findFirst().orElse(-1) == definition.slot();
++            slot(graphics, definition.x(), definition.y(), first ? stack : ItemStack.EMPTY);
++        }
++    }
++
++    private static void slot(GuiGraphics graphics, int x, int y, ItemStack stack) {
++        if (x <= -512 || y <= -512) return;
++        LegacyGeneticsGui.slot(graphics, x - 1, y - 1);
++        if (!stack.isEmpty()) graphics.renderItem(stack, x, y);
++    }
++
++    private static void renderMachineFace(GuiGraphics graphics, ResourceLocation id) {
++        int progress = 65;
++        int max = 100;
++        switch (id.getPath()) {
++            case "isolator" -> {
++                LegacyGeneticsGui.arrow(graphics, "right", 62, 36);
++                LegacyGeneticsGui.arrow(graphics, "right", 258, 36);
++                LegacyGeneticsGui.arrow(graphics, "up", 258, 53);
++                LegacyGeneticsGui.tank(graphics, 16, 32, fluid("forestry", "ethanol", 700), 1_000);
++                LegacyGeneticsGui.progress(graphics, LegacyGeneticsGui.PROCESS_3, 98, 35,
++                        0, 218, 0, 201, 142, 17, progress, max);
++                LegacyGeneticsGui.errorState(graphics, 153, 81);
++                LegacyGeneticsGui.charge(graphics, 99, 70, 7_500, 0xFFEFEF6F);
++            }
++            case "sequencer" -> {
++                LegacyGeneticsGui.arrow(graphics, "right", 62, 48);
++                LegacyGeneticsGui.arrow(graphics, "right", 174, 48);
++                LegacyGeneticsGui.grayPanel(graphics, 80, 32, 100, 52);
++                LegacyGeneticsGui.sequencerReadout(graphics, Minecraft.getInstance().font, 80, 32,
++                        item("binniegenetics", "genetic_material"), progress, max);
++                LegacyGeneticsGui.errorState(graphics, 178, 113);
++                LegacyGeneticsGui.charge(graphics, 53, 111, 7_500, 0xFFFF9900);
++            }
++            case "polymeriser" -> {
++                LegacyGeneticsGui.progress(graphics, LegacyGeneticsGui.PROCESS, 68, 32,
++                        76, 170, 76, 91, 160, 79, progress, max);
++                LegacyGeneticsGui.arrow(graphics, "right", 34, 39);
++                LegacyGeneticsGui.tank(graphics, 50, 72, fluid("binniegenetics", "polymerising_bacteria", 700), 1_000, true);
++                LegacyGeneticsGui.tank(graphics, 50, 98, fluid("binniegenetics", "raw_dna", 700), 1_000, true);
++                LegacyGeneticsGui.errorState(graphics, 244, 97);
++                LegacyGeneticsGui.charge(graphics, 139, 63, 8_000, 0xFFFFCC00);
++            }
++            case "inoculator" -> {
++                LegacyGeneticsGui.arrow(graphics, "right", 52, 32);
++                LegacyGeneticsGui.arrow(graphics, "right", 88, 32);
++                LegacyGeneticsGui.arrow(graphics, "upleft", 194, 52);
++                LegacyGeneticsGui.arrow(graphics, "leftdown", 194, 68);
++                LegacyGeneticsGui.tank(graphics, 16, 66, fluid("binniegenetics", "vector_bacteria", 700), 1_000);
++                LegacyGeneticsGui.progress(graphics, LegacyGeneticsGui.PROCESS_2, 34, 56,
++                        0, 72, 0, 0, 142, 72, progress, max);
++                LegacyGeneticsGui.errorState(graphics, 161, 118);
++            }
++            case "splicer" -> {
++                LegacyGeneticsGui.arrow(graphics, "right", 52, 62);
++                LegacyGeneticsGui.arrow(graphics, "down", 132, 54);
++                LegacyGeneticsGui.arrow(graphics, "down", 132, 96);
++                LegacyGeneticsGui.arrow(graphics, "upleft", 68, 86);
++                LegacyGeneticsGui.splicerProgress(graphics, 84, 32, 108, 102, progress, max);
++                LegacyGeneticsGui.errorState(graphics, 218, 86);
++            }
++            case "analyser" -> {
++                LegacyGeneticsGui.arrow(graphics, "right", 54, 50);
++                LegacyGeneticsGui.arrow(graphics, "right", 150, 50);
++                LegacyGeneticsGui.tintedPanel(graphics, 72, 32, 76, 50);
++                LegacyGeneticsGui.progress(graphics, LegacyGeneticsGui.PROCESS, 77, 37,
++                        0, 51, 66, 51, 66, 40, progress, max);
++                LegacyGeneticsGui.errorState(graphics, 160, 95);
++                LegacyGeneticsGui.charge(graphics, 63, 93, 7_500, 0xFF9933FF);
++            }
++            case "genepool" -> {
++                LegacyGeneticsGui.arrow(graphics, "right", 80, 53);
++                LegacyGeneticsGui.tank(graphics, 16, 32, fluid("forestry", "ethanol", 700), 1_000);
++                LegacyGeneticsGui.tank(graphics, 246, 32, fluid("binniegenetics", "raw_dna", 500), 1_000);
++                LegacyGeneticsGui.progress(graphics, LegacyGeneticsGui.PROCESS_3, 116, 51,
++                        64, 0, 64, 21, 130, 21, progress, max);
++                LegacyGeneticsGui.errorState(graphics, 181, 83);
++                LegacyGeneticsGui.charge(graphics, 140, 81, 7_500, 0xFFEFEF6F);
++            }
++            case "incubator" -> {
++                LegacyGeneticsGui.arrow(graphics, "right", 72, 45);
++                LegacyGeneticsGui.arrow(graphics, "right", 122, 45);
++                LegacyGeneticsGui.tank(graphics, 16, 32, fluid("minecraft", "water", 800), 1_000);
++                LegacyGeneticsGui.tank(graphics, 164, 32, fluid("binniegenetics", "growth_medium", 500), 1_000);
++                LegacyGeneticsGui.progress(graphics, LegacyGeneticsGui.PROCESS, 80, 38,
++                        0, 91, 38, 91, 38, 32, progress, max);
++                LegacyGeneticsGui.errorState(graphics, 91, 82);
++            }
++            case "acclimatiser" -> {
++                LegacyGeneticsGui.progress(graphics, LegacyGeneticsGui.PROCESS_3, 65, 28,
++                        0, 64, 0, 64, 64, 64, progress, max);
++                LegacyGeneticsGui.errorState(graphics, 181, 83);
++            }
++            default -> { }
++        }
++    }
++
++    private static ItemStack representativeInput(ResourceLocation machineId) {
++        return switch (machineId.getPath()) {
++            case "sequencer" -> item("binniegenetics", "genetic_material");
++            case "polymeriser" -> item("binniegenetics", "genetic_material");
++            case "incubator" -> new ItemStack(Items.WHEAT);
++            default -> item("binniebotany", "flower");
++        };
++    }
++
++    private static ItemStack representativeCatalyst(ResourceLocation machineId) {
++        return switch (machineId.getPath()) {
++            case "isolator" -> item("binniegenetics", "empty_sequencer");
++            case "polymeriser" -> new ItemStack(Items.GOLD_NUGGET);
++            case "inoculator", "splicer" -> item("binniegenetics", "genetic_material");
++            case "acclimatiser" -> new ItemStack(Items.LAVA_BUCKET);
++            default -> ItemStack.EMPTY;
++        };
++    }
++
++    private static ItemStack representativeReagent(ResourceLocation machineId) {
++        return switch (machineId.getPath()) {
++            case "isolator", "genepool" -> item("binniegenetics", "enzyme");
++            case "sequencer" -> item("binniegenetics", "fluorescent_dye");
++            case "analyser" -> item("binniegenetics", "dna_dye");
++            case "incubator" -> item("binniegenetics", "growth_medium");
++            case "acclimatiser" -> item("binniebotany", "acid_fertiliser");
++            default -> ItemStack.EMPTY;
++        };
++    }
++
++    private static ItemStack representativeOutput(ResourceLocation machineId) {
++        return switch (machineId.getPath()) {
++            case "isolator", "sequencer", "polymeriser" -> item("binniegenetics", "genetic_material");
++            case "incubator" -> item("binniegenetics", "enzyme");
++            default -> item("binniebotany", "flower");
++        };
++    }
++
++    private static ItemStack item(String namespace, String path) {
++        return new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(namespace, path)));
++    }
++
++    private static FluidStack fluid(String namespace, String path, int amount) {
++        return new FluidStack(BuiltInRegistries.FLUID.get(ResourceLocation.fromNamespaceAndPath(namespace, path)), amount);
++    }
++}
+diff --git a/src/main/resources/assets/binniecore/lang/en_us.json b/src/main/resources/assets/binniecore/lang/en_us.json
+index 3cf0b1c..c1da1e6 100644
+--- a/src/main/resources/assets/binniecore/lang/en_us.json
++++ b/src/main/resources/assets/binniecore/lang/en_us.json
+@@ -135,5 +135,61 @@
+   "tooltip.binniecore.compartment.diamond.description": "Chests which contain several tabs to help organise their contents. Each tab can be named, assigned a colour and assigned an icon from any Item Stack. Number of Tabs: 8, slots per Tab: 50",
+   "tooltip.binniecore.compartment.copper.description": "Chests which contain several tabs to help organise their contents. Each tab can be named, assigned a colour and assigned an icon from any Item Stack. Number of Tabs: 6, slots per Tab: 25",
+   "tooltip.binniecore.compartment.bronze.description": "Chests which contain several tabs to help organise their contents. Each tab can be named, assigned a colour and assigned an icon from any Item Stack. Number of Tabs: 8, slots per Tab: 25",
+-  "tooltip.binniecore.compartment.gold.description": "Chests which contain several tabs to help organise their contents. Each tab can be named, assigned a colour and assigned an icon from any Item Stack. Number of Tabs: 6, slots per Tab: 50"
++  "tooltip.binniecore.compartment.gold.description": "Chests which contain several tabs to help organise their contents. Each tab can be named, assigned a colour and assigned an icon from any Item Stack. Number of Tabs: 6, slots per Tab: 50",
++  "binniecore.ponder.genetics_pipeline.header": "From specimen to engineered genetics",
++  "binniecore.ponder.genetics_pipeline.text_1": "Binnie's Genetics laboratory is a chain of specialised machines. The main route extracts a gene, identifies it, charges it into a serum, then applies it to another organism.",
++  "binniecore.ponder.genetics_pipeline.text_2": "The Sequencer decodes the isolated sample. Fluorescent Dye is consumed as the readout advances, and a completed gene is added to the owner's genetic knowledge.",
++  "binniecore.ponder.genetics_pipeline.text_3": "The Polymeriser adds charges to a serum using Polymerising Bacteria and Raw DNA. More genes cost more fluid; a Gold Nugget can accelerate the process.",
++  "binniecore.ponder.genetics_pipeline.text_4": "Use the Inoculator for controlled serum application with Vector Bacteria, or the faster and much more power-hungry Splicer for serum arrays.",
++  "binniecore.ponder.genetics_pipeline.text_5": "The Analyser reveals genetics, the Gene Pool turns organisms into Raw DNA, and the Incubator and Acclimatiser handle reagent production and environmental tolerance. Each has its own focused Ponder scene.",
++  "binniecore.ponder.isolator.header": "Sampling genes with the Isolator",
++  "binniecore.ponder.isolator.text_1": "The Isolator takes a genetic individual and samples one active or inactive allele into an Empty Sequencer.",
++  "binniecore.ponder.isolator.text_2": "The live interface exposes the organism, sequencer, enzyme charge and ethanol tank separately. The machine can consume the specimen during extraction, so keep valuable breeding stock backed up.",
++  "binniecore.ponder.sequencer.header": "Decoding genes with the Sequencer",
++  "binniecore.ponder.sequencer.text_1": "The Sequencer accepts unsequenced genetic material and progressively identifies the allele stored in it.",
++  "binniecore.ponder.sequencer.text_2": "Fluorescent Dye provides the sequencing charge. The live readout fills with decoded bases while progress is retained on the sequence itself.",
++  "binniecore.ponder.sequencer.text_3": "When sequencing completes, the discovered gene is recorded for the owner and the Empty Sequencer can be recovered for another sample.",
++  "binniecore.ponder.polymeriser.header": "Charging serums with the Polymeriser",
++  "binniecore.ponder.polymeriser.text_1": "The Polymeriser turns a serum or serum array into a reusable genetic tool by adding charges, up to sixteen charges.",
++  "binniecore.ponder.polymeriser.text_2": "Its two horizontal tanks are Polymerising Bacteria and Raw DNA. Fluid demand scales with the number of genes in the serum array.",
++  "binniecore.ponder.polymeriser.text_3": "A charged Gold Nugget is optional: supplying one accelerates polymerisation rather than changing the result.",
++  "binniecore.ponder.inoculator.header": "Applying a serum with the Inoculator",
++  "binniecore.ponder.inoculator.text_1": "The Inoculator applies the genes stored in a charged serum or serum array to a compatible genetic individual.",
++  "binniecore.ponder.inoculator.text_2": "Vector Bacteria is the carrier fluid. Successful processing returns the modified organism and removes one charge from the serum.",
++  "binniecore.ponder.splicer.header": "High-throughput gene application with the Splicer",
++  "binniecore.ponder.splicer.text_1": "The Splicer is the aggressive alternative to the Inoculator: it works with serum arrays and processes organisms much faster at a much higher power cost.",
++  "binniecore.ponder.splicer.text_2": "Unlike the Inoculator, its application path does not require a Vector Bacteria tank. Use it when throughput matters more than efficiency.",
++  "binniecore.ponder.analyser.header": "Revealing genetics with the Analyser",
++  "binniecore.ponder.analyser.text_1": "The Analyser identifies hidden information on an unanalysed genetic individual or sequence and records the discovery for its owner.",
++  "binniecore.ponder.analyser.text_2": "DNA Dye is consumed as a charged laboratory reagent. Analysed results can then be understood by Binnie's database and genetics tools instead of remaining opaque.",
++  "binniecore.ponder.genepool.header": "Extracting Raw DNA in the Gene Pool",
++  "binniecore.ponder.genepool.text_1": "The Gene Pool is the destructive route through the laboratory: it consumes a genetic individual to produce Raw DNA fluid.",
++  "binniecore.ponder.genepool.text_2": "Ethanol feeds the input tank and Enzyme supplies the reagent charge. The organism itself is not returned, so use expendable stock.",
++  "binniecore.ponder.incubator.header": "Culturing laboratory reagents in the Incubator",
++  "binniecore.ponder.incubator.text_1": "The Incubator is a continuous culture machine rather than a single timed recipe. Reagent and fluid combinations are attempted while it has power.",
++  "binniecore.ponder.incubator.text_2": "Growth Medium with water produces Growth Medium fluid.",
++  "binniecore.ponder.incubator.text_3": "Wheat in Growth Medium cultures ordinary Bacteria.",
++  "binniecore.ponder.incubator.text_4": "From there, Sugar can make Enzyme; White Dye produces Polymerising Bacteria and Blaze Powder produces Vector Bacteria. The same machine also matures bee larvae in Growth Medium.",
++  "binniecore.ponder.acclimatiser.header": "Adapting organisms with the Acclimatiser",
++  "binniecore.ponder.acclimatiser.text_1": "The Acclimatiser changes an organism's tolerance alleles in place. It repeatedly attempts a valid adjustment while supplied with power and reagents.",
++  "binniecore.ponder.acclimatiser.text_2": "Acid and alkaline fertilisers steer pH tolerance in opposite directions.",
++  "binniecore.ponder.acclimatiser.text_3": "Heat and cold reagents adjust temperature tolerance, while Water and Sand adjust humidity tolerance. The machine never emits a separate finished genome: the individual itself changes.",
++  "binniecore.ponder.alveary_components.header": "Specialising a Forestry Alveary",
++  "binniecore.ponder.alveary_components.text_1": "Binnie's Alveary components replace ordinary exterior Alveary blocks. The Forestry multiblock keeps its normal 3×3×3 body and slab cap; only the chosen wall positions change.",
++  "binniecore.ponder.alveary_components.text_2": "The Mutator consumes mutagen items and multiplies mutation chance, with the resulting modifier capped rather than growing without limit.",
++  "binniecore.ponder.alveary_components.text_3": "The Frame Housing accepts one Forestry hive frame, contributes that frame's modifiers, and wears the frame while the Alveary runs.",
++  "binniecore.ponder.alveary_components.text_4": "The Rain Shield lets rain-sensitive bees continue working through bad weather.",
++  "binniecore.ponder.alveary_components.text_5": "The Lighting block supplies artificial daylight for species that would otherwise stop without suitable light or sky conditions.",
++  "binniecore.ponder.alveary_components.text_6": "The Stimulator accepts a compatible circuit board and applies its configured bee modifiers while the component is powered.",
++  "binniecore.ponder.alveary_components.text_7": "The Hatchery can produce larvae from a healthy working queen and stores the resulting larvae internally.",
++  "binniecore.ponder.alveary_components.text_8": "The Transmission block accepts FE and distributes it to Alveary components that require power, giving powered upgrades a shared supply point.",
++  "binniecore.ponder.botany_breeding.header": "Breeding Binnie's genetic flowers",
++  "binniecore.ponder.botany_breeding.text_1": "Binnie's flowers are genetic organisms. Two flowers can look alike while carrying different active and inactive alleles, so parent choice matters.",
++  "binniecore.ponder.botany_breeding.text_2": "Pollen carries a flower genome. Apply it to another mature flower to pollinate that parent with the donor's genetics.",
++  "binniecore.ponder.botany_breeding.text_3": "Offspring are produced as genetic seeds. Their genomes combine the parents and can contain new inherited traits or mutations, so grow and select the offspring you want to continue breeding.",
++  "binniecore.ponder.botany_breeding.text_4": "Flowerbeds track moisture, acidity, fertility and weedkiller. Use the Soil Meter to inspect the bed, then water or amend the soil instead of guessing what the flower needs.",
++  "binniecore.ponder.laboratory_machine.header": "Mounting databases on the Lab Stand",
++  "binniecore.ponder.laboratory_machine.text_1": "The Lab Stand is not a processing machine. It is a physical home for Binnie's genetic knowledge databases, keeping frequently used reference tools in the laboratory world.",
++  "binniecore.ponder.laboratory_machine.text_2": "Right-click the placed stand with a compatible database to mount it. The mounted item is rendered on the stand instead of disappearing into an invisible inventory.",
++  "binniecore.ponder.laboratory_machine.text_3": "Right-click the occupied stand to access the mounted database. Database items can be moved between compatible Lab Stands when you reorganise the laboratory."
+ }
+diff --git a/src/main/resources/assets/binniecore/ponder/alveary_components.nbt b/src/main/resources/assets/binniecore/ponder/alveary_components.nbt
+index 4fce1ab3e0c8dba739780cded94b7522367833ae..4d872671fff0f4a0b101457868df57ac4ad0ab0e 100644
+GIT binary patch
+literal 745
+zcmb2|=HNJSxi*XGe_~EqYGP4kd~$wnL4ICpUP-ZDUQ!7|?~T)aw+uws9thuW47>b#
+zh5n_pYj&^O^-4_AKp^qaiL!JT@!D@{Jsg2*jrKx4Z2v8f|C=B*+45qKi`IWDKbN=J
+z*Y<?`E_XW?y7SCZ?_w+d6;t_NAO5+&-uO|e$Mng&nkW0*OmknK{>7MeLZU+(vm|4R
+z%7j1%H)cuZ6g_uFiEqY7TOO|EVK+)rIjqK$e-$G2BZiMn!sx&R#x@><lm<m+9?66g
+z49;v4MF%D@x5*ehX?VD{hsB8NM212#!~D~V49<)aTn7Re+L#PP8Wu9}uqJ3QICDyP
+z9SC4*6Ec|6u#kmEH9><BD5P~DfU%9sAf#a-6OU-Z3I=CZkPvg5l);sTg={>g2`d<#
+zc_p$yLTm;m2mW1P`0dR6hM#wXJ%aOo?P`fT<v&jBdY7s)Vdobi2Yp5m!TDv9gMQ_5
+zakyiV-EWz2g3*}|;eJJS9?Jv`wrp|by&zLwW-;z%x!}#PSLK2?)84$)u8FT_%sKJp
+z^@@qFKX2%p2V~8dSRHJ*ga4e`y5zrSYM#t9I-{d@?dpHsKY2;#4)?5ETW-1go8h@?
+z=SRzJt*UIMO^tTneb!&I{giI_#u#~_*kk+Sj+b9tw#CMt>s6b5e7kw-nbWtP)tdj<
+z!FzG3jKBXiduwU`=E?T4{(Rpy_}p9f%;dkQ^V_7~Usj%c8vNE{t<$-O85tihtx@~6
+z;r346lWV`83=Dt!Fe-O%{w+SQm1|?CU+rtztXV!a`18c_a;^FuVR1Jl=FZnR`|rwG
+z&9l$1&K9~~H97nK>>ozAr<NyAdR>sS?_8Q)v)!fL>CadG@LT+E+bxUuwk)3|e5JLo
+z*!F#?KAQFVaCi6J7sp?(*dA)!n`OYicl*_Ku^(P*seiH1t-Fy^zk9|l&x_8B{s%L2
+K?<o~wU;qG6K2bUV
+
+literal 352
+zcmb2|=HO7;Rhz~1KQX5)HL<8NJ~=<PAU`iPucTNnFR6r~_u9cMW<`O9hZkoCn%h39
+zt$Js9!TY^gM8vE&Z7){(-_P;#dihe^<w!jL{gZP~s9bx#ewosyvoFnRqt!KYB|p!I
+zzJKzs!ruAU9zU=BZq*rg?ca_s)**ZPt!DkX^W!$l1(ypN89XL@vsh;F%wn2#oa2B2
+z!(j#<W&<812Gd~<9%X}`0|p3&Giw_ckEn!}K}f=i0|AW-nScUpJiHQ81||s^2QD-$
+zWOQZ*3dl-W8I&ZvIB=nHA+s}k8y`?WEn!AOB2ybD3ZpTRtxZxQEnx-{gRzZOLM$Po
+zArZ!S_+Ksl)ym$B+w{vdlG>~CHrb!|wvKy!yy9JQ?5(%0%contir)RLGS=l=>^?@l
+M9Sm!3a5FFf0A~G=ApigX
+
+diff --git a/src/main/resources/assets/binniecore/ponder/botany_breeding.nbt b/src/main/resources/assets/binniecore/ponder/botany_breeding.nbt
+index c11329718019b8e604dfa33fc503aad350fd2888..74a3179e39a97ad6b6935062cd224c8acc7bb51f 100644
+GIT binary patch
+literal 652
+zcmV;70(1QziwFqF(|u|J|6*@+VQzU}Vsd3=WNB_^E^cCU0FBpAZ__Xw#_?bLzwH6g
+zVB*YMfYZ*L5ht#Z+q!9lYe$L4G+sS!N0TT@+9y(1t^V3^J||~Qv?9^fe;p^H^JkSm
+z^8CFb<3g%a?YcEx2GrKa-S5kP)rxo%yX&O>;v~CdlcTp8<E8)_1~eRK#7t968VRhU
+zfJOt20h;So0EXj+Eg0TvIM9fhX36l@Itpks&=|nydNII|0fr1PWPl+93>jd^07C{C
+zGQf}nh8!^DfFTDAIbg^ELk<{nz>oum0x%SSp#Tg8U?>1X0T>FvPymJkFqD9y1Pmo$
+zC;>wW7)roU0)`SWlz^cE3>9Fg07C^BD!@<yh6*rLfT02mHDIU#Lk$>ez)%B*8Zgv=
+zp#}^!U}ykC1Dp>Ha6UA^`OpA{1~?xY;CyI+^Wi<8V$$%Lh5-$~(=ednKqG)g0*wM1
+z4ftrlM}t1a<P0EY_I$4q{~L9qDP|hE@a*G8E$n&R=!HFx8?&&^_#D1kSm#z#%rxtT
+z=bARUvEHTR&aa{yL*j=$IeI+R!R=amNKf4<#&j&Z6oaGd_`@*1uiI2MHXZxHPs3o<
+z+O8`v@4Ef)mtok~)iIShdd=(G{PVu7e4f#_kJ~zg+HGU9;q~d@<BMyzZa=q=T|DKd
+zO|D(j`ez#(*PdUu4N33*I8Vhl>Sw(lW^HZTIzO4B4t7_Eir90Lr{v!Q$%FNs8<zMy
+zEb)>p+j3{0{l1N1;qG5&r(XW%JC(_9{h<4CDBd2qY+~w1KaBir$oHP!Qy*=p&ijAc
+mw4u#qi#}FWrn^1~r_Fbp>@U}LbqqxBI{F7<irVtR5C8x-;Wgp_
+
+literal 272
+zcmb2|=HO7;Rhz~1KPkT?F|RT{sVFryB{MHwFE6Qtq4(-RFJ?o5hKDoHsJy-AJpbtG
+z^z(9ij~h8{xU1{yXSa8^m#fX+Mn#r?Ec=4_lqOf?&rej^bT&`+{x{EWhW%zyUk+Er
+z?fz62=O=%E`Ek!TyT1HhdOvm2?-j~Vo*%pK<~Z3Qc|qZYlnWvk?o4OejRdQizOlUF
+zydk_nJ;DFLyoS4|u<<Suv}LYl`^NJ|@`mw-^n~*V;u`icR5N~Kdc%5yd&B?yvg=iS
+zhDpCamFWKq(pNn0J^OLV>i3UV_NVrJZEb&U^(y;LRdm|K<mvkI<#$CR*cliAJDG`g
+
+diff --git a/src/main/resources/assets/binniecore/ponder/genetics_pipeline.nbt b/src/main/resources/assets/binniecore/ponder/genetics_pipeline.nbt
+index 7420d878b296b18ddddabcc8955882f025f110f4..a417bc5a815b8167194b55f320e0b5dfe9b819b5 100644
+GIT binary patch
+literal 913
+zcmb2|=HNJSxi*XGe|l<OYDs2taeP5$L26EBUaDSRQVGM-8F%w88%VUp{#SdMV6Pxi
+za7>h;-TIkC;gQUz%i^*hS}B&9_RfAVt&lx;uTc4VmnA;gzizDG|K3w6pI6cJ;lY0<
+zJp!9-m%n`Sa!po{q<rocHItXckDlBqefz!Le}C4YUwUuY-txP-bXZA!N_RQu!_daW
+z!z{sPz?7hJK%-$L!!ouRYzbw@Sqdf^Pj2cC#*lmQ`Q3sBZmu0T2(}#w4cyp?2MyeO
+zJ8%$;I|LfIu@e&-xH)&=AXs+<9GDlzSRKXsCR237@=$b+?Zc#^BR*~tTn2AA(~Ks$
+zx`SD5Opzid7CDG9SDk2(Gg{Ctv!a{1v~YnQV+yB&H$$Y*i-jyz8jW&V3-nm8EN$4O
+zrLdZ56Odr5ieR=~(<o==5XPKh>TvCy?9~6fhq&HPoAa=>-057$q0MuQH+|rlH_N@p
+zU{%5S`Lo=64MHEvS)2OX9=gK1-14$W)r|LBm$8al7Kgp?KWC%;<>wWfs~n&ATsR#3
+z`HJ$H%7yD{@{0o_iqFM}U7Kti4pjJA$#B*6b4N0^-QT~4<Nu=TZF{1l^KUucKQ?<`
+zvDun4Nz48oVwrvH?Sj|LCELB?&)hn<z4>IvclJX!pK6_ZmY1BSX&W1NW}097hV=9N
+zIlGM%&6fPMD%mT!?f=y^9eb{>{px+Fm(Q@b^ZQ;!qb1(wLQ<-xb4kT)kD0|PxcwHZ
+z^Ec!D^P=Ccjg-n?lzX_Bckbnl(%%joRjj)DRr6EHHlw)nv0RS|Z=_gWcegzF=Z3`n
+zS<V-3D=U5dR+q~rZS?Hy$E@1xd2;K&Uo8xHpCi}2?bEqG`Py5rzq5<4y>@D+9NS~A
+zn<bZ*E56)SZ<PGo`+n)V8|klapZycqd{0(?bMD;O*FRQV43C`t<(O{UIr(c7rW(%J
+zz2(u{*w^CjSLduPnQ?Zv#N3&+KcY`OUM=swzV6rZ7jGh~e(dz^xxG8bKPK(`q;H-R
+q?W204GWXy4RyN%tYtqD*>9SwVjag=MsXcG}!^RY>cq3ARfdK$~{HnSD
+
+literal 310
+zcmb2|=HO7;Rhz~1KRq=swInmSIKCjWAT=j5FI6uusf3~T+D5;_1_BKat?$pBJZ0hg
+z!-p=-oOn0Htt(^ls&7XwPZkqZTz3Bw@3i{rA8PMi)IOTkhYC-;?Q{Ew*<qFB*k5;^
+z-zqDzKk<I~*B_Pl_xdDF-)gJ(S8sC0-Y;7A=KsvNX0b>y_cp6JOm;MGNMkvhtZ5LE
+zu;M^K<3c89);2C4Q3)*rp92Prhgo=pkr@{n7BV_Bx3Tf?N=O-)BxD=_3NSmfxAF1F
+zN>~|`B)m9qp>ZMeVTLwF9%czP1D*tl0|pI=3_t-%iL`_njfrds#{bz5gZ#FBuloJ!
+xg~q?AbD`g!SFSvs{qx27wd=j_##LBNiM#h|>)F>zoAN*LHlH}XB7l>D0RYY|i2eWo
+
+diff --git a/src/main/resources/assets/binniecore/ponder/genetics_station.nbt b/src/main/resources/assets/binniecore/ponder/genetics_station.nbt
+new file mode 100644
+index 0000000000000000000000000000000000000000..39ffe45ce88fc898a89796f705c1d211b569d95b
+GIT binary patch
+literal 593
+zcmV-X0<QfZiwFqF(|u|J|7T@xWprs{b6<0GVRUJ4ZZ2+ObO5E6&5qMB6oqg7ll~0S
+zumgz|JOQwrH4;0-if!bicM=QN4z{am=IL>Pwqa=6Gs0CCu|A)h&yH@hB3hD4_K_tK
+z?XP*cRJp1pE!bz9EvHqvFI?5Q(0>1Q_jyTj2<fosI3($mO=kMNV$93{MgWWi7zHpI
+zU@Cw)j2YlQW@Z!amlz2!3SczARDjoE2*6zc?gDTZfV%+P1>i0KcL}&lz+D3F5^$G*
+zy9C@N;I0671-L7~T><V2a94o40^Bv=u7O^sfnKM9UZ;Uxr-5Fluei^iFyag&07hP6
+zW@l>2GmHQjd4&-`EdkULKrIREp#=6&0(+<cF9mohz)J(QG*C+ewJKl_D_{?+XS|2w
+z{{l7f{)`ztaqeTLnmDgZIr<DUpLm{eA6rb+y2Qvc%(DFEgK?ZQ?>_}s3sPUqhUv}5
+zdTyh+&v!#`Hub!&jbC%JW!(XKb%N3+gxuFZwkGDsBk=kJ?E12@Zi8<lk0Rck2xq%K
+z*Nxk9T^_GYuj|g4l#cA}iEVpMc}1(QF$^5{pS26B?oDfbM~Y3#Wleq<n5tB!953i*
+zSB#?zUB_$E_r@irWAe*Wavz40csY8`-ZZY{s2sPWn757f-g3vDvu)FzGfjvlhxkx$
+zOxu?l&vx1If4DRzMs^d?Vmp*2W#0c2F*?^K@~+VP6Y=XONiTYn>L%puxPJd9<nP%J
+fXJ<bi3rf2AWU~3jG1=gWZWH|kmi^ph#S8!dlEoa)
+
+literal 0
+HcmV?d00001
+
+-- 
+2.53.0.windows.2
+

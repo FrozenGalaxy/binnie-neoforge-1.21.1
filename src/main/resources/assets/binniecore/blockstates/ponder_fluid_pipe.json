@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "arrows=false,facing=north": { "model": "binniecore:block/ponder_fluid_pipe" },
+    "arrows=true,facing=north": { "model": "binniecore:block/ponder_fluid_pipe_arrows" },
+    "arrows=false,facing=east": { "model": "binniecore:block/ponder_fluid_pipe", "y": 90 },
+    "arrows=true,facing=east": { "model": "binniecore:block/ponder_fluid_pipe_arrows", "y": 90 },
+    "arrows=false,facing=south": { "model": "binniecore:block/ponder_fluid_pipe", "y": 180 },
+    "arrows=true,facing=south": { "model": "binniecore:block/ponder_fluid_pipe_arrows", "y": 180 },
+    "arrows=false,facing=west": { "model": "binniecore:block/ponder_fluid_pipe", "y": 270 },
+    "arrows=true,facing=west": { "model": "binniecore:block/ponder_fluid_pipe_arrows", "y": 270 },
+    "arrows=false,facing=up": { "model": "binniecore:block/ponder_fluid_pipe", "x": 90 },
+    "arrows=true,facing=up": { "model": "binniecore:block/ponder_fluid_pipe_arrows", "x": 90 },
+    "arrows=false,facing=down": { "model": "binniecore:block/ponder_fluid_pipe", "x": 270 },
+    "arrows=true,facing=down": { "model": "binniecore:block/ponder_fluid_pipe_arrows", "x": 270 }
+  }
+}

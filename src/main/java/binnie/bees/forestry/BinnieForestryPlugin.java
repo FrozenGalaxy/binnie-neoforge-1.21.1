@@ -20,7 +20,6 @@ import forestry.api.core.ToleranceType;
 import forestry.api.client.plugin.IClientRegistration;
 import forestry.api.core.genetics.alleles.Allele;
 import net.minecraft.core.Vec3i;
-import binnie.trees.forestry.LegacyHeightMutationCondition;
 import binnie.trees.forestry.LegacyPodFruit;
 import binnie.trees.forestry.LegacyTreeCatalog;
 import binnie.trees.forestry.LegacyTreeGenerator;
@@ -44,7 +43,6 @@ import forestry.arboriculture.wood.ForestryWoodType;
 import forestry.arboriculture.fruit.RipeningFruit;
 import forestry.arboriculture.wood.VanillaWoodType;
 import forestry.arboriculture.fruit.ForestryPodType;
-import forestry.core.engine.genetics.mutations.MutationConditionTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.TextColor;
@@ -55,7 +53,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 
 /** ForestryCE ServiceLoader entry point for the full Binnie's Mods suite. */
@@ -67,18 +64,11 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
             "thief", "wither", "water", "slow", "bonemeal_sapling", "bonemeal_fruit",
             "bonemeal_mushroom"
     );
-    private static final AtomicBoolean HEIGHT_CONDITION_REGISTERED = new AtomicBoolean();
     private static final LegacyTreeCatalog TREES = LegacyTreeCatalog.load();
 
     @Override
     public void registerGenetics(IGeneticRegistration binniegenetics) {
         LegacyBeeFlowerTypes.register(binniegenetics);
-    // ForestryCE currently exposes mutation condition types through its public model but not through
-    // IGeneticRegistration. Register the required minimum-height condition at the central dispatcher.
-        if (HEIGHT_CONDITION_REGISTERED.compareAndSet(false, true)) {
-            MutationConditionTypes.register(ResourceLocation.fromNamespaceAndPath("binnietrees", "height"),
-                    LegacyHeightMutationCondition.TYPE);
-        }
 
         LegacyFlowerCatalog.SpeciesDef defaultFlower = LegacyFlowerCatalog.INSTANCE.species().getFirst();
         var defaultPrimary = defaultFlower.allele("primary");

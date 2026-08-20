@@ -1,0 +1,441 @@
+From 1e1c2f0ccd74383c1f66a3f71dbed5d395083697 Mon Sep 17 00:00:00 2001
+From: OpenAI <noreply@openai.com>
+Date: Thu, 13 Aug 2026 12:48:33 +0000
+Subject: [PATCH 1/3] docs: add native Ponder Binnie guides
+
+---
+ build.gradle                                  |  20 +-
+ gradle.properties                             |   3 +
+ .../core/client/BinnieCoreClientEvents.java   |   5 +
+ .../client/ponder/BinniePonderCompat.java     |  18 ++
+ .../client/ponder/BinniePonderPlugin.java     |  18 ++
+ .../client/ponder/BinniePonderScenes.java     | 206 ++++++++++++++++++
+ .../binniecore/ponder/alveary_components.nbt  | Bin 0 -> 352 bytes
+ .../binniecore/ponder/botany_breeding.nbt     | Bin 0 -> 272 bytes
+ .../binniecore/ponder/genetics_pipeline.nbt   | Bin 0 -> 310 bytes
+ .../templates/META-INF/neoforge.mods.toml     |   8 +-
+ 10 files changed, 271 insertions(+), 7 deletions(-)
+ create mode 100644 src/main/java/binnie/core/client/ponder/BinniePonderCompat.java
+ create mode 100644 src/main/java/binnie/core/client/ponder/BinniePonderPlugin.java
+ create mode 100644 src/main/java/binnie/core/client/ponder/BinniePonderScenes.java
+ create mode 100644 src/main/resources/assets/binniecore/ponder/alveary_components.nbt
+ create mode 100644 src/main/resources/assets/binniecore/ponder/botany_breeding.nbt
+ create mode 100644 src/main/resources/assets/binniecore/ponder/genetics_pipeline.nbt
+
+diff --git a/build.gradle b/build.gradle
+index bb108a6..41108b2 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -168,8 +168,6 @@ dependencies {
+         localRuntime "mezz.jei:jei-${minecraftVersion}-neoforge:${jeiVersion}"
+     }
+ 
+-    compileOnly "vazkii.patchouli:Patchouli:${patchouliVersion}-NEOFORGE:api"
+-    localRuntime "vazkii.patchouli:Patchouli:${patchouliVersion}-NEOFORGE"
+     // Development runtime aid only; Binnie has no Mekanism API dependency.
+     if (!skipOptionalDevRuntime) {
+         localRuntime "mekanism:Mekanism:${mekanismVersion}:all"
+@@ -185,7 +183,22 @@ dependencies {
+     implementation "dev.latvian.mods:rhino:${rhinoVersion}"
+     implementation "dev.latvian.mods:kubejs-neoforge:${kubejsVersion}"
+     implementation "top.theillusivec4.curios:curios-neoforge:${curiosVersion}+${minecraftVersion}"
+-    implementation "net.createmod.ponder:ponder-neoforge:${ponderVersion}+mc${minecraftVersion}"
++    // Match Create's 1.21.1 distribution model: Ponder is a separate library,
++    // but is embedded so Binnie users do not have to install it manually.
++    // The integration itself remains guarded and the metadata dependency optional.
++    jarJar(api("net.createmod.ponder:ponder-neoforge:${ponderVersion}+mc${minecraftVersion}") {
++        version {
++            strictly "${ponderVersionRange}"
++            prefer "${ponderVersion}+mc${minecraftVersion}"
++        }
++    })
++    compileOnlyApi "dev.engine-room.flywheel:flywheel-neoforge-api-${minecraftVersion}:${flywheelVersion}"
++    jarJar(runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraftVersion}:${flywheelVersion}") {
++        version {
++            strictly "${flywheelVersionRange}"
++            prefer flywheelVersion
++        }
++    })
+ 
+     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+ }
+@@ -207,6 +220,7 @@ sourceSets.main.resources {
+                 fmlVersionRange: fmlVersionRange,
+                 forestryVersion: forestryVersion,
+                 patchouliVersionRange: patchouliVersionRange,
++                ponderVersionRange: ponderVersionRange,
+                 jeiVersionRange: jeiVersionRange
+         ]
+         inputs.properties replaceProperties
+diff --git a/gradle.properties b/gradle.properties
+index ffdcade..dda63e2 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -25,6 +25,9 @@ rhinoVersion=2101.2.7-build.81
+ architecturyVersion=13.0.8
+ curiosVersion=9.5.1
+ ponderVersion=1.0.87
++ponderVersionRange=[1.0.87+mc1.21.1,)
++flywheelVersion=1.0.4
++flywheelVersionRange=[1.0.4,2.0)
+ mekanismVersion=1.21.1-10.7.14.79
+ jadeFileId=5427817
+ junitVersion=5.11.4
+diff --git a/src/main/java/binnie/core/client/BinnieCoreClientEvents.java b/src/main/java/binnie/core/client/BinnieCoreClientEvents.java
+index 0602230..40f687d 100644
+--- a/src/main/java/binnie/core/client/BinnieCoreClientEvents.java
++++ b/src/main/java/binnie/core/client/BinnieCoreClientEvents.java
+@@ -1,6 +1,7 @@
+ package binnie.core.client;
+ 
+ import binnie.core.BinnieCore;
++import binnie.core.client.ponder.BinniePonderCompat;
+ import binnie.core.machine.MachineRegistries;
+ import binnie.core.registry.CoreRegistries;
+ import binnie.core.registry.CoreContent;
+@@ -17,6 +18,7 @@ import binnie.core.liquid.BinnieFluidContainerItem;
+ import binnie.core.registry.BinnieDataComponents;
+ import net.neoforged.bus.api.SubscribeEvent;
+ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
++import net.neoforged.fml.ModList;
+ import net.minecraft.client.renderer.item.ItemProperties;
+ import net.minecraft.resources.ResourceLocation;
+ import binnie.core.storage.CompartmentBlockItem;
+@@ -36,6 +38,9 @@ public final class BinnieCoreClientEvents {
+                 ItemProperties.register(item, ResourceLocation.fromNamespaceAndPath(BinnieCore.MOD_ID, "filled"),
+                         (stack, level, entity, seed) -> item.fluid(stack).isEmpty() ? 0.0F : 1.0F);
+             }
++            if (ModList.get().isLoaded("ponder")) {
++                BinniePonderCompat.register();
++            }
+         });
+     }
+ 
+diff --git a/src/main/java/binnie/core/client/ponder/BinniePonderCompat.java b/src/main/java/binnie/core/client/ponder/BinniePonderCompat.java
+new file mode 100644
+index 0000000..189ac80
+--- /dev/null
++++ b/src/main/java/binnie/core/client/ponder/BinniePonderCompat.java
+@@ -0,0 +1,18 @@
++package binnie.core.client.ponder;
++
++import net.createmod.ponder.foundation.PonderIndex;
++
++/** Client-only bridge kept behind a mod-presence check so Ponder remains optional. */
++public final class BinniePonderCompat {
++    private static boolean registered;
++
++    private BinniePonderCompat() {
++    }
++
++    public static void register() {
++        if (!registered) {
++            PonderIndex.addPlugin(new BinniePonderPlugin());
++            registered = true;
++        }
++    }
++}
+diff --git a/src/main/java/binnie/core/client/ponder/BinniePonderPlugin.java b/src/main/java/binnie/core/client/ponder/BinniePonderPlugin.java
+new file mode 100644
+index 0000000..bdc6b4c
+--- /dev/null
++++ b/src/main/java/binnie/core/client/ponder/BinniePonderPlugin.java
+@@ -0,0 +1,18 @@
++package binnie.core.client.ponder;
++
++import binnie.core.BinnieCore;
++import net.createmod.ponder.api.registration.PonderPlugin;
++import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
++import net.minecraft.resources.ResourceLocation;
++
++public final class BinniePonderPlugin implements PonderPlugin {
++    @Override
++    public String getModId() {
++        return BinnieCore.MOD_ID;
++    }
++
++    @Override
++    public void registerScenes(PonderSceneRegistrationHelper<ResourceLocation> helper) {
++        BinniePonderScenes.register(helper);
++    }
++}
+diff --git a/src/main/java/binnie/core/client/ponder/BinniePonderScenes.java b/src/main/java/binnie/core/client/ponder/BinniePonderScenes.java
+new file mode 100644
+index 0000000..9e5eaa8
+--- /dev/null
++++ b/src/main/java/binnie/core/client/ponder/BinniePonderScenes.java
+@@ -0,0 +1,206 @@
++package binnie.core.client.ponder;
++
++import net.createmod.ponder.api.PonderPalette;
++import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
++import net.createmod.ponder.api.scene.SceneBuilder;
++import net.createmod.ponder.api.scene.SceneBuildingUtil;
++import net.createmod.ponder.api.scene.Selection;
++import net.minecraft.core.BlockPos;
++import net.minecraft.core.Direction;
++import net.minecraft.core.registries.BuiltInRegistries;
++import net.minecraft.resources.ResourceLocation;
++import net.minecraft.world.item.ItemStack;
++import net.minecraft.world.level.block.Block;
++import net.minecraft.world.phys.Vec3;
++
++public final class BinniePonderScenes {
++    private BinniePonderScenes() {
++    }
++
++    public static void register(PonderSceneRegistrationHelper<ResourceLocation> helper) {
++        helper.forComponents(
++                id("binniegenetics", "isolator"), id("binniegenetics", "sequencer"),
++                id("binniegenetics", "polymeriser"), id("binniegenetics", "inoculator"),
++                id("binniegenetics", "splicer"), id("binniegenetics", "analyser"),
++                id("binniegenetics", "genepool"))
++                .addStoryBoard("genetics_pipeline", BinniePonderScenes::geneticsPipeline);
++
++        helper.forComponents(
++                id("binniebees", "alveary_mutator"), id("binniebees", "alveary_frame"),
++                id("binniebees", "alveary_rain_shield"), id("binniebees", "alveary_lighting"),
++                id("binniebees", "alveary_stimulator"), id("binniebees", "alveary_hatchery"),
++                id("binniebees", "alveary_transmission"))
++                .addStoryBoard("alveary_components", BinniePonderScenes::alvearyComponents);
++
++        helper.forComponents(
++                id("binniebotany", "flower"), id("binniebotany", "pollen"),
++                id("binniebotany", "seed"), id("binniebotany", "soil_meter"))
++                .addStoryBoard("botany_breeding", BinniePonderScenes::botanyBreeding);
++    }
++
++    public static void geneticsPipeline(SceneBuilder scene, SceneBuildingUtil util) {
++        scene.title("genetics_pipeline", "From organism to usable genetics");
++        scene.configureBasePlate(0, 0, 9);
++        scene.showBasePlate();
++        scene.scaleSceneView(0.72f);
++        scene.idle(10);
++
++        BlockPos isolator = util.grid().at(1, 1, 2);
++        BlockPos sequencer = util.grid().at(3, 1, 2);
++        BlockPos polymeriser = util.grid().at(5, 1, 2);
++        BlockPos inoculator = util.grid().at(7, 1, 2);
++        BlockPos analyser = util.grid().at(3, 1, 5);
++        BlockPos genepool = util.grid().at(5, 1, 5);
++        BlockPos splicer = util.grid().at(7, 1, 5);
++
++        place(scene, util, isolator, "binniegenetics", "isolator");
++        place(scene, util, sequencer, "binniegenetics", "sequencer");
++        place(scene, util, polymeriser, "binniegenetics", "polymeriser");
++        place(scene, util, inoculator, "binniegenetics", "inoculator");
++        place(scene, util, analyser, "binniegenetics", "analyser");
++        place(scene, util, genepool, "binniegenetics", "genepool");
++        place(scene, util, splicer, "binniegenetics", "splicer");
++        scene.idle(15);
++
++        text(scene, util, isolator, 70,
++                "The Isolator samples one active or inactive allele from a genetic individual. Empty Sequencers, enzyme and ethanol support the extraction.");
++        drop(scene, util, isolator, "binniegenetics", "empty_sequencer");
++        scene.idle(75);
++
++        text(scene, util, sequencer, 65,
++                "The Sequencer turns that unsequenced sample into identified genetic material. Fluorescent Dye is consumed as sequencing progresses.");
++        drop(scene, util, sequencer, "binniegenetics", "fluorescent_dye");
++        scene.idle(70);
++
++        text(scene, util, polymeriser, 70,
++                "The Polymeriser charges a serum or serum array with Raw DNA. A charged serum can then be used to change an organism's genome.");
++        drop(scene, util, polymeriser, "binniegenetics", "genetic_material");
++        scene.idle(75);
++
++        text(scene, util, inoculator, 65,
++                "The Inoculator is the deliberate route: apply the selected serum genes to an individual using Vector Bacteria.");
++        scene.idle(70);
++        text(scene, util, splicer, 65,
++                "The Splicer is the high-throughput alternative for serum arrays. It works much faster, but demands substantially more power.");
++        scene.idle(70);
++
++        scene.rotateCameraY(35);
++        text(scene, util, analyser, 65,
++                "The Analyser reveals hidden genetic information, while your genetic databases retain discoveries made by laboratory work.");
++        scene.idle(70);
++        text(scene, util, genepool, 65,
++                "The Gene Pool is the destructive branch: sacrifice an individual when what you need is Raw DNA rather than its intact genome.");
++        scene.idle(70);
++        scene.markAsFinished();
++    }
++
++    public static void alvearyComponents(SceneBuilder scene, SceneBuildingUtil util) {
++        scene.title("alveary_components", "Specialising a Forestry Alveary");
++        scene.configureBasePlate(0, 0, 9);
++        scene.showBasePlate();
++        scene.scaleSceneView(0.72f);
++        scene.idle(10);
++
++        Selection cube = util.select().fromTo(3, 1, 3, 5, 3, 5);
++        Selection cap = util.select().fromTo(3, 4, 3, 5, 4, 5);
++        scene.world().setBlocks(cube, block("forestry", "alveary_block").defaultBlockState(), false);
++        scene.world().setBlocks(cap, net.minecraft.world.level.block.Blocks.OAK_SLAB.defaultBlockState(), false);
++        scene.world().showSection(cube, Direction.DOWN);
++        scene.world().showSection(cap, Direction.DOWN);
++        scene.idle(20);
++
++        BlockPos slot = util.grid().at(4, 2, 3);
++        text(scene, util, slot, 60,
++                "Binnie's Alveary blocks replace ordinary wall blocks. Each one specialises the completed Forestry multiblock without changing its footprint.");
++        scene.idle(65);
++
++        component(scene, util, slot, "alveary_mutator", 55,
++                "The Mutator consumes mutagen items and multiplies mutation chance, with the final modifier capped rather than growing without limit.");
++        component(scene, util, slot, "alveary_frame", 55,
++                "The Frame Housing contributes the modifier of one Forestry hive frame and wears that frame while the Alveary runs.");
++        component(scene, util, slot, "alveary_rain_shield", 50,
++                "The Rain Shield seals the Alveary so rain-sensitive bees can keep working through bad weather.");
++        component(scene, util, slot, "alveary_lighting", 50,
++                "The Lighting block supplies artificial daylight for species that would otherwise stop when they cannot see the sky.");
++        component(scene, util, slot, "alveary_stimulator", 60,
++                "The Stimulator accepts a compatible circuit board and applies its configured bee modifiers while the block is powered.");
++        component(scene, util, slot, "alveary_hatchery", 55,
++                "The Hatchery occasionally produces larvae from a healthy working queen and keeps the results in its internal inventory.");
++        component(scene, util, slot, "alveary_transmission", 60,
++                "The Transmission block accepts FE and distributes it to Alveary components that need energy, giving powered upgrades a shared supply point.");
++        scene.markAsFinished();
++    }
++
++    public static void botanyBreeding(SceneBuilder scene, SceneBuildingUtil util) {
++        scene.title("botany_breeding", "Breeding Binnie's genetic flowers");
++        scene.configureBasePlate(0, 0, 7);
++        scene.showBasePlate();
++        scene.scaleSceneView(0.82f);
++        scene.idle(10);
++
++        BlockPos leftSoil = util.grid().at(2, 1, 3);
++        BlockPos rightSoil = util.grid().at(4, 1, 3);
++        BlockPos childSoil = util.grid().at(3, 1, 5);
++        scene.world().setBlock(leftSoil, block("binniebotany", "flowerbed").defaultBlockState(), false);
++        scene.world().setBlock(rightSoil, block("binniebotany", "flowerbed").defaultBlockState(), false);
++        scene.world().setBlock(childSoil, block("binniebotany", "flowerbed").defaultBlockState(), false);
++        scene.world().showSection(util.select().fromTo(2, 1, 3, 4, 1, 5), Direction.DOWN);
++        scene.idle(15);
++
++        drop(scene, util, leftSoil.above(), "binniebotany", "flower");
++        drop(scene, util, rightSoil.above(), "binniebotany", "flower");
++        text(scene, util, leftSoil, 65,
++                "Binnie's flowers are genetic organisms. Two flowers can look similar while carrying different active and inactive alleles.");
++        scene.idle(70);
++
++        drop(scene, util, util.grid().at(3, 2, 3), "binniebotany", "pollen");
++        text(scene, util, util.grid().at(3, 1, 3), 65,
++                "Pollen carries a flower genome. Pollination combines parent genetics, allowing inherited traits and mutations to appear in the offspring.");
++        scene.idle(70);
++
++        drop(scene, util, childSoil.above(), "binniebotany", "seed");
++        text(scene, util, childSoil, 65,
++                "The result is a genetic seed. Grow and analyse promising offspring, then keep breeding toward the traits and colours you want.");
++        scene.idle(70);
++
++        drop(scene, util, util.grid().at(1, 2, 5), "binniebotany", "soil_meter");
++        text(scene, util, childSoil, 70,
++                "Flowerbeds also track moisture, acidity, fertility and weedkiller. The Soil Meter lets you inspect those conditions instead of guessing what a plant needs.");
++        scene.idle(75);
++        scene.markAsFinished();
++    }
++
++    private static void component(SceneBuilder scene, SceneBuildingUtil util, BlockPos pos, String id, int duration,
++                                  String description) {
++        scene.world().setBlock(pos, block("binniebees", id).defaultBlockState(), true);
++        scene.overlay().showOutlineWithText(util.select().position(pos), duration)
++                .colored(PonderPalette.GREEN)
++                .text(description);
++        scene.idle(duration + 5);
++    }
++
++    private static void place(SceneBuilder scene, SceneBuildingUtil util, BlockPos pos, String namespace, String path) {
++        scene.world().setBlock(pos, block(namespace, path).defaultBlockState(), false);
++        scene.world().showSection(util.select().position(pos), Direction.DOWN);
++    }
++
++    private static void text(SceneBuilder scene, SceneBuildingUtil util, BlockPos pos, int duration, String text) {
++        scene.overlay().showText(duration).text(text).pointAt(util.vector().topOf(pos));
++    }
++
++    private static void drop(SceneBuilder scene, SceneBuildingUtil util, BlockPos pos, String namespace, String path) {
++        ItemStack stack = new ItemStack(BuiltInRegistries.ITEM.get(id(namespace, path)));
++        if (!stack.isEmpty()) {
++            Vec3 location = util.vector().centerOf(pos).add(0, 0.45, 0);
++            scene.world().createItemEntity(location, Vec3.ZERO, stack);
++        }
++    }
++
++    private static Block block(String namespace, String path) {
++        return BuiltInRegistries.BLOCK.get(id(namespace, path));
++    }
++
++    private static ResourceLocation id(String namespace, String path) {
++        return ResourceLocation.fromNamespaceAndPath(namespace, path);
++    }
++}
+diff --git a/src/main/resources/assets/binniecore/ponder/alveary_components.nbt b/src/main/resources/assets/binniecore/ponder/alveary_components.nbt
+new file mode 100644
+index 0000000000000000000000000000000000000000..4fce1ab3e0c8dba739780cded94b7522367833ae
+GIT binary patch
+literal 352
+zcmb2|=HO7;Rhz~1KQX5)HL<8NJ~=<PAU`iPucTNnFR6r~_u9cMW<`O9hZkoCn%h39
+zt$Js9!TY^gM8vE&Z7){(-_P;#dihe^<w!jL{gZP~s9bx#ewosyvoFnRqt!KYB|p!I
+zzJKzs!ruAU9zU=BZq*rg?ca_s)**ZPt!DkX^W!$l1(ypN89XL@vsh;F%wn2#oa2B2
+z!(j#<W&<812Gd~<9%X}`0|p3&Giw_ckEn!}K}f=i0|AW-nScUpJiHQ81||s^2QD-$
+zWOQZ*3dl-W8I&ZvIB=nHA+s}k8y`?WEn!AOB2ybD3ZpTRtxZxQEnx-{gRzZOLM$Po
+zArZ!S_+Ksl)ym$B+w{vdlG>~CHrb!|wvKy!yy9JQ?5(%0%contir)RLGS=l=>^?@l
+M9Sm!3a5FFf0A~G=ApigX
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/binniecore/ponder/botany_breeding.nbt b/src/main/resources/assets/binniecore/ponder/botany_breeding.nbt
+new file mode 100644
+index 0000000000000000000000000000000000000000..c11329718019b8e604dfa33fc503aad350fd2888
+GIT binary patch
+literal 272
+zcmb2|=HO7;Rhz~1KPkT?F|RT{sVFryB{MHwFE6Qtq4(-RFJ?o5hKDoHsJy-AJpbtG
+z^z(9ij~h8{xU1{yXSa8^m#fX+Mn#r?Ec=4_lqOf?&rej^bT&`+{x{EWhW%zyUk+Er
+z?fz62=O=%E`Ek!TyT1HhdOvm2?-j~Vo*%pK<~Z3Qc|qZYlnWvk?o4OejRdQizOlUF
+zydk_nJ;DFLyoS4|u<<Suv}LYl`^NJ|@`mw-^n~*V;u`icR5N~Kdc%5yd&B?yvg=iS
+zhDpCamFWKq(pNn0J^OLV>i3UV_NVrJZEb&U^(y;LRdm|K<mvkI<#$CR*cliAJDG`g
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/resources/assets/binniecore/ponder/genetics_pipeline.nbt b/src/main/resources/assets/binniecore/ponder/genetics_pipeline.nbt
+new file mode 100644
+index 0000000000000000000000000000000000000000..7420d878b296b18ddddabcc8955882f025f110f4
+GIT binary patch
+literal 310
+zcmb2|=HO7;Rhz~1KRq=swInmSIKCjWAT=j5FI6uusf3~T+D5;_1_BKat?$pBJZ0hg
+z!-p=-oOn0Htt(^ls&7XwPZkqZTz3Bw@3i{rA8PMi)IOTkhYC-;?Q{Ew*<qFB*k5;^
+z-zqDzKk<I~*B_Pl_xdDF-)gJ(S8sC0-Y;7A=KsvNX0b>y_cp6JOm;MGNMkvhtZ5LE
+zu;M^K<3c89);2C4Q3)*rp92Prhgo=pkr@{n7BV_Bx3Tf?N=O-)BxD=_3NSmfxAF1F
+zN>~|`B)m9qp>ZMeVTLwF9%czP1D*tl0|pI=3_t-%iL`_njfrds#{bz5gZ#FBuloJ!
+xg~q?AbD`g!SFSvs{qx27wd=j_##LBNiM#h|>)F>zoAN*LHlH}XB7l>D0RYY|i2eWo
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/main/templates/META-INF/neoforge.mods.toml b/src/main/templates/META-INF/neoforge.mods.toml
+index 2a9521a..f564b76 100644
+--- a/src/main/templates/META-INF/neoforge.mods.toml
++++ b/src/main/templates/META-INF/neoforge.mods.toml
+@@ -66,11 +66,11 @@ ordering = "AFTER"
+ side = "BOTH"
+ 
+ [[dependencies.binniecore]]
+-modId = "patchouli"
+-type = "REQUIRED"
+-versionRange = "${patchouliVersionRange}"
++modId = "ponder"
++type = "OPTIONAL"
++versionRange = "${ponderVersionRange}"
+ ordering = "AFTER"
+-side = "BOTH"
++side = "CLIENT"
+ 
+ [[dependencies.binniecore]]
+ modId = "jei"
+-- 
+2.53.0.windows.2
+

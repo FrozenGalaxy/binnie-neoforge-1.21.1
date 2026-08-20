@@ -7,9 +7,10 @@ import binnie.core.machine.MachineProcessRegistry;
 import binnie.core.registry.BinnieDataComponents;
 import binnie.genetics.data.LaboratoryChargeData;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
@@ -24,7 +25,7 @@ import snownee.jade.api.WailaPlugin;
 import snownee.jade.api.config.IPluginConfig;
 
 /**
- * Server-authoritative diagnostic information for every Binnie Genetics machine.
+ * Compact server-authoritative diagnostic information for every Binnie machine.
  * Jade is optional; this class is only discovered when Jade is installed.
  */
 @WailaPlugin
@@ -51,14 +52,11 @@ public final class GeneticsJadePlugin implements IWailaPlugin {
 
         @Override
         public void appendServerData(CompoundTag data, BlockAccessor accessor) {
-            if (!(accessor.getBlockEntity() instanceof MachineBlockEntity machine)
-                    || !machine.spec().id().getNamespace().equals("binniegenetics")) {
+            if (!(accessor.getBlockEntity() instanceof MachineBlockEntity machine)) {
                 return;
             }
 
             data.putBoolean(DATA_PREFIX + "present", true);
-            ResourceLocation process = machine.activeProcess();
-            data.putString(DATA_PREFIX + "process", process == null ? "" : process.getPath());
             data.putString(DATA_PREFIX + "state", diagnosticState(accessor, machine));
             data.putInt(DATA_PREFIX + "progress", machine.progress());
             data.putInt(DATA_PREFIX + "max_progress", machine.maxProgress());
@@ -75,25 +73,28 @@ public final class GeneticsJadePlugin implements IWailaPlugin {
             CompoundTag data = accessor.getServerData();
             if (!data.getBoolean(DATA_PREFIX + "present")) return;
 
-            String process = data.getString(DATA_PREFIX + "process");
-            tooltip.add(Component.translatable("jade.binniegenetics.machine_state"));
-            tooltip.add(Component.translatable("jade.binniegenetics.state", Component.translatable(
-                    "jade.binniegenetics." + data.getString(DATA_PREFIX + "state"), process)));
-
             int progress = data.getInt(DATA_PREFIX + "progress");
             int maxProgress = data.getInt(DATA_PREFIX + "max_progress");
+            String state = data.getString(DATA_PREFIX + "state");
+            MutableComponent summary = Component.translatable("jade.binniegenetics.compact_" + state)
+                    .withStyle(stateColor(state));
             if (maxProgress > 0) {
-                tooltip.add(Component.translatable("jade.binniegenetics.progress", progress, maxProgress,
-                        Math.min(100, progress * 100 / maxProgress)));
+                summary.append(Component.translatable("jade.binniegenetics.compact_progress",
+                        Math.min(100, progress * 100 / maxProgress)).withStyle(ChatFormatting.AQUA));
             }
-            tooltip.add(Component.translatable("jade.binniegenetics.energy", data.getInt(DATA_PREFIX + "energy"),
-                    data.getInt(DATA_PREFIX + "max_energy")));
-            appendTank(tooltip, data, "primary", "jade.binniegenetics.primary");
-            appendTank(tooltip, data, "secondary", "jade.binniegenetics.secondary");
-            appendTank(tooltip, data, "output", "jade.binniegenetics.output");
+            summary.append(Component.translatable("jade.binniegenetics.compact_energy",
+                    compact(data.getInt(DATA_PREFIX + "energy")), compact(data.getInt(DATA_PREFIX + "max_energy")))
+                    .withStyle(ChatFormatting.GOLD));
+            tooltip.add(summary);
+
+            appendTank(tooltip, data, "primary", "jade.binniegenetics.primary_short");
+            appendTank(tooltip, data, "secondary", "jade.binniegenetics.secondary_short");
+            appendTank(tooltip, data, "output", "jade.binniegenetics.output_short");
             if (data.contains(DATA_PREFIX + "reagent_charge")) {
-                tooltip.add(Component.translatable("jade.binniegenetics.reagent_charge", data.getInt(DATA_PREFIX + "reagent_charge"),
-                        data.getInt(DATA_PREFIX + "reagent_capacity"), data.getInt(DATA_PREFIX + "reagent_needed")));
+                tooltip.add(Component.translatable("jade.binniegenetics.compact_reagent",
+                        compact(data.getInt(DATA_PREFIX + "reagent_charge")),
+                        compact(data.getInt(DATA_PREFIX + "reagent_capacity")),
+                        compact(data.getInt(DATA_PREFIX + "reagent_needed"))).withStyle(ChatFormatting.LIGHT_PURPLE));
             }
         }
 
@@ -113,7 +114,6 @@ public final class GeneticsJadePlugin implements IWailaPlugin {
         private static void writeTank(CompoundTag data, String id, FluidTank tank) {
             FluidStack fluid = tank.getFluid();
             data.putString(DATA_PREFIX + id + "_fluid", fluid.isEmpty() ? "" : fluid.getHoverName().getString());
-            data.putString(DATA_PREFIX + id + "_id", fluid.isEmpty() ? "" : BuiltInRegistries.FLUID.getKey(fluid.getFluid()).toString());
             data.putInt(DATA_PREFIX + id + "_amount", tank.getFluidAmount());
             data.putInt(DATA_PREFIX + id + "_capacity", tank.getCapacity());
         }
@@ -122,12 +122,24 @@ public final class GeneticsJadePlugin implements IWailaPlugin {
             int amount = data.getInt(DATA_PREFIX + id + "_amount");
             int capacity = data.getInt(DATA_PREFIX + id + "_capacity");
             String fluid = data.getString(DATA_PREFIX + id + "_fluid");
-            if (fluid.isEmpty()) {
-                tooltip.add(Component.translatable("jade.binniegenetics.empty_tank", Component.translatable(labelKey), amount, capacity));
-            } else {
-                tooltip.add(Component.translatable("jade.binniegenetics.tank", Component.translatable(labelKey), fluid, amount, capacity));
-                tooltip.add(Component.translatable("jade.binniegenetics.fluid_id", data.getString(DATA_PREFIX + id + "_id")));
-            }
+            if (!fluid.isEmpty()) tooltip.add(Component.translatable("jade.binniegenetics.compact_tank",
+                    Component.translatable(labelKey), fluid, compact(amount), compact(capacity))
+                    .withStyle(id.equals("output") ? ChatFormatting.GREEN : ChatFormatting.BLUE));
+        }
+
+        private static ChatFormatting stateColor(String state) {
+            return switch (state) {
+                case "running" -> ChatFormatting.GREEN;
+                case "blocked", "inputs_changed" -> ChatFormatting.RED;
+                case "active" -> ChatFormatting.AQUA;
+                default -> ChatFormatting.GRAY;
+            };
+        }
+
+        private static String compact(int value) {
+            if (value >= 1_000_000 && value % 1_000_000 == 0) return value / 1_000_000 + "M";
+            if (value >= 1_000 && value % 1_000 == 0) return value / 1_000 + "k";
+            return Integer.toString(value);
         }
 
         private static void writeReagent(CompoundTag data, MachineBlockEntity machine) {

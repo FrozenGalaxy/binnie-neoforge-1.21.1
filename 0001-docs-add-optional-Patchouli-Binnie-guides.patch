@@ -1,0 +1,787 @@
+From b0d54bb6e73b7de0c7c072820f558fc820fdd867 Mon Sep 17 00:00:00 2001
+From: OpenAI <noreply@openai.com>
+Date: Thu, 13 Aug 2026 12:48:33 +0000
+Subject: [PATCH] docs: add optional Patchouli Binnie guides
+
+---
+ build.gradle                                  |  1 -
+ .../en_us/categories/binnie.json              |  6 +++
+ .../en_us/categories/binnie_bees.json         |  7 +++
+ .../en_us/categories/binnie_botany.json       |  7 +++
+ .../en_us/categories/binnie_design.json       |  7 +++
+ .../en_us/categories/binnie_genetics.json     |  7 +++
+ .../en_us/categories/binnie_trees.json        |  7 +++
+ .../binnie/bees/alveary_components.json       | 48 +++++++++++++++++++
+ .../en_us/entries/binnie/bees/extra_bees.json | 19 ++++++++
+ .../en_us/entries/binnie/botany/breeding.json | 24 ++++++++++
+ .../binnie/botany/flower_genetics.json        | 25 ++++++++++
+ .../entries/binnie/botany/soil_gardening.json | 25 ++++++++++
+ .../entries/binnie/botany/tileworker.json     | 19 ++++++++
+ .../entries/binnie/design/design_system.json  | 18 +++++++
+ .../binnie/design/glass_and_ceramic.json      | 19 ++++++++
+ .../binnie/genetics/analyser_genepool.json    | 23 +++++++++
+ .../entries/binnie/genetics/databases.json    | 24 ++++++++++
+ .../genetics/incubator_acclimatiser.json      | 23 +++++++++
+ .../binnie/genetics/inoculator_splicer.json   | 28 +++++++++++
+ .../entries/binnie/genetics/isolator.json     | 24 ++++++++++
+ .../binnie/genetics/laboratory_overview.json  | 25 ++++++++++
+ .../entries/binnie/genetics/polymeriser.json  | 24 ++++++++++
+ .../entries/binnie/genetics/sequencer.json    | 24 ++++++++++
+ .../en_us/entries/binnie/overview.json        | 18 +++++++
+ .../binnie/trees/brewing_distilling.json      | 23 +++++++++
+ .../entries/binnie/trees/extra_trees.json     | 18 +++++++
+ .../binnie/trees/fruit_processing.json        | 18 +++++++
+ .../binnie/trees/lumber_and_design.json       | 23 +++++++++
+ .../templates/META-INF/neoforge.mods.toml     |  2 +-
+ 29 files changed, 534 insertions(+), 2 deletions(-)
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_bees.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_botany.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_design.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_genetics.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_trees.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/bees/alveary_components.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/bees/extra_bees.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/breeding.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/flower_genetics.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/soil_gardening.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/tileworker.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/design/design_system.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/design/glass_and_ceramic.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/analyser_genepool.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/databases.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/incubator_acclimatiser.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/inoculator_splicer.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/isolator.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/laboratory_overview.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/polymeriser.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/sequencer.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/overview.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/brewing_distilling.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/extra_trees.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/fruit_processing.json
+ create mode 100644 src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/lumber_and_design.json
+
+diff --git a/build.gradle b/build.gradle
+index bb108a6..c72867e 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -185,7 +185,6 @@ dependencies {
+     implementation "dev.latvian.mods:rhino:${rhinoVersion}"
+     implementation "dev.latvian.mods:kubejs-neoforge:${kubejsVersion}"
+     implementation "top.theillusivec4.curios:curios-neoforge:${curiosVersion}+${minecraftVersion}"
+-    implementation "net.createmod.ponder:ponder-neoforge:${ponderVersion}+mc${minecraftVersion}"
+ 
+     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+ }
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie.json
+new file mode 100644
+index 0000000..68c1b07
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie.json
+@@ -0,0 +1,6 @@
++{
++  "name": "Binnie’s Mods",
++  "description": "(Temporary LLM text) Binnie’s Mods extends Forestry with laboratory genetics, advanced beekeeping, flower breeding, expanded trees and beverages, and decorative material systems.",
++  "icon": "binniegenetics:genetic_material",
++  "sortnum": 90
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_bees.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_bees.json
+new file mode 100644
+index 0000000..7e844c3
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_bees.json
+@@ -0,0 +1,7 @@
++{
++  "name": "Binnie’s Bees",
++  "description": "(Temporary LLM text) Additional bee species, products, frames, databases, and specialized Alveary components.",
++  "icon": "binniebees:alveary_mutator",
++  "sortnum": 1,
++  "parent": "forestry:binnie"
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_botany.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_botany.json
+new file mode 100644
+index 0000000..bfa6d2d
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_botany.json
+@@ -0,0 +1,7 @@
++{
++  "name": "Binnie Botany",
++  "description": "(Temporary LLM text) A full flower-genetics and gardening system with mutable flowers, soil chemistry, fertilisers, pigments, ceramics, and farm integration.",
++  "icon": "binniebotany:flower",
++  "sortnum": 2,
++  "parent": "forestry:binnie"
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_design.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_design.json
+new file mode 100644
+index 0000000..659f61b
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_design.json
+@@ -0,0 +1,7 @@
++{
++  "name": "Binnie Design",
++  "description": "(Temporary LLM text) Patterned wood, panel, glass, and ceramic construction systems shared by Binnie’s decorative machines.",
++  "icon": "binnietrees:woodworker",
++  "sortnum": 4,
++  "parent": "forestry:binnie"
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_genetics.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_genetics.json
+new file mode 100644
+index 0000000..19e9b84
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_genetics.json
+@@ -0,0 +1,7 @@
++{
++  "name": "Binnie Genetics",
++  "description": "(Temporary LLM text) Laboratory machinery for isolating, identifying, amplifying, applying, and recycling genetic material from Forestry-compatible organisms.",
++  "icon": "binniegenetics:isolator",
++  "sortnum": 0,
++  "parent": "forestry:binnie"
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_trees.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_trees.json
+new file mode 100644
+index 0000000..c2409dc
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/categories/binnie_trees.json
+@@ -0,0 +1,7 @@
++{
++  "name": "Binnie’s Trees",
++  "description": "(Temporary LLM text) Additional tree species, fruits, woods, beverages, and processing machinery layered on Forestry arboriculture.",
++  "icon": "binnietrees:lumbermill",
++  "sortnum": 3,
++  "parent": "forestry:binnie"
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/bees/alveary_components.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/bees/alveary_components.json
+new file mode 100644
+index 0000000..723951a
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/bees/alveary_components.json
+@@ -0,0 +1,48 @@
++{
++  "name": "Alveary Components",
++  "category": "forestry:binnie_bees",
++  "icon": "binniebees:alveary_mutator",
++  "sortnum": 1,
++  "pages": [
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) All seven Binnie Alveary components are structural replacements for Forestry Alveary blocks. Put them directly into a valid Alveary shell; they participate in the same multiblock and modify the colony hosted by it.",
++      "title": "Extending an Alveary"
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniebees:machine_alveary_mutator",
++      "text": "(Temporary LLM text) The Mutator consumes accepted mutagen items to multiply mutation chance, capped so the final mutation multiplier cannot grow without bound."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniebees:machine_alveary_frame",
++      "text": "(Temporary LLM text) The Frame Housing holds one hive frame and applies that frame’s bee modifiers to the Alveary colony. The frame wears as the colony works."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniebees:machine_alveary_rain_shield",
++      "text": "(Temporary LLM text) The Rain Shield seals the colony against rain, allowing rain-sensitive bees to continue working."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniebees:machine_alveary_lighting",
++      "text": "(Temporary LLM text) Alveary Lighting simulates sunlight for the colony, allowing normal daylight requirements to be satisfied at night."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniebees:machine_alveary_stimulator",
++      "text": "(Temporary LLM text) The Stimulator accepts a programmed Forestry circuit board carrying Binnie stimulator circuits. While supplied with FE, those circuit programs apply bee modifiers much like specialized powered frames."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniebees:machine_alveary_hatchery",
++      "text": "(Temporary LLM text) The Hatchery periodically creates larvae from the current queen while the Alveary is operating normally. It has internal slots for the larvae it collects."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniebees:machine_alveary_transmission",
++      "text": "(Temporary LLM text) The Transmission accepts FE and distributes it among energy-using components in the same Alveary, including Binnie’s Stimulator and compatible Forestry components such as powered climate controls."
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/bees/extra_bees.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/bees/extra_bees.json
+new file mode 100644
+index 0000000..2a7f5a2
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/bees/extra_bees.json
+@@ -0,0 +1,19 @@
++{
++  "name": "Expanded Apiculture",
++  "category": "forestry:binnie_bees",
++  "icon": "binniebees:honey_comb",
++  "sortnum": 0,
++  "pages": [
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Binnie’s Bees adds a large set of Forestry-compatible bee species, branches, products, effects, frames, and hive content. These species participate in Forestry’s normal genome, mutation, housing, production, and analysis systems instead of using a separate breeding engine.",
++      "title": "Forestry-compatible bees"
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniebees:bee_database",
++      "text": "(Temporary LLM text) The Apiarist-style Binnie database records discovered bee species and genes. Use it alongside Forestry’s Analyzer and the Binnie Genetics laboratory when a breeding program becomes too large to track by memory.",
++      "title": "Databases"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/breeding.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/breeding.json
+new file mode 100644
+index 0000000..5d25c59
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/breeding.json
+@@ -0,0 +1,24 @@
++{
++  "name": "Breeding Flowers",
++  "category": "forestry:binnie_botany",
++  "icon": "binniebotany:pollen",
++  "sortnum": 2,
++  "pages": [
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Place mature genetic flowers on appropriate Botany soil and use pollen from another flower to create a controlled cross. Offspring can inherit active and inactive alleles from both parents, and registered mutation pairs can produce a new species.",
++      "title": "Controlled crosses"
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Mutation chance and colour inheritance are separate concerns. A successful species mutation may still carry unexpected colour or trait alleles, so analyse promising offspring before using them as the foundation of a longer breeding chain.",
++      "title": "Selecting offspring"
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniebotany:botanist_database",
++      "text": "(Temporary LLM text) The Botanist Database is the natural companion to a breeding garden. It records discovered flower species and provides a durable reference as the number of possible crosses grows.",
++      "title": "Track discoveries"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/flower_genetics.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/flower_genetics.json
+new file mode 100644
+index 0000000..081fbd7
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/flower_genetics.json
+@@ -0,0 +1,25 @@
++{
++  "name": "Flower Genetics",
++  "category": "forestry:binnie_botany",
++  "icon": "binniebotany:flower",
++  "sortnum": 0,
++  "pages": [
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniebotany:flower",
++      "text": "(Temporary LLM text) Botany flowers are true genetic organisms. A flower carries species and trait chromosomes, can be analysed, can produce pollen and seeds, and can create offspring whose genome reflects the parents and mutation rules.",
++      "title": "Genetic flowers"
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniebotany:pollen",
++      "text": "(Temporary LLM text) Pollen carries genetic information from its source flower. Pollination combines parental genetics and is the main route to deliberate flower breeding and mutation discovery.",
++      "title": "Pollen and breeding"
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Flowers have substantially more state than a decorative vanilla flower: generation, age, flowering and wilting state, colour genetics, fertility, and other chromosomes all matter. Use the field and database tools rather than judging a plant only by its visible colour.",
++      "title": "Reading a flower"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/soil_gardening.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/soil_gardening.json
+new file mode 100644
+index 0000000..e2054fb
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/soil_gardening.json
+@@ -0,0 +1,25 @@
++{
++  "name": "Soil & Gardening",
++  "category": "forestry:binnie_botany",
++  "icon": "binniebotany:soil_meter",
++  "sortnum": 1,
++  "pages": [
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniebotany:soil_meter",
++      "text": "(Temporary LLM text) The Soil Meter reports moisture, pH, fertility, and weedkiller state for Botany soil. These properties affect which garden conditions are being maintained and can be changed with gardening reagents.",
++      "title": "Inspecting soil"
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniebotany:fertiliser",
++      "text": "(Temporary LLM text) Nutrient fertilisers improve soil quality, acidic treatments move pH toward acidic, alkaline treatments move pH toward alkaline, and Weedkiller prevents weed growth on treated soil.",
++      "title": "Changing soil"
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Soil, Loam, and Flowerbed are related but distinct quality families. Moisture and acidity are independent properties, so a visually similar plot can still be unsuitable for the breeding setup you intended.",
++      "title": "Soil state"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/tileworker.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/tileworker.json
+new file mode 100644
+index 0000000..531b81c
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/botany/tileworker.json
+@@ -0,0 +1,19 @@
++{
++  "name": "Tileworker & Pigments",
++  "category": "forestry:binnie_botany",
++  "icon": "binniebotany:tileworker",
++  "sortnum": 3,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniebotany:machine_tileworker",
++      "text": "(Temporary LLM text) The Tileworker is a manual design machine for patterned ceramic tiles. It uses fired ceramic colours and Mortar, with the chosen design determining the preview and result."
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniebotany:pigment",
++      "text": "(Temporary LLM text) Mature flowers can provide colour-linked pigment materials. Botany’s colour system feeds decorative ceramic and glass production rather than ending at the flower itself.",
++      "title": "Flower colours into building materials"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/design/design_system.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/design/design_system.json
+new file mode 100644
+index 0000000..9490a85
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/design/design_system.json
+@@ -0,0 +1,18 @@
++{
++  "name": "The Design System",
++  "category": "forestry:binnie_design",
++  "icon": "binnietrees:woodworker",
++  "sortnum": 0,
++  "pages": [
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Binnie Design separates the visible pattern from the materials used to build it. A large shared design catalogue can therefore be reused across wood tiles, panels, patterned glass, and ceramic products.",
++      "title": "Pattern plus material"
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) The manual design machines show a preview and let the player choose a design before crafting. This is intentionally different from a normal one-recipe-per-shape crafting table: the selected catalogue design is part of the machine state.",
++      "title": "Manual selection"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/design/glass_and_ceramic.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/design/glass_and_ceramic.json
+new file mode 100644
+index 0000000..c814353
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/design/glass_and_ceramic.json
+@@ -0,0 +1,19 @@
++{
++  "name": "Glass & Ceramic Design",
++  "category": "forestry:binnie_design",
++  "icon": "binnietrees:glassworker",
++  "sortnum": 1,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binnietrees:machine_glassworker",
++      "text": "(Temporary LLM text) The Glassworker produces patterned stained glass using the shared Binnie design catalogue."
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniebotany:ceramic_tile",
++      "text": "(Temporary LLM text) Botany’s ceramic tiles use the same design infrastructure for coloured ceramic materials, linking flower pigments and fired ceramics back into the broader Binnie construction system.",
++      "title": "Shared designs"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/analyser_genepool.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/analyser_genepool.json
+new file mode 100644
+index 0000000..97119ba
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/analyser_genepool.json
+@@ -0,0 +1,23 @@
++{
++  "name": "Analyser & Genepool",
++  "category": "forestry:binnie_genetics",
++  "icon": "binniegenetics:analyser",
++  "sortnum": 5,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniegenetics:machine_analyser",
++      "text": "(Temporary LLM text) The Analyser reveals hidden genetic information in compatible organisms and genetic sequences. It requires charged DNA Dye and an owning player so discoveries can be recorded."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniegenetics:machine_genepool",
++      "text": "(Temporary LLM text) The Genepool destroys a compatible organism to recover Raw DNA. It consumes ethanol and charged Enzyme, trading the individual itself for laboratory feedstock."
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) These two machines serve opposite purposes: analyse specimens that matter, and send surplus or unwanted individuals to the Genepool when more Raw DNA is more useful than the organism.",
++      "title": "Laboratory support"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/databases.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/databases.json
+new file mode 100644
+index 0000000..96ee2f6
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/databases.json
+@@ -0,0 +1,24 @@
++{
++  "name": "Genetic Databases",
++  "category": "forestry:binnie_genetics",
++  "icon": "binniegenetics:laboratory_machine",
++  "sortnum": 7,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniegenetics:machine_laboratory_machine",
++      "text": "(Temporary LLM text) The Laboratory Machine acts as a database stand. Place a compatible Apiarist, Arborist, Botanist, or Gene Database on the stand to make the database available from the placed block."
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniegenetics:laboratory_machine",
++      "text": "(Temporary LLM text) Right-click a placed stand with a compatible database to mount it. Right-click the stand to open the mounted database; sneak-right-click removes it.",
++      "title": "Using the stand"
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Normal databases track discoveries made during play. Master database variants expose complete reference knowledge and are primarily useful when unrestricted browsing is desired.",
++      "title": "Knowledge versus reference"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/incubator_acclimatiser.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/incubator_acclimatiser.json
+new file mode 100644
+index 0000000..de9dbbd
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/incubator_acclimatiser.json
+@@ -0,0 +1,23 @@
++{
++  "name": "Incubator & Acclimatiser",
++  "category": "forestry:binnie_genetics",
++  "icon": "binniegenetics:incubator",
++  "sortnum": 6,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniegenetics:machine_incubator",
++      "text": "(Temporary LLM text) The Incubator runs bacterial culture recipes that combine items with fluids. Unlike the normal timed laboratory machines, it progresses its culture continuously while the required inputs and output space remain available."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniegenetics:machine_acclimatiser",
++      "text": "(Temporary LLM text) The Acclimatiser modifies an individual’s temperature and humidity tolerances by consuming suitable acclimatising reagents."
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Acclimatisation changes genetic tolerance; it does not change the current biome or climate. The machine selects valid tolerance changes from the target genome and the reagents supplied to its acclimatising slots.",
++      "title": "Tolerance changes"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/inoculator_splicer.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/inoculator_splicer.json
+new file mode 100644
+index 0000000..0e51e95
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/inoculator_splicer.json
+@@ -0,0 +1,28 @@
++{
++  "name": "Inoculator & Splicer",
++  "category": "forestry:binnie_genetics",
++  "icon": "binniegenetics:inoculator",
++  "sortnum": 4,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniegenetics:machine_inoculator",
++      "text": "(Temporary LLM text) The Inoculator applies serum genes to a compatible individual. It is slow, consumes Bacteria Vector, and is designed as the reliable application route."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniegenetics:machine_splicer",
++      "text": "(Temporary LLM text) The Splicer applies a Serum Array much faster, but at an exceptionally high energy cost."
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) The serum must belong to the same genetic species type as the target and must still have charges remaining. Genes that would make no change are rejected instead of silently wasting a serum charge.",
++      "title": "Compatibility"
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Use the Inoculator when energy is limited or only one/few genes are being changed. Use the Splicer when a prepared multi-gene Serum Array is worth the enormous power demand.",
++      "title": "Choosing a machine"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/isolator.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/isolator.json
+new file mode 100644
+index 0000000..4ce991e
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/isolator.json
+@@ -0,0 +1,24 @@
++{
++  "name": "Isolator",
++  "category": "forestry:binnie_genetics",
++  "icon": "binniegenetics:isolator",
++  "sortnum": 1,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniegenetics:machine_isolator",
++      "text": "(Temporary LLM text) The Isolator begins the manipulation pipeline by sampling one random chromosome allele from a compatible genetic individual."
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniegenetics:isolator",
++      "text": "(Temporary LLM text) Provide a genetic individual, an Empty Sequencer, charged Enzyme, and ethanol. The machine writes one sampled active or inactive allele into an unsequenced genetic sequence. Sampling is random, so repeated isolation may be needed for a particular gene.",
++      "title": "Operation"
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) The sampled sequence still has to be identified by a Sequencer. Isolation may occasionally consume the source individual, so valuable breeding stock should not be treated as expendable laboratory feedstock.",
++      "title": "After isolation"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/laboratory_overview.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/laboratory_overview.json
+new file mode 100644
+index 0000000..6b3a63e
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/laboratory_overview.json
+@@ -0,0 +1,25 @@
++{
++  "name": "Genetics Laboratory",
++  "category": "forestry:binnie_genetics",
++  "icon": "binniegenetics:isolator",
++  "sortnum": 0,
++  "pages": [
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) The core workflow is: isolate an allele from an organism, sequence the isolated material, turn known genes into charged serum material, and apply those genes to another compatible organism. The Analyser and Genepool support the same laboratory by revealing genomes and producing Raw DNA.",
++      "title": "Laboratory workflow"
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniegenetics:empty_sequencer",
++      "text": "(Temporary LLM text) An Empty Sequencer is consumed by the Isolator when it captures a sampled allele. The resulting genetic material is not useful for gene application until it has been sequenced.",
++      "title": "Sequence vials"
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniegenetics:enzyme",
++      "text": "(Temporary LLM text) Laboratory reagents carry charges and are consumed gradually by compatible machines. The Isolator and Genepool use Enzyme; the Sequencer uses Fluorescent Dye; and the Analyser uses DNA Dye.",
++      "title": "Charged reagents"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/polymeriser.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/polymeriser.json
+new file mode 100644
+index 0000000..bcb2a71
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/polymeriser.json
+@@ -0,0 +1,24 @@
++{
++  "name": "Polymeriser",
++  "category": "forestry:binnie_genetics",
++  "icon": "binniegenetics:polymeriser",
++  "sortnum": 3,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniegenetics:machine_polymeriser",
++      "text": "(Temporary LLM text) The Polymeriser increases the number of usable charges on serum material."
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniegenetics:polymeriser",
++      "text": "(Temporary LLM text) A serum or serum array can be charged up to sixteen uses. Polymerisation consumes Raw DNA and polymerising bacteria. A charged Gold Nugget may be supplied as a catalyst to accelerate the operation substantially.",
++      "title": "Charging serums"
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Serum arrays contain multiple genes, so processing time scales with the number of genes they carry. Keep Raw DNA production running if the laboratory is expected to support frequent inoculation or splicing.",
++      "title": "Planning capacity"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/sequencer.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/sequencer.json
+new file mode 100644
+index 0000000..0a46ff8
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/genetics/sequencer.json
+@@ -0,0 +1,24 @@
++{
++  "name": "Sequencer",
++  "category": "forestry:binnie_genetics",
++  "icon": "binniegenetics:sequencer",
++  "sortnum": 2,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binniegenetics:machine_sequencer",
++      "text": "(Temporary LLM text) The Sequencer identifies the allele carried by an unsequenced genetic sequence."
++    },
++    {
++      "type": "patchouli:spotlight",
++      "item": "binniegenetics:sequencer",
++      "text": "(Temporary LLM text) Insert an unsequenced genetic sequence and charged Fluorescent Dye. Sequencing is deliberately slow and stores its progress on the sequence itself, allowing partially processed material to retain progress if it is removed.",
++      "title": "Operation"
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) When sequencing completes, the discovered gene is recorded for the machine owner. Discovered genetic knowledge is used by Binnie’s database interfaces and makes the laboratory progressively easier to navigate.",
++      "title": "Genetic knowledge"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/overview.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/overview.json
+new file mode 100644
+index 0000000..6bdae15
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/overview.json
+@@ -0,0 +1,18 @@
++{
++  "name": "Binnie’s Mods",
++  "category": "forestry:binnie",
++  "icon": "binniegenetics:genetic_material",
++  "sortnum": 0,
++  "pages": [
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Binnie’s Mods is split into several closely related modules. Genetics adds the laboratory pipeline; Binnie’s Bees and Trees greatly broaden Forestry breeding; Botany adds its own flower genetics; and the Design system turns woods, glass, and ceramics into patterned building materials.",
++      "title": "What Binnie adds"
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Most processing recipes remain visible in JEI, but the systems themselves are connected. The laboratory can work with multiple Forestry genetic types, while the databases record discoveries and the Alveary components extend an existing Forestry Alveary rather than replacing it.",
++      "title": "How to use this section"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/brewing_distilling.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/brewing_distilling.json
+new file mode 100644
+index 0000000..eafc180
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/brewing_distilling.json
+@@ -0,0 +1,23 @@
++{
++  "name": "Brewing & Distilling",
++  "category": "forestry:binnie_trees",
++  "icon": "binnietrees:brewery",
++  "sortnum": 3,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binnietrees:machine_brewery",
++      "text": "(Temporary LLM text) The Brewery ferments compatible juices or other fermentable liquids with valid grains, ingredients, and yeasts into beers, wines, and related alcohols."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binnietrees:machine_distillery",
++      "text": "(Temporary LLM text) The Distillery processes supported alcohols into spirits. Some recipes support additional distillation passes, producing progressively different distilled results."
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) JEI is the best place to inspect the exact liquid, yeast, grain, and pass combinations. The important progression is fruit or fermentable input → Brewery → fermented alcohol → Distillery when that alcohol has a distillation route.",
++      "title": "Reading the beverage chain"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/extra_trees.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/extra_trees.json
+new file mode 100644
+index 0000000..42cf78c
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/extra_trees.json
+@@ -0,0 +1,18 @@
++{
++  "name": "Expanded Arboriculture",
++  "category": "forestry:binnie_trees",
++  "icon": "binnietrees:lumbermill",
++  "sortnum": 0,
++  "pages": [
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Binnie’s Trees adds Forestry-compatible tree species, wood identities, fruits, and mutations. The added trees use Forestry’s genome and breeding systems, then feed Binnie’s own lumber, fruit, beverage, and design machines.",
++      "title": "Beyond Forestry trees"
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) A successful tree breeding program therefore has two payoffs: new genetics and new processing materials. Logs can become species-specific planks and design materials, while fruit can become juice and then fermented or distilled beverages.",
++      "title": "From breeding to industry"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/fruit_processing.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/fruit_processing.json
+new file mode 100644
+index 0000000..150a510
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/fruit_processing.json
+@@ -0,0 +1,18 @@
++{
++  "name": "Fruit & Juice",
++  "category": "forestry:binnie_trees",
++  "icon": "binnietrees:press",
++  "sortnum": 2,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binnietrees:machine_press",
++      "text": "(Temporary LLM text) The Fruit Press squeezes supported fruits into juice. It can run from FE or be operated manually by right-clicking the machine."
++    },
++    {
++      "type": "patchouli:text",
++      "text": "(Temporary LLM text) Juice is not only a drink output. Many juices are inputs to the Brewery, so fruit production can be treated as the first stage of a larger beverage-processing chain.",
++      "title": "Why press fruit"
++    }
++  ]
++}
+diff --git a/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/lumber_and_design.json b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/lumber_and_design.json
+new file mode 100644
+index 0000000..879cdf1
+--- /dev/null
++++ b/src/main/resources/assets/forestry/patchouli_books/foresters_manual/en_us/entries/binnie/trees/lumber_and_design.json
+@@ -0,0 +1,23 @@
++{
++  "name": "Lumber Processing",
++  "category": "forestry:binnie_trees",
++  "icon": "binnietrees:lumbermill",
++  "sortnum": 1,
++  "pages": [
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binnietrees:machine_lumbermill",
++      "text": "(Temporary LLM text) The Lumbermill converts logs into planks at an improved yield and can also produce bark and sawdust byproducts."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binnietrees:machine_woodworker",
++      "text": "(Temporary LLM text) The Woodworker combines two wood species with a selected design to make patterned wooden tiles."
++    },
++    {
++      "type": "patchouli:crafting",
++      "recipe": "binnietrees:machine_panelworker",
++      "text": "(Temporary LLM text) The Panelworker uses the same two-material design idea to make patterned wooden panels."
++    }
++  ]
++}
+diff --git a/src/main/templates/META-INF/neoforge.mods.toml b/src/main/templates/META-INF/neoforge.mods.toml
+index 2a9521a..276512b 100644
+--- a/src/main/templates/META-INF/neoforge.mods.toml
++++ b/src/main/templates/META-INF/neoforge.mods.toml
+@@ -67,7 +67,7 @@ side = "BOTH"
+ 
+ [[dependencies.binniecore]]
+ modId = "patchouli"
+-type = "REQUIRED"
++type = "OPTIONAL"
+ versionRange = "${patchouliVersionRange}"
+ ordering = "AFTER"
+ side = "BOTH"
+-- 
+2.53.0.windows.2
+

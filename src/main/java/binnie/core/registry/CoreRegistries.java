@@ -3,6 +3,9 @@ package binnie.core.registry;
 import binnie.core.BinnieCore;
 import binnie.core.menu.FieldKitMenu;
 import binnie.core.menu.GenesisMenu;
+import binnie.core.ponder.PonderFluidPipeBlock;
+import binnie.core.ponder.PonderFluidPipeBlockEntity;
+import binnie.core.ponder.PonderFluidSourceBlock;
 import binnie.core.storage.CompartmentBlock;
 import binnie.core.storage.CompartmentBlockEntity;
 import binnie.core.storage.CompartmentBlockItem;
@@ -31,6 +34,18 @@ public final class CoreRegistries {
 
     public static final DeferredBlock<CompartmentBlock> COMPARTMENT_BLOCK = BLOCKS.register("compartment", () ->
             new CompartmentBlock(BlockBehaviour.Properties.of().strength(2.5F).sound(SoundType.WOOD)));
+    /** Ponder-only scenery: intentionally has no BlockItem and no recipe. */
+    public static final DeferredBlock<PonderFluidPipeBlock> PONDER_FLUID_PIPE = BLOCKS.register("ponder_fluid_pipe", () ->
+            new PonderFluidPipeBlock(BlockBehaviour.Properties.of().strength(-1.0F, 3_600_000.0F)
+                    .noLootTable().noOcclusion().sound(SoundType.GLASS)));
+    /** Ponder-only non-spreading fluid source; intentionally has no BlockItem or recipe. */
+    public static final DeferredBlock<PonderFluidSourceBlock> PONDER_FLUID_SOURCE = BLOCKS.register("ponder_fluid_source", () ->
+            new PonderFluidSourceBlock(BlockBehaviour.Properties.of().strength(-1.0F, 3_600_000.0F)
+                    .noLootTable().noOcclusion().sound(SoundType.GLASS)));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PonderFluidPipeBlockEntity>> PONDER_FLUID_PIPE_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("ponder_fluid_pipe", () -> BlockEntityType.Builder.of(
+                    PonderFluidPipeBlockEntity::new,
+                    PONDER_FLUID_PIPE.get(), PONDER_FLUID_SOURCE.get()).build(null));
     public static final DeferredItem<CompartmentBlockItem> COMPARTMENT_ITEM = ITEMS.registerItem("compartment", properties ->
             new CompartmentBlockItem(COMPARTMENT_BLOCK.get(), properties));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CompartmentBlockEntity>> COMPARTMENT_BLOCK_ENTITY =

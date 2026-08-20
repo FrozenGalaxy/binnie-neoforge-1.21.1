@@ -6,16 +6,25 @@ import binnie.bees.item.HiveFrameItem;
 import binnie.core.registry.ModuleRegistry;
 import binnie.genetics.item.GeneticKnowledgeItem;
 import binnie.genetics.menu.GeneticKnowledgeMenu;
+import binnie.trees.forestry.LegacyHeightMutationCondition;
+import forestry.api.ForestryRegistries;
 import forestry.api.core.genetics.ForestrySpeciesTypes;
+import forestry.api.core.genetics.MutationConditionType;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public final class BinnieBeesContent {
     public static final ModuleRegistry CONTENT = new ModuleRegistry("binniebees");
+    private static final DeferredRegister<MutationConditionType<?>> MUTATION_CONDITION_TYPES =
+        DeferredRegister.create(ForestryRegistries.Keys.MUTATION_CONDITION_TYPE, "binnietrees");
+    public static final DeferredHolder<MutationConditionType<?>, MutationConditionType<LegacyHeightMutationCondition>> HEIGHT_MUTATION_CONDITION =
+        MUTATION_CONDITION_TYPES.register("height", () -> LegacyHeightMutationCondition.TYPE);
     public static final DeferredItem<VariantItem> BEE_SPECIES = CONTENT.variantsHidden("bee_species", "binniebees.bee_species", binnie.core.catalog.LegacyCatalogs.values("binniebees.bee_species"));
     public static final DeferredItem<VariantItem> BEE_EFFECT = CONTENT.variantsHidden("bee_effect", "binniebees.bee_effect", binnie.core.catalog.LegacyCatalogs.values("binniebees.bee_effect"));
     public static final DeferredItem<VariantItem> HONEY_COMB = CONTENT.variants("honey_comb", "binniebees.honey_comb", binnie.core.catalog.LegacyCatalogs.values("binniebees.honey_comb"));
@@ -72,5 +81,6 @@ public final class BinnieBeesContent {
             for (var type : binnie.bees.block.AlvearyPartType.values()) output.accept(BinnieBeesWorldContent.alveary(type).get().asItem());
         });
         CONTENT.register(bus, "itemGroup.binniebees");
+        MUTATION_CONDITION_TYPES.register(bus);
     }
 }

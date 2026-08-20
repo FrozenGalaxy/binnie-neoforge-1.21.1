@@ -168,8 +168,6 @@ dependencies {
         localRuntime "mezz.jei:jei-${minecraftVersion}-neoforge:${jeiVersion}"
     }
 
-    compileOnly "vazkii.patchouli:Patchouli:${patchouliVersion}-NEOFORGE:api"
-    localRuntime "vazkii.patchouli:Patchouli:${patchouliVersion}-NEOFORGE"
     // Development runtime aid only; Binnie has no Mekanism API dependency.
     if (!skipOptionalDevRuntime) {
         localRuntime "mekanism:Mekanism:${mekanismVersion}:all"
@@ -185,7 +183,25 @@ dependencies {
     implementation "dev.latvian.mods:rhino:${rhinoVersion}"
     implementation "dev.latvian.mods:kubejs-neoforge:${kubejsVersion}"
     implementation "top.theillusivec4.curios:curios-neoforge:${curiosVersion}+${minecraftVersion}"
-    implementation "net.createmod.ponder:ponder-neoforge:${ponderVersion}+mc${minecraftVersion}"
+    // Forestry requires Patchouli at runtime; keep it on the dev run without making it a Binnie dependency.
+    localRuntime "vazkii.patchouli:Patchouli:${patchouliVersion}-NEOFORGE"
+
+    // Match Create's 1.21.1 distribution model: Ponder is a separate library,
+    // but is embedded so Binnie users do not have to install it manually.
+    // The integration itself remains guarded and the metadata dependency optional.
+    jarJar(api("net.createmod.ponder:Ponder-NeoForge-${minecraftVersion}:${ponderVersion}") {
+        version {
+            strictly "${ponderVersionRange}"
+            prefer ponderVersion
+        }
+    })
+    compileOnlyApi "dev.engine-room.flywheel:flywheel-neoforge-api-${minecraftVersion}:${flywheelVersion}"
+    jarJar(runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraftVersion}:${flywheelVersion}") {
+        version {
+            strictly "${flywheelVersionRange}"
+            prefer flywheelVersion
+        }
+    })
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
 }
@@ -207,6 +223,7 @@ sourceSets.main.resources {
                 fmlVersionRange: fmlVersionRange,
                 forestryVersion: forestryVersion,
                 patchouliVersionRange: patchouliVersionRange,
+                ponderVersionRange: ponderVersionRange,
                 jeiVersionRange: jeiVersionRange
         ]
         inputs.properties replaceProperties
