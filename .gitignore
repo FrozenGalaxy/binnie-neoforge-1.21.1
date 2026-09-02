@@ -3,6 +3,7 @@
 build/
 repo/
 **/src/generated/**/.cache/
+internal_docs/
 
 ### Development runs ###
 run/
