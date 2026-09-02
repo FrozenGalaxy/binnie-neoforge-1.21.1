@@ -53,12 +53,11 @@ public final class BinnieBeesAlvearyBlock extends Block implements EntityBlock {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!partType.hasGui()) return InteractionResult.PASS;
-        if (!level.isClientSide && player instanceof ServerPlayer serverPlayer
-                && level.getBlockEntity(pos) instanceof BinnieBeesAlvearyBlockEntity alveary) {
-            serverPlayer.openMenu(alveary, buffer -> {
-                buffer.writeBlockPos(pos);
-                buffer.writeUtf(alveary.ownerName());
-            });
+        if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
+            BlockEntity be = level.getBlockEntity(pos);
+            if (be instanceof BinnieBeesAlvearyBlockEntity alveary) {
+                alveary.openGui(serverPlayer, pos);
+            }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }

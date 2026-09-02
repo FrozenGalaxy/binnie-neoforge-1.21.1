@@ -2,7 +2,7 @@ package binnie.trees.forestry;
 
 import forestry.api.arboriculture.ITreeGenData;
 import forestry.api.core.genetics.IGenome;
-import forestry.arboriculture.worldgen.FeatureTree;
+import forestry.arboriculture.worldgen.ForestryTreeFeature;
 import forestry.arboriculture.worldgen.TreeBlockTypeLeaf;
 import forestry.arboriculture.worldgen.TreeContour;
 import forestry.arboriculture.worldgen.FeatureHelper;
@@ -21,7 +21,7 @@ import java.util.Set;
   * token-to-profile table keeps their distinct height/canopy families without silently routing unknown trees to
   * vanilla oak generation.</p>
   */
-public final class LegacyTreeFeature extends FeatureTree {
+public final class LegacyTreeFeature extends ForestryTreeFeature {
     private static final Map<String, GeneratorProfile> PROFILES = createProfiles();
 
     private final GeneratorProfile profile;

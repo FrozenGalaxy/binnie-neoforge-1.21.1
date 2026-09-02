@@ -2,7 +2,7 @@ package binnie.trees.registry;
 
 import forestry.api.arboriculture.IWoodType;
 import forestry.api.arboriculture.WoodBlockKind;
-import forestry.arboriculture.wood.BlockForestryLog;
+import forestry.arboriculture.wood.ForestryLogBlock;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -14,7 +14,7 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 /** Forestry-compatible Binnie's Trees log/wood block with an explicit axe-stripping target. */
-final class BinnieTreeLogBlock extends BlockForestryLog {
+final class BinnieTreeLogBlock extends ForestryLogBlock {
     @Nullable
     private final Supplier<? extends Block> strippedTarget;
 

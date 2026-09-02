@@ -7,9 +7,8 @@ import forestry.api.arboriculture.IWoodType;
 import forestry.api.arboriculture.WoodBlockKind;
 import forestry.api.core.genetics.IGenome;
 import forestry.api.core.genetics.alleles.TreeChromosomes;
-import forestry.arboriculture.features.ArboricultureBlocks;
+import forestry.arboriculture.leaves.LeavesBlockEntity;
 import forestry.arboriculture.trees.genetics.Tree;
-import forestry.arboriculture.leaves.TileLeaves;
 import forestry.core.platform.tile.TileUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -56,7 +55,7 @@ public final class LegacyTreeGenerator implements ITreeGenerator {
     }
 
     public static boolean placeGeneticLeaves(IGenome genome, LevelAccessor level, BlockPos pos) {
-        BlockState leaves = ArboricultureBlocks.LEAVES.defaultState();
+        BlockState leaves = forestry.arboriculture.features.ArboricultureBlocks.LEAVES.defaultState();
         int distance = 7;
         for (Direction direction : Direction.values()) {
             BlockState neighbor = level.getBlockState(pos.relative(direction));
@@ -78,7 +77,7 @@ public final class LegacyTreeGenerator implements ITreeGenerator {
             return false;
         }
 
-        TileLeaves tileLeaves = TileUtil.getTile(level, pos, TileLeaves.class);
+        LeavesBlockEntity tileLeaves = TileUtil.getTile(level, pos, LeavesBlockEntity.class);
         if (tileLeaves == null) {
             level.setBlock(pos, Blocks.AIR.defaultBlockState(), 19);
             return false;

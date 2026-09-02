@@ -7,7 +7,7 @@ import binnie.trees.registry.BinnieTreesContent;
 import binnie.trees.item.GlasswareItem;
 import binnie.trees.forestry.LegacyTreeCatalog;
 import forestry.api.core.genetics.capability.IIndividualHandlerItem;
-import forestry.core.platform.item.IColoredItem;
+import forestry.core.platform.item.ITintedItem;
 import forestry.core.platform.util.SpeciesUtil;
 import forestry.arboriculture.features.ArboricultureItems;
 import net.neoforged.bus.api.EventPriority;
@@ -58,7 +58,7 @@ public final class BinnieTreesColorEvents {
                     };
                 }
             }
-            return stack.getItem() instanceof IColoredItem colored
+            return stack.getItem() instanceof ITintedItem colored
                     ? 0xFF000000 | colored.getColorFromItemStack(stack, tint)
                     : 0xFFFFFFFF;
         }, ArboricultureItems.TREE_SAPLING.item());

@@ -14,7 +14,7 @@ import forestry.api.apiculture.genetics.BeeLifeStage;
 import forestry.api.core.IProduct;
 import forestry.api.core.machines.ICentrifugeRecipe;
 import forestry.api.core.machines.ISqueezerRecipe;
-import forestry.apiculture.bees.InventoryBeeHousing;
+import forestry.apiculture.bees.BeeHousingInventory;
 import forestry.core.engine.genetics.ItemGE;
 import forestry.core.platform.util.SpeciesUtil;
 import forestry.core.content.machines.features.FactoryRecipeTypes;
@@ -263,10 +263,10 @@ public final class BinnieBeesGameTests {
                     owner + " produced an unknown comb variant " + expected.value());
             observed.add(expected.value());
 
-            InventoryBeeHousing inventory = new InventoryBeeHousing(9);
+            BeeHousingInventory inventory = new BeeHousingInventory(9);
             helper.assertTrue(inventory.addProduct(produced.copy(), true),
                     owner + " comb could not enter a Forestry bee housing output");
-            ItemStack stored = inventory.getItem(InventoryBeeHousing.SLOT_PRODUCT_1);
+            ItemStack stored = inventory.getItem(BeeHousingInventory.SLOT_PRODUCT_1);
             helper.assertTrue(ItemStack.isSameItemSameComponents(produced, stored),
                     owner + " comb lost its variant during Forestry inventory insertion: "
                             + expected + " -> " + stored.get(BinnieDataComponents.VARIANT));

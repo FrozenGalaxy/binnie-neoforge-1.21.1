@@ -173,11 +173,9 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
 
     @Override
     public void registerFarming(IFarmingRegistration farming) {
-    // The 1.12 gardening powders are the canonical fertilizer inputs. Keep the
-    // three early-port aliases registered too so existing worlds remain compatible.
-        farming.registerFertilizer(BotanyContent.POWDER_FERTILISER.get(), 500);
-        farming.registerFertilizer(BotanyContent.POWDER_COMPOST.get(), 500);
-        farming.registerFertilizer(BotanyContent.FERTILISER.get(), 500);
+    // ForestryCE 1.21.1 replaced IFarmingRegistration.registerFertilizer with the DataMaps API.
+    // Fertilizers are now registered via datapack JSON or a DataMapProvider.
+    // The three Binnie's Botany fertilizer aliases are provided through the data generator instead.
         BotanyFlowerFarmable farmable = new BotanyFlowerFarmable();
         for (BotanyFarmVariants.Variant variant : BotanyFarmVariants.all()) {
             var soilState = BotanyWorldContent.FLOWERBED.get().defaultBlockState()

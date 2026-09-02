@@ -2,7 +2,7 @@ package binnie.botany.farming;
 
 import binnie.botany.api.genetics.SoilAcidity;
 import binnie.botany.api.genetics.SoilMoisture;
-import forestry.agriculture.multifarm.circuits.CircuitFarmLogic;
+import forestry.agriculture.multifarm.circuits.MultifarmCircuit;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.List;
 
 /** The original Botany garden circuit, including its compact tube-tooltip line. */
-public final class BotanyGardenCircuit extends CircuitFarmLogic {
+public final class BotanyGardenCircuit extends MultifarmCircuit {
     private final BotanyFarmVariants.Variant variant;
 
     public BotanyGardenCircuit(String id, ResourceLocation farmType, BotanyFarmVariants.Variant variant) {

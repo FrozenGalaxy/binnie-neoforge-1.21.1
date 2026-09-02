@@ -5,11 +5,11 @@ import binnie.trees.wood.BinnieTreeWoodType;
 import forestry.api.arboriculture.WoodBlockKind;
 import forestry.api.plugin.IArboricultureRegistration;
 import forestry.arboriculture.wood.WoodAccess;
-import forestry.arboriculture.wood.BlockForestryFence;
-import forestry.arboriculture.wood.BlockForestryFenceGate;
-import forestry.arboriculture.wood.BlockForestryPlank;
-import forestry.arboriculture.wood.BlockForestrySlab;
-import forestry.arboriculture.wood.BlockForestryStairs;
+import forestry.arboriculture.wood.ForestryFenceBlock;
+import forestry.arboriculture.wood.ForestryFenceGateBlock;
+import forestry.arboriculture.wood.ForestryPlanksBlock;
+import forestry.arboriculture.wood.ForestrySlabBlock;
+import forestry.arboriculture.wood.ForestryStairsBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -65,26 +65,26 @@ public final class BinnieTreeWoodContent {
         DeferredBlock<RotatedPillarBlock> fireproofWood = pillar(type, id + "_fireproof_wood", true,
                 WoodBlockKind.WOOD, fireproofStrippedWood::get);
 
-        DeferredBlock<BlockForestryPlank> planks = BLOCKS.register(id + "_planks",
-                () -> new BlockForestryPlank(false, type));
-        DeferredBlock<BlockForestryPlank> fireproofPlanks = BLOCKS.register(id + "_fireproof_planks",
-                () -> new BlockForestryPlank(true, type));
-        DeferredBlock<BlockForestrySlab> slab = BLOCKS.register(id + "_slab",
-                () -> new BlockForestrySlab(planks.get()));
-        DeferredBlock<BlockForestrySlab> fireproofSlab = BLOCKS.register(id + "_fireproof_slab",
-                () -> new BlockForestrySlab(fireproofPlanks.get()));
-        DeferredBlock<BlockForestryStairs> stairs = BLOCKS.register(id + "_stairs",
-                () -> new BlockForestryStairs(planks.get()));
-        DeferredBlock<BlockForestryStairs> fireproofStairs = BLOCKS.register(id + "_fireproof_stairs",
-                () -> new BlockForestryStairs(fireproofPlanks.get()));
-        DeferredBlock<BlockForestryFence> fence = BLOCKS.register(id + "_fence",
-                () -> new BlockForestryFence(false, type));
-        DeferredBlock<BlockForestryFence> fireproofFence = BLOCKS.register(id + "_fireproof_fence",
-                () -> new BlockForestryFence(true, type));
-        DeferredBlock<BlockForestryFenceGate> fenceGate = BLOCKS.register(id + "_fence_gate",
-                () -> new BlockForestryFenceGate(false, type));
-        DeferredBlock<BlockForestryFenceGate> fireproofFenceGate = BLOCKS.register(id + "_fireproof_fence_gate",
-                () -> new BlockForestryFenceGate(true, type));
+            DeferredBlock<ForestryPlanksBlock> planks = BLOCKS.register(id + "_planks",
+                    () -> new ForestryPlanksBlock(false, type));
+        DeferredBlock<ForestryPlanksBlock> fireproofPlanks = BLOCKS.register(id + "_fireproof_planks",
+                () -> new ForestryPlanksBlock(true, type));
+        DeferredBlock<ForestrySlabBlock> slab = BLOCKS.register(id + "_slab",
+                () -> new ForestrySlabBlock(planks.get()));
+        DeferredBlock<ForestrySlabBlock> fireproofSlab = BLOCKS.register(id + "_fireproof_slab",
+                () -> new ForestrySlabBlock(fireproofPlanks.get()));
+        DeferredBlock<ForestryStairsBlock> stairs = BLOCKS.register(id + "_stairs",
+                () -> new ForestryStairsBlock(planks.get()));
+        DeferredBlock<ForestryStairsBlock> fireproofStairs = BLOCKS.register(id + "_fireproof_stairs",
+                () -> new ForestryStairsBlock(fireproofPlanks.get()));
+        DeferredBlock<ForestryFenceBlock> fence = BLOCKS.register(id + "_fence",
+                () -> new ForestryFenceBlock(false, type));
+        DeferredBlock<ForestryFenceBlock> fireproofFence = BLOCKS.register(id + "_fireproof_fence",
+                () -> new ForestryFenceBlock(true, type));
+        DeferredBlock<ForestryFenceGateBlock> fenceGate = BLOCKS.register(id + "_fence_gate",
+                () -> new ForestryFenceGateBlock(false, type));
+        DeferredBlock<ForestryFenceGateBlock> fireproofFenceGate = BLOCKS.register(id + "_fireproof_fence_gate",
+                () -> new ForestryFenceGateBlock(true, type));
 
         DeferredBlock<BinnieTreeWoodControlBlocks.Door> door = BLOCKS.register(id + "_door",
                 () -> new BinnieTreeWoodControlBlocks.Door(type, woodProperties(type, false).noOcclusion()));
@@ -275,16 +275,16 @@ public final class BinnieTreeWoodContent {
             DeferredBlock<RotatedPillarBlock> fireproofStrippedLog,
             DeferredBlock<RotatedPillarBlock> strippedWood,
             DeferredBlock<RotatedPillarBlock> fireproofStrippedWood,
-            DeferredBlock<BlockForestryPlank> planks,
-            DeferredBlock<BlockForestryPlank> fireproofPlanks,
-            DeferredBlock<BlockForestrySlab> slab,
-            DeferredBlock<BlockForestrySlab> fireproofSlab,
-            DeferredBlock<BlockForestryStairs> stairs,
-            DeferredBlock<BlockForestryStairs> fireproofStairs,
-            DeferredBlock<BlockForestryFence> fence,
-            DeferredBlock<BlockForestryFence> fireproofFence,
-            DeferredBlock<BlockForestryFenceGate> fenceGate,
-            DeferredBlock<BlockForestryFenceGate> fireproofFenceGate,
+            DeferredBlock<ForestryPlanksBlock> planks,
+            DeferredBlock<ForestryPlanksBlock> fireproofPlanks,
+            DeferredBlock<ForestrySlabBlock> slab,
+            DeferredBlock<ForestrySlabBlock> fireproofSlab,
+            DeferredBlock<ForestryStairsBlock> stairs,
+            DeferredBlock<ForestryStairsBlock> fireproofStairs,
+            DeferredBlock<ForestryFenceBlock> fence,
+            DeferredBlock<ForestryFenceBlock> fireproofFence,
+            DeferredBlock<ForestryFenceGateBlock> fenceGate,
+            DeferredBlock<ForestryFenceGateBlock> fireproofFenceGate,
             DeferredBlock<BinnieTreeWoodControlBlocks.Door> door,
             DeferredBlock<BinnieTreeWoodControlBlocks.Trapdoor> trapdoor,
             DeferredBlock<BinnieTreeWoodControlBlocks.PressurePlate> pressurePlate,

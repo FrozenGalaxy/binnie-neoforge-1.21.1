@@ -19,8 +19,8 @@ import binnie.trees.wood.BinnieTreeWoodType;
 import forestry.api.core.machines.ICarpenterRecipe;
 import forestry.api.core.machines.ISqueezerRecipe;
 import forestry.api.core.machines.IStillRecipe;
-import forestry.api.core.machines.fuels.EngineBronzeFuel;
-import forestry.api.core.machines.fuels.FuelManager;
+import forestry.api.core.machines.fuels.BiogasEngineFuel;
+import forestry.api.ForestryDataMaps;
 import forestry.core.content.machines.features.FactoryRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -295,11 +295,11 @@ public final class BinnieTreesMachineGameTests {
                             .is(net.minecraft.world.item.Items.BUCKET),
                     "Fixed Binnie's Trees liquid bucket must return an empty bucket");
         }
-        EngineBronzeFuel resinFuel = FuelManager.biogasEngineFuel.get(BinnieTreesFluids.RESIN.fluid());
+        BiogasEngineFuel resinFuel = BinnieTreesFluids.RESIN.stack(1).getFluidHolder().getData(ForestryDataMaps.BIOGAS_FUELS);
         helper.assertTrue(resinFuel != null && resinFuel.powerPerCycle() == 30
                         && resinFuel.burnDuration() == 10_000 && resinFuel.dissipationMultiplier() == 1,
                 "Resin lost its source Biogas Engine fuel registration");
-        helper.assertTrue(!FuelManager.biogasEngineFuel.containsKey(BinnieTreesFluids.TURPENTINE.fluid()),
+        helper.assertTrue(BinnieTreesFluids.TURPENTINE.stack(1).getFluidHolder().getData(ForestryDataMaps.BIOGAS_FUELS) == null,
                 "Carpenter reagent turpentine was incorrectly made an engine fuel");
 
         var recipes = helper.getLevel().getRecipeManager();

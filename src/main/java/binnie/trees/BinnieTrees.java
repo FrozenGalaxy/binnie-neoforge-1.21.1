@@ -7,8 +7,6 @@ import binnie.trees.registry.BinnieTreesWorldContent;
 import binnie.trees.registry.BinnieTreesFluids;
 import binnie.trees.registry.BinnieTreesDesignContent;
 import binnie.trees.machine.BinnieTreesMachineProcesses;
-import forestry.api.core.machines.fuels.EngineBronzeFuel;
-import forestry.api.core.machines.fuels.FuelManager;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -33,13 +31,12 @@ public final class BinnieTrees {
 
     private static void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            // Resin remains obtainable from the Squeezer and retains its
-            // source Biogas Engine fuel entry. The unobtainable sap and
-            // registration-only latex carriers are deliberately not ported.
-            FuelManager.biogasEngineFuel.put(BinnieTreesFluids.RESIN.fluid(),
-                    new EngineBronzeFuel(BinnieTreesFluids.RESIN.fluid(), 30, 10_000, 1));
+            // ForestryCE 1.21.1 replaced FuelManager/EngineBronzeFuel with the DataMaps API.
+            // Engine fuels are now registered via datapack JSON or a DataMapProvider.
+            // The resin biogas fuel entry is provided through the data generator instead.
         });
     }
+
     private static void registerGameTests(RegisterGameTestsEvent event) {
         try {
             event.register(Class.forName("binnie.trees.gametest.BinnieTreesMachineGameTests"));

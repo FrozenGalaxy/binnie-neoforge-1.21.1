@@ -16,8 +16,8 @@ import forestry.api.core.genetics.IGenome;
 import forestry.api.core.genetics.IMutation;
 import forestry.api.core.multiblock.IAlvearyComponent;
 import forestry.api.core.multiblock.IMultiblockComponent;
-import forestry.apiculture.alveary.multiblock.MultiblockLogicAlveary;
-import forestry.apiculture.alveary.multiblock.TileAlveary;
+import forestry.apiculture.alveary.multiblock.AlvearyMultiblockLogic;
+import forestry.apiculture.alveary.multiblock.AbstractAlvearyBlockEntity;
 import forestry.core.engine.genetics.ItemGE;
 import forestry.api.core.IInventoryAdapter;
 import forestry.core.platform.inventory.InventoryAdapterRestricted;
@@ -32,7 +32,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.capabilities.Capabilities;
@@ -44,10 +43,11 @@ import java.util.List;
 import java.util.UUID;
 
 /** 1.12-compatible implementation of all seven Binnie's Bees alveary components. */
-public final class BinnieBeesAlvearyBlockEntity extends TileAlveary
-        implements IAlvearyComponent.BeeModifier<MultiblockLogicAlveary>,
-        IAlvearyComponent.BeeListener<MultiblockLogicAlveary>,
-        IAlvearyComponent.Active<MultiblockLogicAlveary> {
+public final class BinnieBeesAlvearyBlockEntity extends AbstractAlvearyBlockEntity
+        implements IAlvearyComponent.BeeModifier<AlvearyMultiblockLogic>,
+        IAlvearyComponent.BeeListener<AlvearyMultiblockLogic>,
+        IAlvearyComponent.Climatiser<AlvearyMultiblockLogic>,
+        IAlvearyComponent.Active<AlvearyMultiblockLogic> {
     public static final String STIMULATOR_LAYOUT = "binnie.bees.stimulator";
     public static final net.minecraft.resources.ResourceLocation STIMULATOR_SOCKET =
             net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("binniebees", "stimulator");
@@ -184,7 +184,7 @@ public final class BinnieBeesAlvearyBlockEntity extends TileAlveary
             this.owner = owner;
             if (ownerName != null && !ownerName.isBlank()) this.ownerName = ownerName;
             setChanged();
-            if (level != null && !level.isClientSide) level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+            if (level != null && !level.isClientSide) level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
         }
     }
 
@@ -200,6 +200,21 @@ public final class BinnieBeesAlvearyBlockEntity extends TileAlveary
 
     @Override public IBeeModifier getBeeModifier() { return modifier; }
     @Override public IBeeListener getBeeListener() { return listener; }
+    @Override public void changeClimate(int tickCount, forestry.api.core.climate.IClimateControlled alveary) {}
+    @Override public void updateServer(int tickCount) {
+        if (partType() == AlvearyPartType.HATCHERY && level != null && level.random.nextInt(2_400) == 0
+                && !getErrorLogic().hasErrors()) {
+            ItemStack queenStack = getBeeInventory().getQueen();
+            var individual = ItemGE.getIndividual(queenStack);
+            if (individual instanceof IBee bee) {
+                insertLarvae(bee.createStack(BeeLifeStage.LARVAE));
+            }
+        } else if (partType() == AlvearyPartType.TRANSMISSION) {
+            transmitEnergy();
+        }
+    }
+    @Override public void updateClient(int tickCount) { }
+
     @Override public boolean allowsAutomation() { return true; }
     @Override public IInventoryAdapter getInternalInventory() { return componentInventory; }
 
@@ -242,22 +257,6 @@ public final class BinnieBeesAlvearyBlockEntity extends TileAlveary
                 ? energy : null;
     }
 
-    @Override
-    public void updateServer(int tickCount) {
-        if (partType() == AlvearyPartType.HATCHERY && level != null && level.random.nextInt(2_400) == 0
-                && !getErrorLogic().hasErrors()) {
-            ItemStack queenStack = getBeeInventory().getQueen();
-            var individual = ItemGE.getIndividual(queenStack);
-            if (individual instanceof IBee bee) {
-                insertLarvae(bee.createStack(BeeLifeStage.LARVAE));
-            }
-        } else if (partType() == AlvearyPartType.TRANSMISSION) {
-            transmitEnergy();
-        }
-    }
-
-    @Override public void updateClient(int tickCount) { }
-
     private void insertLarvae(ItemStack larvae) {
         ItemStack remaining = larvae.copy();
         for (int slot = 0; slot < componentInventory.getContainerSize() && !remaining.isEmpty(); slot++) {
@@ -278,10 +277,7 @@ public final class BinnieBeesAlvearyBlockEntity extends TileAlveary
         if (energy.getEnergyStored() <= 0) return;
         List<IEnergyStorage> targets = new ArrayList<>();
         for (IMultiblockComponent component : getMultiblockLogic().getController().getComponents()) {
-            if (!(component instanceof BlockEntity target) || target == this) continue;
-            // ComponentTransmission queried every alveary TileEntity's
-            // Energy capability from NORTH, which includes Forestry's fan and
-            // heater components as well as Binnie's Bees' stimulator.
+            if (!(component instanceof net.minecraft.world.level.block.entity.BlockEntity target) || target == this) continue;
             IEnergyStorage handler = Capabilities.EnergyStorage.BLOCK.getCapability(
                     level, target.getBlockPos(), target.getBlockState(), target, Direction.NORTH);
             if (handler != null) targets.add(handler);
@@ -298,10 +294,6 @@ public final class BinnieBeesAlvearyBlockEntity extends TileAlveary
 
     private boolean isStimulatorBoard(ItemStack stack) {
         ICircuitBoard board = IForestryApi.INSTANCE.getCircuitManager().getCircuitBoard(stack);
-    // Unlike the old broad chipset validator, do not accept a board that
-    // can never affect this module. Genetics' integrated circuit is not a
-    // Forestry circuit board, and an unprogrammed Forestry board likewise
-    // has no StimulatorCircuit to apply.
         if (board == null) return false;
         for (ICircuit circuit : board.getCircuits()) {
             if (circuit instanceof StimulatorCircuit) return true;
