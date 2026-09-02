@@ -37,10 +37,10 @@ jobs:
       - name: Publish ForestryCE split modules to runner Maven Local
         working-directory: forestry-ce
         run: |
-          chmod +x gradlew
-          ./gradlew --no-daemon --console=plain publishToMavenLocal
+          gradle --no-daemon --console=plain publishToMavenLocal
 
       - name: Build and validate Binnie's Mods
+        working-directory: active-repository
         run: |
           chmod +x gradlew
           ./gradlew \
@@ -57,6 +57,6 @@ jobs:
         with:
           name: binnie-mods-neoforge-1.21.1
           path: |
-            build/libs/*.jar
+            active-repository/build/libs/*.jar
           if-no-files-found: error
           retention-days: 14
