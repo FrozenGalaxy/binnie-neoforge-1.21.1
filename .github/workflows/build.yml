@@ -18,10 +18,10 @@ jobs:
       - name: Check out Binnie's Mods
         uses: actions/checkout@v4
 
-      - name: Check out pinned ForestryCE source
+      - name: Check out official ForestryCE source
         uses: actions/checkout@v4
         with:
-          repository: FrozenGalaxy/ForestryCE
+          repository: thedarkcolour/ForestryCE
           ref: 1.21.1
           path: forestry-ce
 
@@ -37,7 +37,8 @@ jobs:
       - name: Publish ForestryCE split modules to runner Maven Local
         working-directory: forestry-ce
         run: |
-          gradle --no-daemon --console=plain publishToMavenLocal
+          chmod +x gradlew
+          ./gradlew --no-daemon --console=plain publishToMavenLocal
 
       - name: Build and validate Binnie's Mods
         run: |
