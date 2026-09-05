@@ -131,11 +131,7 @@ repositories {
         url = 'https://www.cursemaven.com'
         content { includeGroup 'curse.maven' }
     }
-    maven { url = 'https://maven.createmod.net' }
-    maven {
-        name = 'Ponder'
-        url = 'https://raw.githubusercontent.com/Fuzss/modresources/main/maven/'
-    }
+    maven { url = "https://maven.createmod.net" } // Ponder, Flywheel
     maven {
         name = 'ForestryCE development dependencies'
         url = 'https://jitpack.io'
@@ -189,7 +185,17 @@ dependencies {
     // Match Create's 1.21.1 distribution model: Ponder is a separate library,
     // but is embedded so Binnie users do not have to install it manually.
     // The integration itself remains guarded and the metadata dependency optional.
-    jarJar(api("net.createmod.ponder:Ponder-NeoForge-${minecraftVersion}:${ponderVersion}") {
+    // Bundled via jarJar for convenience, and also declared as runtimeOnly so
+    // that, when another mod in the pack already provides Ponder (including
+    // one that bundles its own copy), the classpath-resolved version wins and
+    // Binnie's embedded copy is only a fallback.
+    runtimeOnly("net.createmod.ponder:ponder-neoforge:${ponderVersion}") {
+        version {
+            strictly "${ponderVersionRange}"
+            prefer ponderVersion
+        }
+    }
+    jarJar(api("net.createmod.ponder:ponder-neoforge:${ponderVersion}") {
         version {
             strictly "${ponderVersionRange}"
             prefer ponderVersion
