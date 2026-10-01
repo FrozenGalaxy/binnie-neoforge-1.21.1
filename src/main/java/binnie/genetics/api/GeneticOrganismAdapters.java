@@ -2,6 +2,7 @@ package binnie.genetics.api;
 
 import binnie.botany.genetics.FlowerSpeciesTypes;
 import binnie.botany.api.genetics.FlowerLifeStage;
+import binnie.core.forestry.ForestryModules;
 import forestry.api.IForestryApi;
 import forestry.api.apiculture.genetics.BeeLifeStage;
 import forestry.api.arboriculture.genetics.TreeLifeStage;
@@ -59,7 +60,10 @@ public final class GeneticOrganismAdapters {
 
     public static Optional<GeneticOrganismAdapter> findForStack(ItemStack stack) {
         ISpeciesType<?, ?> type = IIndividualHandlerItem.getSpeciesType(stack);
-        return type == null ? Optional.empty() : Optional.ofNullable(ADAPTERS.get(type.id()));
+        if (type == null || (type.id().equals(ForestrySpeciesTypes.BUTTERFLY) && !ForestryModules.butterfliesLoaded())) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable(ADAPTERS.get(type.id()));
     }
 
     public static boolean supports(ItemStack stack) {
@@ -72,6 +76,8 @@ public final class GeneticOrganismAdapters {
     }
 
     public static List<GeneticOrganismAdapter> all() {
-        return List.copyOf(ADAPTERS.values());
+        return ADAPTERS.values().stream()
+                .filter(adapter -> !adapter.id().equals(ForestrySpeciesTypes.BUTTERFLY) || ForestryModules.butterfliesLoaded())
+                .toList();
     }
 }

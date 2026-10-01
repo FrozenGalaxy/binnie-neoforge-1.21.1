@@ -13,10 +13,11 @@ def targetJavaVersion = providers.gradleProperty('javaVersion').get().toInteger(
 def skipJade = providers.gradleProperty('binnieSkipJade').map { it.toBoolean() }.orElse(false).get()
 def skipJeiRuntime = providers.gradleProperty('binnieSkipJeiRuntime').map { it.toBoolean() }.orElse(false).get()
 def skipOptionalDevRuntime = providers.gradleProperty('binnieSkipOptionalDevRuntime').map { it.toBoolean() }.orElse(false).get()
+def skipForestryButterflies = providers.gradleProperty('binnieSkipForestryButterflies').map { it.toBoolean() }.orElse(false).get()
 def forestryModuleCoordinate = { String module ->
     "${forestryGroup}:forestry${module}-${minecraftVersion}:${forestryVersion}"
 }
-def requiredForestrySplitCoordinates = ['farms', 'butterflies', 'mail'].collect(forestryModuleCoordinate)
+def requiredForestrySplitCoordinates = ['farms', 'mail'].collect(forestryModuleCoordinate)
 
 java {
     toolchain {
@@ -154,10 +155,12 @@ dependencies {
     }
     // Forestry 3.0.0-alpha2 publishes its optional modules independently.
     // Farms is a compile/runtime dependency because Botany's farm logic uses
-    // its supported API. Butterflies and mail complete the development runtime.
+    // its supported API. Mail completes the development runtime.
     implementation(forestryModuleCoordinate('farms')) { transitive = false }
-    runtimeOnly(forestryModuleCoordinate('butterflies')) { transitive = false }
     runtimeOnly(forestryModuleCoordinate('mail')) { transitive = false }
+    if (!skipForestryButterflies) {
+        localRuntime(forestryModuleCoordinate('butterflies')) { transitive = false }
+    }
 
     compileOnly "mezz.jei:jei-${minecraftVersion}-neoforge-api:${jeiVersion}"
     if (!skipJeiRuntime) {
@@ -377,7 +380,7 @@ forestrySplitValidation.transitive = false
 
 tasks.register('validateForestrySplitDependencies') {
     group = 'verification'
-    description = 'Resolves and verifies the published Forestry alpha2 split-module Maven artifacts.'
+    description = 'Resolves and verifies the required published Forestry split-module Maven artifacts.'
     inputs.files(forestrySplitValidation)
     doLast {
         def files = forestrySplitValidation.resolve().sort { it.name }

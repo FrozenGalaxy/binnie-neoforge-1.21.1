@@ -925,8 +925,10 @@ public final class GeneticsMachineGameTests {
         helper.assertTrue(containsGeneValue(catalog, ForestrySpeciesTypes.BEE,
                 BeeChromosomes.POLLINATION, 99), "Missing maximum bee pollination");
         for (int value = 1; value <= 10; value++) {
-            helper.assertTrue(containsGeneValue(catalog, ForestrySpeciesTypes.BUTTERFLY,
-                    ButterflyChromosomes.METABOLISM, value), "Missing butterfly metabolism " + value);
+            if (binnie.core.forestry.ForestryModules.butterfliesLoaded()) {
+                helper.assertTrue(containsGeneValue(catalog, ForestrySpeciesTypes.BUTTERFLY,
+                        ButterflyChromosomes.METABOLISM, value), "Missing butterfly metabolism " + value);
+            }
             helper.assertTrue(containsGeneValue(catalog, ForestrySpeciesTypes.TREE,
                     TreeChromosomes.GIRTH, value), "Missing tree girth " + value);
         }

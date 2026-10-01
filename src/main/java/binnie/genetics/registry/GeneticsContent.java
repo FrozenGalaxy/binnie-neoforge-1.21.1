@@ -1,6 +1,7 @@
 package binnie.genetics.registry;
 
 import binnie.genetics.item.GeneticMaterialItem;
+import binnie.core.forestry.ForestryModules;
 import binnie.genetics.item.GeneticKnowledgeItem;
 import binnie.genetics.item.LaboratoryReagentItem;
 import binnie.genetics.item.PunnettSquareItem;
@@ -90,9 +91,10 @@ public final class GeneticsContent {
             // ItemSerum#getSubItems and ItemSerumArray#getSubItems exposed one
             // representative for each of Binnie's four laboratory roots, not a
             // Cartesian list of every allele of every species.
-            for (var id : List.of(ForestrySpeciesTypes.BEE, ForestrySpeciesTypes.TREE,
-                    ForestrySpeciesTypes.BUTTERFLY,
-                    net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("binniebotany", "flower"))) {
+            var types = new java.util.ArrayList<>(List.of(ForestrySpeciesTypes.BEE, ForestrySpeciesTypes.TREE));
+            if (ForestryModules.butterfliesLoaded()) types.add(ForestrySpeciesTypes.BUTTERFLY);
+            types.add(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("binniebotany", "flower"));
+            for (var id : types) {
                 var type = forestry.api.IForestryApi.INSTANCE.getGeneticManager().getSpeciesType(id);
                 var genome = type.getDefaultSpecies().getDefaultGenome();
                 java.util.ArrayList<GeneticAlleleData> genes = new java.util.ArrayList<>();

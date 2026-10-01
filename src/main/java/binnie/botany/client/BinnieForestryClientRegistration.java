@@ -2,6 +2,7 @@ package binnie.botany.client;
 
 import binnie.botany.client.genetics.FlowerAnalyzerPlugin;
 import binnie.botany.genetics.FlowerSpeciesTypes;
+import binnie.core.forestry.ForestryModules;
 import binnie.trees.forestry.LegacyButterflyCatalog;
 import binnie.trees.forestry.LegacyTreeCatalog;
 import forestry.api.client.plugin.IClientRegistration;
@@ -22,10 +23,12 @@ public final class BinnieForestryClientRegistration implements Consumer<IClientR
                     ResourceLocation.fromNamespaceAndPath("binnietrees", "block/saplings/tree_" + model),
                     ResourceLocation.fromNamespaceAndPath("binnietrees", "item/saplings/tree_" + model));
         }
-        for (LegacyButterflyCatalog.Species species : LegacyButterflyCatalog.SPECIES) {
-            registration.setButterflySprites(species.resourceId(),
-                    ResourceLocation.fromNamespaceAndPath("binnietrees", "item/butterflies/" + species.id()),
-                    ResourceLocation.fromNamespaceAndPath("binnietrees", "textures/entity/butterflies/" + species.id() + ".png"));
+        if (ForestryModules.butterfliesLoaded()) {
+            for (LegacyButterflyCatalog.Species species : LegacyButterflyCatalog.SPECIES) {
+                registration.setButterflySprites(species.resourceId(),
+                        ResourceLocation.fromNamespaceAndPath("binnietrees", "item/butterflies/" + species.id()),
+                        ResourceLocation.fromNamespaceAndPath("binnietrees", "textures/entity/butterflies/" + species.id() + ".png"));
+            }
         }
     }
 }

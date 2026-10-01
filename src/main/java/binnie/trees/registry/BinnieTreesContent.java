@@ -1,6 +1,7 @@
 package binnie.trees.registry;
 
 import binnie.core.item.VariantItem;
+import binnie.core.forestry.ForestryModules;
 import binnie.trees.item.HammerItem;
 import binnie.trees.item.BinnieTreesFoodItem;
 import binnie.trees.item.HopsItem;
@@ -67,7 +68,7 @@ public final class BinnieTreesContent {
                 for (var stage : type.getLifeStages()) for (var species : type.getAllSpecies())
                     if (species.id().getNamespace().equals("binnietrees")) output.accept(species.createStack(stage));
             } catch (RuntimeException ignored) {}
-            try {
+            if (ForestryModules.butterfliesLoaded()) try {
                 var type = forestry.api.IForestryApi.INSTANCE.getGeneticManager().getSpeciesType(ForestrySpeciesTypes.BUTTERFLY);
                 for (var stage : type.getLifeStages()) for (var species : type.getAllSpecies())
                     if (species.id().getNamespace().equals("binnietrees")) output.accept(species.createStack(stage));
@@ -95,8 +96,10 @@ public final class BinnieTreesContent {
             output.accept(DURABLE_HAMMER.get());
             output.accept(ARBORIST_DATABASE.get());
             output.accept(MASTER_ARBORIST_DATABASE.get());
-            output.accept(MOTH_DATABASE.get());
-            output.accept(MASTER_MOTH_DATABASE.get());
+            if (ForestryModules.butterfliesLoaded()) {
+                output.accept(MOTH_DATABASE.get());
+                output.accept(MASTER_MOTH_DATABASE.get());
+            }
             for (String id : BinnieTreesMachines.REGISTRY.specs().keySet()) output.accept(BinnieTreesMachines.REGISTRY.block(id).get().asItem());
             for (String value : GLASSWARE.get().variants()) output.accept(GLASSWARE.get().createStack(value));
             // ItemDrink#getSubItems also supplied one filled wine glass to make

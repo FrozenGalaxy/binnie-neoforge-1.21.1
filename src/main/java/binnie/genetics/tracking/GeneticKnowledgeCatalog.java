@@ -1,6 +1,7 @@
 package binnie.genetics.tracking;
 
 import binnie.botany.genetics.FlowerChromosomes;
+import binnie.core.forestry.ForestryModules;
 import binnie.botany.genetics.FlowerSpeciesTypes;
 import binnie.botany.genetics.LegacyFlowerCatalog;
 import binnie.genetics.api.GeneticOrganismAdapter;
@@ -60,7 +61,7 @@ public final class GeneticKnowledgeCatalog {
         }
 
         addBeeExtras(genes);
-        addButterflyExtras(genes);
+        if (ForestryModules.butterfliesLoaded()) addButterflyExtras(genes);
         addTreeExtras(genes);
         addFlowerExtras(genes);
         return new GeneticKnowledgeData(genes.values().stream().toList(), speciesDiscoveries.stream().toList());

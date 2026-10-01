@@ -1,6 +1,7 @@
 package binnie.genetics.item;
 
 import binnie.core.registry.BinnieDataComponents;
+import binnie.core.forestry.ForestryModules;
 import binnie.genetics.data.GeneticKnowledgeData;
 import binnie.genetics.menu.GeneticKnowledgeMenu;
 import binnie.genetics.tracking.GeneticKnowledgeCatalog;
@@ -73,6 +74,11 @@ public final class GeneticKnowledgeItem extends Item {
 
     /** Opens this database from a hand or from a mounted Lab Stand stack. */
     public void open(ServerPlayer serverPlayer, ItemStack stack, boolean mainHand) {
+        if (forestry.api.core.genetics.ForestrySpeciesTypes.BUTTERFLY.equals(speciesTypeFilter)
+                && !ForestryModules.butterfliesLoaded()) {
+            serverPlayer.displayClientMessage(Component.translatable("message.binniegenetics.butterflies_unavailable"), true);
+            return;
+        }
         GeneticKnowledgeSavedData tracker = GeneticKnowledgeSavedData.get(serverPlayer.serverLevel());
         GeneticKnowledgeData known;
         if (mode.exposesCompleteGeneCatalog(interfaceType)) {

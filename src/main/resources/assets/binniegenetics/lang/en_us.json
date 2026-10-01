@@ -128,6 +128,7 @@
   "screen.binniegenetics.analyst.humidity": "Humidity Tolerance",
   "screen.binniegenetics.analyst.individual": "Specimen",
   "screen.binniegenetics.analyst.instructions": "Add a bee, tree, flower or butterfly to the top left slot. DNA Dye is required if it has not been analysed yet. This dye can also convert vanilla items to breedable individuals.",
+  "message.binniegenetics.butterflies_unavailable": "Forestry Butterflies is not loaded.",
   "screen.binniegenetics.analyst.karyogram.active": "Active: %s",
   "screen.binniegenetics.analyst.karyogram.inactive": "Inactive: %s",
   "screen.binniegenetics.analyst.invalid": "Unsupported genetic specimen",
