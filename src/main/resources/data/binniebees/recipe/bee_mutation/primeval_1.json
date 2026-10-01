@@ -1,8 +1,0 @@
-{
-  "chance": 0.08,
-  "first": "forestry:secluded",
-  "id": "binniebees:bee_mutation/primeval_1",
-  "result": "binniebees:primeval",
-  "second": "binniebees:ancient",
-  "type": "forestry:bee_mutation"
-}

@@ -3,6 +3,6 @@
   "first": "forestry:rural",
   "id": "binniebees:bee_mutation/coal_2",
   "result": "binniebees:coal",
-  "second": "binniebees:primeval",
+  "second": "forestry:primeval",
   "type": "forestry:bee_mutation"
 }

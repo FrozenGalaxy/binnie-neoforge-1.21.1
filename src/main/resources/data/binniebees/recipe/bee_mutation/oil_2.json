@@ -3,6 +3,6 @@
   "first": "forestry:frugal",
   "id": "binniebees:bee_mutation/oil_2",
   "result": "binniebees:oil",
-  "second": "binniebees:primeval",
+  "second": "forestry:primeval",
   "type": "forestry:bee_mutation"
 }

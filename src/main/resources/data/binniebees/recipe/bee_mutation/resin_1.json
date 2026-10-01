@@ -3,6 +3,6 @@
   "first": "forestry:miry",
   "id": "binniebees:bee_mutation/resin_1",
   "result": "binniebees:resin",
-  "second": "binniebees:primeval",
+  "second": "forestry:primeval",
   "type": "forestry:bee_mutation"
 }

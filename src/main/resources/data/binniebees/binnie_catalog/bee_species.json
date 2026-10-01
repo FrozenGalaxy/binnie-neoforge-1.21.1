@@ -1,6 +1,6 @@
 {
   "catalog": "binniebees.bee_species",
-  "count": 115,
+  "count": 114,
   "values": [
     "arid",
     "barren",
@@ -42,7 +42,6 @@
     "cyanite",
     "blutonium",
     "ancient",
-    "primeval",
     "prehistoric",
     "relic",
     "coal",
