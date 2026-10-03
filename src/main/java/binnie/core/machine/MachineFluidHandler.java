@@ -9,7 +9,7 @@ import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
  * while sided views can be input-only or output-only without exposing internal tank mutation.
  */
 final class MachineFluidHandler implements IFluidHandler {
-    enum Access { FULL, INPUT, OUTPUT }
+    enum Access { FULL, FULL_OUTPUT_ONLY, INPUT, OUTPUT }
 
     private final FluidTank primaryInput;
     private final FluidTank secondaryInput;
@@ -55,14 +55,14 @@ final class MachineFluidHandler implements IFluidHandler {
     @Override
     public FluidStack drain(FluidStack resource, FluidAction action) {
         if (access == Access.INPUT || resource.isEmpty()) return FluidStack.EMPTY;
-        if (access == Access.OUTPUT) return output.drain(resource, action);
+        if (access == Access.OUTPUT || access == Access.FULL_OUTPUT_ONLY) return output.drain(resource, action);
         return drainMatching(resource, action);
     }
 
     @Override
     public FluidStack drain(int maxDrain, FluidAction action) {
         if (access == Access.INPUT || maxDrain <= 0) return FluidStack.EMPTY;
-        if (access == Access.OUTPUT) return output.drain(maxDrain, action);
+        if (access == Access.OUTPUT || access == Access.FULL_OUTPUT_ONLY) return output.drain(maxDrain, action);
         FluidStack template = firstDrainable();
         return template.isEmpty() ? FluidStack.EMPTY : drainMatching(template.copyWithAmount(maxDrain), action);
     }

@@ -121,6 +121,12 @@ public final class GeneticsMachineGameTests {
                 "Inoculator did not accept Vector Bacteria from a pipe");
         helper.assertTrue(incubator.fluidHandler().fill(new FluidStack(Fluids.WATER, 25), IFluidHandler.FluidAction.EXECUTE) == 25,
                 "Incubator did not accept Water from a pipe");
+        helper.assertTrue(incubator.fluidHandler().drain(25, IFluidHandler.FluidAction.EXECUTE).isEmpty(),
+                "Incubator let a pipe extract recipe input Water before processing it");
+        helper.assertTrue(incubator.fluidHandler().drain(new FluidStack(Fluids.WATER, 25), IFluidHandler.FluidAction.EXECUTE).isEmpty(),
+                "Incubator let a pipe extract recipe input Water by fluid type before processing it");
+        helper.assertTrue(incubator.tank().getFluidAmount() == 25,
+                "Incubator did not retain the Water required by its recipe");
         helper.assertTrue(sequencer.fluidHandler().fill(new FluidStack(Fluids.WATER, 1), IFluidHandler.FluidAction.EXECUTE) == 0,
                 "Sequencer unexpectedly accepted a fluid despite having no source tank");
 

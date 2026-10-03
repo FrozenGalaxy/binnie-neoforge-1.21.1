@@ -142,7 +142,11 @@ public final class MachineBlockEntity extends BlockEntity implements MenuProvide
         this.tank = trackedTank(tankCapacity(0), 0);
         this.secondaryTank = trackedTank(tankCapacity(1), 1);
         this.outputTank = trackedTank(tankCapacity(2), 2);
-        this.fluidHandler = new MachineFluidHandler(tank, secondaryTank, outputTank, MachineFluidHandler.Access.FULL);
+        MachineFluidHandler.Access fullFluidAccess = "binniegenetics".equals(spec.id().getNamespace())
+                && "incubator".equals(spec.id().getPath())
+                ? MachineFluidHandler.Access.FULL_OUTPUT_ONLY
+                : MachineFluidHandler.Access.FULL;
+        this.fluidHandler = new MachineFluidHandler(tank, secondaryTank, outputTank, fullFluidAccess);
         this.inputFluidHandler = new MachineFluidHandler(tank, secondaryTank, outputTank, MachineFluidHandler.Access.INPUT);
         this.outputFluidHandler = new MachineFluidHandler(tank, secondaryTank, outputTank, MachineFluidHandler.Access.OUTPUT);
         this.inputItemHandler = new MachineSidedItemHandler(inventory, inputSlots(), true, false);
