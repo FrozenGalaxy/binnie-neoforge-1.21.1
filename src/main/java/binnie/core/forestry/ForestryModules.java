@@ -9,4 +9,8 @@ public final class ForestryModules {
     public static boolean butterfliesLoaded() {
         return IForestryApi.INSTANCE.getModuleManager().isModuleLoaded(ForestryModuleIds.LEPIDOPTEROLOGY);
     }
+
+    public static boolean farmsLoaded() {
+        return IForestryApi.INSTANCE.getModuleManager().isModuleLoaded(ForestryModuleIds.FARMING);
+    }
 }

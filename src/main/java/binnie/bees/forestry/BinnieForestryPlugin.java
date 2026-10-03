@@ -37,6 +37,7 @@ import forestry.api.plugin.ILepidopterologyRegistration;
 import forestry.api.plugin.IGeneticRegistration;
 import binnie.botany.farming.BotanyGardenCircuit;
 import binnie.botany.farming.BotanyTubeVariants;
+import binnie.core.forestry.ForestryModules;
 import forestry.api.core.circuits.ForestryCircuitLayouts;
 import forestry.api.plugin.ICircuitRegistration;
 import forestry.arboriculture.wood.ForestryWoodType;
@@ -161,18 +162,21 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
                     new StimulatorCircuit(program));
         }
 
-        for (String physicalTube : BotanyTubeVariants.physicalIds()) {
-            ItemStack tube = BotanyContent.INSULATED_TUBE.get().createStack(physicalTube);
-            for (BotanyFarmVariants.Variant variant : BotanyTubeVariants.circuitsFor(physicalTube)) {
-                String layout = variant.manual() ? ForestryCircuitLayouts.MANUAL_FARM : ForestryCircuitLayouts.MANAGED_FARM;
-                circuits.registerCircuit(layout, tube, new BotanyGardenCircuit("binniebotany.garden." + variant.id(),
-                        ResourceLocation.fromNamespaceAndPath("binniebotany", "garden_" + variant.id()), variant));
+        if (ForestryModules.farmsLoaded()) {
+            for (String physicalTube : BotanyTubeVariants.physicalIds()) {
+                ItemStack tube = BotanyContent.INSULATED_TUBE.get().createStack(physicalTube);
+                for (BotanyFarmVariants.Variant variant : BotanyTubeVariants.circuitsFor(physicalTube)) {
+                    String layout = variant.manual() ? ForestryCircuitLayouts.MANUAL_FARM : ForestryCircuitLayouts.MANAGED_FARM;
+                    circuits.registerCircuit(layout, tube, new BotanyGardenCircuit("binniebotany.garden." + variant.id(),
+                            ResourceLocation.fromNamespaceAndPath("binniebotany", "garden_" + variant.id()), variant));
+                }
             }
         }
     }
 
     @Override
     public void registerFarming(IFarmingRegistration farming) {
+        if (!ForestryModules.farmsLoaded()) return;
     // ForestryCE 1.21.1 replaced IFarmingRegistration.registerFertilizer with the DataMaps API.
     // Fertilizers are now registered via datapack JSON or a DataMapProvider.
     // The three Binnie's Botany fertilizer aliases are provided through the data generator instead.
