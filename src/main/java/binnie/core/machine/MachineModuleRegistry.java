@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import binnie.core.registry.ModuleRegistry;
 import net.minecraft.core.registries.Registries;
@@ -20,6 +21,9 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class MachineModuleRegistry {
+    private static final Set<String> NON_OCCLUDING_MACHINE_MODULES = Set.of(
+            "binniebotany", "binniegenetics", "binnietrees");
+
     private final DeferredRegister.Blocks blocks;
     private final DeferredRegister.Items items;
     private final DeferredRegister<BlockEntityType<?>> blockEntities;
@@ -44,8 +48,13 @@ public final class MachineModuleRegistry {
     private void registerMachine(String modId, String id) {
         MachineSpec spec = MachineSpec.standard(modId, id);
         specs.put(id, spec);
-        DeferredBlock<MachineBlock> block = blocks.register(id, () -> new MachineBlock(
-                BlockBehaviour.Properties.of().strength(3.5F).requiresCorrectToolForDrops(), spec, machineType));
+        DeferredBlock<MachineBlock> block = blocks.register(id, () -> {
+            BlockBehaviour.Properties properties = BlockBehaviour.Properties.of()
+                    .strength(3.5F)
+                    .requiresCorrectToolForDrops();
+            if (NON_OCCLUDING_MACHINE_MODULES.contains(modId)) properties.noOcclusion();
+            return new MachineBlock(properties, spec, machineType);
+        });
         machineBlocks.add(block);
         blocksById.put(id, block);
         DeferredItem<BlockItem> item = items.registerItem(id, properties -> new BlockItem(block.get(), properties));
