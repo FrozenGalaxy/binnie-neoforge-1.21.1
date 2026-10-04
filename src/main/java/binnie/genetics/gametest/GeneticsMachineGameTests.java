@@ -31,6 +31,10 @@ import binnie.genetics.machine.GeneticsMachineInventoryLayout;
 import binnie.genetics.registry.GeneticsContent;
 import binnie.genetics.registry.GeneticsFluids;
 import binnie.genetics.registry.GeneticsMachines;
+import binnie.botany.registry.BotanyMachines;
+import binnie.trees.registry.BinnieTreesMachines;
+import binnie.bees.block.AlvearyPartType;
+import binnie.bees.registry.BinnieBeesWorldContent;
 import binnie.genetics.menu.GeneticKnowledgeMenu;
 import binnie.genetics.menu.PunnettSquareMenu;
 import binnie.genetics.network.GeneticsNetwork;
@@ -107,6 +111,14 @@ public final class GeneticsMachineGameTests {
         MachineBlockEntity incubator = placeMachine(helper, new BlockPos(9, 2, 2), "incubator");
         MachineBlockEntity sequencer = placeMachine(helper, new BlockPos(11, 2, 2), "sequencer");
 
+        helper.assertTrue(!incubator.getBlockState().canOcclude(),
+                "Genetics machine occlusion hid the wall behind its cutout model");
+        helper.assertTrue(!BotanyMachines.REGISTRY.block("tileworker").get().defaultBlockState().canOcclude(),
+                "Botany tileworker occluded wall faces behind its cutout model");
+        helper.assertTrue(!BinnieTreesMachines.REGISTRY.block("woodworker").get().defaultBlockState().canOcclude(),
+                "Trees machines occluded wall faces behind their cutout models");
+        helper.assertTrue(BinnieBeesWorldContent.alveary(AlvearyPartType.FRAME).get().defaultBlockState().canOcclude(),
+                "Full-cube alveary blocks unexpectedly lost normal occlusion");
         helper.assertTrue(isolator.fluidHandler().fill(ForestryFluids.BIO_ETHANOL.getFluid(10), IFluidHandler.FluidAction.EXECUTE) == 10,
                 "Isolator did not accept Bio Ethanol from a pipe");
         helper.assertTrue(genepool.fluidHandler().fill(ForestryFluids.BIO_ETHANOL.getFluid(12), IFluidHandler.FluidAction.EXECUTE) == 12,
