@@ -69,7 +69,7 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
 
     @Override
     public void registerGenetics(IGeneticRegistration binniegenetics) {
-        LegacyBeeFlowerTypes.register(binniegenetics);
+        int flowerTypes = LegacyBeeFlowerTypes.register(binniegenetics);
 
         LegacyFlowerCatalog.SpeciesDef defaultFlower = LegacyFlowerCatalog.INSTANCE.species().getFirst();
         var defaultPrimary = defaultFlower.allele("primary");
@@ -93,6 +93,8 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
                     karyotype.set(FlowerChromosomes.SAPPINESS, new Allele<>(defaultFlower.allele("sappiness").floatValue(), defaultFlower.allele("sappiness").dominant()));
                     karyotype.set(FlowerChromosomes.STEM, defaultStem.resourceValue());
                 });
+        BinnieBees.LOGGER.info("Registered {} Binnie's Bees flower types and {} Botany flower species with ForestryCE",
+                flowerTypes, LegacyFlowerCatalog.INSTANCE.species().size());
     }
 
     @Override
@@ -100,6 +102,7 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
     // Forestry invokes this only on the physical client; the registration object keeps client
     // renderer classes isolated from dedicated-server loading.
         registrar.accept(new BinnieForestryClientRegistration());
+        BinnieBees.LOGGER.info("Registered Binnie's Forestry client renderers");
     }
 
     @Override
@@ -108,12 +111,15 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
             apiculture.registerBeeEffect(id("bee_effect_" + effect), LegacyBeeEffects.create(effect));
         }
         int species = LegacyBeeSpeciesCatalog.register(apiculture);
-        BinnieBees.LOGGER.info("Registered {} Binnie's Bees species with ForestryCE", species);
+        int hives = LegacyHiveCatalog.register(apiculture);
+        BinnieBees.LOGGER.info("Registered {} Binnie's Bees effects, {} bee species, and {} wild hives with ForestryCE",
+                EFFECTS.size(), species, hives);
     }
 
     @Override
     public void registerLepidopterology(ILepidopterologyRegistration lepidopterology) {
-        binnie.trees.forestry.LegacyButterflyCatalog.register(lepidopterology);
+        int species = binnie.trees.forestry.LegacyButterflyCatalog.register(lepidopterology);
+        BinnieBees.LOGGER.info("Registered {} Binnie's Trees butterfly species with ForestryCE", species);
     }
 
     @Override
@@ -147,12 +153,15 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
                     .setGenerator(new LegacyTreeGenerator(woodType, tree.generator()))
                     .setRarity(tree.rarity());
         }
+        BinnieBees.LOGGER.info("Registered {} Binnie's Trees wood types, {} fruits, and {} tree species with ForestryCE",
+                BinnieTreeWoodType.values().length, TREES.fruits().size(), TREES.species().size());
     }
 
     @Override
     public void registerCircuits(ICircuitRegistration circuits) {
         circuits.registerLayout(BinnieBeesAlvearyBlockEntity.STIMULATOR_LAYOUT,
                 BinnieBeesAlvearyBlockEntity.STIMULATOR_SOCKET);
+        int alvearyCircuits = 0;
         for (StimulatorProgram program : StimulatorProgram.values()) {
             ResourceLocation tubeId = ResourceLocation.fromNamespaceAndPath("forestry", program.electronTubeId());
             var tube = BuiltInRegistries.ITEM.get(tubeId);
@@ -160,8 +169,10 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
             circuits.registerCircuit(BinnieBeesAlvearyBlockEntity.STIMULATOR_LAYOUT,
                     new ItemStack(tube),
                     new StimulatorCircuit(program));
+            alvearyCircuits++;
         }
 
+        int gardenCircuits = 0;
         if (ForestryModules.farmsLoaded()) {
             for (String physicalTube : BotanyTubeVariants.physicalIds()) {
                 ItemStack tube = BotanyContent.INSULATED_TUBE.get().createStack(physicalTube);
@@ -169,19 +180,26 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
                     String layout = variant.manual() ? ForestryCircuitLayouts.MANUAL_FARM : ForestryCircuitLayouts.MANAGED_FARM;
                     circuits.registerCircuit(layout, tube, new BotanyGardenCircuit("binniebotany.garden." + variant.id(),
                             ResourceLocation.fromNamespaceAndPath("binniebotany", "garden_" + variant.id()), variant));
+                    gardenCircuits++;
                 }
             }
         }
+        BinnieBees.LOGGER.info("Registered {} Binnie's Bees alveary circuits and {} Botany farm circuits{}",
+                alvearyCircuits, gardenCircuits, ForestryModules.farmsLoaded() ? "" : " (Forestry farms module unavailable)");
     }
 
     @Override
     public void registerFarming(IFarmingRegistration farming) {
-        if (!ForestryModules.farmsLoaded()) return;
+        if (!ForestryModules.farmsLoaded()) {
+            BinnieBees.LOGGER.info("Skipped Binnie's Botany farm registration: Forestry farms module is unavailable");
+            return;
+        }
     // ForestryCE 1.21.1 replaced IFarmingRegistration.registerFertilizer with the DataMaps API.
     // Fertilizers are now registered via datapack JSON or a DataMapProvider.
     // The three Binnie's Botany fertilizer aliases are provided through the data generator instead.
         BotanyFlowerFarmable farmable = new BotanyFlowerFarmable();
-        for (BotanyFarmVariants.Variant variant : BotanyFarmVariants.all()) {
+        var variants = BotanyFarmVariants.all();
+        for (BotanyFarmVariants.Variant variant : variants) {
             var soilState = BotanyWorldContent.FLOWERBED.get().defaultBlockState()
                     .setValue(binnie.botany.block.BotanySoilBlock.MOISTURE, variant.moisture())
                     .setValue(binnie.botany.block.BotanySoilBlock.ACIDITY, variant.acidity() == null ? binnie.botany.api.genetics.SoilAcidity.NEUTRAL : variant.acidity())
@@ -196,6 +214,7 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
                     .addSoil(new ItemStack(BotanyWorldContent.FLOWERBED_ITEM.get()), soilState)
                     .addFarmable(farmable);
         }
+        BinnieBees.LOGGER.info("Registered {} Binnie's Botany farm types with ForestryCE", variants.size());
     }
 
     @Override

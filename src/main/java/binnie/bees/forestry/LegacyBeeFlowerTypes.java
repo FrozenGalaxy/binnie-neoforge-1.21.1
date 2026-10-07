@@ -18,12 +18,13 @@ public final class LegacyBeeFlowerTypes {
 
     private LegacyBeeFlowerTypes() {}
 
-    public static void register(IGeneticRegistration binniegenetics) {
+    public static int register(IGeneticRegistration binniegenetics) {
         for (String type : TYPES) {
             ResourceLocation tagId = ResourceLocation.fromNamespaceAndPath(BinnieBees.MOD_ID, "flowers/" + type);
             TagKey<Block> tag = TagKey.create(Registries.BLOCK, tagId);
             binniegenetics.registerFlowerType(ResourceLocation.fromNamespaceAndPath(BinnieBees.MOD_ID, "flower_type_" + type),
                     new TagFlowerType(tag, true));
         }
+        return TYPES.size();
     }
 }

@@ -28,12 +28,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /** Server-side regression coverage for Binnie's Bees world content and powered alveary parts. */
@@ -43,16 +45,35 @@ public final class BinnieBeesGameTests {
     private BinnieBeesGameTests() {}
 
     @GameTest(templateNamespace = "forestry", template = "empty")
-    public static void everyWildHiveProducesAPrincessAndDrones(GameTestHelper helper) {
+    public static void everyWildHiveUsesItsLegacyDropTable(GameTestHelper helper) {
+        Map<BinnieBeeHiveBlock.HiveType, String> primarySpecies = Map.of(
+                BinnieBeeHiveBlock.HiveType.WATER, "water",
+                BinnieBeeHiveBlock.HiveType.ROCK, "rock",
+                BinnieBeeHiveBlock.HiveType.NETHER, "basalt",
+                BinnieBeeHiveBlock.HiveType.MARBLE, "marble");
         for (BinnieBeeHiveBlock.HiveType type : BinnieBeeHiveBlock.HiveType.values()) {
+            List<BinnieBeeHiveDrops.HiveDrop> table = BinnieBeeHiveDrops.dropTable(type);
+            helper.assertTrue(table.size() == 2, type + " hive must have its legacy species and Valiant drops");
+            helper.assertTrue(table.get(0).species().equals(ResourceLocation.fromNamespaceAndPath("binniebees", primarySpecies.get(type)))
+                            && table.get(0).chance() == 0.80 && table.get(0).ignobleChance() == 0.5,
+                    type + " hive has incorrect primary bee odds");
+            helper.assertTrue(table.get(1).species().equals(ResourceLocation.fromNamespaceAndPath("forestry", "valiant"))
+                            && table.get(1).chance() == 0.03 && table.get(1).ignobleChance() == 0.5,
+                    type + " hive has incorrect Valiant odds");
+
             List<ItemStack> drops = BinnieBeeHiveDrops.createDrops(type, helper.getLevel().getRandom(), 0);
-            helper.assertTrue(drops.size() == 2, type + " hive did not create exactly two genetic bee stacks");
+            helper.assertTrue(!drops.isEmpty() && drops.size() <= 2, type + " hive produced an invalid number of bee stacks");
             helper.assertTrue(ItemGE.getLifeStage(drops.get(0)) == BeeLifeStage.PRINCESS,
                     type + " hive did not create a princess");
-            helper.assertTrue(ItemGE.getLifeStage(drops.get(1)) == BeeLifeStage.DRONE,
-                    type + " hive did not create drones");
-            helper.assertTrue(drops.get(1).getCount() >= 1 && drops.get(1).getCount() <= 2,
-                    type + " hive produced an invalid drone count");
+            for (ItemStack drop : drops) {
+                helper.assertTrue(table.stream().anyMatch(entry -> entry.species().equals(ItemGE.getIndividual(drop).getSpecies().id())),
+                        type + " hive produced a bee outside its legacy drop table");
+            }
+            if (drops.size() == 2) {
+                helper.assertTrue(ItemGE.getLifeStage(drops.get(1)) == BeeLifeStage.DRONE,
+                        type + " hive's second bee stack was not a drone");
+                helper.assertTrue(drops.get(1).getCount() == 1, type + " hive produced more than one drone");
+            }
         }
         helper.succeed();
     }
@@ -177,6 +198,9 @@ public final class BinnieBeesGameTests {
         List<ICentrifugeRecipe> centrifuge = helper.getLevel().getRecipeManager()
                 .getAllRecipesFor(FactoryRecipeTypes.CENTRIFUGE.type()).stream().map(holder -> holder.value()).toList();
         for (String variant : BinnieBeesContent.HONEY_COMB.get().variants()) {
+            // This comb is only produced by AE2-gated bee specialties, so it is
+            // intentionally not processable when AE2 is absent.
+            if (variant.equals("enderpearl") && !ModList.get().isLoaded("ae2")) continue;
             ICentrifugeRecipe recipe = centrifuge.stream()
                     .filter(candidate -> candidate.getInput().test(BinnieBeesContent.HONEY_COMB.get().createStack(variant)))
                     .findFirst().orElseThrow(() -> new AssertionError("Comb variant has no centrifuge recipe: " + variant));

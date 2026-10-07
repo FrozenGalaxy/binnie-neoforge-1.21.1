@@ -41,13 +41,14 @@ public final class LegacyButterflyCatalog {
 
     private LegacyButterflyCatalog() {}
 
-    public static void register(ILepidopterologyRegistration registration) {
+    public static int register(ILepidopterologyRegistration registration) {
         for (Species species : SPECIES) {
             registration.registerSpecies(species.resourceId(), species.genus(), species.species(), true,
                             TextColor.fromRgb(species.color()), 0.5F)
                     .setAuthority("Binnie")
                     .setRarity(0.5F);
         }
+        return SPECIES.size();
     }
 
     private static Species s(String id, String genus, String species, int color) {

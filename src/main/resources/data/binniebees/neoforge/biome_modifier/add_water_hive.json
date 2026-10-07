@@ -1,8 +1,0 @@
-{
-  "type": "neoforge:add_features",
-  "biomes": "#minecraft:is_ocean",
-  "features": [
-    "binniebees:water_hive"
-  ],
-  "step": "underground_ores"
-}

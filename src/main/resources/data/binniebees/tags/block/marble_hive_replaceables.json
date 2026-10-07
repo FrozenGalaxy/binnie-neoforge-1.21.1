@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "#c:marble_blocks", "required": false },
+    { "id": "#c:marble", "required": false },
+    { "id": "#c:stones/marble", "required": false }
+  ]
+}

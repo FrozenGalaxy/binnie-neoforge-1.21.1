@@ -2,42 +2,83 @@ package binnie.bees.block;
 
 import binnie.bees.BinnieBees;
 import forestry.api.apiculture.genetics.BeeLifeStage;
+import forestry.api.apiculture.genetics.IBee;
 import forestry.core.platform.util.SpeciesUtil;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
-  * 1.12 wild-hive species pools. Keeping the selection in one server-side class makes
-  * world generation, block harvesting, commands, and tests agree on the same hive ecology.
-  */
+/** 1.12 wild-hive bee drop tables, adapted to ForestryCE individuals and item stacks. */
 public final class BinnieBeeHiveDrops {
-    private static final Map<BinnieBeeHiveBlock.HiveType, List<String>> POOLS = Map.of(
-            BinnieBeeHiveBlock.HiveType.WATER, List.of("water", "river", "ocean", "ink"),
-            BinnieBeeHiveBlock.HiveType.ROCK, List.of("rock", "stone", "granite", "mineral"),
-            BinnieBeeHiveBlock.HiveType.NETHER, List.of("glowstone", "basalt", "volcanic", "malicious"),
-            BinnieBeeHiveBlock.HiveType.MARBLE, List.of("marble", "roman", "greek", "classical")
+    private static final ResourceLocation VALIANT = ResourceLocation.fromNamespaceAndPath("forestry", "valiant");
+    private static final Map<BinnieBeeHiveBlock.HiveType, List<HiveDrop>> DROPS = Map.of(
+            BinnieBeeHiveBlock.HiveType.WATER, table("water"),
+            BinnieBeeHiveBlock.HiveType.ROCK, table("rock"),
+            BinnieBeeHiveBlock.HiveType.NETHER, table("basalt"),
+            BinnieBeeHiveBlock.HiveType.MARBLE, table("marble")
     );
 
     private BinnieBeeHiveDrops() {}
 
-    public static List<String> pool(BinnieBeeHiveBlock.HiveType type) {
-        return POOLS.get(type);
+    private static List<HiveDrop> table(String primarySpecies) {
+        return List.of(
+                new HiveDrop(ResourceLocation.fromNamespaceAndPath(BinnieBees.MOD_ID, primarySpecies), 0.80, 0.5),
+                new HiveDrop(VALIANT, 0.03, 0.5)
+        );
     }
 
-    public static ResourceLocation selectSpecies(BinnieBeeHiveBlock.HiveType type, RandomSource random) {
-        List<String> pool = pool(type);
-        return ResourceLocation.fromNamespaceAndPath(BinnieBees.MOD_ID, pool.get(random.nextInt(pool.size())));
+    public static List<HiveDrop> dropTable(BinnieBeeHiveBlock.HiveType type) {
+        return DROPS.get(type);
     }
 
+    /** Mirrors the legacy bounded princess retries, single drone roll, and ignoble share. */
     public static List<ItemStack> createDrops(BinnieBeeHiveBlock.HiveType type, RandomSource random, int fortune) {
-        ResourceLocation species = selectSpecies(type, random);
-        ItemStack princess = SpeciesUtil.BEE_TYPE.get().createStack(species, BeeLifeStage.PRINCESS);
-        ItemStack drones = SpeciesUtil.BEE_TYPE.get().createStack(species, BeeLifeStage.DRONE);
-        drones.setCount(Math.min(4, 1 + random.nextInt(2 + Math.max(0, fortune))));
-        return List.of(princess, drones);
+        List<HiveDrop> drops = new ArrayList<>(dropTable(type));
+        shuffle(drops, random);
+        List<ItemStack> result = new ArrayList<>(2);
+
+        for (int attempt = 0; attempt <= 10; attempt++) {
+            HiveDrop selected = roll(drops, random);
+            if (selected == null) continue;
+            IBee princess = createBee(selected.species());
+            if (random.nextDouble() < selected.ignobleChance()) princess.setPristine(false);
+            result.add(SpeciesUtil.BEE_TYPE.get().createStack(princess, BeeLifeStage.PRINCESS));
+            break;
+        }
+
+        HiveDrop drone = roll(drops, random);
+        if (drone != null) {
+            result.add(SpeciesUtil.BEE_TYPE.get().createStack(createBee(drone.species()), BeeLifeStage.DRONE));
+        }
+        return result;
+    }
+
+    private static HiveDrop roll(List<HiveDrop> drops, RandomSource random) {
+        for (HiveDrop drop : drops) {
+            if (random.nextDouble() < drop.chance()) return drop;
+        }
+        return null;
+    }
+
+    private static IBee createBee(ResourceLocation speciesId) {
+        var species = SpeciesUtil.getBeeSpecies(speciesId);
+        if (species == null) throw new IllegalStateException("Missing bee species for wild hive drop: " + speciesId);
+        return species.createIndividual();
+    }
+
+    private static void shuffle(List<HiveDrop> drops, RandomSource random) {
+        for (int i = drops.size() - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            HiveDrop current = drops.get(i);
+            drops.set(i, drops.get(j));
+            drops.set(j, current);
+        }
+    }
+
+    public record HiveDrop(ResourceLocation species, double chance, double ignobleChance) {
     }
 }
