@@ -50,6 +50,64 @@ final class LegacyBeeCombProductTest {
         assertInactive("propolis", INACTIVE_PROPOLIS, "squeezer", "_propolis");
     }
 
+    @Test
+    void botaniaSpeciesAndMutationAreBothConditionallyLoaded() throws Exception {
+        assertEquals("botania", read("/data/binniebees/bee_species/mystical.json").get("required_mod").getAsString());
+        assertModCondition(read("/data/binniebees/recipe/bee_mutation/mystical_1.json"), "botania");
+    }
+
+    @Test
+    void quartzBranchKeepsVanillaProductsAndOnlyAddsAe2CombVariantsWhenAvailable() throws Exception {
+        JsonObject spatial = read("/data/binniebees/bee_species/spatial.json");
+        JsonObject quantum = read("/data/binniebees/bee_species/quantum.json");
+        assertTrue(hasItem(spatial.getAsJsonArray("products"), "binniebees:quartz_comb"));
+        assertTrue(hasItem(quantum.getAsJsonArray("products"), "binniebees:quartz_comb"));
+        assertAllProductsRequireMod(spatial.getAsJsonArray("specialties"), "ae2");
+        assertAllProductsRequireMod(quantum.getAsJsonArray("specialties"), "ae2");
+
+        JsonObject quartz = read("/data/binniebees/recipe/centrifuge/quartz_comb.json");
+        assertProductChance(quartz, "minecraft:quartz", 0.3f);
+        assertProductChance(quartz, "forestry:honeydew", 0.6f);
+
+        JsonObject certusAe2 = read("/data/binniebees/recipe/centrifuge/certus_comb_ae2.json");
+        assertModCondition(certusAe2, "ae2");
+        assertProductChance(certusAe2, "minecraft:quartz", 0.25f);
+        assertProductChance(certusAe2, "ae2:certus_quartz_dust", 0.2f);
+        assertModCondition(read("/data/binniebees/recipe/centrifuge/enderpearl_comb.json"), "ae2");
+        assertProductChance(read("/data/binniebees/recipe/centrifuge/enderpearl_comb.json"), "ae2:ender_dust", 0.25f);
+    }
+
+    private static boolean hasItem(JsonArray products, String item) {
+        for (var element : products) {
+            if (item.equals(element.getAsJsonObject().get("item").getAsString())) return true;
+        }
+        return false;
+    }
+
+    private static void assertAllProductsRequireMod(JsonArray products, String modId) {
+        assertFalse(products.isEmpty());
+        for (var element : products) {
+            assertEquals(modId, element.getAsJsonObject().get("required_mod").getAsString());
+        }
+    }
+
+    private static void assertModCondition(JsonObject data, String modId) {
+        JsonArray conditions = data.getAsJsonArray("neoforge:conditions");
+        assertNotNull(conditions);
+        assertTrue(conditions.toString().contains("\"modid\":\"" + modId + "\""), conditions.toString());
+    }
+
+    private static void assertProductChance(JsonObject recipe, String item, float chance) {
+        for (var element : recipe.getAsJsonArray("products")) {
+            JsonObject product = element.getAsJsonObject();
+            if (item.equals(product.get("item").getAsString())) {
+                assertEquals(chance, product.get("chance").getAsFloat());
+                return;
+            }
+        }
+        fail("Missing " + item + " from recipe " + recipe.get("id"));
+    }
+
     private static void assertInactive(String catalog, Set<String> inactive, String machine, String suffix) throws Exception {
         Set<String> registered = new HashSet<>();
         read("/data/binniebees/binnie_catalog/" + catalog + ".json").getAsJsonArray("values")

@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "botania"
+    }
+  ],
   "chance": 0.05,
   "first": "forestry:noble",
   "id": "binniebees:bee_mutation/mystical_1",

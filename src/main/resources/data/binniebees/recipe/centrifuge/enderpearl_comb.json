@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ae2"
+    }
+  ],
   "type": "forestry:centrifuge",
   "id": "binniebees:centrifuge/enderpearl_comb",
   "time": 20,
@@ -14,12 +20,12 @@
   },
   "products": [
     {
-      "chance": 0.5,
-      "item": "forestry:beeswax"
+      "chance": 0.25,
+      "item": "forestry:honey_drop"
     },
     {
       "chance": 0.25,
-      "item": "forestry:honey_drop"
+      "item": "ae2:ender_dust"
     }
   ]
 }

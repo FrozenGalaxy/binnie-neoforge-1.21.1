@@ -50,6 +50,7 @@
     {
       "chance": 0.15,
       "item": "binniebees:honey_comb",
+      "required_mod": "ae2",
       "tag": {
         "binniecore:variant": {
           "category": "binniebees.honey_comb",
@@ -60,6 +61,7 @@
     {
       "chance": 0.15,
       "item": "binniebees:honey_comb",
+      "required_mod": "ae2",
       "tag": {
         "binniecore:variant": {
           "category": "binniebees.honey_comb",

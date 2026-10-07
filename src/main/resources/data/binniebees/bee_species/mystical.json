@@ -1,5 +1,6 @@
 {
   "authority": "Binnie",
+  "required_mod": "botania",
   "body": 16777215,
   "dominant": true,
   "genome": {

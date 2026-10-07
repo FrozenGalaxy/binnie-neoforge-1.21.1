@@ -22,6 +22,7 @@ import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.fml.ModList;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,8 +40,18 @@ public final class LegacyBeeSpeciesCatalog {
 
     public static int register(IApicultureRegistration apiculture) {
         List<String> ids = loadSpeciesIds();
-        for (String id : ids) registerSpecies(apiculture, id, readJson("/data/binniebees/bee_species/" + id + ".json"));
-        return ids.size();
+        int registered = 0;
+        for (String id : ids) {
+            JsonObject json = readJson("/data/binniebees/bee_species/" + id + ".json");
+            if (json.has("required_mod") && !ModList.get().isLoaded(json.get("required_mod").getAsString())) {
+                BinnieBees.LOGGER.info("Skipped Binnie's Bees species {}: required mod {} is unavailable",
+                        id, json.get("required_mod").getAsString());
+                continue;
+            }
+            registerSpecies(apiculture, id, json);
+            registered++;
+        }
+        return registered;
     }
 
     private static void registerSpecies(IApicultureRegistration apiculture, String path, JsonObject json) {
@@ -72,6 +83,10 @@ public final class LegacyBeeSpeciesCatalog {
     private static void addProducts(IBeeSpeciesBuilder builder, JsonArray products, boolean specialty) {
         for (JsonElement element : products) {
             JsonObject product = element.getAsJsonObject();
+            if (product.has("required_mod")
+                    && !ModList.get().isLoaded(product.get("required_mod").getAsString())) {
+                continue;
+            }
             ResourceLocation itemId = ResourceLocation.parse(product.get("item").getAsString());
             Item item = BuiltInRegistries.ITEM.get(itemId);
             if (item == null || item == net.minecraft.world.item.Items.AIR) {
