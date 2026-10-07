@@ -113,10 +113,16 @@ public final class GeneticsMachineGameTests {
 
         helper.assertTrue(!incubator.getBlockState().canOcclude(),
                 "Genetics machine occlusion hid the wall behind its cutout model");
+        helper.assertTrue(incubator.getBlockState().getLightBlock(helper.getLevel(), incubator.getBlockPos()) == 0
+                        && incubator.getBlockState().propagatesSkylightDown(helper.getLevel(), incubator.getBlockPos()),
+                "Genetics machine blocked world light despite its cutout model");
         helper.assertTrue(!BotanyMachines.REGISTRY.block("tileworker").get().defaultBlockState().canOcclude(),
                 "Botany tileworker occluded wall faces behind its cutout model");
         helper.assertTrue(!BinnieTreesMachines.REGISTRY.block("woodworker").get().defaultBlockState().canOcclude(),
                 "Trees machines occluded wall faces behind their cutout models");
+        helper.assertTrue(BotanyMachines.REGISTRY.block("tileworker").get().defaultBlockState().getLightBlock(helper.getLevel(), BlockPos.ZERO) == 0
+                        && BinnieTreesMachines.REGISTRY.block("woodworker").get().defaultBlockState().getLightBlock(helper.getLevel(), BlockPos.ZERO) == 0,
+                "Shared-model machines blocked world light despite their cutout models");
         helper.assertTrue(BinnieBeesWorldContent.alveary(AlvearyPartType.FRAME).get().defaultBlockState().canOcclude(),
                 "Full-cube alveary blocks unexpectedly lost normal occlusion");
         helper.assertTrue(isolator.fluidHandler().fill(ForestryFluids.BIO_ETHANOL.getFluid(10), IFluidHandler.FluidAction.EXECUTE) == 10,

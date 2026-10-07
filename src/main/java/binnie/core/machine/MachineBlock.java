@@ -35,6 +35,23 @@ public final class MachineBlock extends Block implements EntityBlock {
         return spec;
     }
 
+    @Override
+    protected int getLightBlock(BlockState state, net.minecraft.world.level.BlockGetter level, BlockPos pos) {
+        return hasCutoutModel() ? 0 : super.getLightBlock(state, level, pos);
+    }
+
+    @Override
+    protected boolean propagatesSkylightDown(BlockState state, net.minecraft.world.level.BlockGetter level, BlockPos pos) {
+        return hasCutoutModel() || super.propagatesSkylightDown(state, level, pos);
+    }
+
+    private boolean hasCutoutModel() {
+        return switch (spec.id().getNamespace()) {
+            case "binniebotany", "binniegenetics", "binnietrees" -> true;
+            default -> false;
+        };
+    }
+
     public BlockEntityType<MachineBlockEntity> blockEntityType() {
         return type.get();
     }
