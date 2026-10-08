@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "binniebees:block/hive/rock"
+    "end": "binniebees:block/hive/rock_end",
+    "side": "binniebees:block/hive/rock"
   }
 }

@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "binniebees:block/hive/nether"
+    "end": "binniebees:block/hive/nether_end",
+    "side": "binniebees:block/hive/nether"
   }
 }

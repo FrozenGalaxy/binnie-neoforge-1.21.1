@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "binniebees:block/hive/water"
+    "end": "binniebees:block/hive/water_end",
+    "side": "binniebees:block/hive/water"
   }
 }
