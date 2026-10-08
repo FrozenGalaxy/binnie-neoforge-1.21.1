@@ -45,6 +45,22 @@ public final class BinnieBeesGameTests {
     private BinnieBeesGameTests() {}
 
     @GameTest(templateNamespace = "forestry", template = "empty")
+    public static void marbleBeeLineIsAbsentWithoutMarbleBlocks(GameTestHelper helper) {
+        TagKey<net.minecraft.world.level.block.Block> marbleBlocks = TagKey.create(Registries.BLOCK,
+                ResourceLocation.fromNamespaceAndPath("binniebees", "marble_hive_replaceables"));
+        boolean hasMarble = helper.getLevel().registryAccess().lookupOrThrow(Registries.BLOCK)
+                .get(marbleBlocks).map(net.minecraft.core.HolderSet::size).orElse(0) > 0;
+        if (!hasMarble) {
+            Set<String> marbleLine = Set.of("marble", "roman", "greek", "classical");
+            helper.assertTrue(SpeciesUtil.BEE_TYPE.get().getAllSpecies().stream()
+                            .noneMatch(species -> species.id().getNamespace().equals("binniebees")
+                                    && marbleLine.contains(species.id().getPath())),
+                    "Marble bee lineage remained registered without marble blocks");
+        }
+        helper.succeed();
+    }
+
+    @GameTest(templateNamespace = "forestry", template = "empty")
     public static void everyWildHiveUsesItsLegacyDropTable(GameTestHelper helper) {
         Map<BinnieBeeHiveBlock.HiveType, String> primarySpecies = Map.of(
                 BinnieBeeHiveBlock.HiveType.WATER, "water",
@@ -61,6 +77,9 @@ public final class BinnieBeesGameTests {
                             && table.get(1).chance() == 0.03 && table.get(1).ignobleChance() == 0.5,
                     type + " hive has incorrect Valiant odds");
 
+            if (type == BinnieBeeHiveBlock.HiveType.MARBLE
+                    && SpeciesUtil.BEE_TYPE.get().getAllSpecies().stream()
+                            .noneMatch(species -> species.id().equals(ResourceLocation.fromNamespaceAndPath("binniebees", "marble")))) continue;
             List<ItemStack> drops = BinnieBeeHiveDrops.createDrops(type, helper.getLevel().getRandom(), 0);
             helper.assertTrue(!drops.isEmpty() && drops.size() <= 2, type + " hive produced an invalid number of bee stacks");
             helper.assertTrue(ItemGE.getLifeStage(drops.get(0)) == BeeLifeStage.PRINCESS,

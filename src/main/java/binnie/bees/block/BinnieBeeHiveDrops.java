@@ -37,7 +37,11 @@ public final class BinnieBeeHiveDrops {
 
     /** Mirrors the legacy bounded princess retries, single drone roll, and ignoble share. */
     public static List<ItemStack> createDrops(BinnieBeeHiveBlock.HiveType type, RandomSource random, int fortune) {
-        List<HiveDrop> drops = new ArrayList<>(dropTable(type));
+        if (!hasBeeSpecies(dropTable(type).getFirst().species())) return List.of();
+        List<HiveDrop> drops = new ArrayList<>(dropTable(type).stream()
+                .filter(drop -> hasBeeSpecies(drop.species()))
+                .toList());
+        if (drops.isEmpty()) return List.of();
         shuffle(drops, random);
         List<ItemStack> result = new ArrayList<>(2);
 
@@ -68,6 +72,11 @@ public final class BinnieBeeHiveDrops {
         var species = SpeciesUtil.getBeeSpecies(speciesId);
         if (species == null) throw new IllegalStateException("Missing bee species for wild hive drop: " + speciesId);
         return species.createIndividual();
+    }
+
+    private static boolean hasBeeSpecies(ResourceLocation speciesId) {
+        return SpeciesUtil.BEE_TYPE.get().getAllSpecies().stream()
+                .anyMatch(species -> species.id().equals(speciesId));
     }
 
     private static void shuffle(List<HiveDrop> drops, RandomSource random) {
