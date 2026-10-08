@@ -8,7 +8,7 @@ modId = "binniecore"
 version = "${version}"
 displayName = "Binnies: Core"
 displayURL = "https://github.com/ForestryMC/Binnie"
-authors = "Binnie, the Binnie's Mods contributors"
+authors = "Binnie, DeadSix, the Binnie's Mods contributors"
 description = '''Shared runtime, machine, genetics, database, configuration, and UI infrastructure for Binnie's Mods.'''
 
 [[mods]]
@@ -16,7 +16,7 @@ modId = "binniedesign"
 version = "${version}"
 displayName = "Binnies: Design"
 displayURL = "https://github.com/ForestryMC/Binnie"
-authors = "Binnie, the Binnie's Mods contributors"
+authors = "Binnie, DeadSix, the Binnie's Mods contributors"
 description = '''Dynamic patterned wood and glass design system used throughout Binnie's Mods.'''
 
 [[mods]]
@@ -24,7 +24,7 @@ modId = "binniebotany"
 version = "${version}"
 displayName = "Binnies: Botany"
 displayURL = "https://github.com/ForestryMC/Binnie"
-authors = "Binnie, the Binnie's Mods contributors"
+authors = "Binnie, DeadSix, the Binnie's Mods contributors"
 description = '''Flower genetics, gardening, ceramics, pigments, and related machines.'''
 
 [[mods]]
@@ -32,7 +32,7 @@ modId = "binniebees"
 version = "${version}"
 displayName = "Binnies: Bees"
 displayURL = "https://github.com/ForestryMC/Binnie"
-authors = "Binnie, the Binnie's Mods contributors"
+authors = "Binnie, DeadSix, the Binnie's Mods contributors"
 description = '''Expanded bee species, products, effects, frames, hives, circuits, and alveary components.'''
 
 [[mods]]
@@ -40,7 +40,7 @@ modId = "binnietrees"
 version = "${version}"
 displayName = "Binnies: Trees"
 displayURL = "https://github.com/ForestryMC/Binnie"
-authors = "Binnie, the Binnie's Mods contributors"
+authors = "Binnie, DeadSix, the Binnie's Mods contributors"
 description = '''Expanded trees, woods, fruits, beverages, glassware, and processing machines.'''
 
 [[mods]]
@@ -48,7 +48,7 @@ modId = "binniegenetics"
 version = "${version}"
 displayName = "Binnies: Genetics"
 displayURL = "https://github.com/ForestryMC/Binnie"
-authors = "Binnie, the Binnie's Mods contributors"
+authors = "Binnie, DeadSix, the Binnie's Mods contributors"
 description = '''Laboratory genetics machines and tools for bees, trees, butterflies, and flowers.'''
 
 [[dependencies.binniecore]]
