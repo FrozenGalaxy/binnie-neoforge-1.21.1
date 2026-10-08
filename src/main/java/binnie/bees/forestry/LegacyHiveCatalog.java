@@ -81,10 +81,16 @@ public final class LegacyHiveCatalog {
             if (type == BinnieBeeHiveBlock.HiveType.NETHER
                     && !level.getBiome(new BlockPos(x, 0, z)).is(BiomeTags.IS_NETHER)) return null;
             int maxHeight = level.getHeight(Heightmap.Types.MOTION_BLOCKING, x, z);
-            if (maxHeight <= 0) return null;
+            int minHeight = level.getMinBuildHeight();
+            if (maxHeight <= minHeight) return null;
             BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(x, maxHeight, z);
-            for (int attempt = 0; attempt < 10; attempt++) {
-                pos.setY(random.nextInt(maxHeight));
+            // Keep the randomized starting height, but scan the column instead of
+            // taking only ten guesses. Cave-wall stone is sparse in a 384-block
+            // modern dimension, so ten guesses made valid columns look like no spawns.
+            int height = maxHeight - minHeight;
+            int startY = random.nextInt(minHeight, maxHeight);
+            for (int attempt = 0; attempt < height; attempt++) {
+                pos.setY(minHeight + Math.floorMod(startY - minHeight + attempt, height));
                 if (isValidLocation(level, pos)) return pos.immutable();
             }
             return null;
@@ -94,7 +100,7 @@ public final class LegacyHiveCatalog {
             BlockState state = level.getBlockState(pos);
             return switch (type) {
                 case WATER -> state.is(Blocks.WATER) && isWaterHiveSupport(level.getBlockState(pos.below()));
-                case ROCK -> state.is(Blocks.STONE) && hasHorizontalAir(level, pos);
+                case ROCK -> isRockHiveStone(state) && hasHorizontalAir(level, pos);
                 case MARBLE -> state.is(MARBLE_REPLACEABLES) && hasDifferentNeighbor(level, pos, state.getBlock());
                 case NETHER -> level.getBiome(pos).is(BiomeTags.IS_NETHER) && state.is(Blocks.NETHERRACK)
                         && level.getBlockState(pos.above()).is(Blocks.NETHERRACK) && hasAirNeighbor(level, pos);
@@ -104,7 +110,7 @@ public final class LegacyHiveCatalog {
         @Override public boolean canReplace(BlockState state, WorldGenLevel level, BlockPos pos) {
             return switch (type) {
                 case WATER -> state.is(Blocks.WATER);
-                case ROCK -> state.is(Blocks.STONE);
+                case ROCK -> isRockHiveStone(state);
                 case MARBLE -> state.is(MARBLE_REPLACEABLES);
                 case NETHER -> state.is(Blocks.NETHERRACK);
             };
@@ -120,6 +126,10 @@ public final class LegacyHiveCatalog {
                 || state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.FARMLAND)
                 || state.is(BlockTags.DIRT) || state.is(BlockTags.BASE_STONE_OVERWORLD)
                 || state.is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "stone")));
+    }
+
+    private static boolean isRockHiveStone(BlockState state) {
+        return state.is(Blocks.STONE) || state.is(Blocks.DEEPSLATE);
     }
 
     private static boolean hasHorizontalAir(WorldGenLevel level, BlockPos pos) {
