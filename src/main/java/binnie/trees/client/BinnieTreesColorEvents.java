@@ -6,10 +6,16 @@ import binnie.trees.registry.BinnieTreesWorldContent;
 import binnie.trees.registry.BinnieTreesContent;
 import binnie.trees.item.GlasswareItem;
 import binnie.trees.forestry.LegacyTreeCatalog;
+import forestry.api.arboriculture.genetics.TreeLifeStage;
 import forestry.api.core.genetics.capability.IIndividualHandlerItem;
+import forestry.arboriculture.features.ArboricultureBlocks;
 import forestry.core.platform.item.ITintedItem;
 import forestry.core.platform.util.SpeciesUtil;
 import forestry.arboriculture.features.ArboricultureItems;
+import forestry.arboriculture.sapling.SaplingBlockEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.EventPriority;
 
 import java.util.Map;
@@ -32,6 +38,25 @@ public class BinnieTreesColorEvents {
             event.register((state, level, pos, tint) -> tint == 0 ? ((DecorativeLeavesBlock) state.getBlock()).color() : 0xFFFFFF,
                     holder.get());
         }
+        event.register(BinnieTreesColorEvents::saplingColor, ArboricultureBlocks.SAPLING_GE.block());
+    }
+
+    private static int saplingColor(BlockState state, BlockAndTintGetter level, BlockPos pos, int tint) {
+        if (tint < 0 || tint > 1 || level == null || pos == null
+                || !(level.getBlockEntity(pos) instanceof SaplingBlockEntity sapling)
+                || sapling.getTree() == null) {
+            return -1;
+        }
+
+        var species = sapling.getTree().getSpecies();
+        if (species == null) return -1;
+        if (species.id().getNamespace().equals(BinnieTrees.MOD_ID)) {
+            LegacyTreeCatalog.TreeBinding tree = TREES.get(species.id().getPath());
+            if (tree != null) {
+                return tint == 0 ? tree.leafColor() : tree.woodColor();
+            }
+        }
+        return species.getGermlingColor(TreeLifeStage.SAPLING, tint);
     }
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void items(RegisterColorHandlersEvent.Item event) {
