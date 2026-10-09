@@ -78,13 +78,22 @@ final class RecipeAndLeafAssetTest {
         faces.entrySet().forEach(entry -> assertFalse(entry.getValue().getAsJsonObject().has("cullface"), entry.getKey()));
 
         Path root = Path.of(RecipeAndLeafAssetTest.class.getClassLoader().getResource("assets/binnietrees/models/item").toURI());
+        Set<String> forestryOwned = Set.of("beech", "coconut", "olive", "orange", "pear", "sour_cherry");
         long leaves = 0;
         try (var paths = Files.list(root)) {
             for (Path path : paths.filter(p -> p.getFileName().toString().startsWith("decorative_leaves_")
                     && !p.getFileName().toString().equals("decorative_leaves_template.json")).toList()) {
                 JsonObject model = JsonParser.parseString(Files.readString(path)).getAsJsonObject();
-                assertEquals("binnietrees:item/decorative_leaves_template", model.get("parent").getAsString(), path.toString());
-                assertTrue(model.getAsJsonObject("textures").has("all"), path.toString());
+                String species = path.getFileName().toString()
+                        .replace("decorative_leaves_", "").replace(".json", "");
+                if (forestryOwned.contains(species)) {
+                    assertEquals("forestry:item/" + species + "_decorative_leaves",
+                            model.get("parent").getAsString(), path.toString());
+                } else {
+                    assertEquals("binnietrees:item/decorative_leaves_template",
+                            model.get("parent").getAsString(), path.toString());
+                    assertTrue(model.getAsJsonObject("textures").has("all"), path.toString());
+                }
                 leaves++;
             }
         }
