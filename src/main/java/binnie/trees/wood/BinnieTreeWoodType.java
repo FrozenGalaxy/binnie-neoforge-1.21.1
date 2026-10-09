@@ -12,6 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 /** The 36 1.12 Binnie's Trees wood product types. */
 public enum BinnieTreeWoodType implements IWoodType {
@@ -53,6 +54,7 @@ public enum BinnieTreeWoodType implements IWoodType {
     PINKIVORY("pinkivory", 15502496);
 
     private static final Map<String, BinnieTreeWoodType> BY_NAME = new HashMap<>();
+    private static final Set<String> FORESTRY_OWNED = Set.of("beech", "olive", "pear");
     static {
         for (BinnieTreeWoodType type : values()) BY_NAME.put(type.name, type);
     }
@@ -71,6 +73,10 @@ public enum BinnieTreeWoodType implements IWoodType {
         if (legacy.equals("eucalyptus2") || legacy.equals("eucalyptus3")) legacy = "eucalyptus";
         if (legacy.equals("pinkivory")) legacy = "pinkivory";
         return BY_NAME.get(legacy);
+    }
+
+    public boolean isForestryOwned() {
+        return FORESTRY_OWNED.contains(name);
     }
 
     @Override

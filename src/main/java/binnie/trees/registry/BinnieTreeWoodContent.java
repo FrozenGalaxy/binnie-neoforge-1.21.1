@@ -229,13 +229,17 @@ public class BinnieTreeWoodContent {
     }
 
     public static void includeCreativeItems(ModuleRegistry registry) {
-        for (WoodSet set : WOODS.values()) {
+        for (var entry : WOODS.entrySet()) {
+            if (entry.getKey().isForestryOwned()) continue;
+            WoodSet set = entry.getValue();
             set.includeCreativeItems(registry);
         }
     }
 
     public static void acceptCreativeItems(net.minecraft.world.item.CreativeModeTab.Output output) {
-        for (WoodSet set : WOODS.values()) {
+        for (var entry : WOODS.entrySet()) {
+            if (entry.getKey().isForestryOwned()) continue;
+            WoodSet set = entry.getValue();
             output.accept(set.logItem().get());
             output.accept(set.fireproofLogItem().get());
             output.accept(set.woodItem().get());
