@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /** Registry of the four organism families supported by Binnie Genetics. */
-public final class GeneticOrganismAdapters {
+public class GeneticOrganismAdapters {
     private static final Map<ResourceLocation, GeneticOrganismAdapter> ADAPTERS = new LinkedHashMap<>();
 
     static {

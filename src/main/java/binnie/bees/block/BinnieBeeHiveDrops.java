@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /** 1.12 wild-hive bee drop tables, adapted to ForestryCE individuals and item stacks. */
-public final class BinnieBeeHiveDrops {
+public class BinnieBeeHiveDrops {
     private static final ResourceLocation VALIANT = ResourceLocation.fromNamespaceAndPath("forestry", "valiant");
     private static final Map<BinnieBeeHiveBlock.HiveType, List<HiveDrop>> DROPS = Map.of(
             BinnieBeeHiveBlock.HiveType.WATER, table("water"),

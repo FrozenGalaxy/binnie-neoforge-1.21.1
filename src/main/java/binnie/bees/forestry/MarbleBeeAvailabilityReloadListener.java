@@ -21,7 +21,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
 /** Removes the marble-only bee line when the active datapacks provide no marble hive blocks. */
-public final class MarbleBeeAvailabilityReloadListener extends ContextAwareReloadListener {
+public class MarbleBeeAvailabilityReloadListener extends ContextAwareReloadListener {
     private static final ResourceLocation MARBLE_TAG_ID = ResourceLocation.fromNamespaceAndPath("binniebees", "marble_hive_replaceables");
     private static final net.minecraft.tags.TagKey<Block> MARBLE_REPLACEABLES =
             net.minecraft.tags.TagKey.create(Registries.BLOCK, MARBLE_TAG_ID);

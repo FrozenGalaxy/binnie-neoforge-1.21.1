@@ -3,7 +3,7 @@ package binnie.genetics.client;
 import java.util.Map;
 
 /** JEI-free title geometry shared by the screen hover affordance and optional plugin. */
-public final class GeneticsJeiAreas {
+public class GeneticsJeiAreas {
     public static final Map<String, Area> AREAS = Map.ofEntries(
             Map.entry("isolator", new Area(330)), Map.entry("sequencer", new Area(226)),
             Map.entry("polymeriser", new Area(278)), Map.entry("inoculator", new Area(266)),

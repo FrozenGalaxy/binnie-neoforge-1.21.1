@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 /** 1.12 gardening calculations and soil-family transitions shared by tools and automation. */
-public final class BotanyGardening {
+public class BotanyGardening {
     private BotanyGardening() {}
 
     public static SoilMoisture naturalMoisture(Level level, BlockPos pos) {

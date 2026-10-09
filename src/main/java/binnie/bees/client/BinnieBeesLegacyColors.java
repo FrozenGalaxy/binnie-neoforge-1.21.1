@@ -4,7 +4,7 @@ import java.util.Map;
 import static java.util.Map.entry;
 
 /** Item tint colors in their original catalog order. */
-final class BinnieBeesLegacyColors {
+class BinnieBeesLegacyColors {
     static final Map<String, int[]> COMB = Map.ofEntries(
             entry("barren", new int[] {0x736C44, 0xC2BEA7}),
             entry("rotten", new int[] {0x3E5221, 0xB1CC89}),

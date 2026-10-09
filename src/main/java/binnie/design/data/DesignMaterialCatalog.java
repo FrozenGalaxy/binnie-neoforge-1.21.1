@@ -24,7 +24,7 @@ import java.util.OptionalInt;
   * release. Later Minecraft wood families and arbitrary slabs are not implicit
   * designer inputs.</p>
   */
-public final class DesignMaterialCatalog {
+public class DesignMaterialCatalog {
     private static final Map<ResourceLocation, Integer> WOOD_COLORS = new LinkedHashMap<>();
     private static final Map<ResourceLocation, Integer> GLASS_COLORS = new LinkedHashMap<>();
 

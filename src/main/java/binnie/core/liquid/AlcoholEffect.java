@@ -5,7 +5,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 
 /** 1.12 intoxication curve used by consumable beverage containers. */
-public final class AlcoholEffect {
+public class AlcoholEffect {
     private AlcoholEffect() {}
 
     public static void makeDrunk(Player player, float alcoholUnits) {

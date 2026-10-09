@@ -25,7 +25,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 /** Dispatches the shared machine menu to one concrete screen class per registered machine. */
-public final class MachineScreenFactory {
+public class MachineScreenFactory {
     private MachineScreenFactory() {
     }
 

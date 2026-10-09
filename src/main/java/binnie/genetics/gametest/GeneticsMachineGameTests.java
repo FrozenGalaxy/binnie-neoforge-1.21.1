@@ -79,7 +79,7 @@ import java.util.stream.Collectors;
 /** End-to-end tests for registered Genetics machines, their resources, and typed flower material. */
 @GameTestHolder("binniecore")
 @PrefixGameTestTemplate(false)
-public final class GeneticsMachineGameTests {
+public class GeneticsMachineGameTests {
     private GeneticsMachineGameTests() {}
 
     /** Proves external pipes discover and fill the normal NeoForge sided fluid capability. */

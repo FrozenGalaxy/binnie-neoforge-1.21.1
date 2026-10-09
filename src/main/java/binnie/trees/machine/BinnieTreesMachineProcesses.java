@@ -35,7 +35,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /** Dynamic processing for the seven Binnie's Trees machines. */
-public final class BinnieTreesMachineProcesses {
+public class BinnieTreesMachineProcesses {
     private static final java.util.List<FruitPressOperation> FRUIT_PRESS_OPERATIONS = createFruitPressOperations();
     private static final java.util.List<TaggedFruitPressOperation> TAGGED_FRUIT_PRESS_OPERATIONS = createTaggedFruitPressOperations();
     private static final java.util.List<BreweryFermentationOperation> BREWERY_FERMENTATIONS = createBreweryFermentations();

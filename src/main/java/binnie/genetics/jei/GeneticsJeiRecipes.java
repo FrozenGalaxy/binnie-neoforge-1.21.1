@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 
 /** 1.12-compatible representative operations; component-bearing examples replace a huge Cartesian recipe dump. */
-public final class GeneticsJeiRecipes {
+public class GeneticsJeiRecipes {
     public static final List<String> MACHINES = List.of(
             "isolator", "sequencer", "polymeriser", "inoculator", "splicer",
             "analyser", "genepool", "incubator", "acclimatiser");

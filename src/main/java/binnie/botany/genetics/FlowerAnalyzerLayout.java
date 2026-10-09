@@ -8,7 +8,7 @@ import java.util.List;
   * 1.12 Flower analyzer pagination. The two chromosome pages cover the
   * entire twelve-chromosome flower genome exactly once; the client renderer consumes this layout.
   */
-public final class FlowerAnalyzerLayout {
+public class FlowerAnalyzerLayout {
     private static final List<IChromosome<?>> FIRST_PAGE = List.of(
             FlowerChromosomes.SPECIES,
             FlowerChromosomes.SAPPINESS,

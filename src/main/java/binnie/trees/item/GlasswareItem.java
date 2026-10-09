@@ -80,7 +80,7 @@ public final class GlasswareItem extends VariantItem {
         return stack.isEmpty() ? empty : stack;
     }
 
-    public static final class GlasswareFluidHandler extends FluidHandlerItemStackSimple {
+    public static class GlasswareFluidHandler extends FluidHandlerItemStackSimple {
         private GlasswareFluidHandler(ItemStack container, int capacity) { super(BinnieDataComponents.FLUID_CONTENT, container, capacity); }
         @Override public boolean canFillFluidType(FluidStack fluid) {
             return getContainer().getCount() == 1 && BinnieTreesFluids.data(fluid) != null;

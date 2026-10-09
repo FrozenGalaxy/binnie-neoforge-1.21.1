@@ -7,7 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /** Identity, color, and alcohol metadata for completed 1.12 beverage content. */
-public final class LegacyBeverageCatalog {
+public class LegacyBeverageCatalog {
     private static final Map<String, Definition> DEFINITIONS = create();
 
     private LegacyBeverageCatalog() {}

@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Blocks and block entities for Botany's planted genetics and soil gameplay. */
-public final class BotanyWorldContent {
+public class BotanyWorldContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks("binniebotany");
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems("binniebotany");
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, "binniebotany");

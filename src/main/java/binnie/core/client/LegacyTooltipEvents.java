@@ -17,7 +17,7 @@ import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
 /** Adds Binnie's item-description tooltips on the client. */
 @EventBusSubscriber(modid = BinnieCore.MOD_ID, value = Dist.CLIENT)
-public final class LegacyTooltipEvents {
+public class LegacyTooltipEvents {
     private static final ResourceLocation COMPARTMENT = ResourceLocation.fromNamespaceAndPath("binniecore", "compartment");
 
     private LegacyTooltipEvents() {

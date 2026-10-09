@@ -11,7 +11,7 @@ import net.neoforged.neoforge.network.IContainerFactory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public final class GeneticsMenus {
+public class GeneticsMenus {
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, BinnieGenetics.MOD_ID);
     public static final DeferredHolder<MenuType<?>, MenuType<GeneticKnowledgeMenu>> KNOWLEDGE = MENUS.register(
             "knowledge", () -> new MenuType<>((IContainerFactory<GeneticKnowledgeMenu>) GeneticKnowledgeMenu::fromNetwork,

@@ -17,7 +17,7 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
 @GameTestHolder("binniecore")
 @PrefixGameTestTemplate(false)
-public final class DesignWorldGameTests {
+public class DesignWorldGameTests {
     private DesignWorldGameTests() {}
 
     @GameTest(templateNamespace = "forestry", template = "empty", timeoutTicks = 100)

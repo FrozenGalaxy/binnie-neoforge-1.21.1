@@ -11,7 +11,7 @@ import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtension
 import net.neoforged.neoforge.fluids.FluidStack;
 
 /** Draws the 1.12 CraftGUI texture-sheet regions using the original padding. */
-final class LegacyGeneticsGui {
+class LegacyGeneticsGui {
     static final ResourceLocation PANELS = ResourceLocation.fromNamespaceAndPath("binniecore", "textures/gui/craftgui-panels.png");
     static final ResourceLocation CONTROLS = ResourceLocation.fromNamespaceAndPath("binniecore", "textures/gui/craftgui-controls.png");
     static final ResourceLocation SLOTS = ResourceLocation.fromNamespaceAndPath("binniecore", "textures/gui/craftgui-slots.png");

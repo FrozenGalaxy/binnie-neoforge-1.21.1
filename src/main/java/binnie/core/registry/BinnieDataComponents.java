@@ -19,7 +19,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.fluids.SimpleFluidContent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public final class BinnieDataComponents {
+public class BinnieDataComponents {
     private static final DeferredRegister.DataComponents COMPONENTS = DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, BinnieCore.MOD_ID);
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<VariantData>> VARIANT = COMPONENTS.registerComponentType("variant", builder -> builder.persistent(VariantData.CODEC).networkSynchronized(VariantData.STREAM_CODEC).cacheEncoding());
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<GenomeData>> GENOME = COMPONENTS.registerComponentType("genome", builder -> builder.persistent(GenomeData.CODEC).networkSynchronized(GenomeData.STREAM_CODEC).cacheEncoding());

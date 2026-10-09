@@ -17,7 +17,7 @@ import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 
-public final class GeneticsContent {
+public class GeneticsContent {
     public static final ModuleRegistry CONTENT = new ModuleRegistry("binniegenetics");
     public static final DeferredItem<GeneticMaterialItem> GENETIC_MATERIAL = CONTENT.custom("genetic_material", GeneticMaterialItem::new, false);
 

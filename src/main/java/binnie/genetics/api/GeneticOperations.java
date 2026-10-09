@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 /** Type-safe sample extraction, serum application, and inheritance calculations. */
-public final class GeneticOperations {
+public class GeneticOperations {
     private GeneticOperations() {}
 
     public static GeneticAlleleData sample(ItemStack stack, ResourceLocation chromosomeId, GeneticAlleleData.Origin origin) {

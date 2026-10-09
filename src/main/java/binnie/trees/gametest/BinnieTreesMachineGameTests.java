@@ -40,7 +40,7 @@ import net.minecraft.world.entity.player.Inventory;
 /** Real registered-machine coverage for 1.12-compatible Binnie's Trees processing. */
 @GameTestHolder("binniecore")
 @PrefixGameTestTemplate(false)
-public final class BinnieTreesMachineGameTests {
+public class BinnieTreesMachineGameTests {
     private BinnieTreesMachineGameTests() {}
 
     @GameTest(templateNamespace = "forestry", template = "empty", timeoutTicks = 300)

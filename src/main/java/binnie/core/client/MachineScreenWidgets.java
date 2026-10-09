@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Shared status controls and line-broken machine tooltips. */
-public final class MachineScreenWidgets {
+public class MachineScreenWidgets {
     private static final ResourceLocation CONTROLS = ResourceLocation.fromNamespaceAndPath("binniecore", "textures/gui/craftgui-controls.png");
     public static final int REDSTONE_X = 8;
     public static final int REDSTONE_Y = 8;

@@ -16,7 +16,7 @@ import binnie.trees.registry.BinnieTreesContent;
 /** Client render layers for foliage-like Binnie's Trees blocks. */
 @EventBusSubscriber(modid = BinnieTrees.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 @SuppressWarnings({"deprecation", "removal"}) // 1.21.1 lifecycle/render-layer compatibility API.
-public final class BinnieTreesBlockRenderEvents {
+public class BinnieTreesBlockRenderEvents {
     private BinnieTreesBlockRenderEvents() {}
 
     @SubscribeEvent

@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.Blocks;
 import java.util.List;
 
 /** Alveary mutagens, excluding the obsolete IC2 entries. */
-public final class AlvearyMutagens {
+public class AlvearyMutagens {
     public record Entry(ItemStack stack, float multiplier) {
         public Entry {
             stack = stack.copyWithCount(1);

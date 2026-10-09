@@ -10,7 +10,7 @@ import java.util.Optional;
   * displayed on demand. Keeping the mapping here makes the current registry
   * IDs explicit instead of falling back to a generated description.
   */
-public final class LegacyTooltipDescriptions {
+public class LegacyTooltipDescriptions {
     private static final Map<ResourceLocation, String> SHIFT_DESCRIPTIONS = Map.ofEntries(
             entry("binniecore", "field_kit", "tooltip.binniecore.field_kit.description"),
             entry("binniebotany", "tileworker", "tooltip.binniebotany.tileworker.description"),

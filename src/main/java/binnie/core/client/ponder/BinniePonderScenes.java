@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.ArrayList;
 
 /** Ponder scenes for Binnie's systems, paced and staged after Create's own scenes. */
-public final class BinniePonderScenes {
+public class BinniePonderScenes {
     // Native Ponder FadeInOutInstruction adds five ticks on both ends of the requested
     // duration. Leave one extra tick after that full lifetime before starting another
     // overlay in the same visual lane, otherwise their fade tails briefly coexist.

@@ -12,7 +12,7 @@ import java.util.List;
   * <p>Keeping cell placement and hit testing in one pure helper prevents the rendered hover,
   * tooltip, and click targets from using different coordinate systems.</p>
   */
-final class GeneBankGridLayout {
+class GeneBankGridLayout {
     static final int CONTENT_X = KnowledgeUiContract.GENE_DATABASE_BOX_X + 3;
     static final int CONTENT_Y = KnowledgeUiContract.GENE_DATABASE_BOX_Y + 3;
     static final int CELL_SIZE = 16;

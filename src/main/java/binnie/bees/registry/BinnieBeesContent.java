@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public final class BinnieBeesContent {
+public class BinnieBeesContent {
     public static final ModuleRegistry CONTENT = new ModuleRegistry("binniebees");
     private static final DeferredRegister<MutationConditionType<?>> MUTATION_CONDITION_TYPES =
         DeferredRegister.create(ForestryRegistries.Keys.MUTATION_CONDITION_TYPE, "binnietrees");

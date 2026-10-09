@@ -25,7 +25,7 @@ import java.util.List;
  * used by Genetics JEI. It is deliberately only a visual explanation: no fake
  * buttons are clickable and no machine state is mutated.</p>
  */
-public final class GeneticsPonderGuiPreview {
+public class GeneticsPonderGuiPreview {
     private GeneticsPonderGuiPreview() {
     }
 
@@ -50,7 +50,7 @@ public final class GeneticsPonderGuiPreview {
         });
     }
 
-    private static final class PreviewElement extends AnimatedOverlayElementBase {
+    private static class PreviewElement extends AnimatedOverlayElementBase {
         private final ResourceLocation machineId;
         private final GeneticsJeiRecipe recipe;
         private final GeneticsMachineLayout.Layout layout;

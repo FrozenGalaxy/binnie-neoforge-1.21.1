@@ -4,7 +4,7 @@ import java.util.List;
 import net.minecraft.resources.ResourceLocation;
 
 /** Supplementary 1.12 slots for Binnie's Trees packages that exceed the old six-slot compatibility layout. */
-public final class BinnieTreesMachineInventoryLayout {
+public class BinnieTreesMachineInventoryLayout {
     public enum Mode { INPUT, PROCESS_RESERVE }
     public record SlotDefinition(int slot, int x, int y, Mode mode) {}
     private BinnieTreesMachineInventoryLayout() {}

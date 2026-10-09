@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /** Stable source-order flower-type to custom-model-data mapping. Safe to call on both logical sides. */
-public final class FlowerItemModels {
+public class FlowerItemModels {
     private static final Map<String, Integer> INDEX = build();
     private FlowerItemModels() {}
     private static Map<String, Integer> build() {

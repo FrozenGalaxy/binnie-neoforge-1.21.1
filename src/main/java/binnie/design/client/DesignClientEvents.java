@@ -17,7 +17,7 @@ import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 /** Client registration for the ordinary baked, model-data-aware Design renderer. */
 @EventBusSubscriber(modid = BinnieTrees.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 @SuppressWarnings("removal") // Mod-bus selector remains required by NeoForge 21.1.
-public final class DesignClientEvents {
+public class DesignClientEvents {
     private DesignClientEvents() {}
 
     @SubscribeEvent

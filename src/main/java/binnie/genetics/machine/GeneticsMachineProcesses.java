@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Optional;
 
 /** Dynamic, component-sensitive implementations of the Genetics laboratory pipeline. */
-public final class GeneticsMachineProcesses {
+public class GeneticsMachineProcesses {
     public static final OperationTiming ISOLATOR_OPERATION = new OperationTiming(4_800, 40);
     public static final OperationTiming SEQUENCER_OPERATION = new OperationTiming(19_200, 20);
     public static final OperationTiming POLYMERISER_OPERATION = new OperationTiming(2_400, 40);

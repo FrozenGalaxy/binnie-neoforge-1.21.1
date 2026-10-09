@@ -29,7 +29,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 /** Registers Binnie's hive locations with Forestry's shared chunk hive decorator. */
-public final class LegacyHiveCatalog {
+public class LegacyHiveCatalog {
     private static final TagKey<Block> MARBLE_REPLACEABLES = TagKey.create(Registries.BLOCK,
             ResourceLocation.fromNamespaceAndPath(BinnieBees.MOD_ID, "marble_hive_replaceables"));
 

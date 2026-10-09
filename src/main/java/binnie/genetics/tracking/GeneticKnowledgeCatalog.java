@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.TreeSet;
 
 /** Builds full 1.12-style catalogs on top of ForestryCE's inline-allele model. */
-public final class GeneticKnowledgeCatalog {
+public class GeneticKnowledgeCatalog {
     private GeneticKnowledgeCatalog() {}
 
     /** Every registered species and every active/inactive allele represented by species defaults. */

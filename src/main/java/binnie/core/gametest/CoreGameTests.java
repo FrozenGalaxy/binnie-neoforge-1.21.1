@@ -22,7 +22,7 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
 @GameTestHolder("binniecore")
 @PrefixGameTestTemplate(false)
-public final class CoreGameTests {
+public class CoreGameTests {
     private CoreGameTests() {}
 
     @GameTest(templateNamespace = "forestry", template = "empty")

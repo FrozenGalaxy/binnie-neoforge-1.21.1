@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** 1.12-compatible gene-bank operation for applying a sequenced gene to an empty serum container. */
-public final class GeneticSerumEngineering {
+public class GeneticSerumEngineering {
     private GeneticSerumEngineering() {}
 
     /**

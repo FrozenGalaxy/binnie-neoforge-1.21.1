@@ -330,7 +330,7 @@ public final class GeneticKnowledgeMenu extends AbstractContainerMenu {
         }
     }
 
-    private final class AnalystPlayerSlot extends Slot {
+    private class AnalystPlayerSlot extends Slot {
         private AnalystPlayerSlot(Container container, int slot, int x, int y) {
             super(container, slot, x, y);
         }
@@ -343,7 +343,7 @@ public final class GeneticKnowledgeMenu extends AbstractContainerMenu {
         }
     }
 
-    private final class AnalystIndividualSlot extends Slot {
+    private class AnalystIndividualSlot extends Slot {
         private AnalystIndividualSlot(Container container, int slot, int x, int y) {
             super(container, slot, x, y);
         }
@@ -365,7 +365,7 @@ public final class GeneticKnowledgeMenu extends AbstractContainerMenu {
         }
     }
 
-    private final class AnalystDyeSlot extends Slot {
+    private class AnalystDyeSlot extends Slot {
         private AnalystDyeSlot(Container container, int slot, int x, int y) {
             super(container, slot, x, y);
         }

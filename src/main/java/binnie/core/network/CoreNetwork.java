@@ -7,7 +7,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 /** Shared server-authoritative machine payloads. */
-public final class CoreNetwork {
+public class CoreNetwork {
     private CoreNetwork() {}
 
     public static void register(RegisterPayloadHandlersEvent event) {

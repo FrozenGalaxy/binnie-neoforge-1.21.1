@@ -12,7 +12,7 @@ import net.neoforged.neoforge.fluids.FluidStack;
 
 /** Original Genetics liquid sprites for world, bucket, capsule and tank rendering. */
 @EventBusSubscriber(modid = BinnieGenetics.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
-public final class GeneticsFluidClientEvents {
+public class GeneticsFluidClientEvents {
     private GeneticsFluidClientEvents() {}
 
     @SubscribeEvent

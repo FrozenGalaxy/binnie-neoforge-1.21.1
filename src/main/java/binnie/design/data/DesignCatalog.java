@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.Map;
 
 /** Immutable current registry view over all 1.12 designs and render patterns. */
-public final class DesignCatalog {
+public class DesignCatalog {
     public static final List<String> DESIGNS = List.copyOf(LegacyCatalogs.values("binniedesign.design"));
     public static final List<String> PATTERNS = List.copyOf(LegacyCatalogs.values("binniedesign.pattern"));
     private static final Set<String> DESIGN_IDS = Set.copyOf(new LinkedHashSet<>(DESIGNS));

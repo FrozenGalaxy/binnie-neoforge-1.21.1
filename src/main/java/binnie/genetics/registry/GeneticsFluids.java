@@ -18,7 +18,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 /** 1.12-compatible Genetics process liquids with standard world blocks and bucket containers. */
-public final class GeneticsFluids {
+public class GeneticsFluids {
     private static final DeferredRegister<FluidType> TYPES = DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, BinnieGenetics.MOD_ID);
     private static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(Registries.FLUID, BinnieGenetics.MOD_ID);
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(BinnieGenetics.MOD_ID);
@@ -43,7 +43,7 @@ public final class GeneticsFluids {
         ITEMS.register(bus);
     }
 
-    public static final class ProcessFluid {
+    public static class ProcessFluid {
         private final int tint;
         private final DeferredHolder<FluidType, FluidType> type;
         private final DeferredHolder<Fluid, BaseFlowingFluid.Source> source;

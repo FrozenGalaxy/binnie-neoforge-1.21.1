@@ -24,7 +24,7 @@ import net.minecraft.resources.ResourceLocation;
 import binnie.core.storage.CompartmentBlockItem;
 
 @EventBusSubscriber(modid = BinnieCore.MOD_ID, value = Dist.CLIENT)
-public final class BinnieCoreClientEvents {
+public class BinnieCoreClientEvents {
     private BinnieCoreClientEvents() {
     }
 

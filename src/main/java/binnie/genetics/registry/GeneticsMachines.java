@@ -3,7 +3,7 @@ package binnie.genetics.registry;
 import binnie.core.machine.MachineModuleRegistry;
 import net.neoforged.bus.api.IEventBus;
 
-public final class GeneticsMachines {
+public class GeneticsMachines {
     public static final MachineModuleRegistry REGISTRY = new MachineModuleRegistry(
             "binniegenetics", GeneticsContent.CONTENT,
             "isolator", "sequencer", "polymeriser", "inoculator", "splicer", "analyser", "genepool", "incubator", "acclimatiser", "laboratory_machine");

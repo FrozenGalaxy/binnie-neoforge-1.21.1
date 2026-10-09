@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /** Process handlers keyed by the stable machine block ID. */
-public final class MachineProcessRegistry {
+public class MachineProcessRegistry {
     private static final Map<ResourceLocation, MachineProcessHandler> HANDLERS = new LinkedHashMap<>();
 
     private MachineProcessRegistry() {}

@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Collections;
 
 /** 1.12 immutable 1.12 catalogs used by registration, data generation, and validation. */
-public final class LegacyCatalogs {
+public class LegacyCatalogs {
     private static final Map<String, List<String>> VALUES;
     static {
         LinkedHashMap<String, List<String>> values = new LinkedHashMap<>();

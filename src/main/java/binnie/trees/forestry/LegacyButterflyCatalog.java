@@ -7,7 +7,7 @@ import forestry.api.plugin.ILepidopterologyRegistration;
 import java.util.List;
 
 /** 1.12 Binnie's Trees butterfly catalog from ButterflySpecies. */
-public final class LegacyButterflyCatalog {
+public class LegacyButterflyCatalog {
     public record Species(String id, String genus, String species, int color) {
         public ResourceLocation resourceId() {
             return ResourceLocation.fromNamespaceAndPath("binnietrees", "butterfly_" + id);

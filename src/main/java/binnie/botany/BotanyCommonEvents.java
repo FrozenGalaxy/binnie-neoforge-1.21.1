@@ -20,7 +20,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 
 /** Common gameplay hooks retained from the 1.12 Flowers module. */
 @EventBusSubscriber(modid = BinnieBotany.MOD_ID)
-public final class BotanyCommonEvents {
+public class BotanyCommonEvents {
     private BotanyCommonEvents() {}
 
     @SubscribeEvent

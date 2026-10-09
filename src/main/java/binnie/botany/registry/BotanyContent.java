@@ -26,7 +26,7 @@ import forestry.core.content.backpacks.BackpackDefinition;
 import forestry.core.content.backpacks.BackpackFilterNaturalist;
 import forestry.core.content.backpacks.items.NaturalistBackpackItem;
 
-public final class BotanyContent {
+public class BotanyContent {
     public static final ModuleRegistry CONTENT = new ModuleRegistry("binniebotany");
     public static final DeferredItem<FlowerItem> FLOWER = CONTENT.custom("flower", properties -> new FlowerItem(properties, FlowerLifeStage.FLOWER), false);
     public static final DeferredItem<FlowerItem> POLLEN = CONTENT.custom("pollen", properties -> new FlowerItem(properties, FlowerLifeStage.POLLEN), false);

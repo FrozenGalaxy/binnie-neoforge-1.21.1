@@ -3,7 +3,7 @@ package binnie.core.forestry;
 import forestry.api.IForestryApi;
 import forestry.api.modules.ForestryModuleIds;
 
-public final class ForestryModules {
+public class ForestryModules {
     private ForestryModules() {}
 
     public static boolean butterfliesLoaded() {

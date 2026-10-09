@@ -22,7 +22,7 @@ import net.minecraft.world.phys.AABB;
   * <p>Effects that historically depended on removed integrations use a deterministic vanilla
   * analogue instead of silently doing nothing. Expensive effects are rate-limited.</p>
   */
-public final class LegacyBeeEffects {
+public class LegacyBeeEffects {
     private LegacyBeeEffects() {}
 
     public static IBeeEffect create(String id) {

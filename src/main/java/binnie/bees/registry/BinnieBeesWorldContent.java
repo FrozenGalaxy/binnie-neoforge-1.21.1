@@ -22,7 +22,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.EnumMap;
 import java.util.Map;
 
-public final class BinnieBeesWorldContent {
+public class BinnieBeesWorldContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks("binniebees");
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems("binniebees");
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, "binniebees");

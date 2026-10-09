@@ -13,7 +13,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.fluids.FluidStack;
 
-public final class CoreContent {
+public class CoreContent {
     public static final ModuleRegistry CONTENT = new ModuleRegistry("binniecore");
     public static final DeferredItem<FieldKitItem> FIELD_KIT = CONTENT.custom("field_kit", FieldKitItem::new, true);
     public static final DeferredItem<GenesisItem> GENESIS = CONTENT.custom("genesis", GenesisItem::new, true);

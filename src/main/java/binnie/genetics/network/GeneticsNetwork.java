@@ -6,7 +6,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 /** Genetics payload registration and strict server-side menu validation. */
-public final class GeneticsNetwork {
+public class GeneticsNetwork {
     private GeneticsNetwork() {}
 
     public static void register(RegisterPayloadHandlersEvent event) {

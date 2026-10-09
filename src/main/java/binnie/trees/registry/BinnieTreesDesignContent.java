@@ -20,7 +20,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public final class BinnieTreesDesignContent {
+public class BinnieTreesDesignContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks("binnietrees");
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems("binnietrees");
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, "binnietrees");

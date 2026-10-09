@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 /** Matching six-face EnumDesign layout extracted from the released 1.12 source. */
-public final class DesignLayoutCatalog {
+public class DesignLayoutCatalog {
     public record Layout(String pattern, boolean inverted) {}
 
     private static final Map<String, Map<Direction, Layout>> DESIGNS;

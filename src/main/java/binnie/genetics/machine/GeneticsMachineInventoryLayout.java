@@ -16,7 +16,7 @@ import net.minecraft.resources.ResourceLocation;
   * adds the 1.12 reserve, queue, exhausted, and completed groups after them.
   * The groups retain the 1.12 capacities and window positions.</p>
   */
-public final class GeneticsMachineInventoryLayout {
+public class GeneticsMachineInventoryLayout {
     public static final int COMPATIBILITY_SLOTS = 6;
 
     public enum Group {

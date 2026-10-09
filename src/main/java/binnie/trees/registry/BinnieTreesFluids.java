@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /** Source-faithful fixed fluid identities for the 1.12 liquid catalog. */
-public final class BinnieTreesFluids {
+public class BinnieTreesFluids {
     private static final DeferredRegister<FluidType> TYPES = DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, BinnieTrees.MOD_ID);
     private static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(Registries.FLUID, BinnieTrees.MOD_ID);
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(BinnieTrees.MOD_ID);
@@ -83,7 +83,7 @@ public final class BinnieTreesFluids {
         TYPES.register(bus); FLUIDS.register(bus); BLOCKS.register(bus); ITEMS.register(bus);
     }
 
-    public static final class BeverageFluid {
+    public static class BeverageFluid {
         private final LegacyBeverageCatalog.Definition definition;
         private final DeferredHolder<FluidType, FluidType> type;
         private final DeferredHolder<Fluid, BaseFlowingFluid.Source> source;
@@ -119,7 +119,7 @@ public final class BinnieTreesFluids {
     }
 
     /** Fixed, placeable 1.12 Binnie's Trees process liquid. */
-    public static final class ProcessFluid {
+    public static class ProcessFluid {
         private final DeferredHolder<FluidType, FluidType> type;
         private final DeferredHolder<Fluid, BaseFlowingFluid.Source> source;
         private final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> flowing;

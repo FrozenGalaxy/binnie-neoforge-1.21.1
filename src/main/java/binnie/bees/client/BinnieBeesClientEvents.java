@@ -20,7 +20,7 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 /** Provides the two-pass colors used by Binnie's Bees' 1.12 products. */
 @EventBusSubscriber(modid = BinnieBees.MOD_ID, value = Dist.CLIENT)
-public final class BinnieBeesClientEvents {
+public class BinnieBeesClientEvents {
     private BinnieBeesClientEvents() {}
 
 

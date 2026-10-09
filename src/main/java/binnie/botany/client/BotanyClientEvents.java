@@ -24,7 +24,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 /** Genetic item and planted-flower tinting without loading client classes on a server. */
 @EventBusSubscriber(modid = BinnieBotany.MOD_ID, value = Dist.CLIENT)
 @SuppressWarnings("deprecation") // 1.21.1 runtime layers for component-rendered blocks.
-public final class BotanyClientEvents {
+public class BotanyClientEvents {
     private BotanyClientEvents() {}
 
     @SubscribeEvent

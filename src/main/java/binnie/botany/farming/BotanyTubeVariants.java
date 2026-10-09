@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** 1.12 physical tube palette plus mappings for the current farm-profile circuit identities. */
-public final class BotanyTubeVariants {
+public class BotanyTubeVariants {
     private static final String[] MATERIALS = {"copper", "tin", "bronze", "iron"};
     private static final int[] MATERIAL_COLORS = {0xe3b78e, 0xe1eef4, 0xddc276, 0xd8d8d8};
     private static final String[] INSULATIONS = {"clay", "cobblestone", "sand", "hardened_clay", "stone", "sandstone"};

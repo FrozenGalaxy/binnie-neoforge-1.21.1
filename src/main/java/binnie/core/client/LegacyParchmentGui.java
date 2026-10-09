@@ -4,7 +4,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 
 /** Small renderer for the original Binnie parchment and CraftGUI panel atlases. */
-public final class LegacyParchmentGui {
+public class LegacyParchmentGui {
     private static final ResourceLocation PUNNETT = ResourceLocation.fromNamespaceAndPath("binniecore", "textures/gui/punnett.png");
     private static final ResourceLocation PANELS = ResourceLocation.fromNamespaceAndPath("binniecore", "textures/gui/craftgui-panels.png");
     private static final ResourceLocation SLOTS = ResourceLocation.fromNamespaceAndPath("binniecore", "textures/gui/craftgui-slots.png");

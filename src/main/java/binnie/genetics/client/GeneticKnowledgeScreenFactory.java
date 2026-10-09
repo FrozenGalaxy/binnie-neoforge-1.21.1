@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 /** Routes the shared knowledge menu to the concrete original Binnie screen class. */
-public final class GeneticKnowledgeScreenFactory {
+public class GeneticKnowledgeScreenFactory {
     private GeneticKnowledgeScreenFactory() { }
 
     public static AbstractContainerScreen<GeneticKnowledgeMenu> create(GeneticKnowledgeMenu menu,

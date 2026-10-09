@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 /** Vanilla block/item tint handlers for the two matching 1.12 material passes. */
-public final class DesignedBlockColors {
+public class DesignedBlockColors {
     private DesignedBlockColors() {}
 
     public static int blockColor(BlockState state, @Nullable BlockAndTintGetter level,

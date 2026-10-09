@@ -18,7 +18,7 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 /** World-level parity checks for the non-machine Binnie's Trees gameplay layer. */
 @GameTestHolder("binniecore")
 @PrefixGameTestTemplate(false)
-public final class BinnieTreesWorldGameTests {
+public class BinnieTreesWorldGameTests {
     private BinnieTreesWorldGameTests() {}
 
     @GameTest(templateNamespace = "forestry", template = "empty")

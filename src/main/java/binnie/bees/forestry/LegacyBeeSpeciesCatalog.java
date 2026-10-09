@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Objects;
 
 /** Loads the generated 1.12-compatible Binnie's Bees species definitions into ForestryCE. */
-public final class LegacyBeeSpeciesCatalog {
+public class LegacyBeeSpeciesCatalog {
     private static final String INDEX = "/data/binniebees/binnie_catalog/bee_species.json";
 
     private LegacyBeeSpeciesCatalog() {}

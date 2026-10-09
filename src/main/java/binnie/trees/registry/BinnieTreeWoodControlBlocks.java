@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import java.util.Objects;
 
 /** Forestry-identifiable control blocks for Binnie's Trees wood families. */
-final class BinnieTreeWoodControlBlocks {
+class BinnieTreeWoodControlBlocks {
     private BinnieTreeWoodControlBlocks() {
     }
 

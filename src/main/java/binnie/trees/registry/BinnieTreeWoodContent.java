@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /** Explicit current block identities and Forestry wood-access bindings for all 36 Binnie's Trees woods. */
-public final class BinnieTreeWoodContent {
+public class BinnieTreeWoodContent {
     private static final String MOD_ID = "binnietrees";
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MOD_ID);

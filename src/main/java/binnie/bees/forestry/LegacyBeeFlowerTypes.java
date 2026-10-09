@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.Block;
 import java.util.List;
 
 /** Registers every 1.12 Binnie's Bees flower rule against its current block tag. */
-public final class LegacyBeeFlowerTypes {
+public class LegacyBeeFlowerTypes {
     private static final List<String> TYPES = List.of(
             "sugar", "dead", "water", "book", "sapling", "redstone", "wood", "rock", "leaves", "fruit", "mystical"
     );

@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
   * slots in a Genetics laboratory. The supplemental 1.12 arrays are defined
   * by {@link GeneticsMachineInventoryLayout}.
   */
-public final class GeneticsMachineLayout {
+public class GeneticsMachineLayout {
     private GeneticsMachineLayout() {
     }
 

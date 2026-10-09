@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 
 /** Source-ordered ceramic examples that replaced 1.12 metadata-backed creative subitems. */
-public final class BotanyCreativeParity {
+public class BotanyCreativeParity {
     private BotanyCreativeParity() {}
     public static void acceptCeramicDesigns(CreativeModeTab.Output output) {
         ResourceLocation ceramic = ResourceLocation.fromNamespaceAndPath("binniebotany", "ceramic");

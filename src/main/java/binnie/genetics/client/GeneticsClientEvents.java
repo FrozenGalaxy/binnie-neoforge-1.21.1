@@ -16,7 +16,7 @@ import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.minecraft.client.gui.screens.Screen;
 
 @EventBusSubscriber(modid = BinnieGenetics.MOD_ID, value = Dist.CLIENT)
-public final class GeneticsClientEvents {
+public class GeneticsClientEvents {
     private GeneticsClientEvents() {}
 
     @SubscribeEvent

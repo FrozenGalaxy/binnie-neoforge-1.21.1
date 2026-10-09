@@ -72,7 +72,7 @@ public final class BinnieTreesFoodItem extends VariantItem {
                 java.util.Optional.empty(), java.util.List.of());
     }
 
-    private static final class SetSupport {
+    private static class SetSupport {
         private SetSupport() {}
         static java.util.Set<String> copyOf(List<String> values) {
             return java.util.Set.copyOf(values);

@@ -12,7 +12,7 @@ import net.neoforged.neoforge.fluids.FluidStack;
 
 /** Binds the original per-liquid animated sprites to the fixed Binnie's Trees liquids. */
 @EventBusSubscriber(modid = BinnieTrees.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
-public final class BinnieTreesFluidClientEvents {
+public class BinnieTreesFluidClientEvents {
     private BinnieTreesFluidClientEvents() {}
 
     @SubscribeEvent

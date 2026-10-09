@@ -12,7 +12,7 @@ import forestry.api.core.genetics.GeneticTranslationKeys;
 import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
 
-public final class FlowerChromosomes {
+public class FlowerChromosomes {
     private static final Codec<ToleranceType> TOLERANCE_CODEC = Codec.STRING.xmap(ToleranceType::valueOf, Enum::name);
 
     public static final IChromosome<ResourceLocation> SPECIES = new Chromosome<>(

@@ -13,7 +13,7 @@ import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 
 /** Game-bus tooltip styling kept separate from the mod-bus fluid registration. */
 @EventBusSubscriber(modid = BinnieTrees.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.GAME)
-public final class BinnieTreesFluidTooltipEvents {
+public class BinnieTreesFluidTooltipEvents {
     private BinnieTreesFluidTooltipEvents() {}
 
     @SubscribeEvent

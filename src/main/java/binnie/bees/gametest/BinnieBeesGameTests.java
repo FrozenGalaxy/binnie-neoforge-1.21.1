@@ -41,7 +41,7 @@ import java.util.Set;
 /** Server-side regression coverage for Binnie's Bees world content and powered alveary parts. */
 @GameTestHolder("binniecore")
 @PrefixGameTestTemplate(false)
-public final class BinnieBeesGameTests {
+public class BinnieBeesGameTests {
     private BinnieBeesGameTests() {}
 
     @GameTest(templateNamespace = "forestry", template = "empty")

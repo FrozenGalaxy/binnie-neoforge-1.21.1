@@ -17,7 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public final class BinnieTreesContent {
+public class BinnieTreesContent {
     public static final ModuleRegistry CONTENT = new ModuleRegistry("binnietrees");
     public static final DeferredItem<VariantItem> TREE_SPECIES = CONTENT.variantsHidden("tree_species", "binnietrees.tree_species", binnie.core.catalog.LegacyCatalogs.values("binnietrees.tree_species"));
     public static final DeferredItem<VariantItem> PLANK = CONTENT.variants("plank", "binnietrees.plank", binnie.core.catalog.LegacyCatalogs.values("binnietrees.plank"));
@@ -87,7 +87,7 @@ public final class BinnieTreesContent {
             try {
                 var type = forestry.api.IForestryApi.INSTANCE.getGeneticManager().getSpeciesType(ForestrySpeciesTypes.TREE);
                 for (var stage : type.getLifeStages()) for (var species : type.getAllSpecies())
-                    if (species.id().getNamespace().equals("binnietrees")) output.accept(species.createStack(stage));
+                    if (species.id().getNamespace().equals("binnietrees") && !species.id().getPath().equals("coconut")) output.accept(species.createStack(stage));
             } catch (RuntimeException ignored) {}
             if (ForestryModules.butterfliesLoaded()) try {
                 var type = forestry.api.IForestryApi.INSTANCE.getGeneticManager().getSpeciesType(ForestrySpeciesTypes.BUTTERFLY);

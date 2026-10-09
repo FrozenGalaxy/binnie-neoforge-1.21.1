@@ -20,7 +20,7 @@ import net.minecraft.world.level.Level;
 import java.util.Optional;
 
 /** 1.12-style manual Tileworker workflow using two fired ceramic colours and one mortar. */
-public final class BotanyMachineProcesses {
+public class BotanyMachineProcesses {
     private static boolean registered;
 
     private BotanyMachineProcesses() {}

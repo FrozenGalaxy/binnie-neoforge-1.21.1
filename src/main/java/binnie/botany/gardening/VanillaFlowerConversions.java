@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 import java.util.Map;
 
 /** Converts vanilla flowers to their Botany genetic equivalents. */
-public final class VanillaFlowerConversions {
+public class VanillaFlowerConversions {
     private VanillaFlowerConversions() {}
 
     @Nullable

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Full 1.12 garden-circuit identity matrix: moisture × pH × manual × fertilised. */
-public final class BotanyFarmVariants {
+public class BotanyFarmVariants {
     public record Variant(SoilMoisture moisture, SoilAcidity acidity, boolean manual, boolean fertilised) {
         public String id() {
             return moisture.getSerializedName() + "_" + (acidity == null ? "any" : acidity.getSerializedName())

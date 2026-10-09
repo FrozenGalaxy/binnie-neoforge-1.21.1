@@ -26,7 +26,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 /** Registrations for Core-owned blocks, portable menus and capabilities. */
-public final class CoreRegistries {
+public class CoreRegistries {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(BinnieCore.MOD_ID);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(BinnieCore.MOD_ID);
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, BinnieCore.MOD_ID);

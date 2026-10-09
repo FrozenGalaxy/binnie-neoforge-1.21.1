@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 /** Immutable 1.12 catalog for all 1.12 Botany binniegenetics data. */
-public final class LegacyFlowerCatalog {
+public class LegacyFlowerCatalog {
     private static final String RESOURCE = "binniebotany/legacy_flower_catalog.json";
     public static final LegacyFlowerCatalog INSTANCE = load();
 

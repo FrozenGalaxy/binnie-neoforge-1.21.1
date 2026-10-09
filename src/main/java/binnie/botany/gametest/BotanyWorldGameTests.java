@@ -46,7 +46,7 @@ import java.util.Map;
 
 @GameTestHolder("binniecore")
 @PrefixGameTestTemplate(false)
-public final class BotanyWorldGameTests {
+public class BotanyWorldGameTests {
     private BotanyWorldGameTests() {}
 
     @GameTest(templateNamespace = "forestry", template = "empty")

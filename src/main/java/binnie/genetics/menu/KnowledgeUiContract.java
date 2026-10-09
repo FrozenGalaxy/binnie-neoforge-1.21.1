@@ -10,7 +10,7 @@ import java.util.List;
   * Matching geometry and page-order contract of the original Binnie 1.12 knowledge interfaces.
   * Keeping this independent from client classes makes parity testable on a headless server.
   */
-public final class KnowledgeUiContract {
+public class KnowledgeUiContract {
     public static final int ANALYST_WIDTH = 312;
     public static final int ANALYST_HEIGHT = 230;
     public static final int ANALYST_PANEL_X = 16;

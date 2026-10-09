@@ -21,7 +21,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
 @EventBusSubscriber(modid = BinnieTrees.MOD_ID, value = Dist.CLIENT)
-public final class BinnieTreesColorEvents {
+public class BinnieTreesColorEvents {
     private static final Map<String, LegacyTreeCatalog.TreeBinding> TREES = LegacyTreeCatalog.load().species().stream()
             .collect(Collectors.toUnmodifiableMap(LegacyTreeCatalog.TreeBinding::id, Function.identity()));
 

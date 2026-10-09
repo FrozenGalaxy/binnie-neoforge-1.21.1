@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /** Current pigment identities: vanilla dyes replace matching duplicate Botany colours. */
-public final class BotanyPigments {
+public class BotanyPigments {
     private static final String RESOURCE = "data/binniebotany/binnie_catalog/pigment_substitutions.json";
     private static final Map<String, ResourceLocation> SUBSTITUTIONS = loadSubstitutions();
     private static final List<String> CUSTOM_COLORS = LegacyCatalogs.values("binniebotany.flower_color").stream()

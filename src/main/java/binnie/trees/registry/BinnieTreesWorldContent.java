@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /** Non-machine Binnie's Trees world blocks. */
-public final class BinnieTreesWorldContent {
+public class BinnieTreesWorldContent {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks("binnietrees");
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems("binnietrees");
     private static final Map<String, DeferredBlock<DecorativeLeavesBlock>> DECORATIVE_LEAVES = new LinkedHashMap<>();
