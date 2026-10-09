@@ -4,6 +4,7 @@ import binnie.core.item.VariantItem;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.component.CustomModelData;
 
@@ -39,9 +40,19 @@ public final class BinnieTreesFoodItem extends VariantItem {
         }
     }
 
+    public BinnieTreesFoodItem(Properties properties, String variant) {
+        super(properties.food(food(NUTRITION.getOrDefault(variant, 0))), "binnietrees.food", List.of(variant));
+        if (!NUTRITION.containsKey(variant)) throw new IllegalArgumentException("Unknown Binnie's Trees food variant " + variant);
+    }
+
     @Override
     public FoodProperties getFoodProperties(ItemStack stack, @Nullable LivingEntity entity) {
         return food(NUTRITION.getOrDefault(value(stack), 0));
+    }
+
+    @Override
+    public Component getName(ItemStack stack) {
+        return Component.translatable("item.binnietrees.food." + value(stack));
     }
 
     public int nutrition(ItemStack stack) {

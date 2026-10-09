@@ -169,7 +169,7 @@ public final class BinnieTreesJeiPlugin implements IModPlugin {
                             "5 mB minimum to progress; drains up to 10 mB per tick (300 mB nominal total)");
                 });
         BinnieTreesMachineProcesses.fruitPressOperations().forEach(operation -> add(r,"press",operation.inputVariant(),
-                List.of(BinnieTreesContent.FOOD.get().createStack(operation.inputVariant())),List.of(),List.of(),List.of(),List.of(),
+                        List.of(BinnieTreesContent.fruitStack(operation.inputVariant())),List.of(),List.of(),List.of(),List.of(),
                 List.of(BinnieTreesMachineProcesses.beverageStack("juice",operation.juice(),operation.outputAmount())),50,20,
                 "Forestry squeezer provenance: " + operation.sourceSqueezerTime() + " ticks, mulch " + operation.sourceMulchChance() + "%"
                         + (operation.sourceWasSeedOil() ? "; source seed oil amount doubled for Fruit Press" : "")));

@@ -45,6 +45,20 @@ final class CommonTagCoverageTest {
     }
 
     @Test
+    void treeProductsHaveVariantSpecificFruitTags() throws Exception {
+        var variants = binnie.core.catalog.LegacyCatalogs.values("binnietrees.food");
+        for (String variant : variants) {
+            if (variant.equals("coconut")) continue;
+            String item = "binnietrees:food_" + variant;
+            assertTrue(values("c/tags/item/fruits/" + variant + ".json").contains(item), variant);
+            assertTrue(values("c/tags/item/crops/" + variant + ".json").contains(item), variant);
+            assertTrue(Files.isRegularFile(Path.of("src/main/resources/assets/binnietrees/models/item/food_" + variant + ".json")), variant);
+        }
+        assertTrue(Files.readString(Path.of("src/main/resources/data/binnietrees/recipe/tree_mutation/087_coconut.json"))
+                .contains("\"result\": \"forestry:coconut\""));
+    }
+
+    @Test
     void dustsUseSpecificCommonTagsAndCraftingConsumesThoseTags() throws Exception {
         List<String> dusts = List.of("coal", "iron", "gold", "silver", "platinum", "copper", "tin",
                 "nickel", "lead", "zinc", "titanium", "tungsten", "clay", "uranium", "yellorium",

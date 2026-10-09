@@ -2,6 +2,7 @@ package binnie.bees.registry;
 
 import binnie.bees.block.AlvearyPartType;
 import binnie.bees.block.BinnieBeeHiveBlock;
+import binnie.bees.block.BinnieBeeHiveBlockEntity;
 import binnie.bees.block.BinnieBeesAlvearyBlock;
 import binnie.bees.block.BinnieBeesAlvearyBlockEntity;
 import net.minecraft.core.registries.Registries;
@@ -51,10 +52,19 @@ public final class BinnieBeesWorldContent {
                     BinnieBeesWorldContent::createAlvearyBlockEntity,
                     ALVEARY_BLOCKS.values().stream().map(DeferredBlock::get).toArray(Block[]::new)).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BinnieBeeHiveBlockEntity>> HIVE_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("wild_hive", () -> BlockEntityType.Builder.of(
+                    BinnieBeesWorldContent::createHiveBlockEntity,
+                    HIVE_BLOCKS.values().stream().map(DeferredBlock::get).toArray(Block[]::new)).build(null));
+
     private BinnieBeesWorldContent() {}
 
     private static BinnieBeesAlvearyBlockEntity createAlvearyBlockEntity(net.minecraft.core.BlockPos pos, net.minecraft.world.level.block.state.BlockState state) {
         return new BinnieBeesAlvearyBlockEntity(ALVEARY_BLOCK_ENTITY.get(), pos, state);
+    }
+
+    private static BinnieBeeHiveBlockEntity createHiveBlockEntity(net.minecraft.core.BlockPos pos, net.minecraft.world.level.block.state.BlockState state) {
+        return new BinnieBeeHiveBlockEntity(HIVE_BLOCK_ENTITY.get(), pos, state);
     }
 
     public static DeferredBlock<BinnieBeeHiveBlock> hive(BinnieBeeHiveBlock.HiveType type) { return HIVE_BLOCKS.get(type); }

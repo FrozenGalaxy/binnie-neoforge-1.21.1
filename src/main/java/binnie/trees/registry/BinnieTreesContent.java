@@ -13,6 +13,9 @@ import binnie.core.registry.ModuleRegistry;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
+import net.minecraft.world.item.ItemStack;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public final class BinnieTreesContent {
     public static final ModuleRegistry CONTENT = new ModuleRegistry("binnietrees");
@@ -23,6 +26,7 @@ public final class BinnieTreesContent {
     public static final DeferredItem<VariantItem> LOG = CONTENT.variants("log", "binnietrees.log", binnie.core.catalog.LegacyCatalogs.values("binnietrees.log"));
     public static final DeferredItem<BinnieTreesFoodItem> FOOD = CONTENT.custom("food",
             properties -> new BinnieTreesFoodItem(properties, binnie.core.catalog.LegacyCatalogs.values("binnietrees.food")), false);
+    public static final Map<String, DeferredItem<BinnieTreesFoodItem>> FRUIT_FOODS = registerFruitFoods();
     public static final DeferredItem<GlasswareItem> GLASSWARE = CONTENT.custom("glassware",
             properties -> new GlasswareItem(properties, binnie.core.catalog.LegacyCatalogs.values("binnietrees.glassware")), true);
     public static final DeferredItem<Item> BARK = CONTENT.simple("bark");
@@ -61,6 +65,23 @@ public final class BinnieTreesContent {
     }
 
     private BinnieTreesContent() {}
+
+    private static Map<String, DeferredItem<BinnieTreesFoodItem>> registerFruitFoods() {
+        Map<String, DeferredItem<BinnieTreesFoodItem>> result = new LinkedHashMap<>();
+        for (String variant : binnie.core.catalog.LegacyCatalogs.values("binnietrees.food")) {
+            if (variant.equals("coconut")) continue;
+            result.put(variant, CONTENT.custom("food_" + variant,
+                    properties -> new BinnieTreesFoodItem(properties, variant), false));
+        }
+        return Map.copyOf(result);
+    }
+
+    public static ItemStack fruitStack(String variant) {
+        DeferredItem<BinnieTreesFoodItem> item = FRUIT_FOODS.get(variant);
+        if (item == null) throw new IllegalArgumentException("Unknown Binnie's Trees fruit " + variant);
+        return item.get().createStack(variant);
+    }
+
     public static void register(IEventBus bus) {
         CONTENT.setDisplayItems(output -> {
             try {
@@ -74,8 +95,7 @@ public final class BinnieTreesContent {
                     if (species.id().getNamespace().equals("binnietrees")) output.accept(species.createStack(stage));
             } catch (RuntimeException ignored) {}
             for (var item : BinnieTreesWorldContent.decorativeLeafItems().values()) output.accept(item.get());
-            BinnieTreesFoodItem food = FOOD.get();
-            for (String value : binnie.core.catalog.LegacyCatalogs.values("binnietrees.food")) output.accept(food.createStack(value));
+            for (String value : FRUIT_FOODS.keySet()) output.accept(fruitStack(value));
             BinnieTreeWoodContent.acceptCreativeItems(output);
             output.accept(SAWDUST.get());
             output.accept(BARK.get());

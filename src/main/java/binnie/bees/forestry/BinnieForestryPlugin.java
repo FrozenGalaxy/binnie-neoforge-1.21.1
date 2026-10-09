@@ -127,9 +127,7 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
         BinnieTreeWoodContent.registerForestryBindings(arboriculture);
 
         for (LegacyTreeCatalog.FruitBinding fruit : TREES.fruits()) {
-            ItemStack output = fruit.productVariant().equals("apple")
-                    ? new ItemStack(Items.APPLE)
-                    : BinnieTreesContent.FOOD.get().createStack(fruit.productVariant());
+            ItemStack output = fruitProductStack(fruit.productVariant());
             Product product = new Product(output.getItem(), fruit.productCount(), output.getComponentsPatch(), 1.0F);
             IFruit registeredFruit;
             if (fruit.pod()) {
@@ -233,6 +231,15 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
     private static TagKey<Block> podHostTag(LegacyTreeCatalog.FruitBinding fruit) {
         String path = fruit.podType().equals("coconut") ? "coconut_pod_logs" : "banana_pod_logs";
         return TagKey.create(Registries.BLOCK, treeId(path));
+    }
+
+    private static ItemStack fruitProductStack(String variant) {
+        if (variant.equals("apple")) return new ItemStack(Items.APPLE);
+        if (variant.equals("coconut")) {
+            var coconut = BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("forestry", "coconut"));
+            if (coconut != Items.AIR) return new ItemStack(coconut);
+        }
+        return BinnieTreesContent.fruitStack(variant);
     }
 
     private static IWoodType woodType(String legacy) {

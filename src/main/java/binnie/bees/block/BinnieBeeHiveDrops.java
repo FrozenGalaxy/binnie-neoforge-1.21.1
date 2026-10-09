@@ -54,9 +54,11 @@ public final class BinnieBeeHiveDrops {
             break;
         }
 
-        HiveDrop drone = roll(drops, random);
-        if (drone != null) {
-            result.add(SpeciesUtil.BEE_TYPE.get().createStack(createBee(drone.species()), BeeLifeStage.DRONE));
+        for (int attempt = 0; attempt <= fortune; attempt++) {
+            HiveDrop drone = roll(drops, random);
+            if (drone != null) {
+                result.add(SpeciesUtil.BEE_TYPE.get().createStack(createBee(drone.species()), BeeLifeStage.DRONE));
+            }
         }
         return result;
     }
