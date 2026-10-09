@@ -168,11 +168,14 @@ public final class BinnieTreesJeiPlugin implements IModPlugin {
                             List.of(new FluidStack(net.minecraft.world.level.material.Fluids.WATER,300)),List.of(),30,30,
                             "5 mB minimum to progress; drains up to 10 mB per tick (300 mB nominal total)");
                 });
-        BinnieTreesMachineProcesses.fruitPressOperations().forEach(operation -> add(r,"press",operation.inputVariant(),
-                        List.of(BinnieTreesContent.fruitStack(operation.inputVariant())),List.of(),List.of(),List.of(),List.of(),
-                List.of(BinnieTreesMachineProcesses.beverageStack("juice",operation.juice(),operation.outputAmount())),50,20,
-                "Forestry squeezer provenance: " + operation.sourceSqueezerTime() + " ticks, mulch " + operation.sourceMulchChance() + "%"
-                        + (operation.sourceWasSeedOil() ? "; source seed oil amount doubled for Fruit Press" : "")));
+        BinnieTreesMachineProcesses.fruitPressOperations().forEach(operation -> {
+            if (!BinnieTreesContent.FRUIT_FOODS.containsKey(operation.inputVariant())) return;
+            add(r,"press",operation.inputVariant(),
+                    List.of(BinnieTreesContent.fruitStack(operation.inputVariant())),List.of(),List.of(),List.of(),List.of(),
+                    List.of(BinnieTreesMachineProcesses.beverageStack("juice",operation.juice(),operation.outputAmount())),50,20,
+                    "Forestry squeezer provenance: " + operation.sourceSqueezerTime() + " ticks, mulch " + operation.sourceMulchChance() + "%"
+                            + (operation.sourceWasSeedOil() ? "; source seed oil amount doubled for Fruit Press" : ""));
+        });
         BinnieTreesMachineProcesses.taggedFruitPressOperations().forEach(operation -> {
             Ingredient input = Ingredient.of(operation.tag());
             // Legacy ModuleAlcohol only created these routes when another mod

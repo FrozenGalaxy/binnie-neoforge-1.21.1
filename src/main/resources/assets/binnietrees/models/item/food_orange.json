@@ -1,6 +1,1 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "binnietrees:item/food/orange"
-  }
-}
+{"parent":"forestry:item/orange"}

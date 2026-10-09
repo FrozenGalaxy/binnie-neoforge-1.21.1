@@ -1,6 +1,1 @@
-{
-  "parent": "binnietrees:item/decorative_leaves_template",
-  "textures": {
-    "all": "binnietrees:block/decorative_leaves/palm"
-  }
-}
+{"parent":"forestry:item/coconut_decorative_leaves"}

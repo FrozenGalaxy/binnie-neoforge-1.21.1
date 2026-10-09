@@ -1,6 +1,1 @@
-{
-  "parent": "binnietrees:item/decorative_leaves_template",
-  "textures": {
-    "all": "binnietrees:block/decorative_leaves/deciduous"
-  }
-}
+{"parent":"forestry:item/pear_decorative_leaves"}

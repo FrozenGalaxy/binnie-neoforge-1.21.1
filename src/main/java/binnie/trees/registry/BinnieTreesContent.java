@@ -28,6 +28,8 @@ public class BinnieTreesContent {
     public static final DeferredItem<BinnieTreesFoodItem> FOOD = CONTENT.custom("food",
             properties -> new BinnieTreesFoodItem(properties, binnie.core.catalog.LegacyCatalogs.values("binnietrees.food")), false);
     public static final Map<String, DeferredItem<BinnieTreesFoodItem>> FRUIT_FOODS = registerFruitFoods();
+    /** Retained registry ids so stacks saved by older versions can be decoded and migrated. */
+    public static final Map<String, DeferredItem<BinnieTreesFoodItem>> LEGACY_FRUIT_FOODS = registerLegacyFruitFoods();
     public static final DeferredItem<GlasswareItem> GLASSWARE = CONTENT.custom("glassware",
             properties -> new GlasswareItem(properties, binnie.core.catalog.LegacyCatalogs.values("binnietrees.glassware")), true);
     public static final DeferredItem<Item> BARK = CONTENT.simple("bark");
@@ -71,6 +73,16 @@ public class BinnieTreesContent {
         Map<String, DeferredItem<BinnieTreesFoodItem>> result = new LinkedHashMap<>();
         for (String variant : binnie.core.catalog.LegacyCatalogs.values("binnietrees.food")) {
             if (LegacyTreeCatalog.isForestryOwned(variant)) continue;
+            result.put(variant, CONTENT.custom("food_" + variant,
+                    properties -> new BinnieTreesFoodItem(properties, variant), false));
+        }
+        return Map.copyOf(result);
+    }
+
+    private static Map<String, DeferredItem<BinnieTreesFoodItem>> registerLegacyFruitFoods() {
+        Map<String, DeferredItem<BinnieTreesFoodItem>> result = new LinkedHashMap<>();
+        for (String variant : binnie.core.catalog.LegacyCatalogs.values("binnietrees.food")) {
+            if (!LegacyTreeCatalog.isForestryOwned(variant)) continue;
             result.put(variant, CONTENT.custom("food_" + variant,
                     properties -> new BinnieTreesFoodItem(properties, variant), false));
         }
