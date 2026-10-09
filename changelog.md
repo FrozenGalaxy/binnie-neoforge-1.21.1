@@ -1,0 +1,6 @@
+- wild hives are highlighted by forestry spectacles and respect silk touch and fortune on scoops
+- wild hives report the correct bee species
+- tree fruits are included in common crops and fruits tags
+- duplicate beech, orange, olive, pear, sour cherry, and coconut content now uses forestry trees, fruits, and wood
+- existing worlds and stored items convert affected trees, blocks, fruits, and wood to forestry equivalents when loaded
+- tree saplings display their species colors in the world
