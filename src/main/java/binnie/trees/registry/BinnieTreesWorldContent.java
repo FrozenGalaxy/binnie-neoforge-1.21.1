@@ -49,6 +49,13 @@ public class BinnieTreesWorldContent {
     public static Map<String, DeferredBlock<HedgeBlock>> hedges() { return Map.copyOf(HEDGES); }
     public static Map<String, DeferredItem<BlockItem>> hedgeItems() { return Map.copyOf(HEDGE_ITEMS); }
 
+    /** New Binnie's Trees content excludes the Forestry-owned coconut aliases. */
+    public static Map<String, DeferredItem<BlockItem>> activeDecorativeLeafItems() {
+        return DECORATIVE_LEAF_ITEMS.entrySet().stream()
+                .filter(entry -> !entry.getKey().equals("coconut"))
+                .collect(java.util.stream.Collectors.toUnmodifiableMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);
         ITEMS.register(bus);

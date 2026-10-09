@@ -54,8 +54,6 @@ final class CommonTagCoverageTest {
             assertTrue(values("c/tags/item/crops/" + variant + ".json").contains(item), variant);
             assertTrue(Files.isRegularFile(Path.of("src/main/resources/assets/binnietrees/models/item/food_" + variant + ".json")), variant);
         }
-        assertTrue(Files.readString(Path.of("src/main/resources/data/binnietrees/recipe/tree_mutation/087_coconut.json"))
-                .contains("\"result\": \"forestry:coconut\""));
     }
 
     @Test

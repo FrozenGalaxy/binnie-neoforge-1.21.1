@@ -5,6 +5,7 @@ import binnie.core.forestry.ForestryModules;
 import binnie.trees.item.HammerItem;
 import binnie.trees.item.BinnieTreesFoodItem;
 import binnie.trees.item.HopsItem;
+import binnie.trees.forestry.LegacyTreeCatalog;
 import binnie.trees.item.GlasswareItem;
 import binnie.genetics.item.GeneticKnowledgeItem;
 import binnie.genetics.menu.GeneticKnowledgeMenu;
@@ -69,7 +70,7 @@ public class BinnieTreesContent {
     private static Map<String, DeferredItem<BinnieTreesFoodItem>> registerFruitFoods() {
         Map<String, DeferredItem<BinnieTreesFoodItem>> result = new LinkedHashMap<>();
         for (String variant : binnie.core.catalog.LegacyCatalogs.values("binnietrees.food")) {
-            if (variant.equals("coconut")) continue;
+            if (LegacyTreeCatalog.isForestryOwned(variant)) continue;
             result.put(variant, CONTENT.custom("food_" + variant,
                     properties -> new BinnieTreesFoodItem(properties, variant), false));
         }
@@ -87,14 +88,14 @@ public class BinnieTreesContent {
             try {
                 var type = forestry.api.IForestryApi.INSTANCE.getGeneticManager().getSpeciesType(ForestrySpeciesTypes.TREE);
                 for (var stage : type.getLifeStages()) for (var species : type.getAllSpecies())
-                    if (species.id().getNamespace().equals("binnietrees") && !species.id().getPath().equals("coconut")) output.accept(species.createStack(stage));
+                    if (species.id().getNamespace().equals("binnietrees") && !LegacyTreeCatalog.isForestryOwned(species.id().getPath())) output.accept(species.createStack(stage));
             } catch (RuntimeException ignored) {}
             if (ForestryModules.butterfliesLoaded()) try {
                 var type = forestry.api.IForestryApi.INSTANCE.getGeneticManager().getSpeciesType(ForestrySpeciesTypes.BUTTERFLY);
                 for (var stage : type.getLifeStages()) for (var species : type.getAllSpecies())
                     if (species.id().getNamespace().equals("binnietrees")) output.accept(species.createStack(stage));
             } catch (RuntimeException ignored) {}
-            for (var item : BinnieTreesWorldContent.decorativeLeafItems().values()) output.accept(item.get());
+            for (var item : BinnieTreesWorldContent.activeDecorativeLeafItems().values()) output.accept(item.get());
             for (String value : FRUIT_FOODS.keySet()) output.accept(fruitStack(value));
             BinnieTreeWoodContent.acceptCreativeItems(output);
             output.accept(SAWDUST.get());

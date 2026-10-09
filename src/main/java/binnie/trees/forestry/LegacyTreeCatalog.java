@@ -31,6 +31,10 @@ public record LegacyTreeCatalog(List<TreeBinding> species, List<FruitBinding> fr
         }
     }
 
+    public static boolean isForestryOwned(String id) {
+        return id.equals("coconut");
+    }
+
     public record TreeBinding(
             String id,
             String genus,
