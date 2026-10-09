@@ -235,9 +235,9 @@ public final class BinnieForestryPlugin implements IForestryPlugin {
 
     private static ItemStack fruitProductStack(String variant) {
         if (variant.equals("apple")) return new ItemStack(Items.APPLE);
-        if (variant.equals("coconut")) {
-            var coconut = BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("forestry", "coconut"));
-            if (coconut != Items.AIR) return new ItemStack(coconut);
+        if (variant.equals("coconut") || variant.equals("olive") || variant.equals("orange") || variant.equals("pear")) {
+            var forestryFruit = BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("forestry", variant));
+            if (forestryFruit != Items.AIR) return new ItemStack(forestryFruit);
         }
         return BinnieTreesContent.fruitStack(variant);
     }

@@ -2,7 +2,7 @@
   "chance": 0.1,
   "first": "forestry:cherry",
   "id": "binnietrees:tree_mutation/olive_55",
-  "result": "binnietrees:olive",
+  "result": "forestry:olive",
   "second": "binnietrees:alder",
   "type": "forestry:tree_mutation"
 }

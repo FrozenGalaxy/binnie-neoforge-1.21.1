@@ -3,6 +3,6 @@
   "first": "binnietrees:pomelo",
   "id": "binnietrees:tree_mutation/grapefruit_11",
   "result": "binnietrees:grapefruit",
-  "second": "binnietrees:orange",
+  "second": "forestry:orange",
   "type": "forestry:tree_mutation"
 }

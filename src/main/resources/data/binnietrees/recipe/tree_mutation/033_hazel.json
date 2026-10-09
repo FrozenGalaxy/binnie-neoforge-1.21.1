@@ -1,6 +1,6 @@
 {
   "chance": 0.1,
-  "first": "binnietrees:beech",
+  "first": "forestry:beech",
   "id": "binnietrees:tree_mutation/hazel_33",
   "result": "binnietrees:hazel",
   "second": "binnietrees:aspen",

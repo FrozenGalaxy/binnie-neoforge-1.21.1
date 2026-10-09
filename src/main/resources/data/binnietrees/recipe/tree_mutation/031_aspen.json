@@ -3,6 +3,6 @@
   "first": "binnietrees:alder",
   "id": "binnietrees:tree_mutation/aspen_31",
   "result": "binnietrees:aspen",
-  "second": "binnietrees:beech",
+  "second": "forestry:beech",
   "type": "forestry:tree_mutation"
 }

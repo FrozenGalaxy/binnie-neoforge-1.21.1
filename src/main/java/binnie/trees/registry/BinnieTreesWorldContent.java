@@ -52,7 +52,7 @@ public class BinnieTreesWorldContent {
     /** New Binnie's Trees content excludes the Forestry-owned coconut aliases. */
     public static Map<String, DeferredItem<BlockItem>> activeDecorativeLeafItems() {
         return DECORATIVE_LEAF_ITEMS.entrySet().stream()
-                .filter(entry -> !entry.getKey().equals("coconut"))
+                .filter(entry -> !LegacyTreeCatalog.isForestryOwned(entry.getKey()))
                 .collect(java.util.stream.Collectors.toUnmodifiableMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 

@@ -10,10 +10,12 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /** Source-generated, immutable runtime bindings for the full Binnie's Trees genetics catalog. */
 public record LegacyTreeCatalog(List<TreeBinding> species, List<FruitBinding> fruits) {
     private static final String RESOURCE = "binnietrees/legacy_tree_bindings.json";
+    private static final Set<String> FORESTRY_OWNED = Set.of("beech", "orange", "olive", "pear", "sour_cherry", "coconut");
 
     public static LegacyTreeCatalog load() {
         InputStream stream = LegacyTreeCatalog.class.getClassLoader().getResourceAsStream(RESOURCE);
@@ -32,7 +34,7 @@ public record LegacyTreeCatalog(List<TreeBinding> species, List<FruitBinding> fr
     }
 
     public static boolean isForestryOwned(String id) {
-        return id.equals("coconut");
+        return FORESTRY_OWNED.contains(id);
     }
 
     public record TreeBinding(
