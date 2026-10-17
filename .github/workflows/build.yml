@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: thedarkcolour/ForestryCE
-          ref: 1.21.1
+          ref: 70a3a0642805394c284b4f7866f47bb533857c2d
           path: forestry-ce
 
       - name: Set up Java 21
