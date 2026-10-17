@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "binniegenetics:isolator",
+    "binniegenetics:sequencer",
+    "binniegenetics:polymeriser",
+    "binniegenetics:inoculator",
+    "binniegenetics:splicer",
+    "binniegenetics:analyser",
+    "binniegenetics:genepool",
+    "binniegenetics:incubator",
+    "binniegenetics:acclimatiser",
+    "binniegenetics:laboratory_machine"
+  ]
+}
