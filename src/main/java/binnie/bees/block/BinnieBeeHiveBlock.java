@@ -63,7 +63,7 @@ public final class BinnieBeeHiveBlock extends Block implements EntityBlock {
     }
 
     public enum HiveType {
-        WATER("water", "water"), ROCK("rock", "rock"), NETHER("nether", "basalt"), MARBLE("marble", "marble");
+        WATER("water", "water"), ROCK("rock", "rock"), MARBLE("marble", "marble");
         private final String id;
         private final String beeSpeciesId;
         HiveType(String id, String beeSpeciesId) { this.id = id; this.beeSpeciesId = beeSpeciesId; }

@@ -9,6 +9,6 @@
   "first": "forestry:fiendish",
   "id": "binniebees:bee_mutation/tempered_1",
   "result": "binniebees:tempered",
-  "second": "binniebees:basalt",
+  "second": "forestry:embittered",
   "type": "forestry:bee_mutation"
 }

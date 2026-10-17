@@ -16,7 +16,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
@@ -39,8 +38,7 @@ public class LegacyHiveCatalog {
         register(apiculture, "water", "water", BinnieBeeHiveBlock.HiveType.WATER, 2.0F);
         register(apiculture, "rock", "rock", BinnieBeeHiveBlock.HiveType.ROCK, 6.0F);
         register(apiculture, "marble", "marble", BinnieBeeHiveBlock.HiveType.MARBLE, 20.0F);
-        register(apiculture, "basalt", "nether", BinnieBeeHiveBlock.HiveType.NETHER, 6.0F);
-        return 4;
+        return 3;
     }
 
     private static void register(IApicultureRegistration apiculture, String beeSpecies, String hiveName,
@@ -57,8 +55,7 @@ public class LegacyHiveCatalog {
         }
 
         @Override public boolean isGoodBiome(Holder<Biome> biome) {
-            // The old condition allowed every biome for non-Nether hives and only Nether biomes for basalt.
-            return type != BinnieBeeHiveBlock.HiveType.NETHER || biome.is(BiomeTags.IS_NETHER);
+            return true;
         }
 
         @Override public boolean isGoodHumidity(HumidityType humidity) {
@@ -78,8 +75,6 @@ public class LegacyHiveCatalog {
 
     private record Placement(BinnieBeeHiveBlock.HiveType type) implements IHivePlacement {
         @Override public BlockPos getPosForHive(WorldGenLevel level, RandomSource random, int x, int z) {
-            if (type == BinnieBeeHiveBlock.HiveType.NETHER
-                    && !level.getBiome(new BlockPos(x, 0, z)).is(BiomeTags.IS_NETHER)) return null;
             int maxHeight = level.getHeight(Heightmap.Types.MOTION_BLOCKING, x, z);
             int minHeight = level.getMinBuildHeight();
             if (maxHeight <= minHeight) return null;
@@ -102,8 +97,6 @@ public class LegacyHiveCatalog {
                 case WATER -> state.is(Blocks.WATER) && isWaterHiveSupport(level.getBlockState(pos.below()));
                 case ROCK -> isRockHiveStone(state) && hasHorizontalAir(level, pos);
                 case MARBLE -> state.is(MARBLE_REPLACEABLES) && hasDifferentNeighbor(level, pos, state.getBlock());
-                case NETHER -> level.getBiome(pos).is(BiomeTags.IS_NETHER) && state.is(Blocks.NETHERRACK)
-                        && level.getBlockState(pos.above()).is(Blocks.NETHERRACK) && hasAirNeighbor(level, pos);
             };
         }
 
@@ -112,7 +105,6 @@ public class LegacyHiveCatalog {
                 case WATER -> state.is(Blocks.WATER);
                 case ROCK -> isRockHiveStone(state);
                 case MARBLE -> state.is(MARBLE_REPLACEABLES);
-                case NETHER -> state.is(Blocks.NETHERRACK);
             };
         }
     }
@@ -147,10 +139,4 @@ public class LegacyHiveCatalog {
         return false;
     }
 
-    private static boolean hasAirNeighbor(BlockGetter level, BlockPos pos) {
-        for (Direction direction : Direction.values()) {
-            if (level.getBlockState(pos.relative(direction)).isAir()) return true;
-        }
-        return false;
-    }
 }

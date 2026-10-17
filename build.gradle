@@ -295,7 +295,7 @@ tasks.register('validateLegacyCatalogs') {
     description = 'Validates the imported 1.12 catalog counts and uniqueness.'
     doLast {
         def expected = [
-            'binniebees.bee_species': 114,
+            'binniebees.bee_species': 113,
             'binniebees.bee_branch': 29,
             'binniebees.bee_effect': 24,
             // EnumHoneyComb/EnumHoneyDrop/EnumPropolis entries using the no-argument
@@ -304,7 +304,7 @@ tasks.register('validateLegacyCatalogs') {
             'binniebees.honey_drop': 23,
             'binniebees.propolis': 4,
             'binniebees.industrial_frame': 16,
-            'binniebees.hive_type': 4,
+            'binniebees.hive_type': 3,
             'binniebees.simulator_circuit': 9,
             'binniebees.alveary_component': 7,
             'binnietrees.tree_species': 97,

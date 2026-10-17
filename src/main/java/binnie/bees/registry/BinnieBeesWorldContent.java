@@ -40,7 +40,7 @@ public class BinnieBeesWorldContent {
         }
         for (BinnieBeeHiveBlock.HiveType type : BinnieBeeHiveBlock.HiveType.values()) {
             DeferredBlock<BinnieBeeHiveBlock> block = BLOCKS.register(type.id() + "_hive", () -> new BinnieBeeHiveBlock(
-                    BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(type == BinnieBeeHiveBlock.HiveType.NETHER ? SoundType.NETHERRACK : SoundType.STONE).randomTicks(), type));
+                    BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.STONE).randomTicks(), type));
             HIVE_BLOCKS.put(type, block);
             DeferredItem<BlockItem> item = ITEMS.registerItem(type.id() + "_hive", p -> new BlockItem(block.get(), p));
             BinnieBeesContent.CONTENT.include(item);

@@ -18,7 +18,6 @@ public class BinnieBeeHiveDrops {
     private static final Map<BinnieBeeHiveBlock.HiveType, List<HiveDrop>> DROPS = Map.of(
             BinnieBeeHiveBlock.HiveType.WATER, table("water"),
             BinnieBeeHiveBlock.HiveType.ROCK, table("rock"),
-            BinnieBeeHiveBlock.HiveType.NETHER, table("basalt"),
             BinnieBeeHiveBlock.HiveType.MARBLE, table("marble")
     );
 

@@ -1,6 +1,6 @@
 {
   "catalog": "binniebees.bee_species",
-  "count": 114,
+  "count": 113,
   "values": [
     "arid",
     "barren",
@@ -73,7 +73,6 @@
     "roman",
     "greek",
     "classical",
-    "basalt",
     "tempered",
     "volcanic",
     "glowstone",

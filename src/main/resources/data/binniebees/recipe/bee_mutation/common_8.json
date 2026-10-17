@@ -1,6 +1,6 @@
 {
   "chance": 0.15,
-  "first": "binniebees:basalt",
+  "first": "forestry:embittered",
   "id": "binniebees:bee_mutation/common_8",
   "result": "forestry:common",
   "second": "binniebees:water",

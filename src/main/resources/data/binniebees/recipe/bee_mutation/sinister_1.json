@@ -9,6 +9,6 @@
   "first": "forestry:cultivated",
   "id": "binniebees:bee_mutation/sinister_1",
   "result": "forestry:sinister",
-  "second": "binniebees:basalt",
+  "second": "forestry:embittered",
   "type": "forestry:bee_mutation"
 }

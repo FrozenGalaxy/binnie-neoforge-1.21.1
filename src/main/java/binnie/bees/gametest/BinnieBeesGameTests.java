@@ -65,7 +65,6 @@ public class BinnieBeesGameTests {
         Map<BinnieBeeHiveBlock.HiveType, String> primarySpecies = Map.of(
                 BinnieBeeHiveBlock.HiveType.WATER, "water",
                 BinnieBeeHiveBlock.HiveType.ROCK, "rock",
-                BinnieBeeHiveBlock.HiveType.NETHER, "basalt",
                 BinnieBeeHiveBlock.HiveType.MARBLE, "marble");
         for (BinnieBeeHiveBlock.HiveType type : BinnieBeeHiveBlock.HiveType.values()) {
             List<BinnieBeeHiveDrops.HiveDrop> table = BinnieBeeHiveDrops.dropTable(type);

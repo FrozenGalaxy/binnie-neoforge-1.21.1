@@ -1,10 +1,9 @@
 {
   "catalog": "binniebees.hive_type",
-  "count": 4,
+  "count": 3,
   "values": [
     "water",
     "rock",
-    "nether",
     "marble"
   ]
 }
