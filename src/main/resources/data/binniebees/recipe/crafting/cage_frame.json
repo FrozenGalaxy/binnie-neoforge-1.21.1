@@ -16,7 +16,8 @@
       "binniecore:variant": {
         "category": "binniebees.hive_frame",
         "value": "cage"
-      }
+      },
+      "minecraft:custom_model_data": 1
     }
   }
 }

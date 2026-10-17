@@ -21,7 +21,8 @@
       "binniecore:variant": {
         "category": "binniebees.hive_frame",
         "value": "clay"
-      }
+      },
+      "minecraft:custom_model_data": 3
     }
   }
 }

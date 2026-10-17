@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Map;
 import java.util.List;
 import java.util.Set;
 
@@ -41,5 +42,22 @@ final class HiveFrameParityTest {
             assertEquals(List.of(" C ", "CFC", " C "), List.of(
                     pattern.get(0).getAsString(), pattern.get(1).getAsString(), pattern.get(2).getAsString()), id);
         }
+    }
+
+    @Test
+    void craftedFramesDeclareTheirModelDataInTheRecipeResult() throws Exception {
+        Path root = Path.of("src/main/resources/data/binniebees/recipe/crafting");
+        for (var frame : Map.of("cocoa", 0, "cage", 1, "soul", 2, "clay", 3).entrySet()) {
+            var recipe = JsonParser.parseString(Files.readString(root.resolve(frame.getKey() + "_frame.json")))
+                    .getAsJsonObject();
+            var result = recipe.getAsJsonObject("result");
+            assertEquals(frame.getValue(), result.getAsJsonObject("components")
+                    .get("minecraft:custom_model_data").getAsInt(), frame.getKey());
+            assertEquals(frame.getKey(), result.getAsJsonObject("components")
+                    .getAsJsonObject("binniecore:variant").get("value").getAsString());
+        }
+        var soul = JsonParser.parseString(Files.readString(root.resolve("soul_frame.json"))).getAsJsonObject();
+        assertEquals(80, soul.getAsJsonObject("result").getAsJsonObject("components")
+                .get("minecraft:max_damage").getAsInt());
     }
 }

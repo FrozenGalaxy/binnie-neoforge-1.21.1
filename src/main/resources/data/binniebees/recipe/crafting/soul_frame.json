@@ -16,7 +16,9 @@
       "binniecore:variant": {
         "category": "binniebees.hive_frame",
         "value": "soul"
-      }
+      },
+      "minecraft:custom_model_data": 2,
+      "minecraft:max_damage": 80
     }
   }
 }
