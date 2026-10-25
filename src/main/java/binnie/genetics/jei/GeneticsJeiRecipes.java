@@ -5,6 +5,7 @@ import binnie.botany.api.genetics.IFlowerSpecies;
 import binnie.botany.genetics.FlowerChromosomes;
 import binnie.botany.genetics.FlowerSpeciesType;
 import binnie.botany.registry.BotanyContent;
+import binnie.bees.registry.BinnieBeesContent;
 import binnie.core.registry.BinnieDataComponents;
 import binnie.genetics.BinnieGenetics;
 import binnie.genetics.api.GeneticOperations;
@@ -38,13 +39,15 @@ public class GeneticsJeiRecipes {
     public static final List<String> MACHINES = List.of(
             "isolator", "sequencer", "polymeriser", "inoculator", "splicer",
             "analyser", "genepool", "incubator", "acclimatiser");
-    public static final int EXPECTED_EXAMPLE_COUNT = 29;
+    public static final List<String> CATEGORIES = java.util.stream.Stream.concat(
+            MACHINES.stream(), java.util.stream.Stream.of("gene_bank")).toList();
+    public static final int EXPECTED_EXAMPLE_COUNT = 31;
 
     private GeneticsJeiRecipes() {}
 
     public static Map<String, List<GeneticsJeiRecipe>> build() {
         LinkedHashMap<String, List<GeneticsJeiRecipe>> result = new LinkedHashMap<>();
-        for (String machine : MACHINES) result.put(machine, new ArrayList<>());
+        for (String machine : CATEGORIES) result.put(machine, new ArrayList<>());
 
         List<IFlowerSpecies> species = FlowerSpeciesType.get().getAllSpecies();
         if (species.isEmpty()) return freeze(result);
@@ -56,6 +59,11 @@ public class GeneticsJeiRecipes {
         ItemStack activeUnsequenced = GeneticsContent.GENETIC_MATERIAL.get().sequence(GeneticSequenceData.unsequenced(active, 100));
         ItemStack inactiveUnsequenced = GeneticsContent.GENETIC_MATERIAL.get().sequence(GeneticSequenceData.unsequenced(inactive, 85));
         GeneticSerumData unchargedSerumData = new GeneticSerumData(List.of(active), 100, 0);
+        ItemStack beeDonor = SpeciesUtil.BEE_TYPE.get().getDefaultSpecies().createIndividual().createStack(BeeLifeStage.DRONE);
+        var beeChromosome = SpeciesUtil.BEE_TYPE.get().getKaryotype().getChromosomes().getFirst();
+        GeneticAlleleData beeActive = GeneticOperations.sample(beeDonor, beeChromosome.id(), GeneticAlleleData.Origin.ACTIVE);
+        ItemStack beeSerum = GeneticsContent.GENETIC_MATERIAL.get().serum(new GeneticSerumData(List.of(beeActive), 100, 0), false);
+        ItemStack beeArray = GeneticsContent.GENETIC_MATERIAL.get().serum(new GeneticSerumData(List.of(beeActive), 100, 0), true);
         GeneticSerumData unchargedArrayData = new GeneticSerumData(List.of(active, inactive), 95, 0);
         GeneticSerumData serumData = new GeneticSerumData(List.of(active), 100, 16);
         GeneticSerumData arrayData = new GeneticSerumData(List.of(active, inactive), 95, 16);
@@ -94,6 +102,11 @@ public class GeneticsJeiRecipes {
         add(result, recipe("sequencer", "inactive", List.of(inactiveUnsequenced), List.of(new ItemStack(GeneticsContent.DATABASE.get())), List.of(new ItemStack(GeneticsContent.FLUORESCENT_DYE.get())),
                 List.of(new ItemStack(GeneticsContent.EMPTY_SEQUENCER.get())), List.of(), List.of(),
                 GeneticsMachineProcesses.SEQUENCER_OPERATION.baseDuration(), GeneticsMachineProcesses.SEQUENCER_OPERATION.energyPerTick()));
+
+        add(result, recipe("gene_bank", "serum", List.of(GeneticsContent.GENETIC_MATERIAL.get().blank(binnie.genetics.item.GeneticMaterialItem.Kind.SERUM)),
+                List.of(new ItemStack(BinnieBeesContent.BEE_DATABASE.get())), List.of(), List.of(beeSerum), List.of(), List.of(), 1, 0));
+        add(result, recipe("gene_bank", "serum_array", List.of(GeneticsContent.GENETIC_MATERIAL.get().blank(binnie.genetics.item.GeneticMaterialItem.Kind.SERUM_ARRAY)),
+                List.of(new ItemStack(BinnieBeesContent.BEE_DATABASE.get())), List.of(), List.of(beeArray), List.of(), List.of(), 1, 0));
 
         add(result, recipe("polymeriser", "serum", List.of(unchargedSerum), List.of(),
                 List.of(), List.of(oncePolymerisedSerum), List.of(GeneticsFluids.POLYMERISING_BACTERIA.stack(160), GeneticsFluids.RAW_DNA.stack(800)), List.of(),

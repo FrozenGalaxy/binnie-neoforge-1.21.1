@@ -18,7 +18,8 @@ final class GeneticsJeiCatalogTest {
         assertTrue(GeneticsJeiRecipes.MACHINES.containsAll(java.util.List.of(
                 "isolator", "sequencer", "polymeriser", "inoculator", "splicer",
                 "analyser", "genepool", "incubator", "acclimatiser")));
-        assertEquals(29, GeneticsJeiRecipes.EXPECTED_EXAMPLE_COUNT);
+        assertTrue(GeneticsJeiRecipes.CATEGORIES.contains("gene_bank"));
+        assertEquals(31, GeneticsJeiRecipes.EXPECTED_EXAMPLE_COUNT);
         assertEquals(GeneticsJeiRecipes.MACHINES.stream().sorted().toList(),
                 GeneticsJeiAreas.AREAS.keySet().stream().sorted().toList());
     }

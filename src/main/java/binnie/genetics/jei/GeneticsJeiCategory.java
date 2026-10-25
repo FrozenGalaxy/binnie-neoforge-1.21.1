@@ -1,6 +1,7 @@
 package binnie.genetics.jei;
 
 import binnie.genetics.registry.GeneticsMachines;
+import binnie.bees.registry.BinnieBeesContent;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -38,7 +39,8 @@ public final class GeneticsJeiCategory implements IRecipeCategory<GeneticsJeiRec
     public GeneticsJeiCategory(String machine, RecipeType<GeneticsJeiRecipe> type, IGuiHelper gui) {
         this.machine = machine;
         this.type = type;
-        this.icon = gui.createDrawableItemLike(GeneticsMachines.REGISTRY.block(machine).get());
+        this.icon = gui.createDrawableItemLike(machine.equals("gene_bank")
+                ? BinnieBeesContent.BEE_DATABASE.get() : GeneticsMachines.REGISTRY.block(machine).get());
         this.tank = gui.createDrawable(CORE_SLOTS, 8, 28, 18, 60);
         this.tankOverlay = gui.createDrawable(CORE_SLOTS, 33, 29, 16, 58);
         IDrawableStatic arrowFill = gui.createDrawable(CORE_PANELS, 207, 79, 14, 10);
@@ -79,6 +81,7 @@ public final class GeneticsJeiCategory implements IRecipeCategory<GeneticsJeiRec
             case "splicer" -> inoculator(builder, recipe, false);
             case "incubator" -> incubator(builder, recipe);
             case "genepool" -> genepool(builder, recipe);
+            case "gene_bank" -> geneBank(builder, recipe);
             case "analyser" -> analyser(builder, recipe);
             case "acclimatiser" -> acclimatiser(builder, recipe);
             default -> throw new IllegalStateException("Unknown Genetics JEI machine " + machine);
@@ -143,11 +146,18 @@ public final class GeneticsJeiCategory implements IRecipeCategory<GeneticsJeiRec
         item(b, r.outputs(), r.outputAlternatives(), 0, 72, 10, false);
     }
 
+    private void geneBank(IRecipeLayoutBuilder b, GeneticsJeiRecipe r) {
+        item(b, r.inputs(), r.inputAlternatives(), 0, 12, 20, true);
+        item(b, r.catalysts(), List.of(), 0, 12, 40, true);
+        item(b, r.outputs(), r.outputAlternatives(), 0, 100, 20, false);
+    }
+
     @Override
     public void draw(GeneticsJeiRecipe recipe, IRecipeSlotsView slots, GuiGraphics graphics,
                      double mouseX, double mouseY) {
         switch (machine) {
             case "sequencer" -> arrow(graphics, 28, 4);
+            case "gene_bank" -> arrow(graphics, 61, 24);
             case "incubator" -> arrow(graphics, 49, 26);
             case "genepool" -> {
                 arrow(graphics, 69, 45);
@@ -186,6 +196,7 @@ public final class GeneticsJeiCategory implements IRecipeCategory<GeneticsJeiRec
                            double mouseX, double mouseY) {
         int[] arrow = switch (machine) {
             case "sequencer" -> new int[]{28, 4};
+            case "gene_bank" -> new int[]{61, 24};
             case "incubator" -> new int[]{49, 26};
             case "genepool" -> new int[]{69, 45};
             case "analyser", "acclimatiser" -> new int[]{50, 14};

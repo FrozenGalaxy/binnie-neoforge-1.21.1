@@ -15,6 +15,8 @@ import binnie.genetics.client.GeneticsJeiAreas;
 import binnie.genetics.BinnieGenetics;
 import binnie.genetics.registry.GeneticsContent;
 import binnie.genetics.registry.GeneticsMachines;
+import binnie.bees.registry.BinnieBeesContent;
+import binnie.genetics.item.GeneticMaterialItem;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.gui.handlers.IGuiClickableArea;
@@ -39,7 +41,7 @@ public final class GeneticsJeiPlugin implements IModPlugin {
 
     private static Map<String, RecipeType<GeneticsJeiRecipe>> createTypes() {
         LinkedHashMap<String, RecipeType<GeneticsJeiRecipe>> result = new LinkedHashMap<>();
-        for (String machine : GeneticsJeiRecipes.MACHINES) {
+        for (String machine : GeneticsJeiRecipes.CATEGORIES) {
             result.put(machine, RecipeType.create(BinnieGenetics.MOD_ID, machine, GeneticsJeiRecipe.class));
         }
         return Map.copyOf(result);
@@ -55,13 +57,22 @@ public final class GeneticsJeiPlugin implements IModPlugin {
         ISubtypeInterpreter<ItemStack> componentInterpreter = new ISubtypeInterpreter<>() {
             @Override
             public Object getSubtypeData(ItemStack stack, mezz.jei.api.ingredients.subtypes.UidContext context) {
+                if (stack.getItem() == GeneticsContent.GENETIC_MATERIAL.get()) {
+                    var kind = GeneticsContent.GENETIC_MATERIAL.get().kind(stack);
+                    if (kind == GeneticMaterialItem.Kind.SERUM || kind == GeneticMaterialItem.Kind.SERUM_ARRAY) {
+                        return new SerumSubtype(kind);
+                    }
+                }
                 return stack.getComponentsPatch();
             }
 
             @Override
             @SuppressWarnings("deprecation")
             public String getLegacyStringSubtypeInfo(ItemStack stack, mezz.jei.api.ingredients.subtypes.UidContext context) {
-                return stack.getComponentsPatch().toString();
+                Object subtype = getSubtypeData(stack, context);
+                return subtype instanceof SerumSubtype serum
+                        ? serum.kind().id()
+                        : stack.getComponentsPatch().toString();
             }
         };
         registration.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, GeneticsContent.GENETIC_MATERIAL.get(), componentInterpreter);
@@ -73,7 +84,7 @@ public final class GeneticsJeiPlugin implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         var gui = registration.getJeiHelpers().getGuiHelper();
-        for (String machine : GeneticsJeiRecipes.MACHINES) {
+        for (String machine : GeneticsJeiRecipes.CATEGORIES) {
             registration.addRecipeCategories(new GeneticsJeiCategory(machine, TYPES.get(machine), gui));
         }
     }
@@ -85,8 +96,11 @@ public final class GeneticsJeiPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        for (String machine : GeneticsJeiRecipes.MACHINES) {
-            registration.addRecipeCatalyst(GeneticsMachines.REGISTRY.block(machine).get(), TYPES.get(machine));
+        for (String machine : GeneticsJeiRecipes.CATEGORIES) {
+            ItemStack catalyst = machine.equals("gene_bank")
+                    ? new ItemStack(BinnieBeesContent.BEE_DATABASE.get())
+                    : new ItemStack(GeneticsMachines.REGISTRY.block(machine).get());
+            registration.addRecipeCatalyst(catalyst, TYPES.get(machine));
         }
     }
 
@@ -126,5 +140,7 @@ public final class GeneticsJeiPlugin implements IModPlugin {
     public static Map<String, RecipeType<GeneticsJeiRecipe>> recipeTypes() {
         return TYPES;
     }
+
+    private record SerumSubtype(GeneticMaterialItem.Kind kind) {}
 
 }

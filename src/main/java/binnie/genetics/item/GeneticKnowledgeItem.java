@@ -3,6 +3,8 @@ package binnie.genetics.item;
 import binnie.core.registry.BinnieDataComponents;
 import binnie.core.forestry.ForestryModules;
 import binnie.genetics.data.GeneticKnowledgeData;
+import binnie.genetics.data.GeneticSpeciesDiscovery;
+import binnie.genetics.api.GeneticOrganismAdapters;
 import binnie.genetics.menu.GeneticKnowledgeMenu;
 import binnie.genetics.tracking.GeneticKnowledgeCatalog;
 import binnie.genetics.tracking.GeneticKnowledgeSavedData;
@@ -87,6 +89,14 @@ public final class GeneticKnowledgeItem extends Item {
             known = GeneticKnowledgeCatalog.registeredDefaults().merge(tracker.allKnown());
         } else {
             known = tracker.get(serverPlayer.getUUID());
+        }
+        if (speciesTypeFilter != null) {
+            var breedingTracker = GeneticOrganismAdapters.get(speciesTypeFilter).speciesType()
+                    .getBreedingTracker(serverPlayer.serverLevel(), serverPlayer.getGameProfile());
+            for (var species : breedingTracker.getDiscoveredSpecies()) {
+                tracker.discoverSpecies(serverPlayer.getUUID(), new GeneticSpeciesDiscovery(speciesTypeFilter, species));
+            }
+            known = known.merge(tracker.get(serverPlayer.getUUID()));
         }
         GeneticKnowledgeData snapshot = known.filterSpeciesType(speciesTypeFilter);
         stack.set(BinnieDataComponents.GENETIC_KNOWLEDGE.get(), snapshot);
