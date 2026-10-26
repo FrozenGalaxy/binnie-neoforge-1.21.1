@@ -1,6 +1,7 @@
 package binnie.bees.forestry;
 
 import binnie.bees.BinnieBees;
+import binnie.bees.registry.BinnieBeesBlockTags;
 import binnie.bees.block.BinnieBeeHiveBlock;
 import binnie.bees.registry.BinnieBeesWorldContent;
 import forestry.api.apiculture.hives.IHiveDefinition;
@@ -16,7 +17,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
@@ -114,14 +114,11 @@ public class LegacyHiveCatalog {
     }
 
     private static boolean isWaterHiveSupport(BlockState state) {
-        return state.is(Blocks.SAND) || state.is(Blocks.RED_SAND) || state.is(Blocks.CLAY)
-                || state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.FARMLAND)
-                || state.is(BlockTags.DIRT) || state.is(BlockTags.BASE_STONE_OVERWORLD)
-                || state.is(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "stone")));
+        return state.is(BinnieBeesBlockTags.WATER_HIVE_SUPPORT);
     }
 
     private static boolean isRockHiveStone(BlockState state) {
-        return state.is(Blocks.STONE) || state.is(Blocks.DEEPSLATE);
+        return state.is(BinnieBeesBlockTags.ROCK_HIVE_STONE);
     }
 
     private static boolean hasHorizontalAir(WorldGenLevel level, BlockPos pos) {

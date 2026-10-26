@@ -14,7 +14,7 @@
       "tag": "c:glass_panes"
     },
     "p": {
-      "item": "minecraft:paper"
+      "tag": "c:paper"
     }
   },
   "result": {

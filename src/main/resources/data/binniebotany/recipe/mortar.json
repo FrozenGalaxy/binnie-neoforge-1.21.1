@@ -8,10 +8,10 @@
   ],
   "key": {
     "C": {
-      "item": "minecraft:clay_ball"
+      "tag": "c:clay_balls"
     },
     "G": {
-      "item": "minecraft:gravel"
+      "tag": "c:gravel"
     }
   },
   "result": {

@@ -12,7 +12,7 @@
       "tag": "c:glass_blocks"
     },
     "P": {
-      "item": "minecraft:magenta_dye"
+      "tag": "c:dyes/magenta"
     }
   },
   "result": {

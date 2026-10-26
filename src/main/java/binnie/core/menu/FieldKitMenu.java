@@ -1,6 +1,7 @@
 package binnie.core.menu;
 
 import binnie.core.item.FieldKitItem;
+import binnie.core.registry.CommonItemTags;
 import binnie.core.registry.CoreRegistries;
 import binnie.genetics.api.GeneticOrganismAdapter;
 import binnie.genetics.api.GeneticOrganismAdapters;
@@ -60,7 +61,7 @@ public final class FieldKitMenu extends AbstractContainerMenu {
             @Override public void setChanged() { super.setChanged(); individualChanged(); }
         });
         addSlot(new Slot(kitInventory, PAPER_SLOT, PAPER_X, PAPER_Y) {
-            @Override public boolean mayPlace(ItemStack stack) { return stack.is(Items.PAPER); }
+            @Override public boolean mayPlace(ItemStack stack) { return stack.is(CommonItemTags.PAPER); }
             @Override public int getMaxStackSize() { return FieldKitItem.CAPACITY; }
             @Override public void setChanged() { super.setChanged(); inventoryChanged(); }
         });
@@ -179,7 +180,7 @@ public final class FieldKitMenu extends AbstractContainerMenu {
             if (!moveItemStackTo(source, 2, slots.size(), true)) return ItemStack.EMPTY;
         } else if (GeneticOrganismAdapters.supports(source)) {
             if (!moveItemStackTo(source, INDIVIDUAL_SLOT, INDIVIDUAL_SLOT + 1, false)) return ItemStack.EMPTY;
-        } else if (source.is(Items.PAPER)) {
+        } else if (source.is(CommonItemTags.PAPER)) {
             if (!moveItemStackTo(source, PAPER_SLOT, PAPER_SLOT + 1, false)) return ItemStack.EMPTY;
         } else return ItemStack.EMPTY;
         if (source.isEmpty()) slot.set(ItemStack.EMPTY); else slot.setChanged();

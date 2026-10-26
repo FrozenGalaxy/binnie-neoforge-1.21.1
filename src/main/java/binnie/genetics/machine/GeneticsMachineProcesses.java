@@ -7,6 +7,7 @@ import binnie.core.machine.MachineProcessHandler;
 import binnie.core.machine.MachineProcessPlan;
 import binnie.core.machine.MachineProcessRegistry;
 import binnie.core.registry.BinnieDataComponents;
+import binnie.core.registry.CommonItemTags;
 import binnie.genetics.BinnieGenetics;
 import binnie.genetics.api.GeneticOperations;
 import binnie.genetics.api.GeneticOrganismAdapter;
@@ -21,6 +22,7 @@ import binnie.genetics.tracking.GeneticKnowledgeSavedData;
 import binnie.genetics.item.GeneticMaterialItem;
 import binnie.genetics.registry.GeneticsContent;
 import binnie.genetics.registry.GeneticsFluids;
+import binnie.genetics.registry.GeneticsItemTags;
 import forestry.api.apiculture.genetics.BeeLifeStage;
 import forestry.api.core.ToleranceType;
 import forestry.api.core.genetics.ILifeStage;
@@ -231,7 +233,7 @@ public class GeneticsMachineProcesses {
         if (!machine.secondaryTank().getFluid().is(GeneticsFluids.RAW_DNA.fluid())
                 || machine.secondaryTank().getFluidAmount() <= 0) return MachineProcessError.INSUFFICIENT_DNA;
         ItemStack gold = stack(machine, MachineBlockEntity.CATALYST_SLOT);
-        if (!gold.isEmpty() && !gold.is(Items.GOLD_NUGGET)) return MachineProcessError.INVALID_INPUT;
+        if (!gold.isEmpty() && !gold.is(CommonItemTags.GOLD_NUGGETS)) return MachineProcessError.INVALID_INPUT;
         return MachineProcessError.NONE;
     }
 
@@ -348,13 +350,13 @@ public class GeneticsMachineProcesses {
         GeneticSerumData serum = input.get(BinnieDataComponents.GENETIC_SERUM);
         if (!(isMaterial(input, GeneticMaterialItem.Kind.SERUM) || isMaterial(input, GeneticMaterialItem.Kind.SERUM_ARRAY))
                 || serum == null || serum.charges() >= 16) return Optional.empty();
-        if (!gold.isEmpty() && !gold.is(Items.GOLD_NUGGET)) return Optional.empty();
+        if (!gold.isEmpty() && !gold.is(CommonItemTags.GOLD_NUGGETS)) return Optional.empty();
 
         ItemStack output = input.copyWithCount(1);
         output.set(BinnieDataComponents.GENETIC_SERUM,
                 new GeneticSerumData(serum.alleles(), serum.quality(), serum.charges() + 1));
         int genes = serum.alleles().size();
-        boolean accelerated = gold.is(Items.GOLD_NUGGET) && hasCharge(gold);
+        boolean accelerated = gold.is(CommonItemTags.GOLD_NUGGETS) && hasCharge(gold);
         return Optional.of(plan("polymeriser", input, gold, ItemStack.EMPTY, output, ItemStack.EMPTY,
                 (accelerated ? POLYMERISER_ACCELERATED_OPERATION.baseDuration() : POLYMERISER_OPERATION.baseDuration()) * genes,
                 POLYMERISER_OPERATION.energyPerTick(),
@@ -550,13 +552,13 @@ public class GeneticsMachineProcesses {
         if (reagent.is(GeneticsContent.GROWTH_MEDIUM.get()) && input.is(net.minecraft.world.level.material.Fluids.WATER)) {
             return new IncubatorPlan(GeneticsFluids.GROWTH_MEDIUM.stack(25), new FluidStack(net.minecraft.world.level.material.Fluids.WATER, 25), 0.2F, 1.0F);
         }
-        if (reagent.is(Items.WHEAT) && input.is(GeneticsFluids.GROWTH_MEDIUM.fluid())) {
+        if (reagent.is(GeneticsItemTags.INCUBATOR_BACTERIA_REAGENTS) && input.is(GeneticsFluids.GROWTH_MEDIUM.fluid())) {
             return new IncubatorPlan(GeneticsFluids.BACTERIA.stack(5), GeneticsFluids.GROWTH_MEDIUM.stack(25), 0.2F, 1.0F);
         }
         if (reagent.is(GeneticsContent.GROWTH_MEDIUM.get()) && input.is(GeneticsFluids.BACTERIA.fluid())) {
             return new IncubatorPlan(GeneticsFluids.BACTERIA.stack(5), EMPTY_FLUID, 0.05F, 1.0F);
         }
-        if (reagent.is(Items.SUGAR) && input.is(GeneticsFluids.BACTERIA.fluid())) {
+        if (reagent.is(GeneticsItemTags.INCUBATOR_ENZYME_REAGENTS) && input.is(GeneticsFluids.BACTERIA.fluid())) {
             return new IncubatorPlan(EMPTY_FLUID, GeneticsFluids.BACTERIA.stack(2), 0.5F, 0.2F,
                     new ItemStack(GeneticsContent.ENZYME.get()));
         }
@@ -566,10 +568,10 @@ public class GeneticsMachineProcesses {
         if (reagent.is(GeneticsContent.GROWTH_MEDIUM.get()) && input.is(GeneticsFluids.VECTOR_BACTERIA.fluid())) {
             return new IncubatorPlan(GeneticsFluids.VECTOR_BACTERIA.stack(5), EMPTY_FLUID, 0.05F, 1.0F);
         }
-        if (reagent.is(Items.WHITE_DYE) && input.is(GeneticsFluids.BACTERIA.fluid())) {
+        if (reagent.is(GeneticsItemTags.INCUBATOR_POLYMERISING_REAGENTS) && input.is(GeneticsFluids.BACTERIA.fluid())) {
             return new IncubatorPlan(GeneticsFluids.POLYMERISING_BACTERIA.stack(10), GeneticsFluids.BACTERIA.stack(10), 0.1F, 1.0F);
         }
-        if (reagent.is(Items.BLAZE_POWDER) && input.is(GeneticsFluids.BACTERIA.fluid())) {
+        if (reagent.is(GeneticsItemTags.INCUBATOR_VECTOR_REAGENTS) && input.is(GeneticsFluids.BACTERIA.fluid())) {
             return new IncubatorPlan(GeneticsFluids.VECTOR_BACTERIA.stack(10), GeneticsFluids.BACTERIA.stack(10), 0.05F, 1.0F);
         }
         return null;
@@ -579,14 +581,14 @@ public class GeneticsMachineProcesses {
         List<IChromosome<?>> chromosomes = adapter.chromosomes();
         if (reagent.is(BotanyItemTags.ACID_FERTILISERS)) return findAdjustment(chromosomes, "ph_tolerance", 0, 1);
         if (reagent.is(BotanyItemTags.ALKALINE_FERTILISERS)) return findAdjustment(chromosomes, "ph_tolerance", 1, 0);
-        if (reagent.is(Items.BLAZE_POWDER) || reagent.is(Items.BLAZE_ROD) || reagent.is(Items.LAVA_BUCKET)) {
+        if (reagent.is(GeneticsItemTags.ACCLIMATISER_TEMPERATURE_UP)) {
             return findAdjustment(chromosomes, "temperature_tolerance", 1, 0);
         }
-        if (reagent.is(Items.SNOWBALL) || reagent.is(Items.ICE)) {
+        if (reagent.is(GeneticsItemTags.ACCLIMATISER_TEMPERATURE_DOWN)) {
             return findAdjustment(chromosomes, "temperature_tolerance", 0, 1);
         }
-        if (reagent.is(Items.WATER_BUCKET)) return findAdjustment(chromosomes, "humidity_tolerance", 1, 0);
-        if (reagent.is(Items.SAND)) return findAdjustment(chromosomes, "humidity_tolerance", 0, 1);
+        if (reagent.is(GeneticsItemTags.ACCLIMATISER_HUMIDITY_UP)) return findAdjustment(chromosomes, "humidity_tolerance", 1, 0);
+        if (reagent.is(GeneticsItemTags.ACCLIMATISER_HUMIDITY_DOWN)) return findAdjustment(chromosomes, "humidity_tolerance", 0, 1);
         return null;
     }
 
@@ -893,7 +895,7 @@ public class GeneticsMachineProcesses {
                         || isMaterial(stack, GeneticMaterialItem.Kind.SERUM_ARRAY))
                         && serum != null && serum.charges() < 16;
             }
-            case MachineBlockEntity.CATALYST_SLOT -> stack.is(Items.GOLD_NUGGET);
+            case MachineBlockEntity.CATALYST_SLOT -> stack.is(CommonItemTags.GOLD_NUGGETS);
             default -> false;
         };
     }
@@ -1021,8 +1023,10 @@ public class GeneticsMachineProcesses {
 
     private static boolean isAcclimatiserReagent(ItemStack stack) {
         return stack.is(BotanyItemTags.ACID_FERTILISERS) || stack.is(BotanyItemTags.ALKALINE_FERTILISERS)
-                || stack.is(Items.BLAZE_POWDER) || stack.is(Items.BLAZE_ROD) || stack.is(Items.LAVA_BUCKET)
-                || stack.is(Items.SNOWBALL) || stack.is(Items.ICE) || stack.is(Items.WATER_BUCKET) || stack.is(Items.SAND);
+                || stack.is(GeneticsItemTags.ACCLIMATISER_TEMPERATURE_UP)
+                || stack.is(GeneticsItemTags.ACCLIMATISER_TEMPERATURE_DOWN)
+                || stack.is(GeneticsItemTags.ACCLIMATISER_HUMIDITY_UP)
+                || stack.is(GeneticsItemTags.ACCLIMATISER_HUMIDITY_DOWN);
     }
 
     private static int[] acclimatiserReagentSlots(MachineBlockEntity machine) {

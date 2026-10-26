@@ -2,7 +2,7 @@
   "type": "binniecore:machine",
   "machine": "binniebotany:tileworker",
   "input": {
-    "item": "minecraft:clay_ball"
+    "tag": "c:clay_balls"
   },
   "input_count": 4,
   "output": {

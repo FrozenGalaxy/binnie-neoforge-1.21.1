@@ -12,7 +12,7 @@
       "tag": "c:glass_blocks"
     },
     "P": {
-      "item": "minecraft:orange_dye"
+      "tag": "c:dyes/orange"
     }
   },
   "result": {

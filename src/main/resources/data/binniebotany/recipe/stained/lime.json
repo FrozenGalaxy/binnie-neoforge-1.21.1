@@ -12,7 +12,7 @@
       "tag": "c:glass_blocks"
     },
     "P": {
-      "item": "minecraft:lime_dye"
+      "tag": "c:dyes/lime"
     }
   },
   "result": {

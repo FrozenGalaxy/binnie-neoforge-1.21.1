@@ -12,7 +12,7 @@
       "tag": "c:glass_blocks"
     },
     "P": {
-      "item": "minecraft:black_dye"
+      "tag": "c:dyes/black"
     }
   },
   "result": {

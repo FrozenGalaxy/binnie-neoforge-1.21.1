@@ -4,13 +4,13 @@
   "group": "binniebotany:pigmented_clay",
   "ingredients": [
     {
-      "item": "minecraft:clay_ball"
+      "tag": "c:clay_balls"
     },
     {
-      "item": "minecraft:clay_ball"
+      "tag": "c:clay_balls"
     },
     {
-      "item": "minecraft:clay_ball"
+      "tag": "c:clay_balls"
     },
     {
       "type": "neoforge:components",

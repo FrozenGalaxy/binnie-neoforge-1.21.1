@@ -4,16 +4,16 @@
   "group": "binniebotany:pigmented_clay",
   "ingredients": [
     {
-      "item": "minecraft:clay_ball"
+      "tag": "c:clay_balls"
     },
     {
-      "item": "minecraft:clay_ball"
+      "tag": "c:clay_balls"
     },
     {
-      "item": "minecraft:clay_ball"
+      "tag": "c:clay_balls"
     },
     {
-      "item": "minecraft:black_dye"
+      "tag": "c:dyes/black"
     }
   ],
   "result": {

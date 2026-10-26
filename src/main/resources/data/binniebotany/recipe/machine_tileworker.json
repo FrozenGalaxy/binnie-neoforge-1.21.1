@@ -8,7 +8,7 @@
   ],
   "key": {
     "w": {
-      "item": "minecraft:clay_ball"
+      "tag": "c:clay_balls"
     },
     "G": {
       "tag": "c:glass_blocks"

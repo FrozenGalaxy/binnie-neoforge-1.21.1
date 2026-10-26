@@ -8,7 +8,7 @@
   ],
   "key": {
     "C": {
-      "item": "minecraft:clay_ball"
+      "tag": "c:clay_balls"
     },
     "F": {
       "item": "forestry:impregnated_frame"

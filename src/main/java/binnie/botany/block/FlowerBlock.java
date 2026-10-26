@@ -108,7 +108,7 @@ public final class FlowerBlock extends Block implements EntityBlock {
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
-        if (stack.is(Items.SHEARS)) {
+        if (stack.is(binnie.core.registry.CommonItemTags.SHEARS)) {
             if (!level.isClientSide && player instanceof ServerPlayer serverPlayer && flower.shear(serverPlayer)) {
                 stack.hurtAndBreak(1, serverPlayer, hand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
             }
