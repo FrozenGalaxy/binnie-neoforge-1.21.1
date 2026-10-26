@@ -29,7 +29,8 @@ public final class AlvearyMenu extends AbstractContainerMenu {
         if (!(inventory.player.level().getBlockEntity(pos) instanceof BinnieBeesAlvearyBlockEntity alveary)) {
             throw new IllegalStateException("Missing Binnie's Bees alveary component at " + pos);
         }
-        return new AlvearyMenu(containerId, inventory, alveary, buffer.readUtf());
+        String ownerName = buffer.isReadable() ? buffer.readUtf() : "";
+        return new AlvearyMenu(containerId, inventory, alveary, ownerName);
     }
 
     public AlvearyMenu(int containerId, Inventory playerInventory, BinnieBeesAlvearyBlockEntity alveary) {

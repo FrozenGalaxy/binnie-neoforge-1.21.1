@@ -27,7 +27,8 @@ public final class MachineMenu extends AbstractContainerMenu {
         if (!(inventory.player.level().getBlockEntity(pos) instanceof MachineBlockEntity machine)) {
             throw new IllegalStateException("Missing Binnie machine at " + pos);
         }
-        return new MachineMenu(containerId, inventory, machine, new SimpleContainerData(16), buffer.readUtf());
+        String ownerName = buffer.isReadable() ? buffer.readUtf() : "";
+        return new MachineMenu(containerId, inventory, machine, new SimpleContainerData(16), ownerName);
     }
 
     public MachineMenu(int containerId, Inventory playerInventory, MachineBlockEntity machine, ContainerData data) {
