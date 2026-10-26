@@ -76,7 +76,7 @@ final class BotanyCeramicRecipeParityTest {
     private static void assertPigmentIngredient(JsonObject ingredient, String color) {
         var substitute = BotanyPigments.substitutions().get(color);
         if (substitute != null) {
-            assertEquals(substitute.toString(), ingredient.get("item").getAsString());
+            assertEquals("c:dyes/" + color, ingredient.get("tag").getAsString());
             assertFalse(ingredient.has("components"));
         } else {
             assertComponentIngredient(ingredient, "binniebotany:pigment", color);
