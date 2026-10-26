@@ -3,8 +3,10 @@ package binnie.core.machine;
 import binnie.genetics.machine.GeneticsMachineLayout;
 import binnie.genetics.machine.GeneticsMachineInventoryLayout;
 import binnie.trees.machine.BinnieTreesMachineInventoryLayout;
+import binnie.core.registry.CoreItemTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -13,6 +15,12 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import forestry.api.core.IToolPipette;
+import net.neoforged.neoforge.fluids.FluidType;
+import net.neoforged.neoforge.fluids.FluidUtil;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.fluids.capability.IFluidHandlerItem;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import net.neoforged.neoforge.items.SlotItemHandler;
 import net.neoforged.neoforge.fluids.FluidStack;
 
@@ -171,6 +179,48 @@ public final class MachineMenu extends AbstractContainerMenu {
     public MachineRedstoneMode redstoneMode() { return MachineRedstoneMode.byId(data.get(13)); }
     public boolean redstonePowered() { return data.get(14) != 0; }
     public boolean setRedstoneMode(int mode) { return machine.setRedstoneMode(mode); }
+    /** Mirrors Forestry's tank-widget pipette click behavior for Binnie machine tanks. */
+    public boolean handlePipetteClick(int tankIndex, ServerPlayer player) {
+        if (!stillValid(player) || tankIndex < 0 || tankIndex >= 3) return false;
+        ItemStack carried = getCarried();
+        if (!CoreItemTags.isMachinePipette(carried)) return false;
+        FluidTank tank = switch (tankIndex) {
+            case 0 -> machine.tank();
+            case 1 -> machine.secondaryTank();
+            case 2 -> machine.outputTank();
+            default -> throw new IllegalArgumentException("Unknown machine tank " + tankIndex);
+        };
+        var fluidHandler = FluidUtil.getFluidHandler(carried);
+        if (fluidHandler.isEmpty()) return false;
+
+        IFluidHandlerItem itemHandler = fluidHandler.orElseThrow();
+        boolean canPipette = carried.getItem() instanceof IToolPipette pipette
+                ? pipette.canPipette(carried)
+                : hasFluidCapacity(itemHandler);
+        if (canPipette && tank.getFluidAmount() > 0) {
+            FluidStack available = tank.drain(FluidType.BUCKET_VOLUME, IFluidHandler.FluidAction.SIMULATE);
+            int filled = itemHandler.fill(available, IFluidHandler.FluidAction.EXECUTE);
+            if (filled <= 0) return false;
+            tank.drain(filled, IFluidHandler.FluidAction.EXECUTE);
+        } else {
+            FluidStack available = itemHandler.drain(Integer.MAX_VALUE, IFluidHandler.FluidAction.SIMULATE);
+            if (available.isEmpty()) return false;
+            int filled = tank.fill(available, IFluidHandler.FluidAction.EXECUTE);
+            if (filled <= 0) return false;
+            itemHandler.drain(filled, IFluidHandler.FluidAction.EXECUTE);
+        }
+
+        setCarried(itemHandler.getContainer());
+        broadcastChanges();
+        return true;
+    }
+
+    private static boolean hasFluidCapacity(IFluidHandlerItem handler) {
+        for (int index = 0; index < handler.getTanks(); index++) {
+            if (handler.getFluidInTank(index).getAmount() < handler.getTankCapacity(index)) return true;
+        }
+        return false;
+    }
     public boolean setManualSelection(int selection) { return machine.setManualSelection(selection); }
     public boolean handleScreenAction(binnie.core.network.MachineScreenActionPayload.Action action) {
         return machine.handleScreenAction(action.name());

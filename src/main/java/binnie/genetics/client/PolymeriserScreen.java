@@ -12,8 +12,8 @@ public final class PolymeriserScreen extends GeneticsMachineScreen {
     @Override protected void renderMachineFace(GuiGraphics g, float pt, int mx, int my) {
         LegacyGeneticsGui.progress(g, LegacyGeneticsGui.PROCESS, leftPos + 68, topPos + 32, 76, 170, 76, 91, 160, 79, menu.progress(), menu.maxProgress());
         LegacyGeneticsGui.arrow(g, "right", leftPos + 34, topPos + 39);
-        renderTank(g, 50, 72, menu.fluidStack(), menu.fluidCapacity(), true);
-        renderTank(g, 50, 98, menu.secondaryFluidStack(), menu.secondaryFluidCapacity(), true);
+        renderTank(g, 50, 72, menu.fluidStack(), menu.fluidCapacity(), true, 0);
+        renderTank(g, 50, 98, menu.secondaryFluidStack(), menu.secondaryFluidCapacity(), true, 1);
         renderError(g, leftPos + 244, topPos + 97);
         renderCharge(g, 1, 139, 63, 0xFFFFCC00);
     }

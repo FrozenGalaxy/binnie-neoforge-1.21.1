@@ -13,7 +13,7 @@ public final class IsolatorScreen extends GeneticsMachineScreen {
         LegacyGeneticsGui.arrow(g, "right", leftPos + 62, topPos + 36);
         LegacyGeneticsGui.arrow(g, "right", leftPos + 258, topPos + 36);
         LegacyGeneticsGui.arrow(g, "up", leftPos + 258, topPos + 53);
-        renderTank(g, 16, 32, menu.fluidStack(), menu.fluidCapacity());
+        renderTank(g, 16, 32, menu.fluidStack(), menu.fluidCapacity(), 0);
         LegacyGeneticsGui.progress(g, LegacyGeneticsGui.PROCESS_3, leftPos + 98, topPos + 35, 0, 218, 0, 201, 142, 17, menu.progress(), menu.maxProgress());
         renderError(g, leftPos + 153, topPos + 81);
         renderCharge(g, MachineBlockEntity.REAGENT_SLOT, 99, 70, 0xFFEFEF6F);

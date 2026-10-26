@@ -15,7 +15,7 @@ public final class PressScreen extends BinnieTreesProcessorScreen {
     @Override protected void renderMachineFace(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         validator(graphics, 24, 52);
         sourceError(graphics, errorX(), errorY());
-        drawTank(graphics, 99, 32, menu.outputFluidStack(), menu.outputFluid(), menu.outputFluidCapacity());
+        drawTank(graphics, 99, 32, menu.outputFluidStack(), menu.outputFluid(), menu.outputFluidCapacity(), 2);
         graphics.blit(EXTRA_TREES_GUI, leftPos + 65, topPos + 76, 9, 52, 34, 17, 256, 256);
         if (!menu.sourceStack(6).isEmpty()) graphics.renderItem(menu.sourceStack(6), leftPos + 66, topPos + 77);
         int travel = menu.maxProgress() <= 0 ? 0 : 16 * menu.progress() / menu.maxProgress();

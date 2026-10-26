@@ -3,7 +3,9 @@ package binnie.core.client;
 import binnie.core.machine.MachineMenu;
 import binnie.core.machine.MachineProcessError;
 import binnie.core.machine.MachineUiLayout;
+import binnie.core.registry.CoreItemTags;
 import binnie.core.network.MachineRedstonePayload;
+import binnie.core.network.MachinePipettePayload;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -35,6 +37,7 @@ public abstract class MachineScreen extends AbstractContainerScreen<MachineMenu>
 
     protected final MachineUiLayout sourceLayout;
     private final BinnieLedgerOverlay ledgers = new BinnieLedgerOverlay();
+    private final java.util.List<TankArea> tankAreas = new java.util.ArrayList<>();
 
     protected MachineScreen(MachineMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -52,6 +55,7 @@ public abstract class MachineScreen extends AbstractContainerScreen<MachineMenu>
 
     @Override
     protected final void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
+        tankAreas.clear();
         if (sourceLayout != null) {
             renderSourceWindowAndSlots(graphics);
             renderMachineFace(graphics, partialTick, mouseX, mouseY);
@@ -82,6 +86,7 @@ public abstract class MachineScreen extends AbstractContainerScreen<MachineMenu>
         graphics.fill(left + 151, top + 68 - energyHeight, left + 158, top + 68, 0xFFFF3030);
         int fluidHeight = menu.fluidCapacity() <= 0 ? 0 : 50 * menu.fluid() / menu.fluidCapacity();
         graphics.fill(left + 162, top + 68 - fluidHeight, left + 169, top + 68, 0xFF3090FF);
+        registerTankArea(162, 18, 8, 50, 0);
         renderSharedStatusOverlay(graphics);
     }
 
@@ -122,8 +127,13 @@ public abstract class MachineScreen extends AbstractContainerScreen<MachineMenu>
     }
 
     protected final void drawTank(GuiGraphics graphics, int x, int y, FluidStack fluid, int amount, int capacity) {
+        drawTank(graphics, x, y, fluid, amount, capacity, 0);
+    }
+
+    protected final void drawTank(GuiGraphics graphics, int x, int y, FluidStack fluid, int amount, int capacity, int tankIndex) {
         int absoluteX = leftPos + x;
         int absoluteY = topPos + y;
+        registerTankArea(x, y, 18, 60, tankIndex);
         graphics.blit(SLOTS, absoluteX, absoluteY, 8, 28, 18, 60, 256, 256);
         int height = fluid.isEmpty() || capacity <= 0 ? 0 : 58 * Math.clamp(amount, 0, capacity) / capacity;
         if (height > 0) {
@@ -139,6 +149,10 @@ public abstract class MachineScreen extends AbstractContainerScreen<MachineMenu>
             graphics.disableScissor();
         }
         graphics.blit(SLOTS, absoluteX, absoluteY, 32, 28, 18, 60, 256, 256);
+    }
+
+    protected final void registerTankArea(int x, int y, int width, int height, int tankIndex) {
+        tankAreas.add(new TankArea(x, y, width, height, tankIndex));
     }
 
     protected final void drawEnergyBar(GuiGraphics graphics, int x, int y, int width, int height, boolean horizontal) {
@@ -201,6 +215,7 @@ public abstract class MachineScreen extends AbstractContainerScreen<MachineMenu>
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (ledgers.mouseClicked(mouseX, mouseY, button)) return true;
+        if (handlePipetteClick(mouseX, mouseY)) return true;
         if (button == 0 && inside((int) mouseX - leftPos, (int) mouseY - topPos,
                 MachineScreenWidgets.REDSTONE_X, MachineScreenWidgets.REDSTONE_Y,
                 MachineScreenWidgets.REDSTONE_SIZE, MachineScreenWidgets.REDSTONE_SIZE)) {
@@ -209,6 +224,18 @@ public abstract class MachineScreen extends AbstractContainerScreen<MachineMenu>
         }
         if (handleMachineClick(mouseX, mouseY, button)) return true;
         return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    private boolean handlePipetteClick(double mouseX, double mouseY) {
+        if (!CoreItemTags.isMachinePipette(menu.getCarried())) return false;
+        int x = (int) mouseX - leftPos;
+        int y = (int) mouseY - topPos;
+        for (TankArea area : tankAreas) {
+            if (!area.contains(x, y)) continue;
+            PacketDistributor.sendToServer(new MachinePipettePayload(menu.containerId, area.tankIndex()));
+            return true;
+        }
+        return false;
     }
 
     protected boolean handleMachineClick(double mouseX, double mouseY, int button) {
@@ -355,5 +382,11 @@ public abstract class MachineScreen extends AbstractContainerScreen<MachineMenu>
         if (minutes == 0) return seconds + " " + (seconds == 1 ? "second" : "seconds");
         if (seconds == 0) return minutes + " " + (minutes == 1 ? "minute" : "minutes");
         return minutes + " " + (minutes == 1 ? "minute" : "minutes") + " " + seconds + " " + (seconds == 1 ? "second" : "seconds");
+    }
+
+    private record TankArea(int x, int y, int width, int height, int tankIndex) {
+        boolean contains(int mouseX, int mouseY) {
+            return mouseX >= x && mouseX < x + width && mouseY >= y && mouseY < y + height;
+        }
     }
 }

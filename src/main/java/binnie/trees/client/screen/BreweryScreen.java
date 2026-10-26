@@ -13,8 +13,8 @@ public final class BreweryScreen extends BinnieTreesProcessorScreen {
         validator(graphics, 16, 41); validator(graphics, 42, 32); validator(graphics, 42, 50);
         validator(graphics, 42, 68); validator(graphics, 105, 77);
         sourceError(graphics, errorX(), errorY());
-        drawTank(graphics, 76, 32, menu.fluidStack(), menu.fluid(), menu.fluidCapacity());
-        drawTank(graphics, 162, 32, menu.outputFluidStack(), menu.outputFluid(), menu.outputFluidCapacity());
+        drawTank(graphics, 76, 32, menu.fluidStack(), menu.fluid(), menu.fluidCapacity(), 0);
+        drawTank(graphics, 162, 32, menu.outputFluidStack(), menu.outputFluid(), menu.outputFluidCapacity(), 2);
         int x = leftPos + 110, y = topPos + 32;
         graphics.blit(EXTRA_TREES_GUI, x, y, 0, 69, 34, 39, 256, 256);
         int fermented = menu.maxProgress() <= 0 ? 0 : 32 * menu.progress() / menu.maxProgress();

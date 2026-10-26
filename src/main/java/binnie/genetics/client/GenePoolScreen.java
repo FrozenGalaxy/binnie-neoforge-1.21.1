@@ -11,8 +11,8 @@ public final class GenePoolScreen extends GeneticsMachineScreen {
     public GenePoolScreen(MachineMenu menu, Inventory inventory, Component title) { super(menu, inventory, title); }
     @Override protected void renderMachineFace(GuiGraphics g, float pt, int mx, int my) {
         LegacyGeneticsGui.arrow(g, "right", leftPos + 80, topPos + 53);
-        renderTank(g, 16, 32, menu.fluidStack(), menu.fluidCapacity());
-        renderTank(g, 246, 32, menu.outputFluidStack(), menu.outputFluidCapacity());
+        renderTank(g, 16, 32, menu.fluidStack(), menu.fluidCapacity(), 0);
+        renderTank(g, 246, 32, menu.outputFluidStack(), menu.outputFluidCapacity(), 2);
         LegacyGeneticsGui.progress(g, LegacyGeneticsGui.PROCESS_3, leftPos + 116, topPos + 51, 64, 0, 64, 21, 130, 21, menu.progress(), menu.maxProgress());
         renderError(g, leftPos + 181, topPos + 83);
         renderCharge(g, MachineBlockEntity.REAGENT_SLOT, 140, 81, 0xFFEFEF6F);

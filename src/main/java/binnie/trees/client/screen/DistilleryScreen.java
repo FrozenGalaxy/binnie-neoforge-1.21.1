@@ -14,11 +14,12 @@ public final class DistilleryScreen extends BinnieTreesProcessorScreen {
 
     @Override protected void renderMachineFace(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         sourceError(graphics, errorX(), errorY());
-        drawTank(graphics, 16, 35, menu.fluidStack(), menu.fluid(), menu.fluidCapacity());
-        drawTank(graphics, 114, 35, menu.outputFluidStack(), menu.outputFluid(), menu.outputFluidCapacity());
+        drawTank(graphics, 16, 35, menu.fluidStack(), menu.fluid(), menu.fluidCapacity(), 0);
+        drawTank(graphics, 114, 35, menu.outputFluidStack(), menu.outputFluid(), menu.outputFluidCapacity(), 2);
         int x = leftPos + 50, y = topPos + 32;
         graphics.blit(EXTRA_TREES_GUI, x, y, 43, 0, 58, 66, 256, 256);
         FluidStack current = menu.secondaryFluidStack();
+        registerTankArea(50, 32, 18, 66, 1);
         if (!current.isEmpty()) graphics.fill(x + 1, y + 1, x + 17, y + 65, fluidColor(current, 0xFFFFFFFF));
         int flow = menu.maxProgress() <= 0 ? 0 : 38 * menu.progress() / menu.maxProgress();
         if (flow > 0) {

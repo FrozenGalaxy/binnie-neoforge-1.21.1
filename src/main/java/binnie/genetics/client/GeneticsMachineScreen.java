@@ -6,7 +6,9 @@ import binnie.core.machine.MachineBlockEntity;
 import binnie.core.machine.MachineMenu;
 import binnie.core.machine.MachineProcessError;
 import binnie.core.network.MachineRedstonePayload;
+import binnie.core.network.MachinePipettePayload;
 import binnie.core.registry.BinnieDataComponents;
+import binnie.core.registry.CoreItemTags;
 import binnie.core.tooltip.LegacyTooltipDescriptions;
 import binnie.genetics.data.LaboratoryChargeData;
 import binnie.genetics.machine.GeneticsMachineInventoryLayout;
@@ -91,13 +93,21 @@ public abstract class GeneticsMachineScreen extends AbstractContainerScreen<Mach
 
     /** Draws a source-accurate Genetics tank and records its matching hover rectangle. */
     protected final void renderTank(GuiGraphics graphics, int x, int y, FluidStack stack, int capacity) {
-        renderTank(graphics, x, y, stack, capacity, false);
+        renderTank(graphics, x, y, stack, capacity, false, 0);
     }
 
     /** Draws a source-accurate horizontal/vertical Genetics tank and records its hover rectangle. */
     protected final void renderTank(GuiGraphics graphics, int x, int y, FluidStack stack, int capacity, boolean horizontal) {
+        renderTank(graphics, x, y, stack, capacity, horizontal, 0);
+    }
+
+    protected final void renderTank(GuiGraphics graphics, int x, int y, FluidStack stack, int capacity, int tankIndex) {
+        renderTank(graphics, x, y, stack, capacity, false, tankIndex);
+    }
+
+    protected final void renderTank(GuiGraphics graphics, int x, int y, FluidStack stack, int capacity, boolean horizontal, int tankIndex) {
         LegacyGeneticsGui.tank(graphics, leftPos + x, topPos + y, stack, capacity, horizontal);
-        tankAreas.add(new TankArea(x, y, horizontal ? 60 : 18, horizontal ? 18 : 60, stack.copy(), capacity));
+        tankAreas.add(new TankArea(x, y, horizontal ? 60 : 18, horizontal ? 18 : 60, stack.copy(), capacity, tankIndex));
     }
 
     @Override
@@ -108,6 +118,7 @@ public abstract class GeneticsMachineScreen extends AbstractContainerScreen<Mach
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (ledgers.mouseClicked(mouseX, mouseY, button)) return true;
+        if (handlePipetteClick(mouseX, mouseY)) return true;
         int x = leftPos + MachineScreenWidgets.REDSTONE_X;
         int y = topPos + MachineScreenWidgets.REDSTONE_Y;
         if (button == 0 && mouseX >= x && mouseX < x + 16 && mouseY >= y && mouseY < y + 16) {
@@ -115,6 +126,18 @@ public abstract class GeneticsMachineScreen extends AbstractContainerScreen<Mach
             return true;
         }
         return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    private boolean handlePipetteClick(double mouseX, double mouseY) {
+        if (!CoreItemTags.isMachinePipette(menu.getCarried())) return false;
+        int x = (int) mouseX - leftPos;
+        int y = (int) mouseY - topPos;
+        for (TankArea area : tankAreas) {
+            if (!area.contains(x, y)) continue;
+            PacketDistributor.sendToServer(new MachinePipettePayload(menu.containerId, area.tankIndex()));
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -295,7 +318,7 @@ public abstract class GeneticsMachineScreen extends AbstractContainerScreen<Mach
         }
     }
 
-    private record TankArea(int x, int y, int width, int height, FluidStack fluid, int capacity) {
+    private record TankArea(int x, int y, int width, int height, FluidStack fluid, int capacity, int tankIndex) {
         boolean contains(int mouseX, int mouseY) {
             return mouseX >= x && mouseX < x + width && mouseY >= y && mouseY < y + height;
         }

@@ -15,7 +15,7 @@ public final class LumbermillScreen extends BinnieTreesProcessorScreen {
     @Override protected void renderMachineFace(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         validator(graphics, 42, 43);
         sourceError(graphics, errorX(), errorY());
-        drawTank(graphics, 16, 32, menu.fluidStack(), menu.fluid(), menu.fluidCapacity());
+        drawTank(graphics, 16, 32, menu.fluidStack(), menu.fluid(), menu.fluidCapacity(), 0);
         renderSourcePanel(graphics, 70, 43, 66, 18, true);
         int progressWidth = menu.maxProgress() <= 0 ? 0 : 64 * menu.progress() / menu.maxProgress();
         ItemStack log = menu.sourceStack(MachineBlockEntity.INPUT_SLOT);

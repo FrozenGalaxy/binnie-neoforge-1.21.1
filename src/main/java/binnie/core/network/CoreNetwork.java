@@ -26,6 +26,8 @@ public class CoreNetwork {
                 (payload, context) -> handleManualCraft(payload, (ServerPlayer) context.player()));
         registrar.playToServer(MachineScreenActionPayload.TYPE, MachineScreenActionPayload.STREAM_CODEC,
                 (payload, context) -> handleScreenAction(payload, (ServerPlayer) context.player()));
+        registrar.playToServer(MachinePipettePayload.TYPE, MachinePipettePayload.STREAM_CODEC,
+                (payload, context) -> handlePipette(payload, (ServerPlayer) context.player()));
     }
 
     public static boolean handleMode(MachineModePayload payload, ServerPlayer player) {
@@ -75,5 +77,11 @@ public class CoreNetwork {
         if (!(player.containerMenu instanceof MachineMenu menu)) return false;
         if (menu.containerId != payload.containerId()) return false;
         return menu.handleScreenAction(payload.action());
+    }
+
+    public static boolean handlePipette(MachinePipettePayload payload, ServerPlayer player) {
+        if (!(player.containerMenu instanceof MachineMenu menu)) return false;
+        if (menu.containerId != payload.containerId()) return false;
+        return menu.handlePipetteClick(payload.tank(), player);
     }
 }

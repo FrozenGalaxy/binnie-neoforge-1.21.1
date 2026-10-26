@@ -14,7 +14,7 @@ public final class InoculatorScreen extends GeneticsMachineScreen {
         LegacyGeneticsGui.arrow(g, "right", leftPos + 88, topPos + 32);
         LegacyGeneticsGui.arrow(g, "upleft", leftPos + 194, topPos + 52);
         LegacyGeneticsGui.arrow(g, "leftdown", leftPos + 194, topPos + 68);
-        renderTank(g, 16, 66, menu.fluidStack(), menu.fluidCapacity());
+        renderTank(g, 16, 66, menu.fluidStack(), menu.fluidCapacity(), 0);
         LegacyGeneticsGui.progress(g, LegacyGeneticsGui.PROCESS_2, leftPos + 34, topPos + 56, 0, 72, 0, 0, 142, 72, menu.progress(), menu.maxProgress());
         renderError(g, leftPos + 161, topPos + 118);
     }
