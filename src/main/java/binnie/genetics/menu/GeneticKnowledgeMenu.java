@@ -36,6 +36,7 @@ public final class GeneticKnowledgeMenu extends AbstractContainerMenu {
     private final InterfaceType interfaceType;
     @Nullable private final ResourceLocation speciesTypeFilter;
     private final boolean mainHand;
+    private final boolean requiresHeldItem;
     private final Player player;
     private final SimpleContainer analystSlots;
     private boolean analysing;
@@ -53,12 +54,19 @@ public final class GeneticKnowledgeMenu extends AbstractContainerMenu {
     public GeneticKnowledgeMenu(int containerId, Inventory inventory, GeneticKnowledgeData knowledge, Mode mode,
                                 InterfaceType interfaceType, @Nullable ResourceLocation speciesTypeFilter,
                                 boolean mainHand) {
+        this(containerId, inventory, knowledge, mode, interfaceType, speciesTypeFilter, mainHand, true);
+    }
+
+    public GeneticKnowledgeMenu(int containerId, Inventory inventory, GeneticKnowledgeData knowledge, Mode mode,
+                                InterfaceType interfaceType, @Nullable ResourceLocation speciesTypeFilter,
+                                boolean mainHand, boolean requiresHeldItem) {
         super(GeneticsMenus.KNOWLEDGE.get(), containerId);
         this.knowledge = knowledge;
         this.mode = mode;
         this.interfaceType = interfaceType;
         this.speciesTypeFilter = speciesTypeFilter;
         this.mainHand = mainHand;
+        this.requiresHeldItem = requiresHeldItem;
         this.player = inventory.player;
         this.analystSlots = new SimpleContainer(2);
 
@@ -77,8 +85,9 @@ public final class GeneticKnowledgeMenu extends AbstractContainerMenu {
         InterfaceType interfaceType = buffer.readEnum(InterfaceType.class);
         ResourceLocation speciesTypeFilter = buffer.readBoolean() ? buffer.readResourceLocation() : null;
         boolean mainHand = buffer.readBoolean();
+        boolean requiresHeldItem = buffer.readBoolean();
         GeneticKnowledgeData data = GeneticKnowledgeData.STREAM_CODEC.decode(buffer);
-        return new GeneticKnowledgeMenu(containerId, inventory, data, mode, interfaceType, speciesTypeFilter, mainHand);
+        return new GeneticKnowledgeMenu(containerId, inventory, data, mode, interfaceType, speciesTypeFilter, mainHand, requiresHeldItem);
     }
 
     /** 1.12 Gene Bank player inventory: all 36 slots in a six-by-six matrix. */
@@ -247,6 +256,7 @@ public final class GeneticKnowledgeMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player player) {
+        if (!requiresHeldItem) return true;
         ItemStack held = mainHand ? player.getMainHandItem() : player.getOffhandItem();
         return !held.isEmpty() && mode.matches(held) && held.getItem() instanceof binnie.genetics.item.GeneticKnowledgeItem item
                 && item.interfaceType() == interfaceType;

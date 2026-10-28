@@ -94,7 +94,7 @@ public final class MachineBlock extends Block implements EntityBlock {
                     if (!player.getInventory().add(removed)) player.drop(removed, false);
                     machine.setChanged();
                 } else if (mounted.getItem() instanceof GeneticKnowledgeItem database) {
-                    database.open(serverPlayer, mounted, false);
+                    database.openFromLabStand(serverPlayer, mounted);
                     machine.setChanged();
                 }
                 return InteractionResult.SUCCESS;

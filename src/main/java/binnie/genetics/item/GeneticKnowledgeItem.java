@@ -74,8 +74,17 @@ public final class GeneticKnowledgeItem extends Item {
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
 
-    /** Opens this database from a hand or from a mounted Lab Stand stack. */
+    /** Opens this database from the selected hand. */
     public void open(ServerPlayer serverPlayer, ItemStack stack, boolean mainHand) {
+        open(serverPlayer, stack, mainHand, true);
+    }
+
+    /** Opens this database from a mounted Lab Stand stack. */
+    public void openFromLabStand(ServerPlayer serverPlayer, ItemStack stack) {
+        open(serverPlayer, stack, false, false);
+    }
+
+    private void open(ServerPlayer serverPlayer, ItemStack stack, boolean mainHand, boolean requiresHeldItem) {
         if (forestry.api.core.genetics.ForestrySpeciesTypes.BUTTERFLY.equals(speciesTypeFilter)
                 && !ForestryModules.butterfliesLoaded()) {
             serverPlayer.displayClientMessage(Component.translatable("message.binniegenetics.butterflies_unavailable"), true);
@@ -101,13 +110,14 @@ public final class GeneticKnowledgeItem extends Item {
         GeneticKnowledgeData snapshot = known.filterSpeciesType(speciesTypeFilter);
         stack.set(BinnieDataComponents.GENETIC_KNOWLEDGE.get(), snapshot);
         serverPlayer.openMenu(new SimpleMenuProvider(
-                (id, inventory, menuPlayer) -> new GeneticKnowledgeMenu(id, inventory, snapshot, mode, interfaceType, speciesTypeFilter, mainHand),
+                (id, inventory, menuPlayer) -> new GeneticKnowledgeMenu(id, inventory, snapshot, mode, interfaceType, speciesTypeFilter, mainHand, requiresHeldItem),
                 stack.getHoverName()), buffer -> {
             buffer.writeEnum(mode);
             buffer.writeEnum(interfaceType);
             buffer.writeBoolean(speciesTypeFilter != null);
             if (speciesTypeFilter != null) buffer.writeResourceLocation(speciesTypeFilter);
             buffer.writeBoolean(mainHand);
+            buffer.writeBoolean(requiresHeldItem);
             GeneticKnowledgeData.STREAM_CODEC.encode(buffer, snapshot);
         });
     }
