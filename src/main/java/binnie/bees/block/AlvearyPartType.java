@@ -16,11 +16,6 @@ public enum AlvearyPartType {
     private static final IBeeModifier RAIN = new IBeeModifier() {
         @Override public boolean isSealed() { return true; }
     };
-    private static final IBeeModifier LIGHT = new IBeeModifier() {
-    /** Uses simulated sunlight because ForestryCE no longer has the self-lighted hook. */
-        @Override public boolean isSunlightSimulated() { return true; }
-    };
-
     private final String id;
     private final int inventorySlots;
     private final int guiHeight;
@@ -41,7 +36,6 @@ public enum AlvearyPartType {
     public IBeeModifier baseModifier() {
         return switch (this) {
             case RAIN_SHIELD -> RAIN;
-            case LIGHTING -> LIGHT;
             default -> NONE;
         };
     }

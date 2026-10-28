@@ -4,6 +4,7 @@ import binnie.bees.alveary.AlvearyMutagens;
 import binnie.bees.alveary.StimulatorCircuit;
 import binnie.bees.menu.AlvearyMenu;
 import forestry.api.IForestryApi;
+import forestry.api.apiculture.IActivityType;
 import forestry.api.apiculture.IBeeListener;
 import forestry.api.apiculture.IBeeModifier;
 import forestry.api.apiculture.genetics.BeeLifeStage;
@@ -125,6 +126,8 @@ public final class BinnieBeesAlvearyBlockEntity extends AbstractAlvearyBlockEnti
         @Override public boolean providesFlowers() { return booleanModifier(IBeeModifier::providesFlowers); }
         @Override public boolean isClimateFullyTolerant() { return booleanModifier(IBeeModifier::isClimateFullyTolerant); }
         @Override public boolean isAlwaysActive(IGenome genome) {
+            // 1.12 self-lighting only overrides nighttime activity.
+            if (partType() == AlvearyPartType.LIGHTING && isNight()) return true;
             if (partType().baseModifier().isAlwaysActive(genome)) return true;
             IBeeModifier frame = frameModifier();
             if (frame != null && frame.isAlwaysActive(genome)) return true;
@@ -354,6 +357,10 @@ public final class BinnieBeesAlvearyBlockEntity extends AbstractAlvearyBlockEnti
             for (StimulatorCircuit circuit : stimulatorCircuits()) if (check.apply(circuit.program())) return true;
         }
         return false;
+    }
+
+    private boolean isNight() {
+        return level != null && Math.floorMod(IActivityType.getBeeDayTime(level), 24_000L) >= 12_000L;
     }
 
     @Override
