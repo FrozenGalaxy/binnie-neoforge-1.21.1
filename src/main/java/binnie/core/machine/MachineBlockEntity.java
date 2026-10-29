@@ -293,8 +293,9 @@ public final class MachineBlockEntity extends BlockEntity implements MenuProvide
                 || !canAccept(TERTIARY_OUTPUT_SLOT, plan.tertiaryOutput())
                 || (!handler.controlsFluidProgress() && !hasFluid(tank, plan.primaryFluidInput()))
                 || (!handler.controlsFluidProgress() && !hasFluid(secondaryTank, plan.secondaryFluidInput()))
-                || (!handler.controlsFluidProgress() && !canAcceptFluid(plan.fluidOutput()))) {
-            setProcessError((!handler.controlsFluidProgress() && !canAcceptFluid(plan.fluidOutput())) ? MachineProcessError.OUTPUT_TANK_FULL : MachineProcessError.OUTPUT_BLOCKED);
+                || (!handler.controlsFluidOutputProgress() && !canAcceptFluid(plan.fluidOutput()))) {
+            setProcessError((!handler.controlsFluidOutputProgress() && !canAcceptFluid(plan.fluidOutput()))
+                    ? MachineProcessError.OUTPUT_TANK_FULL : MachineProcessError.OUTPUT_BLOCKED);
             return;
         }
         boolean processStateChanged = !plan.id().equals(activeRecipe);
